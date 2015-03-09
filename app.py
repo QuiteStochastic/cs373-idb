@@ -124,6 +124,34 @@ def main_page():
     """
     return render_template("main.html")
 
+@app.route('/characters')
+def characters_page():
+    """
+    Serve the characters list page from ./templates/characters.html
+    """
+    return render_template("characters.html")
+
+@app.route('/events')
+def events_page():
+    """
+    Serve the events list page from ./templates/events.html
+    """
+    return render_template("events.html")
+
+@app.route('/locations')
+def locations_page():
+    """
+    Serve the locations list page from ./templates/locations.html
+    """
+    return render_template("locations.html")
+
+@app.route('/organizations')
+def organizations_page():
+    """
+    Serve the organizations page from ./templates/organizations.html
+    """
+    return render_template("organizations.html")
+
 @app.route('/about')
 def about_page():
     """
