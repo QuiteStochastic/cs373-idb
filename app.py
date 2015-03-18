@@ -130,6 +130,13 @@ def characters_page():
     Serve the characters list page from ./templates/characters.html
     """
     return render_template("characters.html")
+  
+@app.route('/characters/character_template')
+def character_template_page():
+    """
+    Serve the characters list page from ./templates/character_template.html
+    """
+    return render_template("character_template.html")
 
 @app.route('/events')
 def events_page():
@@ -137,6 +144,13 @@ def events_page():
     Serve the events list page from ./templates/events.html
     """
     return render_template("events.html")
+  
+@app.route('/events/event_template')
+def event_template_page():
+    """
+    Serve the events list page from ./templates/event_template.html
+    """
+    return render_template("event_template.html")
 
 @app.route('/locations')
 def locations_page():
@@ -144,6 +158,13 @@ def locations_page():
     Serve the locations list page from ./templates/locations.html
     """
     return render_template("locations.html")
+  
+@app.route('/locations/location_template')
+def location_template_page():
+    """
+    Serve the locations list page from ./templates/location_template.html
+    """
+    return render_template("location_template.html")
 
 @app.route('/organizations')
 def organizations_page():
@@ -151,6 +172,13 @@ def organizations_page():
     Serve the organizations page from ./templates/organizations.html
     """
     return render_template("organizations.html")
+  
+@app.route('/organizations/organization_template')
+def organization_template_page():
+    """
+    Serve the organizations page from ./templates/organization_template.html
+    """
+    return render_template("organization_template.html")
 
 @app.route('/about')
 def about_page():
@@ -162,7 +190,7 @@ def about_page():
 @app.route('/contact')
 def contact_page():
     """
-    Serve the contact page from ./temlates/contact.html
+    Serve the contact page from ./templates/contact.html
     """
     return render_template("contact.html")
 

@@ -38,7 +38,15 @@ body {
     color: #00b0ff;
 }
 
+.description p {
+  text-align: left;
+}
+
 .img-circle {  
   height: 200px;
   width: 200px;
+}
+
+.breadcrumb {
+  background-color: transparent;
 }
