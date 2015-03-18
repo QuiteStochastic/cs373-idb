@@ -1,0 +1,4 @@
+# It is a listing of all files that git will ignore when a "git add" is performed.
+# For more information see: http://git-scm.com/docs/gitignore/
+__pycache__
+*.pyc
