@@ -1,44 +1,8 @@
+
 body {
     padding-top: 50px;
 }
-
 .idb-content {
     padding: 40px 15px;
     text-align: center;
-}
-
-.pillars {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.pillars h1 {
-  font-family: 'Shift', sans-serif;
-  text-align: center;
-  padding-bottom: 15px;
-}
-
-.pillars h2 {
-  font-family: 'Shift', sans-serif;
-  font-size: 20px;
-}
-
-.pillars p {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.bio p {
-    text-align: left;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-.bio span {
-    color: #00b0ff;
-}
-
-.img-circle {  
-  height: 200px;
-  width: 200px;
 }
