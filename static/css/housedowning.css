@@ -21,6 +21,7 @@ body {
 .pillars h2 {
   font-family: 'Shift', sans-serif;
   font-size: 20px;
+  text-align: center;
 }
 
 .pillars p {

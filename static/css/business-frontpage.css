@@ -8,7 +8,7 @@ body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+/* Header Image Background */
 
 .business-header {
     height: 400px;
@@ -20,13 +20,10 @@ body {
 
 /* Customize the text color and shadow color and to optimize text legibility. */
 .business-header p {
+  text-shadow: 0 0 10px #000;
   color: #fff;
   margin-left: 30px;
-  font-size: 15px;
-}
-
-.pillars h2 {
-    text-align: center;
+  font-size: 20px;
 }
 
 .tagline {

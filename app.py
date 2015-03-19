@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 
-from flask import Flask, Response, render_template
+from flask import Flask, Response, render_template,request
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import sys
@@ -193,7 +193,25 @@ def contact_page():
     Serve the contact page from ./templates/contact.html
     """
     return render_template("contact.html")
+  
+@app.route('/danish-test')
+def danish_test():
+    """
+    Serve the contact page from ./templates/contact.html
+    """
+    return render_template("danish-test-char-page.html")
 
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+    
+@app.route('/shutdown', methods=['POST'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
+  
 if __name__ == '__main__':
     #app.run(port=8080)
-    app.run(host="0.0.0.0", port=8888)
+    app.run(host="0.0.0.0", port=3000)
