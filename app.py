@@ -20,6 +20,21 @@ db = SQLAlchemy(app)
 
 #################
 # Data Modeling #
+Participant = db.Table('Participant',
+    db.Column('char_id', db.Integer, db.ForeignKey('Character.char_id')),
+    db.Column('event_id', db.Integer, db.ForeignKey('Event.event_id'))
+)
+
+Party = db.Table('Party',
+    db.Column('org_id', db.Integer, db.ForeignKey('Organization.org_id')),
+    db.Column('event_id', db.Integer, db.ForeignKey('Event.event_id'))
+)
+
+Visitor = db.Table('Visitor',
+    db.Column('char_id', db.Integer, db.ForeignKey('Character.char_id')),
+    db.Column('loc_id', db.Integer, db.ForeignKey('Location.loc_id'))
+)
+
 class Character(db.Model):
     """
     Models a character from the GoT universe.
