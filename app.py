@@ -23,8 +23,12 @@ class Character(db.Model):
     """
     Models a character from the GoT universe.
     """
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), unique=True)
+    char_id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(255), unique=True)
+    last_name = db.Column(db.String(255))
+    gender = db.Column(db.String(255))
+    religion = db.Column(db.String(255))
+    status = db.Column(db.String(255))
     description = db.Column(db.Text)
     
     def __init__(self, name):
@@ -37,8 +41,9 @@ class Event(db.Model):
     """
     Models an Event in the GoT universe
     """
-    id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True)
+    event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
     def __init__(self, name, desc = ""):
@@ -53,10 +58,12 @@ class Location(db.Model):
     Models a location from the GoT universe.
     """
     ## Columns
-    id = db.Column(db.Integer, primary_key=True)
+    loc_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True)
+    loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-    owner_id = db.Column(db.Integer, db.ForeignKey('Organization.id'))
+    
+    owner_id = db.Column(db.Integer, db.ForeignKey('Organization.char_id'))
     
     # Relationships
     owner = db.relationship('Character',
@@ -72,8 +79,9 @@ class Organization(db.Model):
     """
     Models an organization from the GoT universe.
     """
-    id = db.Column(db.Integer, primary_key=True)
+    org_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True)
+    org_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
     def __init__(self, name):
@@ -81,6 +89,31 @@ class Organization(db.Model):
     
     def __repr__(self):
         return "Organization('{}')".format(self.name)
+
+class Membership(db.Model):
+    """
+    A characters membership in an organization.
+    The many to many relationship between characters and organizations holds
+    extra information, hence the need for the extra class.
+    """
+    member_id = db.Column(db.integer, primary_key=True)
+    rank = db.Column(db.String(255))
+    status = db.Column(db.String(255))
+    active = db.Column(db.Boolean)
+    
+    char_id = db.Column(db.Integer, db.ForeignKey('Character.char_id'))
+    org_id = db.Column(db.Integer, db.ForeignKey('Organization.org_id'))
+    
+    def __init__(self, character, orginazation, rank, active=True):
+        self.char_id = character.char_id
+        self.org_id = orginazation.org_id
+        self.rank = rank
+        self.active = active
+        self.status = "active" if active else "inactive"
+    
+    def __repr__(self):
+        return "Membership({},{},{},{})".format(self.char_id, self.org_id,
+                                                self.rank, self.active)
 
 class User(db.Model):
     """
