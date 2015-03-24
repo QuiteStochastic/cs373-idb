@@ -96,7 +96,7 @@ class Membership(db.Model):
     The many to many relationship between characters and organizations holds
     extra information, hence the need for the extra class.
     """
-    member_id = db.Column(db.integer, primary_key=True)
+    member_id = db.Column(db.Integer, primary_key=True)
     rank = db.Column(db.String(255))
     status = db.Column(db.String(255))
     active = db.Column(db.Boolean)
