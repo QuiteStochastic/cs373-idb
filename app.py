@@ -3,6 +3,7 @@
 from flask import Flask, Response, render_template,request
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import argparse
 import sys
 import os.path
 
@@ -236,5 +237,9 @@ def danish_test():
 
   
 if __name__ == '__main__':
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('-p', '--port', nargs=1, type=int, default=[80],
+                           action='store')
+    args = argparser.parse_args()
     #app.run(port=8080)
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=args.port[0])
