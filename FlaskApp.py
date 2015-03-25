@@ -4,7 +4,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 DEBUG = True
-SQLALCHEMY_DATABASE_URI = "postgresql:////home/cs373-idb/housedowning.db"
+SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@127.0.0.1/housedowning"
 SECRET_KEY = "House Downing Secret Key - xylsi8dh7u19dws4ty63"
 USERNAME = 'admin'
 PASSWORD = 'default'
