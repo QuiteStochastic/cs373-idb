@@ -11,6 +11,6 @@ if __name__ == '__main__':
     argparser.add_argument('-p', '--port', nargs=1, type=int, default=[80],
                            action='store')
     args = argparser.parse_args()
-    #db.create_all()
+    db.create_all()
     #app.run(port=8080)
     app.run(host="0.0.0.0", port=args.port[0])

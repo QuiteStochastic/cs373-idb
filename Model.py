@@ -3,18 +3,18 @@ from app import db
 #################
 # Data Modeling #
 Participant = db.Table('Participant',
-    db.Column('char_id', db.Integer, db.ForeignKey('Character.char_id')),
-    db.Column('event_id', db.Integer, db.ForeignKey('Event.event_id'))
+    db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
+    db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
 Party = db.Table('Party',
-    db.Column('org_id', db.Integer, db.ForeignKey('Organization.org_id')),
-    db.Column('event_id', db.Integer, db.ForeignKey('Event.event_id'))
+    db.Column('org_id', db.Integer, db.ForeignKey('organization.org_id')),
+    db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
 Visitor = db.Table('Visitor',
-    db.Column('char_id', db.Integer, db.ForeignKey('Character.char_id')),
-    db.Column('loc_id', db.Integer, db.ForeignKey('Location.loc_id'))
+    db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
+    db.Column('loc_id', db.Integer, db.ForeignKey('location.loc_id'))
 )
 
 class Character(db.Model):
@@ -61,7 +61,7 @@ class Location(db.Model):
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    owner_id = db.Column(db.Integer, db.ForeignKey('Organization.char_id'))
+    owner_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
     
     # Relationships
     owner = db.relationship('Character',
@@ -99,8 +99,8 @@ class Membership(db.Model):
     status = db.Column(db.String(255))
     active = db.Column(db.Boolean)
     
-    char_id = db.Column(db.Integer, db.ForeignKey('Character.char_id'))
-    org_id = db.Column(db.Integer, db.ForeignKey('Organization.org_id'))
+    char_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    org_id = db.Column(db.Integer, db.ForeignKey('organization.org_id'))
     
     def __init__(self, character, orginazation, rank, active=True):
         self.char_id = character.char_id
