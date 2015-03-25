@@ -4,7 +4,6 @@
 {% block body %}
 <body>
   <!-- Image Background Page Header -->
-  <!-- Note: The background image is set within the business-casual.css file. -->
   <header class="business-header" style="background: url(http://i.imgur.com/kCPmG4j.png) center center no-repeat scroll;">
     <div class="container">
       <div class="row">
@@ -31,7 +30,7 @@
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
         <h2 id="header_name"></h2>
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/My1dvpP.png" alt="">       
+        <img class="img-circle img-responsive img-center" src="http://placehold.it/300" alt="">
       </div>
       
       <div class="col-sm-5">       
@@ -71,11 +70,13 @@
 <script>  
     var info = get_data('characters');
     var result = JSON.parse(info);
+    var index = {{char_id}} - 1;
+    var name = result[index].character_firstname + ' ' + result[index].character_lastname;
 
-    document.getElementById("breadcrumb_name").innerHTML = result[0].character_firstname + ' ' + result[0].character_lastname;
-    document.getElementById("header_name").innerHTML = result[0].character_firstname + ' ' + result[0].character_lastname;
-    document.getElementById("gender").innerHTML = result[0].character_gender; 
-    document.getElementById("religion").innerHTML = result[0].character_religion; 
-    document.getElementById("status").innerHTML = result[0].character_status; 
+    document.getElementById("breadcrumb_name").innerHTML = name;
+    document.getElementById("header_name").innerHTML = name;
+    document.getElementById("gender").innerHTML = result[index].character_gender; 
+    document.getElementById("religion").innerHTML = result[index].character_religion; 
+    document.getElementById("status").innerHTML = result[index].character_status; 
 </script>
 {% endblock %}

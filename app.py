@@ -180,12 +180,12 @@ def characters_page():
     """
     return render_template("characters.html")
   
-@app.route('/characters/character_template')
-def character_template_page():
+@app.route('/characters/<char_id>')
+def character_template_page(char_id):
     """
-    Serve the characters list page from ./templates/character_template.html
+    Serve the character page from ./templates/character_template.html
     """
-    return render_template("character_template.html")
+    return render_template("character_template.html", char_id=char_id)
 
 @app.route('/events')
 def events_page():
@@ -242,14 +242,6 @@ def contact_page():
     Serve the contact page from ./templates/contact.html
     """
     return render_template("contact.html")
-  
-@app.route('/danish-test')
-def danish_test():
-    """
-    Serve the contact page from ./templates/contact.html
-    """
-    return render_template("danish-test-char-page.html")
-
   
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
