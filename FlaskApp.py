@@ -1,0 +1,93 @@
+
+from flask import Flask, Response, render_template,request
+from flask.ext.sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = "postgresql:////home/cs373-idb/housedowning.db"
+SECRET_KEY = "House Downing Secret Key - xylsi8dh7u19dws4ty63"
+USERNAME = 'admin'
+PASSWORD = 'default'
+
+app = Flask(__name__)
+app.config.from_object(__name__)
+db = SQLAlchemy(app)
+
+#################################
+# Application routing functions #
+@app.route('/')
+def main_page():
+    """
+    Serve the main page from ./templates/main.html
+    """
+    return render_template("main.html")
+
+@app.route('/characters')
+def characters_page():
+    """
+    Serve the characters list page from ./templates/characters.html
+    """
+    return render_template("characters.html")
+  
+@app.route('/characters/<char_id>')
+def character_template_page(char_id):
+    """
+    Serve the character page from ./templates/character_template.html
+    """
+    return render_template("character_template.html", char_id=char_id)
+
+@app.route('/events')
+def events_page():
+    """
+    Serve the events list page from ./templates/events.html
+    """
+    return render_template("events.html")
+  
+@app.route('/events/event_template')
+def event_template_page():
+    """
+    Serve the events list page from ./templates/event_template.html
+    """
+    return render_template("event_template.html")
+
+@app.route('/locations')
+def locations_page():
+    """
+    Serve the locations list page from ./templates/locations.html
+    """
+    return render_template("locations.html")
+  
+@app.route('/locations/location_template')
+def location_template_page():
+    """
+    Serve the locations list page from ./templates/location_template.html
+    """
+    return render_template("location_template.html")
+
+@app.route('/organizations')
+def organizations_page():
+    """
+    Serve the organizations page from ./templates/organizations.html
+    """
+    return render_template("organizations.html")
+  
+@app.route('/organizations/organization_template')
+def organization_template_page():
+    """
+    Serve the organizations page from ./templates/organization_template.html
+    """
+    return render_template("organization_template.html")
+
+@app.route('/about')
+def about_page():
+    """
+    Serve the about page from ./templates/about.html
+    """
+    return render_template("about.html")
+
+@app.route('/contact')
+def contact_page():
+    """
+    Serve the contact page from ./templates/contact.html
+    """
+    return render_template("contact.html")
