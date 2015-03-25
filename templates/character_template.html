@@ -1,3 +1,5 @@
+<!-- using apiary to grab all character info -->
+
 {% extends "layout.html" %}
 {% block body %}
 <body>
@@ -19,7 +21,7 @@
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/characters">Characters</a></li>
-        <li>Robert Baratheon</li>
+        <li id="breadcrumb_name"></li>
       </ol>
     </div>
   </div>
@@ -28,12 +30,15 @@
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
-        <h2>Robert Baratheon</h2>
+        <h2 id="header_name"></h2>
         <img class="img-circle img-responsive img-center" src="http://i.imgur.com/My1dvpP.png" alt="">       
       </div>
       
       <div class="col-sm-5">       
         <h2>Attributes</h2>
+          <p>Gender: <span id="gender"></span></p>
+          <p>Religion: <span id="religion"></span></p>
+          <p>Status: <span id="status"></span></p>
       </div>
     </div>
     
@@ -59,4 +64,18 @@
   </div>
   <!-- /.container -->
 </body>
+
+<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
+
+<!-- pulling character info from apiary -->
+<script>  
+    var info = get_data('characters');
+    var result = JSON.parse(info);
+
+    document.getElementById("breadcrumb_name").innerHTML = result[0].character_firstname + ' ' + result[0].character_lastname;
+    document.getElementById("header_name").innerHTML = result[0].character_firstname + ' ' + result[0].character_lastname;
+    document.getElementById("gender").innerHTML = result[0].character_gender; 
+    document.getElementById("religion").innerHTML = result[0].character_religion; 
+    document.getElementById("status").innerHTML = result[0].character_status; 
+</script>
 {% endblock %}
