@@ -1,37 +1,111 @@
 FORMAT: 1A
+HOST: http://www.google.com
 
-# test
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+# House Downing
+House Downing is an IDB-style internet service which provides information
+about the popular TV show Game of Thrones.
 
-# Group Notes
-Notes related resources of the **Notes API**
+# Pillars
+* Characters
+* Events
+* Locations
+* Organizations
 
-## Notes Collection [/notes]
-### List all Noteds [GET]
+For each pillar there is an associated page to list all elements for that
+category, as well as a page for individual elements.
+
+
+        
+## Character Collection [/api/characters]
+### List all characters [GET]
 + Response 200 (application/json)
 
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
+        [
+        { "character_id" : 1, 
+        "character_firstname" : "Robert",
+        "character_lastname" : "Baratheon",
+        "character_gender" : "Male",
+        "character_religion": "Faith of the Seven",
+        "character_status": "Deceased"}
+        ,
+        { "character_id" : 2,
+        "character_firstname" : "Cersei",
+        "character_lastname" : "Lannister",
+        "character_gender" : "Female",
+        "character_religion": null,
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 3,
+        "character_firstname" : "Tyrion",
+        "character_lastname" : "Lannister",
+        "character_gender" : "Male",
+        "character_religion": "Faith of the Seven",
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 4,
+        "character_firstname" : "Oberyn",
+        "character_lastname" : "Martell",
+        "character_gender" : "Male",
+        "character_religion": null,
+        "character_status": "Deceased"}
+        ,
+        { "character_id" : 5,
+        "character_firstname" : "Jon",
+        "character_lastname" : "Snow",
+        "character_gender" : "Male",
+        "character_religion": "Old Gods of the Forest",
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 6,
+        "character_firstname" : "Arya",
+        "character_lastname" : "Stark",
+        "character_gender" : "Female",
+        "character_religion": "God of Death",
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 7,
+        "character_firstname" : "Eddard",
+        "character_lastname" : "Stark",
+        "character_gender" : "Male",
+        "character_religion": "Old Gods of the Forest",
+        "character_status": "Deceased"}
+        ,
+        { "character_id" : 8,
+        "character_firstname" : "Daenerys",
+        "character_lastname" : "Targaryen",
+        "character_gender" : "Female",
+        "character_religion": null,
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 9,
+        "character_firstname" : "Margaery",
+        "character_lastname" : "Tyrell",
+        "character_gender" : "Female",
+        "character_religion": "Faith of the Seven",
+        "character_status": "Alive"}
+        ,
+        { "character_id" : 10,
+        "character_firstname" : "Ygritte",
+        "character_lastname" : null,
+        "character_gender" : "Female",
+        "character_religion": null,
+        "character_status": "Deceased"}
+        ,
+        { "character_id" : 11,
+        "character_firstname" : "Bran",
+        "character_lastname" : "Stark",
+        "character_gender" : "Male",
+        "character_religion": "Old Gods of the Forest",
+        "character_status": "Alive"}
+        ]
 
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
+## Character [/api/characters/{id}]
+A single character object with all its details.
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + id (required, number, `1`) ... Numeric `id` of the Character to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+### Retrieve a Character [GET]
 + Response 200 (application/json)
 
     + Header
@@ -39,8 +113,361 @@ A single Note object with all its details
             X-My-Header: The Value
 
     + Body
+    
+            {"character_id" : 1,
+            "character_firstname" : "Robert",
+            "character_lastname" : "Baratheon",
+            "character_gender" : "Male",
+            "character_religion": "Faith of the Seven",
+            "character_status": "Deceased",
+            "description”: "King of the Seven Kingdoms his untimely death."}
+            }
+            
++ Response 404 (application/json)
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+    + Header
 
-### Remove a Note [DELETE]
-+ Response 204
+            X-My-Header: The Value
+
+    + Body
+
+            {"message":"error", "errors":["not found"]}
+
+## Event Collection [/api/events]
+The list of events.
+
+### List all events [GET]
+Get all events in the database.
+This may need to be parameterized to return a set of events.
+
++ Response 200 (application/json)
+
+        [
+        {"event_id" : 1,
+        "event_name" : "The Battle of Blackwater Bay",
+        "event_type" : "Battle",
+        "location_id" : 7}
+        ,
+        {"event_id" : 2,
+        "event_name" : "The Battle of Castle Black",
+        "event_type" : "Battle",
+        "location_id" : 3}
+        ,
+        {"event_id" : 3,
+        "event_name" : "The Battle of Whispering Wood",
+        "event_type" : "Battle",
+        "location_id" : 12}
+        ,
+        {"event_id" : 4,
+        "event_name" : "The Death of Robert Baratheon",
+        "event_type" : "Death, Assassination",
+        "location_id" : 7}
+        ,
+        {"event_id" : 5,
+        "event_name" : "The Death of Tywin Lannister",
+        "event_type" : "Death, Assassination",
+        "location_id" : 7}
+        ,
+        {"event_id" : 6,
+        "event_name" : "The Execution of Eddard Stark",
+        "event_type" : "Death, Execution",
+        "location_id" : 7}
+        ,
+        {"event_id" : 7,
+        "event_name" : "The Purple Wedding",
+        "event_type" : "Wedding, Death, Assassination",
+        "location_id" : 7}
+        ,
+        {"event_id" : 8,
+        "event_name" : "The Red Wedding",
+        "event_type" : "Wedding, Death, Massacre, Assassination",
+        "location_id" : 13}
+        ,
+        {"event_id" : 9,
+        "event_name" : "Second Trial by Combat of Tyrion Lannister",
+        "event_type" : "Combat, Trial, Death",
+        "location_id" : 7}
+        ,
+        {"event_id" : 10,
+        "event_name" : "The Sack of Winterfell",
+        "event_type" : "Sack, Massacre",
+        "location_id" : 10}
+        ]
+
+## Event [/api/event/{id}]
+Manipulation of an individual event. It may be nicer to route based on the
+event name instead of the event id.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Character to perform action with. Has example value.
+
+### List an Event [GET]
+Get details about the event denoted by {id}.
+
++ Response 200
+
+    + Header
+
+            X-My-Header : The Value
+
+    + Body
+    
+            {"event_id" : 1,
+            "event_name" : "The Battle of Blackwater Bay",
+            "event_type" : "battle",
+            "location_id" : 7 
+            }
+            
++ Response 404 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {"message":"error", "errors":["not found"]}
+
+## Location Collection [/api/locations]
+Methods to manipulate the locations collection.
+Again, this may be best parameterized if/when there are many events.
+
+### Get location list [GET]
+Get the full list of events.
+
++ Response 200
+
+        [
+        {"location_id" : 1,
+        "location_name" : "Braavos",
+        "location_superior" : "Free Cities",
+        "location_type" : "City",
+        "organization_id" : null}
+        ,
+        {"location_id" : 2,
+        "location_name" : "Casterly Rock",
+        "location_superior" : "Westerlands",
+        "location_type" : "House Seat",
+        "organization_id" : 6}
+        ,
+        {"location_id" : 3,
+        "location_name" : "Castle Black",
+        "location_superior" : "The Wall",
+        "location_type" : "Military Base",
+        "organization_id" : 7}
+        ,
+        {"location_id" : 4,
+        "location_name" : "Dragonstone",
+        "location_superior" : "Crownlands",
+        "location_type" : "House Seat",
+        "organization_id" : 3}
+        ,
+        {"location_id" : 5,
+        "location_name" : "The Eyrie",
+        "location_superior" : "The Vale of Arryn",
+        "location_type" : "House Seat",
+        "organization_id" : 1}
+        ,
+        {"location_id" : 6,
+        "location_name" : "Highgarden",
+        "location_superior" : "The Reach",
+        "location_type" : "House Seat",
+        "organization_id" : 11}
+        ,
+        {"location_id" : 7,
+        "location_name" : "King's Landing",
+        "location_superior" : "Crownlands",
+        "location_type" : "House Seat",
+        "organization_id" : 2}
+        ,
+        {"location_id" : 8,
+        "location_name" : "Meereen",
+        "location_superior" : "Slaver's Bay",
+        "location_type" : "City",
+        "organization_id" : 9}
+        ,
+        {"location_id" : 9,
+        "location_name" : "Pyke",
+        "location_superior" : "Iron Islands",
+        "location_type" : "House Seat",
+        "organization_id" : 5}
+        ,
+        {"location_id" : 10,
+        "location_name" : "Winterfell",
+        "location_superior" : "The North",
+        "location_type" : "House Seat",
+        "organization_id" : 8}
+        ,
+        {"location_id" : 11,
+        "location_name" : "Beyond the Wall",
+        "location_superior" : "Westeros",
+        "location_type" : "Land",
+        "organization_id" : 4}
+        ,
+        {"location_id" : 12,
+        "location_name" : "Whispering Wood",
+        "location_superior" : "Riverlands",
+        "location_type" : "Woods",
+        "organization_id" : null}
+        ,
+        {"location_id" : 13,
+        "location_name" : "The Twins",
+        "location_superior" : "Riverrun",
+        "location_type" : "House Seat",
+        "organization_id" : 12}
+        ,
+        {"location_id" : 14,
+        "location_name" : "Riverrun",
+        "location_superior" : "Riverlands",
+        "location_type" : "House Seat",
+        "organization_id" : 10}
+        ]
+                 
+## Location [/api/location/{id}]
+Manipulation of a specific event.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Character to perform action with. Has example value.
+
+### List a Location [GET]
+Get information about the event denoted by {id}
+
++ Response 200
+
+    + Header
+
+            X-My-Header : The Value
+
+    + Body
+    
+            {"location_id" : 2,
+            "location_name" : "Casterly Rock",
+            "location_superior" : "Westerlands",
+            "location_type" : "House Seat",
+            "organization_id" : 6}
+            
++ Response 404 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {"message":"error", "errors":["not found"]}
+
+
+## Organization [/api/organizations]
+List of all the organizations.
+
+### List all organizations [GET]
+
++ Response 200
+
+    + Header
+        
+                X-My-Header : The Value
+        
+    + Body
+        
+            [
+            {"org_id" : 1,
+            "name" : "House Arryn",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 5}
+            ,
+            {"org_id" : 2,
+            "name" : "House Baratheon of King's Landing",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 7}
+            ,
+            {"org_id" : 3,
+            "name" : "House Baratheon of Dragonstone",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 4}
+            ,
+            {"org_id" : 4,
+            "name" : "Free Folk",
+            "leader_id" : null,
+            "org_type" : "Political Faction",
+            "loc_id" : 11}
+            ,
+            {"org_id" : 5,
+            "name" : "House Greyjoy",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 9}
+            ,
+            {"org_id" : 6,
+            "name" : "House Lannister",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 2}
+            ,
+            {"org_id" : 7,
+            "name" : "Night's Watch",
+            "leader_id" : null,
+            "org_type" : "Military Organization",
+            "loc_id" : 3}
+            ,
+            {"org_id" : 8,
+            "name" : "House Stark",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 10}
+            ,
+            {"org_id" : 9,
+            "name" : "House Targaryen",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 8}
+            ,
+            {"org_id" : 10,
+            "name" : "House Tully",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 14}
+            ,
+            {"org_id" : 11,
+            "name" : "House Tyrell",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 6}
+            ,
+            {"org_id" : 12,
+            "name" : "House Frey",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 13}
+            ]
+
+## Organization Entry [/api/organizations/{id}]
+Manipulate a single organization entry denoted by the id given.
+Organizations should track the following data:
+  * Current Leader
+  * Events participated in
+  * Headquarters location
+
+Other information that may be relevant should be added.
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the organization to perform action with.
+
+### Get single organization information [GET]
++ Response 200
+
+    + Header
+    
+            X-My-Header : The-value
+    
+    + Body
+            
+            {"org_id" : 1,
+            "name" : "House Arryn",
+            "leader_id" : null,
+            "org_type" : "House",
+            "loc_id" : 5}
+
