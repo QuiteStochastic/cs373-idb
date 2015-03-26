@@ -44,9 +44,8 @@
     
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p>Bacon ipsum dolor amet venison rump pork belly shank capicola. Tail alcatra short ribs, sausage pastrami andouille turkey salami pork loin jowl spare ribs cow. Andouille capicola fatback bacon 10irloin pork bel1y ground round doner pork cupim kielbasa corned beef. Jowl beef pancetta rump. Kevin ground round shoulder spare ribs t-bone brisket fatback jowl kielbasa hamburger. Swine pastrami shankle, jowl jerky shoulder chicken shank ball tip salami meatloaf pig. Shankle sirloin jowl filet mignon ball tip, strip steak pastrami porchetta jerky.</p>
-
-        <p>Ball tip biltong tail brisket. Venison brisket corned beef filet mignon biltong. Andouille pancetta prosciutto tri-tip meatloaf. Sirloin turducken cupim pastrami, corned beef doner chuck kielbasa sausage short ribs brisket tenderloin pork chop flank. Ribeye strip steak shoulder, pastrami tail turkey doner andouille pancetta ham hock ball tip kevin alcatra swine. Sausage ground round kevin shankle pork loin pig bresaola, picanha brisket spare ribs prosciutto shoulder jerky cupim.</p>    
+        <p id="description"></p>
+        <p><em>- <a href="http://awoiaf.westeros.org/index.php/Main_Page">AWOIAF</a></em></p>    
       </div>
     </div>
     
@@ -77,5 +76,6 @@
     document.getElementById("header_name").innerHTML = result[index].event_name;
     document.getElementById("location").innerHTML = result[index].location_id; 
     document.getElementById("type").innerHTML = result[index].event_type; 
+    document.getElementById("description").innerHTML = result[index].event_description; 
 </script>
 {% endblock %}
