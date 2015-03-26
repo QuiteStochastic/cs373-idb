@@ -25,7 +25,7 @@
     </div>
   </div>
 
-    <!-- /.row -->
+  <!-- /.row -->
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
@@ -71,7 +71,13 @@
     var info = get_data('characters');
     var result = JSON.parse(info);
     var index = {{char_id}} - 1;
-    var name = result[index].character_firstname + ' ' + result[index].character_lastname;
+    var name = '';
+    if (result[index].character_lastname === null) {
+      name = result[index].character_firstname;
+    }
+    else {
+      name = result[index].character_firstname + ' ' + result[index].character_lastname;
+    }
 
     document.getElementById("breadcrumb_name").innerHTML = name;
     document.getElementById("header_name").innerHTML = name;
