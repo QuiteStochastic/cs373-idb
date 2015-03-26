@@ -1,5 +1,5 @@
 
-from app import db, app, ConfigTesting
+from FlaskApp import db, app, ConfigTesting
 from unittest import main, TestCase
 
 class TestDatabase(TestCase):
