@@ -4,6 +4,7 @@ from unittest import main, TestCase
 
 class TestDatabase(TestCase):
     def __init__(self, other):
+        TestCase.__init__(self, other)
         db.create_all()
     
     def test_character_single(self):
