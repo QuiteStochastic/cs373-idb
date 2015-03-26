@@ -34,7 +34,7 @@ def character_template_page(char_id):
     """
     Serve the character page from ./templates/character_template.html
     """
-    return render_template("character_template.html", char_id=char_id)
+    return render_template("character_template.html", char_id = char_id)
 
 @app.route('/events')
 def events_page():
@@ -43,12 +43,12 @@ def events_page():
     """
     return render_template("events.html")
   
-@app.route('/events/event_template')
-def event_template_page():
+@app.route('/events/<event_id>')
+def event_template_page(event_id):
     """
     Serve the events list page from ./templates/event_template.html
     """
-    return render_template("event_template.html")
+    return render_template("event_template.html", event_id = event_id)
 
 @app.route('/locations')
 def locations_page():
@@ -57,12 +57,12 @@ def locations_page():
     """
     return render_template("locations.html")
   
-@app.route('/locations/location_template')
-def location_template_page():
+@app.route('/locations/<loc_id>')
+def location_template_page(loc_id):
     """
     Serve the locations list page from ./templates/location_template.html
     """
-    return render_template("location_template.html")
+    return render_template("location_template.html", loc_id = loc_id)
 
 @app.route('/organizations')
 def organizations_page():
@@ -71,12 +71,12 @@ def organizations_page():
     """
     return render_template("organizations.html")
   
-@app.route('/organizations/organization_template')
-def organization_template_page():
+@app.route('/organizations/<org_id>')
+def organization_template_page(org_id):
     """
     Serve the organizations page from ./templates/organization_template.html
     """
-    return render_template("organization_template.html")
+    return render_template("organization_template.html", org_id = org_id)
 
 @app.route('/about')
 def about_page():
