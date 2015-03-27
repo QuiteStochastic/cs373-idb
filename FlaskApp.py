@@ -1,5 +1,5 @@
 
-from flask import Flask, Response, render_template,request
+from flask import Flask, Response, render_template,request, send_from_directory
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -101,3 +101,9 @@ def contact_page():
     Serve the contact page from ./templates/contact.html
     """
     return render_template("contact.html")
+
+
+@app.route('/doc/<path:path>')
+def doc_page(path):
+     return send_from_directory('html',path)
+
