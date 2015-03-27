@@ -61,23 +61,53 @@ class TestDatabase(TestCase):
         self.assertTrue(c1 is None)
     
     def test_event_single(self):
-        pass
+        l1 = Event("The Red Wedding", "People gunna die")
+        tdb.session.add(l1)
+        tdb.session.commit()
+        
+        l2 = Event.query.filter_by(name="The Red Wedding").first()
+        self.assertEqual(l2.event_id, l1.event_id)
     
     def test_event_double(self):
-        pass
+        c1 = Event("The Beheading of Ned Stark")
+        c2 = Event("Battle of Blackwater Bay")
+        tdb.session.add(c1)
+        tdb.session.add(c2)
+        tdb.session.commit()
+        
+        c3 = Event.query.filter_by(event_id=c1.event_id).first()
+        self.assertEqual(c3.name, c1.name)
+        c4 = Event.query.filter_by(name="Battle of Blackwater Bay").first()
+        self.assertEqual(c4.event_id, c2.event_id)
     
     def test_event_missing(self):
-        pass
+        c1 = Event.query.filter_by(name="The Grading of This Project").first()
+        self.assertTrue(c1 is None)
     
     def test_org_single(self):
-        pass
+        l1 = Organization("The Nights Watch")
+        tdb.session.add(l1)
+        tdb.session.commit()
+
+        l2 = Organization.query.filter_by(name="The Nights Watch").first()
+        self.assertEqual(l2.org_id, l1.org_id)
+    
     
     def test_org_double(self):
-        pass
+        c1 = Organization("White Walkers")
+        c2 = Organization("House Arryn")
+        tdb.session.add(c1)
+        tdb.session.add(c2)
+        tdb.session.commit()
+        
+        c3 = Organization.query.filter_by(org_id=c1.org_id).first()
+        self.assertEqual(c3.name, c1.name)
+        c4 = Organization.query.filter_by(name="House Arryn").first()
+        self.assertEqual(c4.org_id, c2.org_id)
     
     def test_org_missing(self):
-        pass
-    
+        c1 = Organization.query.filter_by(name="House Downing").first()
+        self.assertTrue(c1 is None)
 
 def run_tests():
     tdb.create_all()
@@ -86,6 +116,9 @@ def run_tests():
     Organization.query.delete()
     Event.query.delete()
     main()
+    # this doesn't do anything.
+    tdb.engine.execute("drop schema if exists public cascade;")
+    tdb.engine.execute("create schema public;")
     tdb.drop_all()
 
 if __name__ == "__main__":
