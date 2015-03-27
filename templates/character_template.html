@@ -65,25 +65,31 @@
   <!-- /.container -->
 </body>
 
-<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
-
-<!-- pulling character info from apiary -->
-<script>  
+<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT>
+<script> 
     var info = get_data('characters');
     var result = JSON.parse(info);
     var index = {{char_id}} - 1;
     var name = '';
+    var religion = '';
     if (result[index].character_lastname === null) {
       name = result[index].character_firstname;
     }
     else {
       name = result[index].character_firstname + ' ' + result[index].character_lastname;
     }
+  
+    if (result[index].character_religion === null) {
+      religion = 'n/a';
+    }
+    else {
+      religion = result[index].character_religion; 
+    }
 
     document.getElementById("breadcrumb_name").innerHTML = name;
     document.getElementById("header_name").innerHTML = name;
     document.getElementById("gender").innerHTML = result[index].character_gender; 
-    document.getElementById("religion").innerHTML = result[index].character_religion; 
+    document.getElementById("religion").innerHTML = religion;
     document.getElementById("status").innerHTML = result[index].character_status; 
     document.getElementById("description").innerHTML = result[index].character_description;
 </script>

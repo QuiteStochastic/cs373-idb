@@ -17,5 +17,5 @@ if __name__ == '__main__':
         app.config.from_object(ConfigRemote)
     else:
         app.config.from_object(ConfigProduction)
-    db.create_all()
+    #db.create_all()
     app.run(host="0.0.0.0", port=args.port[0])

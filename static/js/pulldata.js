@@ -12,7 +12,7 @@ var Request = new XMLHttpRequest();
         }
     };
 
-    Request.open('GET', 'http://private-ed0e6f-got2.apiary-mock.com/api/'+attr,false);
+    Request.open('GET', 'http://private-e1914-valarmorghulis.apiary-mock.com/api/'+attr,false);
     Request.send();
     return result;  
 }
