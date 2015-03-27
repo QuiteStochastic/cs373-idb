@@ -31,10 +31,60 @@ class TestDatabase(TestCase):
         self.assertEqual(c3.first_name, c1.first_name)
         c4 = Character.query.filter_by(first_name="Eddard").first()
         self.assertEqual(c4.first_name, c2.first_name)
+    
+    def test_character_missing(self):
+        c1 = Character.query.filter_by(first_name="Obama").first()
+        self.assertTrue(c1 is None)
+    
+    def test_location_single(self):
+        l1 = Location("Blackwater Bay")
+        tdb.session.add(l1)
+        tdb.session.commit()
+        
+        l2 = Location.query.filter_by(name="Blackwater Bay").first()
+        self.assertEqual(l2.loc_id, l1.loc_id)
+    
+    def test_location_double(self):
+        c1 = Location("Kings Landing")
+        c2 = Location("Winterfell")
+        tdb.session.add(c1)
+        tdb.session.add(c2)
+        tdb.session.commit()
+        
+        c3 = Location.query.filter_by(loc_id=c1.loc_id).first()
+        self.assertEqual(c3.name, c1.name)
+        c4 = Location.query.filter_by(name="Winterfell").first()
+        self.assertEqual(c4.loc_id, c2.loc_id)
+    
+    def test_location_missing(self):
+        c1 = Location.query.filter_by(name="University of Texas").first()
+        self.assertTrue(c1 is None)
+    
+    def test_event_single(self):
+        pass
+    
+    def test_event_double(self):
+        pass
+    
+    def test_event_missing(self):
+        pass
+    
+    def test_org_single(self):
+        pass
+    
+    def test_org_double(self):
+        pass
+    
+    def test_org_missing(self):
+        pass
+    
 
 def run_tests():
     tdb.create_all()
     Character.query.delete()
+    Location.query.delete()
+    Organization.query.delete()
+    Event.query.delete()
     main()
     tdb.drop_all()
 
