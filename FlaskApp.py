@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class ConfigBase(object):
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@127.0.0.1/housedowning"
     SECRET_KEY = "House Downing Secret Key - xylsi8dh7u19dws4ty63"
     USERNAME = 'webapp'
     PASSWORD = 'gotswe'
@@ -20,6 +21,7 @@ class ConfigTesting(ConfigBase):
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
+app.config.from_object(ConfigBase)
 
 #################################
 # Application routing functions #

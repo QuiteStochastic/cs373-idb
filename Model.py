@@ -1,4 +1,4 @@
-from app import db
+from FlaskApp import db
 
 #################
 # Data Modeling #
@@ -22,15 +22,17 @@ class Character(db.Model):
     Models a character from the GoT universe.
     """
     char_id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(255), unique=True)
+    first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     gender = db.Column(db.String(255))
     religion = db.Column(db.String(255))
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, firstname, lastname):
+        db.Model.__init__(self)
+        self.first_name = firstname
+        self.last_name = lastname
     
     def __repr__(self):
         return "Character('{}')".format(self.name)
@@ -45,6 +47,7 @@ class Event(db.Model):
     description = db.Column(db.Text)
     
     def __init__(self, name, desc = ""):
+        db.Model.__init__(self)
         self.name = name
         self.description = desc
     
@@ -68,6 +71,7 @@ class Location(db.Model):
                             backref=db.backref('locations', lazy='dynamic'))
     
     def __init__(self, name):
+        db.Model.__init__(self)
         self.name = name
     
     def __repr__(self):
@@ -83,6 +87,7 @@ class Organization(db.Model):
     description = db.Column(db.Text)
     
     def __init__(self, name):
+        db.Model.__init__(self)
         self.name = name
     
     def __repr__(self):
@@ -103,6 +108,7 @@ class Membership(db.Model):
     org_id = db.Column(db.Integer, db.ForeignKey('organization.org_id'))
     
     def __init__(self, character, orginazation, rank, active=True):
+        db.Model.__init__(self)
         self.char_id = character.char_id
         self.org_id = orginazation.org_id
         self.rank = rank
@@ -129,6 +135,7 @@ class User(db.Model):
     admin = db.Column(db.Boolean)
     
     def __init__(self, username, password):
+        db.Model.__init__(self)
         self.username = username
     
     def set_password(self, newpassword):
