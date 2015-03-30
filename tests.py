@@ -140,7 +140,7 @@ class TestDatabase(TestCase):
 def run_tests():
     s = StringIO()
     runner = TextTestRunner(s, verbosity=2)
-    main(module=__name__, exit=False)
+    main(module=__name__, testRunner=runner, exit=False)
     return s.getvalue()
 
 if __name__ == "__main__":
