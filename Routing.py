@@ -1,7 +1,15 @@
 
-from FlaskApp import db, app
+from FlaskApp import db
+from Model import *
+
+# Anything not listed in the second flask import can just be called from the
+# imported model
+import flask
 from flask import Response, render_template,request, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
+
+# This is the application context which does the routing.
+app = flask.Flask(__name__)
 
 #################################
 # Application routing functions #
@@ -84,8 +92,45 @@ def contact_page():
 
 @app.route('/doc/<path:path>')
 def doc_page(path):
-     return send_from_directory('html',path)
+    """
+    Send documents from the auto-generated html directory.
+    
+    This implements the documentation routing endpoint.
+    """
+    return send_from_directory('html',path)
 
 @app.route('/img/<path:path>')
 def get_image(path):
+    """
+    Send files from the ./static/images/ directory, allowing arbitrary linking
+    to it from any page.
+    
+    Use this endpoint instead of embedding url_for('static', ...) in the
+    template code.
+    """
     return send_from_directory('static/images', path)
+
+
+@app.route('/api/character')
+def get_all_characters():
+    return flask.jsonify(Character.query.all())
+
+@app.route('/api/event')
+def get_all_events():
+    return flask.jsonify(Event.query.all())
+
+@app.route('/api/organization')
+def get_all_orgs():
+    return flask.jsonify(Organization.query.all())
+
+@app.route('/api/location')
+def get_all_locations():
+    return flask.jsonify(Location.query.all())
+
+@app.route('/api/membership')
+def get_all_memberships():
+    return flask.jsonify(Membership.query.all())
+
+@app.route('/tests')
+def run_unit_tests():
+    return "Hello World"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 
-from FlaskApp import app, db, ConfigRemote, ConfigProduction
+from FlaskApp import db, ConfigRemote, ConfigProduction
 import argparse
 import sys
 import os.path
@@ -9,6 +9,7 @@ import os.path
 # to load the changes they make to the database and app objects.
 import Model
 import Routing
+from Routing import app
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
@@ -24,5 +25,7 @@ if __name__ == '__main__':
         app.config.from_object(ConfigRemote)
     else:
         app.config.from_object(ConfigProduction)
-    #db.create_all()
+    
+    db.init_app(app)
+    db.create_all(app=app)
     app.run(host="0.0.0.0", port=args.port[0])
