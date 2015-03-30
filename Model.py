@@ -34,8 +34,19 @@ class Character(db.Model):
         self.first_name = firstname
         self.last_name = lastname
     
+    def serialize(self):
+        return {
+            'char_id':self.char_id,
+            'first_name':self.first_name,
+            'last_name':self.last_name,
+            'gender':self.gender,
+            'religion':self.religion,
+            'status':self.status,
+            'description':self.description
+        }
+    
     def __repr__(self):
-        return "Character('{}')".format(self.name)
+        return "Character('{}', '{}')".format(self.first_name, self.last_name)
 
 class Event(db.Model):
     """
@@ -50,6 +61,14 @@ class Event(db.Model):
         db.Model.__init__(self)
         self.name = name
         self.description = desc
+    
+    def serialize(self):
+        return {
+            'event_id':self.event_id,
+            'event_name':self.name,
+            'event_type':self.event_type,
+            'event_desc':self.description
+        }
     
     def __repr__(self):
         return "Event('{}')".format(self.name)
@@ -74,6 +93,15 @@ class Location(db.Model):
         db.Model.__init__(self)
         self.name = name
     
+    def serialize(self):
+        return {
+            'location_id':self.loc_id,
+            'location_name':self.name,
+            'location_type':self.loc_type,
+            'location_desc':self.description,
+            'location_owner':self.owner_id
+        }
+    
     def __repr__(self):
         return "Location('{}')".format(self.name)
 
@@ -89,6 +117,14 @@ class Organization(db.Model):
     def __init__(self, name):
         db.Model.__init__(self)
         self.name = name
+    
+    def serialize(self):
+        return {
+            'org_id':self.org_id,
+            'org_name':self.name,
+            'org_type':self.org_type,
+            'org_desc':self.description
+        }
     
     def __repr__(self):
         return "Organization('{}')".format(self.name)
@@ -114,6 +150,16 @@ class Membership(db.Model):
         self.rank = rank
         self.active = active
         self.status = "active" if active else "inactive"
+    
+    def serialize(self):
+        return {
+            'member_id':self.member_id,
+            'member_rank':self.rank,
+            'member_status':self.status,
+            'member_active':self.active,
+            'member_char_id':self.char_id,
+            'member_org_id':self.org_id
+        }
     
     def __repr__(self):
         return "Membership({},{},{},{})".format(self.char_id, self.org_id,
