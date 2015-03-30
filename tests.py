@@ -2,7 +2,8 @@
 from flask import Flask
 from FlaskApp import ConfigTesting, db, drop_all
 from flask.ext.sqlalchemy import SQLAlchemy
-from unittest import main, TestCase
+from unittest import main, TestCase, TextTestRunner
+from io import StringIO
 
 from Model import Character, Organization, Location, Event
 
@@ -18,14 +19,14 @@ class TestDatabase(TestCase):
     def setUpClass(cls):
         TestDatabase.ctx = tapp.test_request_context()
         TestDatabase.ctx.push()
-        drop_all(tdb)
+        tdb.drop_all()
         tdb.create_all()
         TestDatabase.ctx.pop()
     
     @classmethod
     def tearDownClass(cls):
         TestDatabase.ctx.push()
-        drop_all(tdb)
+        tdb.drop_all()
         TestDatabase.ctx.pop()
     
     def setUp(self):
@@ -137,7 +138,10 @@ class TestDatabase(TestCase):
         self.assertTrue(c1 is None)
 
 def run_tests():
-    main()
+    s = StringIO()
+    runner = TextTestRunner(s, verbosity=2)
+    main(module=__name__, exit=False)
+    return s.getvalue()
 
 if __name__ == "__main__":
-    run_tests()
+    main()

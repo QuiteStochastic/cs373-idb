@@ -15,7 +15,8 @@ class ConfigRemote(ConfigBase):
     SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@104.130.247.236/housedowning"
 
 class ConfigTesting(ConfigBase):
-    SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@104.130.247.236/HouseDowningTesting"
+    SQLALCHEMY_DATABASE_URI = "sqlite://"
+    TESTING = True
 
 db = SQLAlchemy()
 
