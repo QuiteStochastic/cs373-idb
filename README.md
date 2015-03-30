@@ -10,6 +10,7 @@ Models.html was not possible to provide due to using epydoc, as it generates a f
 ### Front-End
 * Charlina Hung
 * Mallory Kaoi
+
 ### Back-End
 * Oliver Lee
 * Ariel Sibille
