@@ -1,5 +1,5 @@
 
-from FlaskApp import db
+from FlaskApp import db, json_response
 from Model import *
 
 # Anything not listed in the second flask import can just be called from the
@@ -110,27 +110,62 @@ def get_image(path):
     """
     return send_from_directory('static/images', path)
 
-
-@app.route('/api/character')
+@app.route('/api/characters')
 def get_all_characters():
-    return flask.jsonify(Character.query.all())
+    return json_response([c.serialize() for c in Character.query.all()])
 
-@app.route('/api/event')
+@app.route('/api/characters/<int:cid>')
+def get_character(cid):
+    ch = Character.query.get(cid)
+    if not ch is None:
+        return flask.jsonify(ch.serialize())
+    return flask.abort(404)
+
+@app.route('/api/events')
 def get_all_events():
-    return flask.jsonify(Event.query.all())
+    return json_response([e.serialize() for e in Event.query.all()])
 
-@app.route('/api/organization')
+@app.route('/api/events/<int:eid>')
+def get_event(eid):
+    event = Event.query.get(eid)
+    if event is None:
+        flask.abort(404)
+    return flask.jsonify(event.serialize())
+
+@app.route('/api/organizations')
 def get_all_orgs():
-    return flask.jsonify(Organization.query.all())
+    return json_response([o.serialize() for o in Organization.query.all()])
 
-@app.route('/api/location')
+@app.route('/api/organizations/<int:oid>')
+def get_org(oid):
+    org = Organization.query.get(oid)
+    if org is None:
+        flask.abort(404)
+    return flask.jsonify(org.serialize())
+
+@app.route('/api/locations')
 def get_all_locations():
-    return flask.jsonify(Location.query.all())
+    return json_response([l.serialize() for l in Location.query.all()])
 
-@app.route('/api/membership')
+@app.route('/api/locations/<int:lid>')
+def get_location(lid):
+    loc = Location.query.get(lid)
+    if loc is None:
+        flask.abort(404)
+    return flask.jsonify(loc.serialize())
+
+@app.route('/api/memberships')
 def get_all_memberships():
-    return flask.jsonify(Membership.query.all())
+    return json_response([m.serialize() for m in Membership.query.all()])
+
+@app.route('/api/memberships/<int:mid>')
+def get_membership(mid):
+    mem = Membership.query.get(mid)
+    if mem is None:
+        flask.abort(404)
+    return flask.jsonify(mem.serialize())
 
 @app.route('/tests')
 def run_unit_tests():
-    return "Hello World"
+    import tests
+    return tests.run_tests()

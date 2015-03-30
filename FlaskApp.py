@@ -1,5 +1,7 @@
 
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Response
+import json
 
 class ConfigBase(object):
     DEBUG = True
@@ -19,6 +21,9 @@ class ConfigTesting(ConfigBase):
     TESTING = True
 
 db = SQLAlchemy()
+
+def json_response(obj):
+    return Response(json.dumps(obj), mimetype='application/json')
 
 def drop_all(db):
     """

@@ -138,10 +138,13 @@ class TestDatabase(TestCase):
         self.assertTrue(c1 is None)
 
 def run_tests():
+    import sys
+    
     s = StringIO()
     runner = TextTestRunner(s, verbosity=2)
+    sys.argv = [sys.argv[0]]
     main(module=__name__, testRunner=runner, exit=False)
-    return s.getvalue()
+    return s.getvalue().replace("\n", "<br>")
 
 if __name__ == "__main__":
     main()
