@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Unit Tests Results</h1>
+<p>
+{% for item in results %}
+  {{ item }}<br>
+{% endfor %}
+</p>
+{% endblock %}

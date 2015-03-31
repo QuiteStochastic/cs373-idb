@@ -137,6 +137,9 @@ class TestDatabase(TestCase):
         c1 = Organization.query.filter_by(name="House Downing").first()
         self.assertTrue(c1 is None)
 
+def test_results_html():
+    return run_tests().split('\n')
+
 def run_tests():
     import sys
     
@@ -144,7 +147,7 @@ def run_tests():
     runner = TextTestRunner(s, verbosity=2)
     sys.argv = [sys.argv[0]]
     main(module=__name__, testRunner=runner, exit=False)
-    return s.getvalue().replace("\n", "<br>")
+    return s.getvalue()
 
 if __name__ == "__main__":
     main()
