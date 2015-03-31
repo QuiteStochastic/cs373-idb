@@ -1,10 +1,63 @@
+.about .img-circle { 
+  height: 110px;
+  width: 110px;
+}
+
+.about h3 {
+  font-family: 'Shift', sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bio p {
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.bio span {
+    color: #00b0ff;
+}
+
 body {
     padding-top: 50px;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+.business-header {
+    height: 400px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Borrowed from Bootstrap template */
+.business-header p {
+  text-shadow: 0 0 10px #000;
+  color: #fff;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.description p {
+  text-align: left;
+}
+
+footer {
+    margin: 50px 0;
 }
 
 .idb-content {
     padding: 40px 15px;
     text-align: center;
+}
+
+.img-center {
+    margin: 0 auto;
 }
 
 .pillars {
@@ -29,27 +82,9 @@ body {
   padding-bottom: 30px;
 }
 
-.bio p {
-    text-align: left;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-.bio span {
-    color: #00b0ff;
-}
-
-.description p {
-  text-align: left;
-}
-
 .img-circle {  
   height: 200px;
   width: 200px;
-}
-
-.breadcrumb {
-  background-color: transparent;
 }
 
 .panel {
@@ -60,7 +95,18 @@ body {
   background-color: #D5D5D5;
   border-bottom: 0;
 }
+
 .panel-tools {
   font-size: 16px;
   background-color: gray;
+}
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+    margin-left: 30px;
+    margin-top: 100px;
+    font-size: 48px;
+    font-family: 'Shift', sans-serif;
+    font-weight: bold;
 }
