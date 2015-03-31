@@ -168,4 +168,4 @@ def get_membership(mid):
 @app.route('/tests')
 def run_unit_tests():
     import tests
-    return tests.run_tests()
+    return render_template('tests.html', results=tests.test_results_html())
