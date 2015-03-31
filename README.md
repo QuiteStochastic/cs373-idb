@@ -9,7 +9,7 @@ Models.html was not possible to provide due to using epydoc, as it generates a f
 ## Group Members
 ### Front-End
 * Charlina Hung
-* Mallory Kaoi
+* Mallory Koai
 
 ### Back-End
 
