@@ -24,6 +24,7 @@ class Character(db.Model):
     char_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
+    alias = db.Column(db.String(255))
     gender = db.Column(db.String(255))
     religion = db.Column(db.String(255))
     status = db.Column(db.String(255))
@@ -39,6 +40,7 @@ class Character(db.Model):
             'char_id':self.char_id,
             'first_name':self.first_name,
             'last_name':self.last_name,
+            'alias':self.alias,
             'gender':self.gender,
             'religion':self.religion,
             'status':self.status,
@@ -128,6 +130,32 @@ class Organization(db.Model):
     
     def __repr__(self):
         return "Organization('{}')".format(self.name)
+      
+class Episode(db.Model):
+    """
+    Models an episode from the GoT series.
+    """
+    ep_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    season = db.Column(db.Integer)
+    episode_number = db.Column(db.Integer)
+    description = db.Column(db.Text)
+    
+    def __init__(self, name):
+        db.Model.__init__(self)
+        self.name = name
+    
+    def serialize(self):
+        return {
+            'ep_id':self.ep_id,
+            'name':self.name,
+            'season':self.season,
+            'episode_number':self.episode_number,
+            'description':self.description
+        }
+    
+    def __repr__(self):
+        return "Episode('{}')".format(self.name)
 
 class Membership(db.Model):
     """
