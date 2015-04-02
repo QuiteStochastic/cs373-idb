@@ -25,6 +25,7 @@
   <div class="container">
 
   <button onclick="myFunction()">GITHUB COMMITS</button>
+  <button onclick="myFunction2()">GITHUB ISSUES</button>
 
 <div class="row pillars">
       <div class="bio-info col-sm-4">
@@ -200,16 +201,22 @@
 
 <script src="../static/js/pulldata.js"></script>
 <script>
-    var info = get_github();
-    github = JSON.parse(info)
-    olivercommits = github[2]["total"];
-    charuricommits = github[3]["total"];
-    arielcommits = github[4]["total"];
-    mallorycommits = github[5]["total"];
-    troycommits = github[6]["total"];
+    var infoC = get_commits();
+    commits = JSON.parse(infoC)
+    olivercommits = commits[2]["total"];
+    charuricommits = commits[3]["total"];
+    arielcommits = commits[4]["total"];
+    mallorycommits = commits[5]["total"];
+    troycommits = commits[6]["total"];
+
+    var infoI = get_issues();
 
     function myFunction() {
       alert('Oliver Commits: ' + olivercommits + '\nCharuri Commits: ' + charuricommits + '\nAriel Commits: ' + arielcommits + '\nMallory Commits: ' + mallorycommits + '\nTroy Commits: ' + troycommits);}
+
+    function myFunction2() {
+      alert(infoI);
+    };
 </script
 
 {% endblock %}
