@@ -78,13 +78,20 @@ footer {
 }
 
 .pillars p {
-  text-align: center;
-  padding-bottom: 30px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.pillars .info {
+  margin-top: 30px;
 }
 
 .img-circle {  
   height: 200px;
   width: 200px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
 .panel {
