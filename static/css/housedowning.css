@@ -119,8 +119,13 @@ footer {
 }
 
 .bio-info {
-  text-align: left;
-  vertical-align: left;
+  text-align: center;
+  vertical-align: center;
+}
+
+.bio-pic {
+  text-align: center;
+  vertical-align: center;
 }
 .bio-info h2 {
   text-align: left;
