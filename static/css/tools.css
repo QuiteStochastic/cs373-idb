@@ -8,17 +8,18 @@
 	padding-bottom: 0px;
 }
 .tools h1 {
-  	font-size: 400%;
+  	font-size: 200%;
 	text-align: center;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color: #ffffff;
+	font-family: 'Shift', sans-serif;
+	color: black;
 	padding-bottom: 0px;
 	margin-bottom: 20px;
-	background-color: #33B5E5;
+	/*background-color: #FFBB33;*/
 	margin-left: 0px;
+	margin-top: 50px;
 }
 .tools h2 {
-	background-color: #0099CC;
+	/*background-color: #0099CC;*/
 	margin-top: 0px;
 	margin-bottom: 20px;
 }

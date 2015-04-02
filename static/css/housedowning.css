@@ -117,3 +117,11 @@ footer {
     font-family: 'Shift', sans-serif;
     font-weight: bold;
 }
+
+.bio-info {
+  text-align: left;
+  vertical-align: left;
+}
+.bio-info h2 {
+  text-align: left;
+}
