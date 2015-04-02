@@ -15,6 +15,20 @@
     padding-bottom: 10px;
 }
 
+
+.bio-info {
+  text-align: center;
+  vertical-align: center;
+}
+
+.bio-info h2 {
+  text-align: center;
+}
+
+.bio-pic {
+  vertical-align: center;
+}
+
 .bio span {
     color: #00b0ff;
 }
@@ -58,6 +72,11 @@ footer {
 
 .img-center {
     margin: 0 auto;
+}
+
+.img-thumbnail {
+  height: 200px;
+  width: 200px;
 }
 
 .pillars {
@@ -116,17 +135,4 @@ footer {
     font-size: 48px;
     font-family: 'Shift', sans-serif;
     font-weight: bold;
-}
-
-.bio-info {
-  text-align: center;
-  vertical-align: center;
-}
-
-.bio-pic {
-  text-align: center;
-  vertical-align: center;
-}
-.bio-info h2 {
-  text-align: left;
 }
