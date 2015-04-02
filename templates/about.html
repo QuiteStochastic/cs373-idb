@@ -23,12 +23,8 @@
     </div>
   </div>
   <div class="container">
-    <!-- <div class="panel panel-default">
-      <div class="panel-tools">
-        <p><strong>Tools:</strong> Apiary, Flask, Rackspace,  yUML, PostgreSQL, Bootstrap, Nitrous, Github, Slack.</p>
-      </div>
-      <p><a href="http://docs.valarmorghulis.apiary.io/">Valar Morghulis API</a></p>
-    </div> -->
+
+  <button onclick="myFunction()">GITHUB COMMITS</button>
 
 <div class="row pillars">
       <div class="bio-info col-sm-4">
@@ -94,30 +90,6 @@
       </div>
     </div>
     <hr>
-
-
-
-<!-- 
-    <div class="row about">
-      <div class="col-sm-2 col-sm-offset-1">
-        <a href="#charlina" class="smoothScroll"><img class="img-circle img-responsive img-center" src="http://i.imgur.com/45CnUII.png" alt=""></a>
-      </div>
-      <div class="col-sm-2">
-        <a href="#mallory" class="smoothScroll"><img class="img-circle img-responsive img-center" src="http://i.imgur.com/GqUEJ41.png" alt=""></a>
-      </div>
-      <div class="col-sm-2">
-        <a href="#oliver" class="smoothScroll"><img class="img-circle img-responsive img-center" src="http://i.imgur.com/G6eV47J.png" alt=""></a>
-      </div>
-      <div class="col-sm-2">
-        <a href="#ariel" class="smoothScroll"><img class="img-circle img-responsive img-center" src="http://i.imgur.com/IsbgsXg.png" alt=""></a>
-      </div>
-      <div class="col-sm-2">
-        <a href="#troy" class="smoothScroll"><img class="img-circle img-responsive img-center" src="http://i.imgur.com/DaQXcQ8.png" alt=""></a>
-      </div>
-    </div>
-  </div>
- -->
-
 
  <!-- TOOLS -->
 
@@ -209,113 +181,6 @@
     <!-- TOOLS END -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-    <div class="tools">
-      <h1>Bio && Responsibilities && Stats</h1>
-      <hr>
-    </div>
-
-    
-
-    <div class="row pillars bio">
-      <a name="charlina"></a>
-      <div class="col-sm-4 col-sm-offset-1">
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/45CnUII.png" alt="">
-        <h2>Charlina Hung</h2>
-      </div>
-      <div class="col-sm-6 info">
-        <p><span>Bio:</span> Filthy Casual. Coffee Addict. Love Liver.</p>
-        <p><span>Responsibilities:</span> Trello, Slack-master, Bootstrap, HTML, CSS.</p>
-        <p><span>Stats:</span> 3 commits, 3 resolved issues.</p>
-      </div>
-    </div>
-
-
-
-    <hr>
-
-    <div class="row pillars bio">
-      <a name="mallory"></a>
-      <div class="col-sm-4 col-sm-offset-1">
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/GqUEJ41.png" alt="">
-        <h2>Mallory Koai</h2>
-      </div>
-      <div class="col-sm-6 bio">
-        <p><span>Bio:</span> Mallory of House Koai. Lover of horror. Mother of cats.</p>
-        <p><span>Responsibilities:</span> Bootstrap, HTML, CSS, Apiary, UML design.</p>
-        <p><span>Stats:</span> 15 commits, 8 resolved issues.</p>
-      </div>
-    </div>
-
-
-
-    <hr>
-
-
-    <div class="row pillars bio">
-      <a name="oliver"></a>
-      <div class="col-sm-4 col-sm-offset-1">
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/G6eV47J.png" alt="">
-        <h2>Oliver Lee</h2>
-      </div>
-      <div class="col-sm-6 bio">
-        <p><span>Bio:</span> Senior undergraduate, double major in Computer Science and Philosophy.</p>
-        <p><span>Responsibilities:</span> Phase 1 leader, Rackspace setup and management, RESTful API design, data collection, unit testing.</p>
-        <p><span>Stats:</span> 4 commits, 4 resolved issues.</p>
-      </div>
-    </div>
-
-
-    <hr>
-
-
-    <div class="row pillars bio">
-      <a name="ariel"></a>
-      <div class="col-sm-4 col-sm-offset-1">
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/IsbgsXg.png" alt="">
-        <h2>Ariel Sibille</h2>
-      </div>
-      <div class="col-sm-6 bio">
-        <p><span>Bio:</span> Likes Dogs.</p>
-        <p><span>Responsibilities:</span> Rackspace, Apiary, PostgreSQL, DMD design, data collection and migration to database.</p>
-        <p><span>Stats:</span> 9 commits, 2 resolved issues, 6 unit tests.</p>
-      </div>
-    </div>
-
-
-    <hr>
-
-
-    <div class="row pillars bio">
-      <a name="troy"></a>
-      <div class="col-sm-4 col-sm-offset-1">
-        <img class="img-circle img-responsive img-center" src="http://i.imgur.com/DaQXcQ8.png" alt="">
-        <h2>Troy Varney</h2>
-      </div>
-      <div class="col-sm-6 bio">
-        <p><span>Bio:</span> When am I supposed to give you that bio thing again?</p>
-        <p><span>Responsibilities:</span> Flask models, SQLAlchemy, PostgreSQL, HTML, unit testing.</p>
-        <p><span>Stats:</span> 17 commits, 6 unit tests.</p>
-      </div>
-    </div> -->
-    <!-- /.row -->
-
-
-
-
-
     <hr>
     <!-- Footer -->
     <footer>
@@ -328,5 +193,23 @@
     </footer>
   </div>
   <!-- /.container -->
+  
 </body>
+
+
+
+<script src="../static/js/pulldata.js"></script>
+<script>
+    var info = get_github();
+    github = JSON.parse(info)
+    olivercommits = github[2]["total"];
+    charuricommits = github[3]["total"];
+    arielcommits = github[4]["total"];
+    mallorycommits = github[5]["total"];
+    troycommits = github[6]["total"];
+
+    function myFunction() {
+      alert('Oliver Commits: ' + olivercommits + '\nCharuri Commits: ' + charuricommits + '\nAriel Commits: ' + arielcommits + '\nMallory Commits: ' + mallorycommits + '\nTroy Commits: ' + troycommits);}
+</script
+
 {% endblock %}

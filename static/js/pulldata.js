@@ -17,5 +17,18 @@ var Request = new XMLHttpRequest();
     return result;  
 }
 
-
-
+function get_github() {
+var Request = new XMLHttpRequest();
+ 
+    Request.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status == 200) {
+            console.log('Status:', this.status);
+            console.log('Headers:', this.getAllResponseHeaders());
+            console.log('Body:', this.responseText);
+            result = this.responseText; 
+        }
+    };
+    Request.open('GET', 'https://api.github.com/repos/QuiteStochastic/cs373-idb/stats/contributors',false);
+    Request.send();
+    return result;  
+}
