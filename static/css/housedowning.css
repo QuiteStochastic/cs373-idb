@@ -9,6 +9,11 @@
   text-align: center;
 }
 
+.banner {
+    height: 100px;
+    width: 200px;
+}
+
 .bio p {
     text-align: left;
     padding-left: 10px;

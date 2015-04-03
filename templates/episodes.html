@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+  <!-- Image Background Page Header -->
+  <!-- Note: The background image is set within the business-casual.css file. -->
+  <header class="business-header" style="background: url(https://lh3.googleusercontent.com/-ResdawbxaFc/UPLYm12FUHI/AAAAAAAAAGQ/Xz2Sae4BLbA/s1440/gameofthrones_logo.png) center center no-repeat scroll;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class = "tagline"></h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Page Content -->
+  <div class ="container">
+    <div class="col-sm-12">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li>Episodes</li>
+      </ol>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>(Placeholder for dynamic table)</h2>
+        <p></p>
+      </div>
+    </div>
+    <hr>
+    <!-- /.row -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Season 1
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            {% for number in range(2) %}
+            <div class="row pillars">
+              <div class="col-sm-1"></div>
+              {% for number in range(5) %}
+              <div class="col-sm-2">
+                <a href="/characters/1">
+                <img class="img-rounded img-responsive img-center banner" src="http://placehold.it/200x100" alt=""></a>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Season 2
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            {% for number in range(2) %}
+            <div class="row pillars">
+              <div class="col-sm-1"></div>
+              {% for number in range(5) %}
+              <div class="col-sm-2">
+                <a href="/characters/1">
+                <img class="img-rounded img-responsive img-center banner" src="http://placehold.it/200x100" alt=""></a>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Season 3
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            {% for number in range(2) %}
+            <div class="row pillars">
+              <div class="col-sm-1"></div>
+              {% for number in range(5) %}
+              <div class="col-sm-2">
+                <a href="/characters/1">
+                <img class="img-rounded img-responsive img-center banner" src="http://placehold.it/200x100" alt=""></a>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Season 4
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            {% for number in range(2) %}
+            <div class="row pillars">
+              <div class="col-sm-1"></div>
+              {% for number in range(5) %}
+              <div class="col-sm-2">
+                <a href="/characters/1">
+                <img class="img-rounded img-responsive img-center banner" src="http://placehold.it/200x100" alt=""></a>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; House Downing 2015</p>
+        </div>
+      </div>
+      <!-- /.row -->
+    </footer>
+  </div>
+  <!-- /.container -->
+</body>
+{% endblock %}
