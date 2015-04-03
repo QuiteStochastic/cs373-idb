@@ -98,13 +98,6 @@ def about_page():
     """
     return render_template("about.html")
 
-@app.route('/contact')
-def contact_page():
-    """
-    Serve the contact page from ./templates/contact.html
-    """
-    return render_template("contact.html")
-
 @app.route('/doc/<path:path>')
 def doc_page(path):
     """
