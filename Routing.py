@@ -44,7 +44,7 @@ def events_page():
 @app.route('/events/<event_id>')
 def event_template_page(event_id):
     """
-    Serve the events list page from ./templates/event_template.html
+    Serve the event page from ./templates/event_template.html
     """
     return render_template("event_template.html", event_id = event_id)
 
@@ -58,23 +58,38 @@ def locations_page():
 @app.route('/locations/<loc_id>')
 def location_template_page(loc_id):
     """
-    Serve the locations list page from ./templates/location_template.html
+    Serve the location page from ./templates/location_template.html
     """
     return render_template("location_template.html", loc_id = loc_id)
 
 @app.route('/organizations')
 def organizations_page():
     """
-    Serve the organizations page from ./templates/organizations.html
+    Serve the organizations list page from ./templates/organizations.html
     """
     return render_template("organizations.html")
   
 @app.route('/organizations/<org_id>')
 def organization_template_page(org_id):
     """
-    Serve the organizations page from ./templates/organization_template.html
+    Serve the organization page from ./templates/organization_template.html
     """
     return render_template("organization_template.html", org_id = org_id)
+  
+@app.route('/episodes')
+def episodes_page():
+    """
+    Serve the episodes list page from ./templates/episodes.html
+    """
+    return render_template("episodes.html")
+
+@app.route('/episodes/<ep_id>')
+def episode_template_page(ep_id):
+    """
+    Serve the episode page from ./templates/episode_template.html
+    """
+    return render_template("episode_template.html", ep_id = ep_id)
+    
 
 @app.route('/about')
 def about_page():
