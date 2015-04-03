@@ -43,12 +43,9 @@
 	height: 75px;
 	margin-bottom: 40px;
 	opacity: 1;
+	margin: 30px;
 }
 
-.tools-sub img:hover {
-  	opacity: .5;
-	transition: all 1s ease;
-}
 .tools-text {
 	text-align: center;
 	font-size: 150%;
