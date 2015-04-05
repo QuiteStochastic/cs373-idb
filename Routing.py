@@ -1,5 +1,6 @@
 
 from FlaskApp import db, json_response
+from flask.ext.cors import *
 from Model import *
 
 # Anything not listed in the second flask import can just be called from the
@@ -119,10 +120,12 @@ def get_image(path):
     return send_from_directory('static/images', path)
 
 @app.route('/api/characters')
+@cross_origin()
 def get_all_characters():
     return json_response([c.serialize() for c in Character.query.all()])
 
 @app.route('/api/characters/<int:cid>')
+@cross_origin()
 def get_character(cid):
     ch = Character.query.get(cid)
     if not ch is None:
@@ -130,10 +133,12 @@ def get_character(cid):
     return flask.abort(404)
 
 @app.route('/api/events')
+@cross_origin()
 def get_all_events():
     return json_response([e.serialize() for e in Event.query.all()])
 
 @app.route('/api/events/<int:eid>')
+@cross_origin()
 def get_event(eid):
     event = Event.query.get(eid)
     if event is None:
@@ -141,10 +146,12 @@ def get_event(eid):
     return flask.jsonify(event.serialize())
 
 @app.route('/api/organizations')
+@cross_origin()
 def get_all_orgs():
     return json_response([o.serialize() for o in Organization.query.all()])
 
 @app.route('/api/organizations/<int:oid>')
+@cross_origin()
 def get_org(oid):
     org = Organization.query.get(oid)
     if org is None:
@@ -152,10 +159,12 @@ def get_org(oid):
     return flask.jsonify(org.serialize())
 
 @app.route('/api/locations')
+@cross_origin()
 def get_all_locations():
     return json_response([l.serialize() for l in Location.query.all()])
 
 @app.route('/api/locations/<int:lid>')
+@cross_origin()
 def get_location(lid):
     loc = Location.query.get(lid)
     if loc is None:
@@ -163,10 +172,12 @@ def get_location(lid):
     return flask.jsonify(loc.serialize())
 
 @app.route('/api/memberships')
+@cross_origin()
 def get_all_memberships():
     return json_response([m.serialize() for m in Membership.query.all()])
 
 @app.route('/api/memberships/<int:mid>')
+@cross_origin()
 def get_membership(mid):
     mem = Membership.query.get(mid)
     if mem is None:
