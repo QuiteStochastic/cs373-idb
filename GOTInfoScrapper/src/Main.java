@@ -19,7 +19,7 @@ public class Main {
 
         Scanner in;
         try{
-            in=new Scanner(new FileReader("..\\HouseDowning\\raw_data\\episode.csv"));
+            in=new Scanner(new FileReader("..\\raw_data\\episode.csv"));
         }
         catch(Exception e){
             System.out.println("error reading file!");
