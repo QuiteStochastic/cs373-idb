@@ -36,6 +36,7 @@
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
+          <li class="list-group-item"><strong>Alias:</strong> <span id="alias"></span></li>
           <li class="list-group-item"><strong>Gender:</strong> <span id="gender"></span></li>
           <li class="list-group-item"><strong>Religion:</strong> <span id="religion"></span></li>
           <li class="list-group-item"><strong>Status:</strong> <span id="status"></span></li>
@@ -70,27 +71,18 @@
     var info = get_data('characters');
     var result = JSON.parse(info);
     var index = {{char_id}} - 1;
-    var name = '';
-    var religion = '';
-    if (result[index].character_lastname === null) {
-      name = result[index].character_firstname;
-    }
-    else {
-      name = result[index].character_firstname + ' ' + result[index].character_lastname;
-    }
+    var name, alias, religion;
   
-    if (result[index].character_religion === null) {
-      religion = 'n/a';
-    }
-    else {
-      religion = result[index].character_religion; 
-    }
+    name = result[index].last_name === null ? result[index].first_name : result[index].first_name + ' ' + result[index].last_name;;
+    alias = result[index].alias === null ? 'n/a' : result[index].alias;
+    religion = result[index].religion === null ? 'n/a' : result[index].religion;
 
     document.getElementById("breadcrumb_name").innerHTML = name;
     document.getElementById("header_name").innerHTML = name;
-    document.getElementById("gender").innerHTML = result[index].character_gender; 
+    document.getElementById("alias").innerHTML = alias;
+    document.getElementById("gender").innerHTML = result[index].gender; 
     document.getElementById("religion").innerHTML = religion;
-    document.getElementById("status").innerHTML = result[index].character_status; 
-    document.getElementById("description").innerHTML = result[index].character_description;
+    document.getElementById("status").innerHTML = result[index].status; 
+    document.getElementById("description").innerHTML = result[index].description;
 </script>
 {% endblock %}
