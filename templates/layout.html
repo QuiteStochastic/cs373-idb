@@ -65,12 +65,27 @@
     </nav>
     <div class="container" style="width:100%; margin: 0px; padding: 0px">
       {% block body %}{% endblock %}
+
       <!-- Footer -->
-        <footer class="container-fluid">
+        <div class="footer container-fluid">
           <hr>
-          <div class="row">
-            <div class="col-lg-12">
-              <p>Copyright &copy; House Downing 2015</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <p>Copyright &copy; House Downing 2015</p>
+              </div>
+               <div class="col-md-4">
+                <a href="#">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span> <p>Don't Contact us</p></a>
+              </div>
+               <div class="col-md-4 brand-mini">
+                <a href="http://docs.valarmorghulis.apiary.io/">
+                  <img src="../static/images/branding/apiary.png" alt="apiary mini"/>
+                </a>
+                <a href="https://github.com/QuiteStochastic/cs373-idb">
+                  <img src="../static/images/branding/github.png" alt="github mini"/>
+                </a>  
+              </div>
             </div>
           </div>
         </footer>
