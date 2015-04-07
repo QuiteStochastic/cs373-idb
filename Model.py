@@ -2,17 +2,17 @@ from FlaskApp import db
 
 #################
 # Data Modeling #
-Participant = db.Table('Participant',
+Participant = db.Table('participant',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Party = db.Table('Party',
+Party = db.Table('party',
     db.Column('org_id', db.Integer, db.ForeignKey('organization.org_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Visitor = db.Table('Visitor',
+Visitor = db.Table('visitor',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('loc_id', db.Integer, db.ForeignKey('location.loc_id'))
 )
