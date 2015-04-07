@@ -30,6 +30,12 @@ class Character(db.Model):
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
     
+    birth_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    death_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
+    last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
+
+    
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
         self.first_name = firstname
@@ -58,6 +64,9 @@ class Event(db.Model):
     name = db.Column(db.String(255), unique=True)
     event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
+
+    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    ep_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
     
     def __init__(self, name, desc = ""):
         db.Model.__init__(self)
@@ -85,10 +94,10 @@ class Location(db.Model):
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    owner_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    superior_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     
     # Relationships
-    owner = db.relationship('Character',
+    owner = db.relationship('Location',
                             backref=db.backref('locations', lazy='dynamic'))
     
     def __init__(self, name):
@@ -101,7 +110,7 @@ class Location(db.Model):
             'name':self.name,
             'loc_type':self.loc_type,
             'description':self.description,
-            'location_owner':self.owner_id
+            'superior_loc':self.superior_loc
         }
     
     def __repr__(self):
