@@ -13,7 +13,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = flask.Flask(__name__)
 
 #################################
-# Application routing functions #
+# Routing for Webpages#
+
 @app.route('/')
 def main_page():
     """
@@ -119,6 +120,15 @@ def get_image(path):
     """
     return send_from_directory('static/images', path)
 
+@app.route('/tests')
+def run_unit_tests():
+    import tests
+    return render_template('tests.html', results=tests.test_results_html())
+
+############################################
+############################################
+#Routing for API#
+
 @app.route('/api/characters')
 @cross_origin()
 def get_all_characters():
@@ -184,7 +194,4 @@ def get_membership(mid):
         flask.abort(404)
     return flask.jsonify(mem.serialize())
 
-@app.route('/tests')
-def run_unit_tests():
-    import tests
-    return render_template('tests.html', results=tests.test_results_html())
+
