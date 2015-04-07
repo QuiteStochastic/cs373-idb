@@ -67,9 +67,9 @@ class Event(db.Model):
     def serialize(self):
         return {
             'event_id':self.event_id,
-            'event_name':self.name,
-            'event_type':self.event_type,
-            'event_desc':self.description
+            'name':self.name,
+            'type':self.event_type,
+            'description':self.description
         }
     
     def __repr__(self):
@@ -97,10 +97,10 @@ class Location(db.Model):
     
     def serialize(self):
         return {
-            'location_id':self.loc_id,
-            'location_name':self.name,
-            'location_type':self.loc_type,
-            'location_desc':self.description,
+            'loc_id':self.loc_id,
+            'name':self.name,
+            'loc_type':self.loc_type,
+            'description':self.description,
             'location_owner':self.owner_id
         }
     
@@ -123,9 +123,9 @@ class Organization(db.Model):
     def serialize(self):
         return {
             'org_id':self.org_id,
-            'org_name':self.name,
+            'name':self.name,
             'org_type':self.org_type,
-            'org_desc':self.description
+            'desc':self.description
         }
     
     def __repr__(self):
