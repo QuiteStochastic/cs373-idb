@@ -5,14 +5,25 @@ var Request = new XMLHttpRequest();
  
     Request.onreadystatechange = function () {
         if (this.readyState === 4 && this.status == 200) {
-            console.log('Status:', this.status);
-            console.log('Headers:', this.getAllResponseHeaders());
-            console.log('Body:', this.responseText);
             result = this.responseText; 
         }
     };
 
     Request.open('GET', 'http://valar-morghulis.charuri.me/api/'+attr, false);
+    Request.send();
+    return result;  
+}
+
+function get_one(attr, id) {
+var Request = new XMLHttpRequest();
+ 
+    Request.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status == 200) {
+            result = this.responseText; 
+        }
+    };
+
+    Request.open('GET', 'http://valar-morghulis.charuri.me/api/' + attr + '/' + id, false);
     Request.send();
     return result;  
 }
