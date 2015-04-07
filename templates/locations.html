@@ -32,91 +32,7 @@
     </div>
     <!-- /.row -->
     <hr>
-    <div class="row pillars">
-      <div class="col-sm-4">
-        <a href="/locations/11">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/2TTg2ry.png" alt=""></a>
-        <h2>Beyond the Wall</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/1">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/2v1yyTA.png" alt=""></a>
-        <h2>Braavos</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/2">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/mlSD2vI.png" alt=""></a>
-        <h2>Casterly Rock</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/3">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/ds8X8M8.png" alt=""></a>
-        <h2>Castle Black</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/4">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/DvHuBCF.png" alt=""></a>
-        <h2>Dragonstone</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/5">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/tIdo5fg.png" alt=""></a>
-        <h2>The Eyrie</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/6">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/Bt1n0ZR.png" alt=""></a>
-        <h2>Highgarden</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/7">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/sJxPveV.png" alt=""></a>
-        <h2>King's Landing</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/8">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/GSxBTuA.png" alt=""></a>
-        <h2>Meereen</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/9">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/FDMblVX.png" alt=""></a>
-        <h2>Pyke</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/14">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/o1a726x.png" alt=""></a>
-        <h2>Riverrun</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/13">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/WdLZ0Kc.png" alt=""></a>
-        <h2>The Twins</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/12">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/jJitSpW.png" alt=""></a>
-        <h2>Whispering Wood</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/locations/10">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/gzqpz8j.png" alt=""></a>
-        <h2>Winterfell</h2>
-        <p></p>
-      </div>
+    <div class="row pillars" id="test">
     </div>
     <!-- /.row -->
     <hr>
@@ -132,4 +48,30 @@
   </div>
   <!-- /.container -->
 </body>
+
+<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
+<script>  
+    var info = get_data('locations');
+    var result = JSON.parse(info);
+   
+    for (var i = 1; i <= result.length; i++) {
+      var div = document.createElement("DIV");   
+      var href = document.createElement("A");
+      var img = document.createElement("IMG");
+      var h2 = document.createElement("H2");
+      var text = document.createTextNode(result[i-1].location_name);
+  
+      div.setAttribute("class", "col-sm-4");
+      href.setAttribute("href", "/locations/" + i);
+      img.setAttribute("src", "static/images/locations/location" + i + ".png");
+      img.setAttribute("class", "img-circle img-responsive img-center");
+      h2.appendChild(text);
+  
+      href.appendChild(img);
+      div.appendChild(href);
+      div.appendChild(h2);
+  
+    document.getElementById("test").appendChild(div);      
+  }
+</script>
 {% endblock %}
