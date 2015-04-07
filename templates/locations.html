@@ -44,33 +44,22 @@
       <tr>
         <th>#</th>
         <th></th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Gender</th>
-        <th>Religion</th>
-        <th>Status</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Superior</th>
         </tr>
       </thead>
     
       <tbody>
+      {% for x in range(1,15) %}
         <tr>
-          <th scope="row">1</th>
-          <td><div class="img-circle"</div></td>
-          <td>Robert</td>
-          <td>Baratheon</td>
-          <td>Male</td>
-          <td>Faith of the Seven</td>
-          <td>Deceased</td>
+          <th scope="row" id="id{{x}}"></th>
+            <td><div class="img-circle"></div></td>
+            <td id="name{{x}}"></td>  
+            <td id="type{{x}}"></td>
+            <td id="superior{{x}}"></td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><div class="img-circle"</div></td>
-          <td>Eddard</td>
-          <td>Stark</td>
-          <td>Male</td>
-          <td>Old Gods of the Forest</td>
-          <td>Deceased</td>
-        </tr>
+      {% endfor %}
       </tbody>
     </table>
   </div>
@@ -100,7 +89,14 @@
       div.appendChild(href);
       div.appendChild(h2);
   
-    document.getElementById("test").appendChild(div);      
-  }
+      // populate grid view
+      document.getElementById("test").appendChild(div);      
+      
+      // populate table view
+      document.getElementById("id" + i).innerHTML = i;
+      document.getElementById("name" + i).innerHTML = result[i-1].location_name;
+      document.getElementById("type" + i).innerHTML = result[i-1].location_type;
+      document.getElementById("superior" + i).innerHTML = result[i-1].location_owner;
+    }
 </script>
 {% endblock %}
