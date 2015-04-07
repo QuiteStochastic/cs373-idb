@@ -66,11 +66,12 @@ body {
   text-align: left;
 }
 
-.footer {
+footer {
   width: 100%;
-  padding: 50px 0;
+  padding: 20px 50px 50px 50px;
   text-align: center;
   vertical-align: text-bottom;
+  margin-top: 50px;
 }
 
 .idb-content {
@@ -176,9 +177,6 @@ table .img-circle {
 }
 
 .copyright p {
+  text-align: center;
   vertical-align: text-bottom;
-}
-
-#footer {
-    background-color: #cccccc;
 }
