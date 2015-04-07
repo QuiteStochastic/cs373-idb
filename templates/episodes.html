@@ -13,6 +13,7 @@
       </div>
     </div>
   </header>
+
   <!-- Page Content -->
   <div class ="container">
     <div class="col-sm-12">
@@ -22,17 +23,20 @@
       </ol>
     </div>
   </div>
+
+  <!-- CONTAINER -->
   <div class="container">
-    <hr>
-    <div class="row">
-      <div class="col-sm-8">
-        <h2>(Placeholder for dynamic table)</h2>
-        <p></p>
-      </div>
+
+    <!-- Toggle Button -->
+    <div class="buttons col-md-10 col-md-offset-2">
+      <button class="grid"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
+      <button class="table-hover"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
     </div>
-    <hr>
-    <!-- /.row -->
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  </div>
+
+  <div class="container">
+    <!-- Panels -->
+    <div class="panel-group pic-grid" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
           <h4 class="panel-title">
@@ -130,18 +134,43 @@
         </div>
       </div>
     </div>
-    <!-- /.row -->
-    <hr>
-    <!-- Footer -->
-    <footer>
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright &copy; House Downing 2015</p>
-        </div>
-      </div>
-      <!-- /.row -->
-    </footer>
+
+    <!-- Table -->
+    <table class="row table table-hover hide">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>Religion</th>
+          <th>Status</th>
+          </tr>
+        </thead>
+      
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><div class="img-circle"</div></td>
+          <td>Robert</td>
+          <td>Baratheon</td>
+          <td>Male</td>
+          <td>Faith of the Seven</td>
+          <td>Deceased</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><div class="img-circle"</div></td>
+          <td>Eddard</td>
+          <td>Stark</td>
+          <td>Male</td>
+          <td>Old Gods of the Forest</td>
+          <td>Deceased</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <!-- /.container -->
+  <!-- END CONTAINER -->
 </body>
 {% endblock %}
