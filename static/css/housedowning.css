@@ -10,14 +10,14 @@
 }
 
 .banner {
-    height: 100px;
-    width: 200px;
+  height: 100px;
+  width: 200px;
 }
 
 .bio p {
-    text-align: left;
-    padding-left: 10px;
-    padding-bottom: 10px;
+  text-align: left;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 
@@ -47,11 +47,11 @@ body {
 }
 
 .business-header {
-    height: 400px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  height: 400px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 /* Borrowed from Bootstrap template */
@@ -67,12 +67,13 @@ body {
 }
 
 footer {
-    margin: 50px 0;
+  width: 100%;
+  padding: 50px 0;
 }
 
 .idb-content {
-    padding: 40px 15px;
-    text-align: center;
+  padding: 40px 15px;
+  text-align: center;
 }
 
 .img-center {
@@ -85,8 +86,8 @@ footer {
 }
 
 .pillars {
-    padding-top: 15px;
-    padding-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .pillars h1 {
@@ -133,11 +134,36 @@ footer {
 }
 
 .tagline {
-    text-shadow: 0 0 10px #000;
-    color: #fff;
-    margin-left: 30px;
-    margin-top: 100px;
-    font-size: 48px;
-    font-family: 'Shift', sans-serif;
-    font-weight: bold;
+  text-shadow: 0 0 10px #000;
+  color: #fff;
+  margin-left: 30px;
+  margin-top: 100px;
+  font-size: 48px;
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.buttons {
+  text-align: right;
+  padding-right: 70px;
+  margin-bottom: 60px; 
+}
+
+.buttons button {
+  border: 0;  
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+span.glyphicon {
+  font-size: 2em;
+}
+
+table .img-circle {
+  height: 30px;
+  width: 30px;
 }
