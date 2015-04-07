@@ -50,7 +50,7 @@
     
       <tbody>
       {% for x in range(1,11) %}
-        <tr>
+        <tr class="clickable-row" id="table-row{{x}}">
           <th scope="row" id="id{{x}}"></th>
             <td><div class="img-circle" id="img{{x}}"></div></td>
             <td id="name{{x}}"></td>
@@ -96,6 +96,8 @@
       table_img.setAttribute("class", "img-circle");
       table_img.setAttribute("src", "static/images/events/event" + i + ".png");
       document.getElementById("img" + i).appendChild(table_img);
+
+      document.getElementById("table-row" + i).setAttribute("data-href", "/events/" + i);
     }
 </script>
 {% endblock %}

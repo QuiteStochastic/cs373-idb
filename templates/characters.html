@@ -54,7 +54,7 @@
     
       <tbody>
       {% for x in range(1,33) %}
-      <tr>
+      <tr class=" clickable-row" id="table-row{{x}}">
         <th scope="row" id="id{{x}}"></th>
         <td><div class="img-circle" id="img{{x}}"></div></td>
         <td id="firstname{{x}}"></td>
@@ -103,10 +103,14 @@
       document.getElementById("gender" + i).innerHTML = result[i-1].gender;
       document.getElementById("religion" + i).innerHTML = result[i-1].religion;
       document.getElementById("status" + i).innerHTML = result[i-1].status;
+
       var table_img = document.createElement("IMG");
       table_img.setAttribute("class", "img-circle");
       table_img.setAttribute("src", "static/images/characters/character" + i + ".png");
       document.getElementById("img" + i).appendChild(table_img);
+
+      document.getElementById("table-row" + i).setAttribute("data-href", "/characters/" + i);
+
   }
 </script>
 {% endblock %}
