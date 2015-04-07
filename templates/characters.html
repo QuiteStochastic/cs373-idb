@@ -32,68 +32,7 @@
     </div>
     <!-- /.row -->
     <hr>
-    <div class="row pillars">
-      <div class="col-sm-4">
-        <a href="/characters/1">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/My1dvpP.png" alt=""></a>
-        <h2>Robert Baratheon</h2>
-      
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/2">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/XGnVaOk.png" alt=""></a>
-        <h2>Cersei Lannister</h2>
-
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/3">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/xBOy64V.png" alt=""></a>
-        <h2>Tyrion Lannister</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/4">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/Jc1vhZK.png" alt=""></a>
-        <h2>Oberyn Martell</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/5">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/rwyfHXY.png" alt=""></a>
-        <h2>Jon Snow</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/6">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/whBXsuz.png" alt=""></a>
-        <h2>Arya Stark</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/7">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/cCdq90q.png" alt=""></a>
-        <h2>Eddard Stark</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/8">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/A4hYdS3.png" alt=""></a>
-        <h2>Daenerys Targaryen</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/9">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/U5tKHPp.png" alt=""></a>
-        <h2>Margaery Tyrell</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/characters/10">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/sZeuVK4.png" alt=""></a>
-        <h2>Ygritte</h2>
-        <p></p>
-      </div>
-    </div>
+    <div class="row pillars" id="content"></div>
     <!-- /.row -->
     <hr>
     <!-- Footer -->
@@ -108,4 +47,31 @@
   </div>
   <!-- /.container -->
 </body>
+
+<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
+<script>  
+    var info = get_data('characters');
+    var result = JSON.parse(info);
+   
+    for (var i = 1; i <= result.length; i++) {
+      var name = result[i-1].last_name === null ? result[i-1].first_name : result[i-1].first_name + ' ' + result[i-1].last_name;
+      var div = document.createElement("DIV");   
+      var href = document.createElement("A");
+      var img = document.createElement("IMG");
+      var h2 = document.createElement("H2");
+      var text = document.createTextNode(name);
+  
+      div.setAttribute("class", "col-sm-4");
+      href.setAttribute("href", "/characters/" + i);
+      img.setAttribute("src", "static/images/characters/character" + i + ".png");
+      img.setAttribute("class", "img-circle img-responsive img-center");
+      h2.appendChild(text);
+  
+      href.appendChild(img);
+      div.appendChild(href);
+      div.appendChild(h2);
+  
+    document.getElementById("content").appendChild(div);      
+  }
+</script>
 {% endblock %}

@@ -32,80 +32,7 @@
     </div>
     <!-- /.row -->
     <hr>
-    <div class="row pillars">
-      <div class="col-sm-4">
-        <a href="/organizations/1">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/TdWqA8z.png" alt=""></a>
-        <h2>House Arryn</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/2">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/2kcOh0H.png" alt=""></a>
-        <h2>House Baratheon of King's Landing</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/3">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/05R5Mxr.png" alt=""></a>
-        <h2>House Baratheon of Dragonstone</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/4">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/KAR4jfh.png" alt=""></a>
-        <h2>Free Folk</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/12">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/81qW5EJ.png" alt=""></a>
-        <h2>House Frey</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/5">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/PTtjrBT.png" alt=""></a>
-        <h2>House Greyjoy</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/6">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/Bng8yxN.png" alt=""></a>
-        <h2>House Lannister</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/7">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/c62py5A.png" alt=""></a>
-        <h2>Night's Watch</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/8">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/agpULrP.png" alt=""></a>
-        <h2>House Stark</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/9">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/40GWXGT.png" alt=""></a>
-        <h2>House Targaryen</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/10">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/n5Qw0KY.png" alt=""></a>
-        <h2>House Tully</h2>
-        <p></p>
-      </div>
-      <div class="col-sm-4">
-        <a href="/organizations/11">
-          <img class="img-circle img-responsive img-center" src="http://i.imgur.com/PbfoL6X.png" alt=""></a>
-        <h2>House Tyrell</h2>
-        <p></p>
-      </div>
-    </div>
+    <div class="row pillars" id="content"></div>
     <!-- /.row -->
     <hr>
     <!-- Footer -->
@@ -120,4 +47,29 @@
   </div>
   <!-- /.container -->
 </body>
+<SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
+<script>  
+    var info = get_data('organizations');
+    var result = JSON.parse(info);
+   
+    for (var i = 1; i <= result.length; i++) {
+      var div = document.createElement("DIV");   
+      var href = document.createElement("A");
+      var img = document.createElement("IMG");
+      var h2 = document.createElement("H2");
+      var text = document.createTextNode(result[i-1].org_name);
+  
+      div.setAttribute("class", "col-sm-4");
+      href.setAttribute("href", "/organizations/" + i);
+      img.setAttribute("src", "static/images/organizations/org" + i + ".png");
+      img.setAttribute("class", "img-circle img-responsive img-center");
+      h2.appendChild(text);
+  
+      href.appendChild(img);
+      div.appendChild(href);
+      div.appendChild(h2);
+  
+    document.getElementById("content").appendChild(div);      
+  }
+</script>
 {% endblock %}
