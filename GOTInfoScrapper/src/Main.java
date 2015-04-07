@@ -73,7 +73,7 @@ public class Main {
                 e=e.nextElementSibling();
             }
 
-            String plotDescription=" ";
+            String plotDescription="";
             while(e.tagName().equals("p")){
 
                 String s=e.html();
@@ -81,7 +81,7 @@ public class Main {
                 plotDescription=plotDescription+cleaned+" ";
                 e=e.nextElementSibling();
             }
-            results.add(linestr+","+plotDescription);
+            results.add(linestr+","+"\""+plotDescription+"\"");
 
         }
 
