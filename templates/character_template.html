@@ -68,21 +68,21 @@
 
 <script src="../static/js/pulldata.js"></script>
 <script> 
-    var info = get_data('characters');
+  
+    var info = get_one('characters', {{char_id}});
     var result = JSON.parse(info);
-    var index = {{char_id}} - 1;
     var name, alias, religion;
   
-    name = result[index].last_name === null ? result[index].first_name : result[index].first_name + ' ' + result[index].last_name;
-    alias = result[index].alias === null ? 'n/a' : result[index].alias;
-    religion = result[index].religion === null ? 'n/a' : result[index].religion;
+    name = result.last_name === null ? result.first_name : result.first_name + ' ' + result.last_name;
+    alias = result.alias === null ? 'n/a' : result.alias;
+    religion = result.religion === null ? 'n/a' : result.religion;
 
     document.getElementById("breadcrumb_name").innerHTML = name;
     document.getElementById("header_name").innerHTML = name;
     document.getElementById("alias").innerHTML = alias;
-    document.getElementById("gender").innerHTML = result[index].gender; 
+    document.getElementById("gender").innerHTML = result.gender; 
     document.getElementById("religion").innerHTML = religion;
-    document.getElementById("status").innerHTML = result[index].status; 
-    document.getElementById("description").innerHTML = result[index].description;
+    document.getElementById("status").innerHTML = result.status; 
+    document.getElementById("description").innerHTML = result.description;
 </script>
 {% endblock %}

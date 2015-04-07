@@ -65,17 +65,14 @@
 </body>
 
 <SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
-
-<!-- pulling character info from apiary -->
 <script>  
-    var info = get_data('events');
+    var info = get_one('events', {{event_id}});
     var result = JSON.parse(info);
-    var index = {{event_id}} - 1;
 
-    document.getElementById("breadcrumb_name").innerHTML = result[index].event_name;
-    document.getElementById("header_name").innerHTML = result[index].event_name;
-    document.getElementById("location").innerHTML = result[index].location_id; 
-    document.getElementById("type").innerHTML = result[index].event_type; 
-    document.getElementById("description").innerHTML = result[index].event_description; 
+    document.getElementById("breadcrumb_name").innerHTML = result.event_name;
+    document.getElementById("header_name").innerHTML = result.event_name;
+    document.getElementById("location").innerHTML = result.location_id; 
+    document.getElementById("type").innerHTML = result.event_type; 
+    document.getElementById("description").innerHTML = result.event_description; 
 </script>
 {% endblock %}
