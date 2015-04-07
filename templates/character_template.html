@@ -73,7 +73,6 @@
     var result = JSON.parse(info);
     var name, alias, religion;
   
-  
     name = result.last_name === null ? result.first_name : result.first_name + ' ' + result.last_name;
     alias = result.alias === null ? 'n/a' : result.alias;
     religion = result.religion === null ? 'n/a' : result.religion;

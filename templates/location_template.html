@@ -67,15 +67,14 @@
 
 <SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
 <script>  
-    var info = get_data('locations');
+    var info = get_one('locations', {{loc_id}});
     var result = JSON.parse(info);
-    var index = {{loc_id}} - 1;
 
-    document.getElementById("breadcrumb_name").innerHTML = result[index].location_name;
-    document.getElementById("header_name").innerHTML = result[index].location_name;
-    document.getElementById("superior_loc").innerHTML = result[index].location_superior; 
-    document.getElementById("org").innerHTML = result[index].organization_id; 
-    document.getElementById("type").innerHTML = result[index].location_type;
-    document.getElementById("description").innerHTML = result[index].location_description; 
+    document.getElementById("breadcrumb_name").innerHTML = result.location_name;
+    document.getElementById("header_name").innerHTML = result.location_name;
+    document.getElementById("superior_loc").innerHTML = result.location_owner; 
+    // UNDEFINED -> document.getElementById("org").innerHTML = result.organization_id; 
+    document.getElementById("type").innerHTML = result.location_type;
+    document.getElementById("description").innerHTML = result.location_desc; 
 </script>
 {% endblock %}
