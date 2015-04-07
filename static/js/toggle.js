@@ -1,4 +1,4 @@
-$('button').on('click',function(e) {
+$('.buttons button').on('click',function(e) {
     if ($(this).hasClass('grid')) {
         $('.container .pic-grid').removeClass('hide');
       	$('.container table').addClass('hide');
