@@ -77,7 +77,7 @@
       var href = document.createElement("A");
       var img = document.createElement("IMG");
       var h2 = document.createElement("H2");
-      var text = document.createTextNode(result[i-1].location_name);
+      var text = document.createTextNode(result[i-1].name);
 
       div.setAttribute("class", "col-sm-4");
       href.setAttribute("href", "/locations/" + i);
@@ -94,8 +94,8 @@
       
       // populate table view
       document.getElementById("id" + i).innerHTML = i;
-      document.getElementById("name" + i).innerHTML = result[i-1].location_name;
-      document.getElementById("type" + i).innerHTML = result[i-1].location_type;
+      document.getElementById("name" + i).innerHTML = result[i-1].name;
+      document.getElementById("type" + i).innerHTML = result[i-1].loc_type;
       document.getElementById("superior" + i).innerHTML = result[i-1].location_owner;
       var table_img = document.createElement("IMG");
       table_img.setAttribute("class", "img-circle");

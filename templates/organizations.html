@@ -74,7 +74,7 @@
       var href = document.createElement("A");
       var img = document.createElement("IMG");
       var h2 = document.createElement("H2");
-      var text = document.createTextNode(result[i-1].org_name);
+      var text = document.createTextNode(result[i-1].name);
   
       div.setAttribute("class", "col-sm-4");
       href.setAttribute("href", "/organizations/" + i);
@@ -91,7 +91,7 @@
       
       // populate table view
       document.getElementById("id" + i).innerHTML = i;
-      document.getElementById("name" + i).innerHTML = result[i-1].org_name;
+      document.getElementById("name" + i).innerHTML = result[i-1].name;
       document.getElementById("type" + i).innerHTML = result[i-1].org_type;
       var table_img = document.createElement("IMG");
       table_img.setAttribute("class", "img-circle");
