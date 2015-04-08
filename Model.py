@@ -2,17 +2,17 @@ from FlaskApp import db
 
 #################
 # Data Modeling #
-Participant = db.Table('participant',
+Participant = db.Table('Participant',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Party = db.Table('party',
+Party = db.Table('Party',
     db.Column('org_id', db.Integer, db.ForeignKey('organization.org_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Visitor = db.Table('visitor',
+Visitor = db.Table('Visitor',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('loc_id', db.Integer, db.ForeignKey('location.loc_id'))
 )
@@ -29,12 +29,6 @@ class Character(db.Model):
     religion = db.Column(db.String(255))
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
-    
-    birth_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    death_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
-    last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
-
     
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
@@ -64,9 +58,6 @@ class Event(db.Model):
     name = db.Column(db.String(255), unique=True)
     event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-
-    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    ep_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
     
     def __init__(self, name, desc = ""):
         db.Model.__init__(self)
@@ -94,10 +85,10 @@ class Location(db.Model):
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    superior_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    owner_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
     
     # Relationships
-    owner = db.relationship('Location',
+    owner = db.relationship('Character',
                             backref=db.backref('locations', lazy='dynamic'))
     
     def __init__(self, name):
@@ -110,7 +101,7 @@ class Location(db.Model):
             'name':self.name,
             'loc_type':self.loc_type,
             'description':self.description,
-            'superior_loc':self.superior_loc
+            'location_owner':self.owner_id
         }
     
     def __repr__(self):
