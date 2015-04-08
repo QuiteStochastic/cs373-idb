@@ -35,13 +35,25 @@ class Character(db.Model):
     first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
     last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
     
-    organization = db.relationship('organization',
-                       backref=db.backref('organizations', lazy='dynamic'))
+    @classmethod
+    def get(cls, charid):
+        character = Character.query.get(charid)
+        return character if character is not None else Character("","")
     
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
+        self.char_id = None
         self.first_name = firstname
         self.last_name = lastname
+        self.alias = None
+        self.gender = None
+        self.religion = None
+        self.status = None
+        self.description = None
+        self.birth_loc = None
+        self.death_loc = None
+        self.first_episode = None
+        self.last_episode = None
     
     def serialize(self):
         return {
@@ -71,13 +83,30 @@ class Event(db.Model):
     event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    ep_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))    
+    loction_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    location = db.relationship("Location", backref="events")
     
-    def __init__(self, name, desc = ""):
+    episode_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
+    episode = db.relationship("Episode", backref="events")
+    
+    characters = db.relationship("Character", backref="events",
+                                 secondary=Participant)
+    organizations = db.relationship("Organization", backref="events",
+                                    secondary=Party)
+    
+    @classmethod
+    def get(cls, event_id):
+        event = Event.query.get(event_id)
+        return event if event is not None else Location("None")
+    
+    def __init__(self, name, etype=None, desc=""):
         db.Model.__init__(self)
+        self.event_id = None
         self.name = name
+        self.event_type = etype
         self.description = desc
+        self.loc_id = None
+        self.ep_id = None
     
     def serialize(self):
         return {
@@ -102,27 +131,41 @@ class Location(db.Model):
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     superior_loc = db.Column(db.Integer, db.ForeignKey('location.ep_id'))
+
     
-    # Relationships
-    event = db.relationship('episode',
-                            backref=db.backref('episodes', lazy='dynamic'))
-    chars = db.relationship('character',
-                            backref=db.backref('characters', lazy='dynamic'))
-    organization = db.relationship('organization',
-                            backref=db.backref('organizations', lazy='dynamic'))
+    superior_loc = db.relationship("Location")
+    characters = db.relationship("Character", backref="locations",
+                                 secondary=Visitor)
     
-    def __init__(self, name):
+    @classmethod
+    def get(cls, locid):
+        location = Location.query.get(locid)
+        return location if location is not None else Location("")
+    
+    def __init__(self, name, ltype=0):
         db.Model.__init__(self)
+        self.loc_id = None
         self.name = name
+        self.loc_type = ltype
+        self.description = ""
+        self.superior_loc = None
     
-    def serialize(self):
-        return {
-            'loc_id':self.loc_id,
-            'name':self.name,
-            'loc_type':self.loc_type,
-            'description':self.description,
-            'superior_location':self.superior_loc
-        }
+    def serialize(self, brief=False):
+        if brief:
+            return {
+                'loc_id':self.loc_id,
+                'name':self.name,
+                'loc_type':self.loc_type,
+                'superior_location':self.superior_loc
+            }
+        else:
+            return {
+                'loc_id':self.loc_id,
+                'name':self.name,
+                'loc_type':self.loc_type,
+                'description':self.description,
+                'superior_location':self.superior_loc
+            }
     
     def __repr__(self):
         return "Location('{}')".format(self.name)
@@ -136,12 +179,24 @@ class Organization(db.Model):
     org_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    location_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    location = db.relationship("Location", backref="organizations")
     leader_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    leader = db.relationship("Character", backref="leader")
     
-    def __init__(self, name):
+    @classmethod
+    def get(cls, orgid):
+        org = Organization.query.get(orgid)
+        return org if org is not None else Organization("")
+    
+    def __init__(self, name, org_type=0):
         db.Model.__init__(self)
+        self.org_id = None
         self.name = name
+        self.org_type = None
+        self.description = ""
+        self.loc_id = None
+        self.leader_id = None
     
     def serialize(self):
         return {
@@ -166,12 +221,13 @@ class Episode(db.Model):
     episode_number = db.Column(db.Integer)
     description = db.Column(db.Text)
     
-    event = db.relationship('event',
-                            backref=db.backref('events', lazy='dynamic'))
-    
     def __init__(self, name):
         db.Model.__init__(self)
+        self.ep_id = None
         self.name = name
+        self.season = None
+        self.episode_number = None
+        self.description = None
     
     def serialize(self):
         return {
@@ -196,12 +252,14 @@ class Membership(db.Model):
     status = db.Column(db.String(255))
     active = db.Column(db.Boolean)
     
-    char_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    character_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    character = db.relationship("Character", backref="memberships")
     org_id = db.Column(db.Integer, db.ForeignKey('organization.org_id'))
+    org = db.relationship("Organization", backref="memberships")
     
     def __init__(self, character, orginazation, rank, active=True):
         db.Model.__init__(self)
-        self.char_id = character.char_id
+        self.character_id = character.char_id
         self.org_id = orginazation.org_id
         self.rank = rank
         self.active = active
