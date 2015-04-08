@@ -3,7 +3,7 @@ delete from location *;
 delete from organization *;
 delete from event *;
 delete from episode *;
-delete from member *;
+delete from membership *;
 delete from participant *;
 delete from party *;
 delete from visitor *;
