@@ -2,17 +2,17 @@ from FlaskApp import db
 
 #################
 # Data Modeling #
-Participant = db.Table('Participant',
+Participant = db.Table('participant',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Party = db.Table('Party',
+Party = db.Table('party',
     db.Column('org_id', db.Integer, db.ForeignKey('organization.org_id')),
     db.Column('event_id', db.Integer, db.ForeignKey('event.event_id'))
 )
 
-Visitor = db.Table('Visitor',
+Visitor = db.Table('visitor',
     db.Column('char_id', db.Integer, db.ForeignKey('character.char_id')),
     db.Column('loc_id', db.Integer, db.ForeignKey('location.loc_id'))
 )
@@ -29,7 +29,15 @@ class Character(db.Model):
     religion = db.Column(db.String(255))
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
-    
+
+    birth_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    death_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
+    last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
+   
+    organization = db.relationship('organization',
+                            backref=db.backref('organizations', lazy='dynamic'))
+     
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
         self.first_name = firstname
@@ -44,7 +52,11 @@ class Character(db.Model):
             'gender':self.gender,
             'religion':self.religion,
             'status':self.status,
-            'description':self.description
+            'description':self.description,
+            'birth_loc':self.birth_loc,
+            'death_loc':self.death_loc,
+            'first_episode':self.first_episode,
+            'last_episode':self.last_episode
         }
     
     def __repr__(self):
@@ -59,6 +71,9 @@ class Event(db.Model):
     event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
+    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    ep_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))    
+    
     def __init__(self, name, desc = ""):
         db.Model.__init__(self)
         self.name = name
@@ -69,7 +84,9 @@ class Event(db.Model):
             'event_id':self.event_id,
             'name':self.name,
             'type':self.event_type,
-            'description':self.description
+            'description':self.description,
+            'loc_id':self.loc_id,
+            'ep_id':self.ep_id
         }
     
     def __repr__(self):
@@ -84,13 +101,16 @@ class Location(db.Model):
     name = db.Column(db.String(255), unique=True)
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-    
-    owner_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    superior_loc = db.Column(db.String(255))
     
     # Relationships
-    owner = db.relationship('Character',
-                            backref=db.backref('locations', lazy='dynamic'))
-    
+    event = db.relationship('episode',
+                            backref=db.backref('episodes', lazy='dynamic'))
+    chars = db.relationship('character',
+                            backref=db.backref('characters', lazy='dynamic'))
+    organization = db.relationship('organization',
+                            backref=db.backref('organizations', lazy='dynamic'))
+ 
     def __init__(self, name):
         db.Model.__init__(self)
         self.name = name
@@ -101,7 +121,7 @@ class Location(db.Model):
             'name':self.name,
             'loc_type':self.loc_type,
             'description':self.description,
-            'location_owner':self.owner_id
+            'superior_location':self.superior_loc
         }
     
     def __repr__(self):
@@ -116,6 +136,9 @@ class Organization(db.Model):
     org_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
+    loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    leader_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
+    
     def __init__(self, name):
         db.Model.__init__(self)
         self.name = name
@@ -125,7 +148,9 @@ class Organization(db.Model):
             'org_id':self.org_id,
             'name':self.name,
             'org_type':self.org_type,
-            'desc':self.description
+            'description':self.description,
+            'loc_id':self.loc_id,
+            'leader_id':self.leader_id
         }
     
     def __repr__(self):
@@ -140,6 +165,9 @@ class Episode(db.Model):
     season = db.Column(db.Integer)
     episode_number = db.Column(db.Integer)
     description = db.Column(db.Text)
+
+    event = db.relationship('event',
+                            backref=db.backref('events', lazy='dynamic'))
     
     def __init__(self, name):
         db.Model.__init__(self)
@@ -182,11 +210,10 @@ class Membership(db.Model):
     def serialize(self):
         return {
             'member_id':self.member_id,
-            'member_rank':self.rank,
-            'member_status':self.status,
-            'member_active':self.active,
-            'member_char_id':self.char_id,
-            'member_org_id':self.org_id
+            'rank':self.rank,
+            'active':self.active,
+            'char_id':self.char_id,
+            'org_id':self.org_id
         }
     
     def __repr__(self):
