@@ -130,8 +130,9 @@ class Location(db.Model):
     name = db.Column(db.String(255), unique=True)
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-    superior_loc = db.Column(db.String(255))
+    superior_loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     
+    superior_loc = db.relationship("Location")
     characters = db.relationship("Character", backref="locations",
                                  secondary=Visitor)
     
