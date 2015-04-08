@@ -12,7 +12,7 @@ public class Main {
     //character descriptions
     //event descriptions
     //location descr
-    //
+    //organization descr
 
     public static void main(String[] args) {
 

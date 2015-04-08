@@ -2,5 +2,5 @@
 # For more information see: http://git-scm.com/docs/gitignore/
 __pycache__
 *.pyc
-GOTInfoScraper/.idea*
+GOTInfoScraper/.idea
 GOTInfoScraper/GOTInfoScraper.iml
