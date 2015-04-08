@@ -29,15 +29,15 @@ class Character(db.Model):
     religion = db.Column(db.String(255))
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
-
+    
     birth_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     death_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
     last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
-   
+    
     organization = db.relationship('organization',
-                            backref=db.backref('organizations', lazy='dynamic'))
-     
+                       backref=db.backref('organizations', lazy='dynamic'))
+    
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
         self.first_name = firstname
@@ -110,7 +110,7 @@ class Location(db.Model):
                             backref=db.backref('characters', lazy='dynamic'))
     organization = db.relationship('organization',
                             backref=db.backref('organizations', lazy='dynamic'))
- 
+    
     def __init__(self, name):
         db.Model.__init__(self)
         self.name = name
@@ -155,7 +155,7 @@ class Organization(db.Model):
     
     def __repr__(self):
         return "Organization('{}')".format(self.name)
-      
+
 class Episode(db.Model):
     """
     Models an episode from the GoT series.
@@ -165,7 +165,7 @@ class Episode(db.Model):
     season = db.Column(db.Integer)
     episode_number = db.Column(db.Integer)
     description = db.Column(db.Text)
-
+    
     event = db.relationship('event',
                             backref=db.backref('events', lazy='dynamic'))
     
@@ -219,37 +219,3 @@ class Membership(db.Model):
     def __repr__(self):
         return "Membership({},{},{},{})".format(self.char_id, self.org_id,
                                                 self.rank, self.active)
-
-class User(db.Model):
-    """
-    A user of this web-service.
-    Used for authenticating creation/deletion/updating of data managed by the
-    web-service to prevent unauthorized access to those features.
-    """
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), unique=True)
-    passwordhash = db.Column(db.String(255))
-    email = db.Column(db.String(255), unique=True)
-    joindate = db.Column(db.Date)
-    session = db.Column(db.String(255))
-    editor = db.Column(db.Boolean)
-    admin = db.Column(db.Boolean)
-    
-    def __init__(self, username, password):
-        db.Model.__init__(self)
-        self.username = username
-    
-    def set_password(self, newpassword):
-        """
-        Set the users password. This stores the result of hashing the salted
-        password in the password_hash member variable.
-        """
-        self.password_hash = generate_password_hash(newpassword)
-    
-    def check_password(self, passwd):
-        """
-        Check the users password (as plain-text) against the stored password
-        hash.
-        """
-        return (self.password_hash == None or
-                check_password_hash(self.password_hash, passwd))
