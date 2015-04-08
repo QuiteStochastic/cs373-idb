@@ -101,7 +101,7 @@ class Location(db.Model):
     name = db.Column(db.String(255), unique=True)
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-    superior_loc = db.Column(db.String(255))
+    superior_loc = db.Column(db.Integer, db.ForeignKey('location.ep_id'))
     
     # Relationships
     event = db.relationship('episode',
