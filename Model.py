@@ -194,7 +194,7 @@ class Organization(db.Model):
         self.name = name
         self.org_type = None
         self.description = ""
-        self.loc_id = None
+        self.location_id = None
         self.leader_id = None
     
     def serialize(self):
@@ -203,7 +203,7 @@ class Organization(db.Model):
             'name':self.name,
             'org_type':self.org_type,
             'description':self.description,
-            'loc_id':self.loc_id,
+            'location_id':self.location_id,
             'leader_id':self.leader_id
         }
     
