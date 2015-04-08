@@ -39,7 +39,7 @@
     </div>  
 
     <!-- Table -->
-    <table class="row table table-hover hide">
+    <table class="row table table-hover hide tablesorter" id="tableView">
       <thead>
       <tr>
         <th>#</th>
@@ -104,5 +104,8 @@
 
       document.getElementById("table-row" + i).setAttribute("data-href", "/locations/" + i);
     }
+</script>
+<script>
+  $("#tableView").tablesorter(); 
 </script>
 {% endblock %}

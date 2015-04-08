@@ -60,11 +60,11 @@
     var info = get_one('locations', {{loc_id}});
     var result = JSON.parse(info);
 
-    document.getElementById("breadcrumb_name").innerHTML = result.location_name;
-    document.getElementById("header_name").innerHTML = result.location_name;
+    document.getElementById("breadcrumb_name").innerHTML = result.name;
+    document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("superior_loc").innerHTML = result.location_owner; 
     // UNDEFINED -> document.getElementById("org").innerHTML = result.organization_id; 
-    document.getElementById("type").innerHTML = result.location_type;
+    document.getElementById("type").innerHTML = result.loc_type;
     document.getElementById("description").innerHTML = result.location_desc; 
 </script>
 {% endblock %}

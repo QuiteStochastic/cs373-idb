@@ -38,7 +38,7 @@
    </div>
 
     <!-- Table -->
-    <table class="row table table-hover hide">
+    <table class="row table table-hover hide tablesorter" id="tableView">
       <thead>
       <tr>
         <th>#</th>
@@ -53,7 +53,7 @@
     
       <tbody>
       {% for x in range(1,33) %}
-      <tr class=" clickable-row" id="table-row{{x}}">
+      <tr class="clickable-row" id="table-row{{x}}">
         <th scope="row" id="id{{x}}"></th>
         <td><div class="img-circle" id="img{{x}}"></div></td>
         <td id="firstname{{x}}"></td>
@@ -111,5 +111,8 @@
       document.getElementById("table-row" + i).setAttribute("data-href", "/characters/" + i);
 
   }
+</script>
+<script>
+  $("#tableView").tablesorter(); 
 </script>
 {% endblock %}

@@ -57,8 +57,8 @@
     var info = get_one('events', {{event_id}});
     var result = JSON.parse(info);
 
-    document.getElementById("breadcrumb_name").innerHTML = result.event_name;
-    document.getElementById("header_name").innerHTML = result.event_name;
+    document.getElementById("breadcrumb_name").innerHTML = result.name;
+    document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("location").innerHTML = result.location_id; 
     document.getElementById("type").innerHTML = result.event_type; 
     document.getElementById("description").innerHTML = result.event_description; 
