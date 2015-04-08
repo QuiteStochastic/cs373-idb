@@ -181,17 +181,3 @@ def get_location(lid):
         flask.abort(404)
     return flask.jsonify(loc.serialize())
 
-@app.route('/api/memberships')
-@cross_origin()
-def get_all_memberships():
-    return json_response([m.serialize() for m in Membership.query.all()])
-
-@app.route('/api/memberships/<int:mid>')
-@cross_origin()
-def get_membership(mid):
-    mem = Membership.query.get(mid)
-    if mem is None:
-        flask.abort(404)
-    return flask.jsonify(mem.serialize())
-
-
