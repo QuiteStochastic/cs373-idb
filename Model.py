@@ -105,8 +105,8 @@ class Event(db.Model):
         self.name = name
         self.event_type = etype
         self.description = desc
-        self.loc_id = None
-        self.ep_id = None
+        self.location_id = None
+        self.episode_id = None
     
     def serialize(self):
         return {
@@ -114,8 +114,8 @@ class Event(db.Model):
             'name':self.name,
             'event_type':self.event_type,
             'description':self.description,
-            'loc_id':self.loc_id,
-            'ep_id':self.ep_id
+            'loc_id':self.location_id,
+            'ep_id':self.episode_id
         }
     
     def __repr__(self):
@@ -130,8 +130,7 @@ class Location(db.Model):
     name = db.Column(db.String(255), unique=True)
     loc_type = db.Column(db.String(255))
     description = db.Column(db.Text)
-    superior_loc = db.Column(db.Integer, db.ForeignKey('location.ep_id'))
-
+    superior_loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     
     superior_loc = db.relationship("Location")
     characters = db.relationship("Character", backref="locations",
