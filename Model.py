@@ -83,7 +83,7 @@ class Event(db.Model):
         return {
             'event_id':self.event_id,
             'name':self.name,
-            'type':self.event_type,
+            'event_type':self.event_type,
             'description':self.description,
             'loc_id':self.loc_id,
             'ep_id':self.ep_id

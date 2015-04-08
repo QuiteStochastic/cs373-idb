@@ -38,7 +38,7 @@
     </div>
 
     <!-- Table -->
-    <table class="row table table-hover hide">
+    <table class="row table table-hover hide tablesorter" id="tableView">
       <thead>
       <tr>
         <th>#</th>
@@ -59,6 +59,8 @@
       {% endfor %}
       </tbody>
     </table>
+    <!-- TABLE END -->
+    
   </div>
   <!-- CONTAINER END -->
 </body>
@@ -67,13 +69,13 @@
 <script>  
     var info = get_data('events');
     var result = JSON.parse(info);
-   
+
     for (var i = 1; i <= result.length; i++) {
       var div = document.createElement("DIV");   
       var href = document.createElement("A");
       var img = document.createElement("IMG");
       var h2 = document.createElement("H2");
-      var text = document.createTextNode(result[i-1].event_name);
+      var text = document.createTextNode(result[i-1].name);
   
       div.setAttribute("class", "col-sm-4");
       href.setAttribute("href", "/events/" + i);
@@ -90,7 +92,7 @@
       
       // populate table view
       document.getElementById("id" + i).innerHTML = i;
-      document.getElementById("name" + i).innerHTML = result[i-1].event_name;
+      document.getElementById("name" + i).innerHTML = result[i-1].name;
       document.getElementById("type" + i).innerHTML = result[i-1].event_type;
       var table_img = document.createElement("IMG");
       table_img.setAttribute("class", "img-circle");
@@ -99,5 +101,8 @@
 
       document.getElementById("table-row" + i).setAttribute("data-href", "/events/" + i);
     }
+</script>
+<script>
+  $("#tableView").tablesorter(); 
 </script>
 {% endblock %}
