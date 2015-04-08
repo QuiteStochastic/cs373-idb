@@ -22,10 +22,13 @@ class ConfigTesting(ConfigBase):
 
 db = SQLAlchemy()
 
+def import_data(db, app, rawpath):
+    pass
+
 def json_response(obj):
     return Response(json.dumps(obj), mimetype='application/json')
 
-def drop_all(db):
+def drop_all(db, app):
     """
     Manually drop all tables, if they exist.
     
@@ -34,12 +37,17 @@ def drop_all(db):
     be manually updated any time the names of the tables used by our model
     changes.
     """
-    print("Dropping all tables from {}".format(db))
+    ctx = app.test_request_context()
+    ctx.push()
+    
     db.engine.execute("drop table if exists character cascade;")
     db.engine.execute("drop table if exists event cascade;")
     db.engine.execute("drop table if exists location cascade;")
     db.engine.execute("drop table if exists organization cascade;")
+    db.engine.execute("drop table if exists episode cascade;")
     db.engine.execute("drop table if exists membership cascade;")
-    db.engine.execute("drop table if exists Participant cascade;")
-    db.engine.execute("drop table if exists Party cascade;")
-    db.engine.execute("drop table if exists Visitor cascade;")
+    db.engine.execute("drop table if exists participant cascade;")
+    db.engine.execute("drop table if exists party cascade;")
+    db.engine.execute("drop table if exists visitor cascade;")
+    
+    ctx.pop()
