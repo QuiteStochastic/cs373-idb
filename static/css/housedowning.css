@@ -103,11 +103,7 @@ footer {
   font-family: 'Shift', sans-serif;
   font-size: 20px;
   text-align: center;
-}
-
-.pillars p {
-  text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .pillars .info {
