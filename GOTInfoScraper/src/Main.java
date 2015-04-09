@@ -34,7 +34,7 @@ public class Main {
             linestr=linestr.replaceAll(", ", "-");
 
             String[] line=linestr.split(",");
-
+            line[1]="\""+line[1]+"\"";
             String episodeName=line[1];
             episodeName=episodeName.replaceAll("-",", ").replaceAll("\"","");
 
