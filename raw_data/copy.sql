@@ -1,12 +1,12 @@
+delete from membership *;
 delete from participant *;
 delete from party *;
 delete from visitor *;
-delete from character *;
-delete from location *;
 delete from organization *;
+delete from character *;
 delete from event *;
+delete from location *;
 delete from episode *;
-delete from membership *;
 
 copy character from '/../../../../../home/cs373-idb/raw_data/character.csv' delimiter ',' csv;
 copy location from '/../../../../../home/cs373-idb/raw_data/location.csv' delimiter ',' csv;
