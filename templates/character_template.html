@@ -111,26 +111,26 @@
       document.getElementById("affiliations").appendChild(link);
     }    
   
-    // Create links to locations
-    for (var i = 0; i < locations.length; i++) {
-      var location = locations[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(location.name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/locations/" + location.loc_id);
-      link.appendChild(text);
-      document.getElementById("locations").appendChild(link);
-    }  
+//     // Create links to locations
+//     for (var i = 0; i < locations.length; i++) {
+//       var location = locations[i];
+//       var link = document.createElement("A");
+//       var text = document.createTextNode(location.name);
+//       link.setAttribute("class", "list-group-item");
+//       link.setAttribute("href", "/locations/" + location.loc_id);
+//       link.appendChild(text);
+//       document.getElementById("locations").appendChild(link);
+//     }  
   
-    // Create links to events
-    for (var i = 0; i < events.length; i++) {
-      var event = events[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(event.name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/events/" + event.event_id);
-      link.appendChild(text);
-      document.getElementById("events").appendChild(link);
-    }  
+//     // Create links to events
+//     for (var i = 0; i < events.length; i++) {
+//       var event = events[i];
+//       var link = document.createElement("A");
+//       var text = document.createTextNode(event.name);
+//       link.setAttribute("class", "list-group-item");
+//       link.setAttribute("href", "/events/" + event.event_id);
+//       link.appendChild(text);
+//       document.getElementById("events").appendChild(link);
+//     }  
 </script>
 {% endblock %}
