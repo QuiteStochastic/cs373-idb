@@ -176,3 +176,36 @@ table .img-circle {
   text-align: center;
   vertical-align: text-bottom;
 }
+
+
+.thumbnail img { 
+  height: 300px;
+  width: 300px;
+  padding: 20px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.caption {
+  height: 250px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.thumbnail:hover {
+  background-color: #eeeeee;
+  opacity: .9;
+}
+
+.team-bio h1 {
+  font-size: 250%;
+  text-align: center;
+  font-family: 'Shift', sans-serif;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+  /*background-color: #FFBB33;*/
+  margin-left: 0px;
+  margin-top: 50px;
+}
