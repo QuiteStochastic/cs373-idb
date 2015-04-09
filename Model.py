@@ -56,6 +56,8 @@ class Character(db.Model):
         self.last_episode = None
     
     def serialize(self):
+        affiliations=[m.serialize() for m in self.memberships]
+
         return {
             'char_id':self.char_id,
             'first_name':self.first_name,
@@ -68,7 +70,8 @@ class Character(db.Model):
             'birth_loc':self.birth_loc,
             'death_loc':self.death_loc,
             'first_episode':self.first_episode,
-            'last_episode':self.last_episode
+            'last_episode':self.last_episode,
+            'affiliations':affiliations
         }
     
     def __repr__(self):
@@ -265,12 +268,16 @@ class Membership(db.Model):
         self.status = "active" if active else "inactive"
     
     def serialize(self):
+        
         return {
             'member_id':self.member_id,
             'rank':self.rank,
             'active':self.active,
-            'char_id':self.char_id,
-            'org_id':self.org_id
+            'char_id':self.character_id,
+            'char_first_name':self.character.first_name if self.character is not None else "", 
+            'char_last_name':self.character.last_name if self.character is not None else "",
+            'org_id':self.org_id,
+            'org_name':self.org.name if self.org is not None else ""
         }
     
     def __repr__(self):
