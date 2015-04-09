@@ -57,12 +57,7 @@
     </div>
     
     <div class="row">
-      <div class="list-group col-sm-4 col-sm-offset-4">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
-      </div>
+      <div class="list-group col-sm-4 col-sm-offset-4" id="visitors"></div>
     </div>
     
     <!-- /.row -->
@@ -78,8 +73,22 @@
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("superior_loc").innerHTML = result.location_owner; 
-    // UNDEFINED -> document.getElementById("org").innerHTML = result.organization_id; 
+    document.getElementById("org").innerHTML = result.organizations[0].name;
     document.getElementById("type").innerHTML = result.loc_type;
     document.getElementById("description").innerHTML = result.location_desc; 
+  
+    // Create links to characters
+    var visitors;
+    visitors = result.visitors;
+  
+    for (var i = 0; i < visitors.length; i++) {
+      var visitor = visitors[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(visitor.first_name + " " + visitor.last_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/characters/" + visitor.char_id);
+      link.appendChild(text);
+      document.getElementById("visitors").appendChild(link);
+    }  
 </script>
 {% endblock %}
