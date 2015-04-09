@@ -59,17 +59,9 @@
     </div>
     
     <div class="row">
-      <div class="list-group col-sm-3 col-sm-offset-3">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <div class="list-group col-sm-3 col-sm-offset-3" id="particpants">
       </div>
-      <div class="list-group col-sm-3">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <div class="list-group col-sm-3" id="parties">
       </div>
     </div>
     
@@ -82,11 +74,39 @@
 <script>  
     var info = get_one('events', {{event_id}});
     var result = JSON.parse(info);
-
+  
+    // Grab attributes that go into main body of page
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("location").innerHTML = result.location_id; 
     document.getElementById("type").innerHTML = result.event_type; 
     document.getElementById("description").innerHTML = result.event_description; 
+  
+    // Create links to characters
+    var participants, parties;
+    participants = result.participants;
+    parties = result.parties;
+  
+    for (var i = 0; i < participants.length; i++) {
+      var participant = participants[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(participant.char_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/characters/" + participant.char_id);
+      link.appendChild(text);
+      document.getElementById("participants").appendChild(link);
+    }  
+  
+    // Create links to organizations
+    for (var i = 0; i < parties.length; i++) {
+      var party = parties[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(party.org_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/organizations/" + party.org_id;
+      link.appendChild(text);
+      document.getElementById("parties").appendChild(link);
+    } 
+  
 </script>
 {% endblock %}
