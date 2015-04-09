@@ -55,24 +55,31 @@ class Character(db.Model):
         self.first_episode = None
         self.last_episode = None
     
-    def serialize(self):
-        return {
-            'char_id':self.char_id,
-            'first_name':self.first_name,
-            'last_name':self.last_name,
-            'alias':self.alias,
-            'gender':self.gender,
-            'religion':self.religion,
-            'status':self.status,
-            'description':self.description,
-            'birth_loc':self.birth_loc,
-            'death_loc':self.death_loc,
-            'first_episode':self.first_episode,
-            'last_episode':self.last_episode,
-            'affiliations':[m.serialize() for m in self.memberships],
-            'visited':[l.serialize(True) for l in self.locations],
-            'events':[e.serialize(True) for e in self.events]
-        }
+    def serialize(self, brief=False):
+        if brief:
+            return {
+                'char_id':self.char_id,
+                'first_name':self.first_name,
+                'last_name':self.last_name
+            }
+        else:
+            return {
+                'char_id':self.char_id,
+                'first_name':self.first_name,
+                'last_name':self.last_name,
+                'alias':self.alias,
+                'gender':self.gender,
+                'religion':self.religion,
+                'status':self.status,
+                'description':self.description,
+                'birth_loc':self.birth_loc,
+                'death_loc':self.death_loc,
+                'first_episode':self.first_episode,
+                'last_episode':self.last_episode,
+                'affiliations':[m.serialize() for m in self.memberships],
+                'visited':[l.serialize(True) for l in self.locations],
+                'events':[e.serialize(True) for e in self.events]
+            }
     
     def __repr__(self):
         return "Character('{}', '{}')".format(self.first_name, self.last_name)
@@ -124,7 +131,11 @@ class Event(db.Model):
                 'event_type':self.event_type,
                 'description':self.description,
                 'loc_id':self.location_id,
-                'ep_id':self.episode_id
+                'loc_name':self.location.name if self.location is not None else "",
+                'ep_id':self.episode_id,
+                'ep_name':self.episode.name if self.episode is not None else "",
+                'participants':[c.serialize(True) for c in self.characters],
+                'parties':[o.serialize(True) for o in self.organizations]
             }
 
     
