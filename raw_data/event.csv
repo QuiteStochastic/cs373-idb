@@ -1,10 +1,10 @@
-1,The Battle of Blackwater Bay,battle,<description>,7,
-2,The Battle of Castle Black,battle,,3,
-3,The Battle of Whispering Wood,battle,,12,
-4,The Death of Robert Baratheon,death assassination,,7,
-5,The Death of Tywin Lannister,death assassination,,7,
-6,The Execution of Eddard Stark,death execution,,7,
-7,The Purple Wedding,wedding death assassination,,7,
-8,The Red Wedding,wedding death massacre assassination,,13,
-9,Second Trial by Combat of Tyrion Lannister,combat trial death,,7,
-10,Sack of Winterfell,battle,,10,
+1,The Battle of Blackwater Bay,battle,"The Battle of the Blackwater (also called the Battle of Blackwater Bay) is the largest battle in the War of the Five Kings to date.  The battle was an attempt by Stannis Baratheon to take King's Landing, the capital of the Seven Kingdoms, and to seize the Iron Throne from Joffrey Baratheon.  It required a naval assault and an attack on the city gates by land.  Tyrion Lannister, acting Hand of the King, led the defense of the city.",7,19
+2,The Battle of Castle Black,battle,"The Battle of Castle Black is an event during the Conflict Beyond the Wall. Due to the later intervention of Stannis Baratheon, it can also be considered part of the War of the Five Kings.",3,39
+3,The Battle of Whispering Wood,battle,"The Battle of the Whispering Wood was an early battle in the War of the Five Kings, which erupted after King Robert Baratheon's death.",12,9
+4,The Death of Robert Baratheon,death assassination,"Mortally wounded by a wild boar after drinking wine given to him by Lancel Lannister, on orders from Cersei Lannister",7,7
+5,The Death of Tywin Lannister,death assassination,You're afraid of a dead whore?,7,40
+6,The Execution of Eddard Stark,death execution,"Despite previously being promised mercy, King Joffrey commands Lord Eddard's execution, the executioner using the Starks' own ancestral sword, Ice.",7,9
+7,The Purple Wedding,wedding death assassination,"The Purple Wedding is an event in the War of the Five Kings that leads to the death of King Joffrey Baratheon at the wedding feast to his new queen, Margaery Tyrell. Mere hours after their wedding ceremony in the Great Sept of Baelor, King Joffrey is poisoned during the wedding feast. Joffrey's uncle Tyrion Lannister is arrested for the murder, though the actual orchestrators are Lord Petyr Baelish and Lady Olenna Tyrell.",7,32
+8,The Red Wedding,wedding death massacre assassination,"The Red Wedding is a massacre during the War of the Five Kings arranged by Lord Walder Frey as revenge against King Robb Stark for breaking the marriage pact between House Stark and House Frey. During the massacre, King Robb, his wife, Queen Talisa, his mother, Lady Catelyn, and most of his bannermen and men-at-arms are murdered following the marriage feast and bedding of Edmure Tully and Roslin Frey.",13,29
+9,Second Trial by Combat of Tyrion Lannister,combat trial death,"The Mountain fights the Viper, and in the balance hangs the life of the dwarf Tyrion Lannister",7,38
+10,Sack of Winterfell,battle,"In a daring surprise raid, the Ironborn led by Theon Greyjoy capture Winterfell, only to be defeated by the ruthless House of Bolton.",10,20
