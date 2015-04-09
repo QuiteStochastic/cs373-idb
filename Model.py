@@ -56,8 +56,6 @@ class Character(db.Model):
         self.last_episode = None
     
     def serialize(self):
-        affiliations=[m.serialize() for m in self.memberships]
-
         return {
             'char_id':self.char_id,
             'first_name':self.first_name,
@@ -71,7 +69,9 @@ class Character(db.Model):
             'death_loc':self.death_loc,
             'first_episode':self.first_episode,
             'last_episode':self.last_episode,
-            'affiliations':affiliations
+            'affiliations':[m.serialize() for m in self.memberships],
+            'visited':[l.serialize(True) for l in self.locations],
+            'events':[e.serialize(True) for e in self.events]
         }
     
     def __repr__(self):
@@ -111,15 +111,22 @@ class Event(db.Model):
         self.location_id = None
         self.episode_id = None
     
-    def serialize(self):
-        return {
-            'event_id':self.event_id,
-            'name':self.name,
-            'event_type':self.event_type,
-            'description':self.description,
-            'loc_id':self.location_id,
-            'ep_id':self.episode_id
-        }
+    def serialize(self, brief=False):
+        if(brief):
+            return {
+                'event_id':self.event_id,
+                'name':self.name
+            }
+        else:
+            return {
+                'event_id':self.event_id,
+                'name':self.name,
+                'event_type':self.event_type,
+                'description':self.description,
+                'loc_id':self.location_id,
+                'ep_id':self.episode_id
+            }
+
     
     def __repr__(self):
         return "Event('{}')".format(self.name)
@@ -157,8 +164,7 @@ class Location(db.Model):
             return {
                 'loc_id':self.loc_id,
                 'name':self.name,
-                'loc_type':self.loc_type,
-                'superior_location':self.superior_loc
+                'loc_type':self.loc_type
             }
         else:
             return {
