@@ -95,7 +95,7 @@
     document.getElementById("status").innerHTML = result.status; 
     document.getElementById("description").innerHTML = result.description;
   
-    // Create relationship links
+    // Create links to organizations
     var affiliations, locations, events;
     affiliations = result.affiliations;
     locations = result.locations;
@@ -110,5 +110,27 @@
       link.appendChild(text);
       document.getElementById("affiliations").appendChild(link);
     }    
+  
+    // Create links to locations
+    for (var i = 0; i < locations.length; i++) {
+      var location = locations[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(location.loc_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/locations/" + location.loc_id);
+      link.appendChild(text);
+      document.getElementById("locations").appendChild(link);
+    }  
+  
+    // Create links to events
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(event.event_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/events/" + event.event_id);
+      link.appendChild(text);
+      document.getElementById("events").appendChild(link);
+    }  
 </script>
 {% endblock %}
