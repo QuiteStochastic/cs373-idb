@@ -183,7 +183,10 @@ class Location(db.Model):
                 'name':self.name,
                 'loc_type':self.loc_type,
                 'description':self.description,
-                'superior_location':self.superior_loc
+                'superior_location':self.superior_loc,
+                'visitors':[c.serialize(True) for c in self.characters],
+                'events':[e.serialize(True) for e in self.events],
+                'organizations':[o.serialize(True) for o in self.organizations]
             }
     
     def __repr__(self):
