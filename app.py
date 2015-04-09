@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 
-from FlaskApp import db, ConfigRemote, ConfigProduction, drop_all
+from FlaskApp import db, ConfigRemote, ConfigProduction
 import argparse
 import sys
 import os.path
@@ -13,8 +13,6 @@ from Routing import app
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('-m', '--make-tables', action='store_true',
-                           default=False, dest='maketables')
     argparser.add_argument('-p', '--port', nargs=1, type=int, default=[80],
                            action='store')
     argparser.add_argument('-R', '--remote', action='store_true',
@@ -29,9 +27,5 @@ if __name__ == '__main__':
         app.config.from_object(ConfigProduction)
     
     db.init_app(app)
-
-    if args.maketables:
-        drop_all(db, app)
-        db.create_all(app=app)
-        #import_data(db)
+    db.create_all(app=app)
     app.run(host="0.0.0.0", port=args.port[0])
