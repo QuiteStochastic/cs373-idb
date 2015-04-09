@@ -60,17 +60,9 @@
     </div>
     
     <div class="row">
-      <div class="list-group col-sm-3 col-sm-offset-3">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <div class="list-group col-sm-3 col-sm-offset-3" id="members">
       </div>
-      <div class="list-group col-sm-3">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <div class="list-group col-sm-3" id="events">
       </div>
     </div>
     
@@ -81,6 +73,7 @@
 
 <SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
 <script>  
+    // Grab and set attributes that go into main body of page
     var info = get_one('organizations', {{org_id}});
     var result = JSON.parse(info);
 
@@ -90,5 +83,32 @@
     document.getElementById("location").innerHTML = result.loc_id; 
     document.getElementById("type").innerHTML = result.org_type; 
     document.getElementById("description").innerHTML = result.org_desc;   
+  
+    // Create links to characters
+    var characters, events;
+    characters = result.members;
+    events = result.partyto;
+  
+    for (var i = 0; i < characters.length; i++) {
+      var character = characters[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(character.char_first_name + " " + character.char_last_name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/characters/" + character.char_id);
+      link.appendChild(text);
+      document.getElementById("members").appendChild(link);
+    } 
+  
+    // Create links to events
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(event.name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/events/" + event.event_id);
+      link.appendChild(text);
+      document.getElementById("events").appendChild(link);
+    }
+  
 </script>
 {% endblock %}

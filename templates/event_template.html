@@ -72,10 +72,10 @@
 
 <SCRIPT language="JavaScript" SRC="../static/js/pulldata.js"></SCRIPT> 
 <script>  
+    // Grab and set attributes that go into main body of page
     var info = get_one('events', {{event_id}});
     var result = JSON.parse(info);
   
-    // Grab attributes that go into main body of page
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("location").innerHTML = result.location_id; 
