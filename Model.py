@@ -86,7 +86,7 @@ class Event(db.Model):
     event_type = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    loction_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
+    location_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     location = db.relationship("Location", backref="events")
     
     episode_id = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
@@ -206,15 +206,26 @@ class Organization(db.Model):
         self.location_id = None
         self.leader_id = None
     
-    def serialize(self):
-        return {
-            'org_id':self.org_id,
-            'name':self.name,
-            'org_type':self.org_type,
-            'description':self.description,
-            'location_id':self.location_id,
-            'leader_id':self.leader_id
-        }
+    def serialize(self, brief=False):
+        if brief:
+            return {
+                'org_id':self.org_id,
+                'name':self.name
+            }
+        else:
+            return {
+                'org_id':self.org_id,
+                'name':self.name,
+                'org_type':self.org_type,
+                'description':self.description,
+                'location_id':self.location_id,
+                'location_name':self.location.name if self.location is not None else "",
+                'leader_id':self.leader_id,
+                'leader_first_name':self.leader.first_name if self.leader is not None else "",
+                'leader_last_name':self.leader.last_name if self.leader is not None else "",
+                'members':[m.serialize() for m in self.members],
+                'partyto':[e.serialize() for e in self.events]
+            }
     
     def __repr__(self):
         return "Organization('{}')".format(self.name)
@@ -263,7 +274,7 @@ class Membership(db.Model):
     character_id = db.Column(db.Integer, db.ForeignKey('character.char_id'))
     character = db.relationship("Character", backref="memberships")
     org_id = db.Column(db.Integer, db.ForeignKey('organization.org_id'))
-    org = db.relationship("Organization", backref="memberships")
+    org = db.relationship("Organization", backref="members")
     
     def __init__(self, character, orginazation, rank, active=True):
         db.Model.__init__(self)
