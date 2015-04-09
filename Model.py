@@ -150,7 +150,7 @@ class Location(db.Model):
         self.name = name
         self.loc_type = ltype
         self.description = ""
-        self.superior_loc = None
+        self.superior_loc_id = None
     
     def serialize(self, brief=False):
         if brief:
