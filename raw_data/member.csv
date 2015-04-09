@@ -1,12 +1,13 @@
-1,King,<status>,,1,2
-2,Queen,,,2,2
-3,Second son,,,3,6
-4,Prince,,,4,13
-5,Brother,,,5,7
-6,bastard,,,5,8
-7,Second daughter,,,6,8
-8,Lord Paramount,,,7,8
-9,Queen,,,8,9
-10,first daughter,,,9,11
-11,free woman,,,10,4
-12,first daughter,,,2,6
+1,King,died in service,FALSE,1,2
+2,Queen,current,TRUE,2,2
+3,Second son,fled,FALSE,3,6
+4,Prince,died in service,FALSE,4,13
+5,Brother,current,TRUE,5,7
+6,bastard,current,TRUE,5,8
+7,Second daughter,missing,FALSE,6,8
+8,Lord Paramount,died in service,FALSE,7,8
+9,Queen,current,TRUE,8,9
+10,first daughter,current,TRUE,9,11
+11,free woman,died in service,FALSE,10,4
+12,first daughter,current,TRUE,2,6
+13,King,current,TRUE,13,2
