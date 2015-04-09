@@ -153,7 +153,7 @@ class Location(db.Model):
     description = db.Column(db.Text)
     superior_loc_id = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
     
-    superior_loc = db.relationship("Location")
+    superior_loc = db.relationship("Location", uselist=False)
     characters = db.relationship("Character", backref="locations",
                                  secondary=Visitor)
     
@@ -183,7 +183,7 @@ class Location(db.Model):
                 'name':self.name,
                 'loc_type':self.loc_type,
                 'description':self.description,
-                'superior_location':self.superior_loc,
+                'superior_location':self.superior_loc.name if self.superior_loc is not None else "",
                 'visitors':[c.serialize(True) for c in self.characters],
                 'events':[e.serialize(True) for e in self.events],
                 'organizations':[o.serialize(True) for o in self.organizations]
