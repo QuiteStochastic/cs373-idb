@@ -65,22 +65,10 @@
     
     <div class="row">
       <div class="list-group col-sm-2 col-sm-offset-3" id="affiliations">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
       </div>
       <div class="list-group col-sm-2" id="locations">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
       </div>
       <div class="list-group col-sm-2" id="events">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
       </div>
     </div>
     
@@ -113,28 +101,14 @@
     locations = result.locations;
     events = result.events;
 
-//     for (var i = 0; i < affiliations.length; i++) {
-//       var affiliation = affiliations[i];
-//       var link = document.createElement("A");
-//       var text = document.createTextNode(affiliation.org_name);
-//       link.setAttribute("class", "list-group-item");
-//       link.setAttribute("href", "organizations" + )
-//       link.appendChild(text);
-//       document.getElementById("affiliations").appendChild(link);
-//     }    
-  
-  for (var i = 0; i < affiliations.length; i++) {
+    for (var i = 0; i < affiliations.length; i++) {
       var affiliation = affiliations[i];
       var link = document.createElement("A");
       var text = document.createTextNode(affiliation.org_name);
       link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "organizations" + )
+      link.setAttribute("href", "/organizations/" + affiliation.org_id);
       link.appendChild(text);
       document.getElementById("affiliations").appendChild(link);
-    }
-    
-  
-    document.createElement
-  
+    }    
 </script>
 {% endblock %}
