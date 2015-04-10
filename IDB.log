@@ -1,0 +1,1772 @@
+commit 5f431c9a42acd6bd662a6be0dd9a9aaba8cee2ce
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 9 21:36:53 2015 -0500
+
+    Updated the forgotten issues.
+
+commit 7789a07b8a63dfc5ee6a99599e2020da663d364f
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 9 21:32:30 2015 -0500
+
+    Aesthestic tweaking on about page, updated commits/issues.
+
+commit f17f10b64659557fb1efe67ff2094ea8b421b74f
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 02:23:17 2015 +0000
+
+    Remove Report.pdf since everything in GitHub wiki.
+
+commit 8f9603bc9640b02825124892fd6152e5c7a979c5
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Thu Apr 9 21:21:31 2015 -0500
+
+    Update README.md
+
+commit d05d42ddad489836f7788b903a99ee68386097c1
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 02:17:21 2015 +0000
+
+    Remove AWOIAF link.
+
+commit 94309d7fbce641807bce2efdd91771aaead1edd0
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 02:16:40 2015 +0000
+
+    Updated documentation
+
+commit b8701f5f1a7b79c065c518ec41d0cf4c23c03a2e
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 02:13:15 2015 +0000
+
+    updated test results.
+
+commit 38ca02f4a8fc3c9348f52477b453201eded44711
+Author: Mallory Koai <mkoai@cs.utexas.edu>
+Date:   Thu Apr 9 21:11:04 2015 -0500
+
+    Update UML.
+
+commit e21926b72418df82114b8927e7eafe90282b84b9
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 21:07:38 2015 -0500
+
+    excel messed up some things
+
+commit 59e353985d15b69838cdc7417b9cff249fa76685
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 21:05:29 2015 -0500
+
+    add data
+
+commit e351472b3912a1b26e11ee656e6e9eed290dfff4
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 21:04:33 2015 -0500
+
+    add data
+
+commit fcdab45df0927c788541901a75d51672e84149c2
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 01:59:36 2015 +0000
+
+    Remove superior location field from location page.
+
+commit 12d953463ee876f3736ad92bbadf302e7945ec2a
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 01:57:24 2015 +0000
+
+    Add linking to leader of organization.
+
+commit e5e96f27459606cebeee6fbd04e25afbd88f9d62
+Author: Mallory <mallory.koai@gmail.com>
+Date:   Thu Apr 9 20:49:59 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 60638e6f64b55544cb0a86461035ca7f43e9616c
+Author: Mallory <mallory.koai@gmail.com>
+Date:   Thu Apr 9 20:49:19 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit f3d320daf7b923a3085b8818256cba3e021381af
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Thu Apr 9 20:48:44 2015 -0500
+
+    Update apiary.apib.
+
+commit 8f0be0ff7eb549458cd013f11202937a0d283e62
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 20:47:49 2015 -0500
+
+    extra commas needed
+
+commit ca94e4c2b2e16ab777ea4ff593e3de0961d96efa
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 01:35:09 2015 +0000
+
+    Fix typo in layout.html.
+
+commit b601a1c8d814205d0c859106538449c73d0af22b
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 20:30:04 2015 -0500
+
+    added character descr
+
+commit 9752cb17278466d603a947c4b2c9a5c7a3b3b937
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 9 20:27:49 2015 -0500
+
+    Widened the group lists on the character template.
+
+commit f4448116a3d5bc269b7c604e281da90b4fa1f682
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 01:24:23 2015 +0000
+
+    Fixed error in Organization.serialize() which was not truncating useless information.
+
+commit 25f1ba2963a6eb6a482806a4cac5ad380f16a95b
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 01:05:34 2015 +0000
+
+    Added remaining tests - They only work when ran from the live server. BUG!
+
+commit fb46fff0a69f7048d67d9329e662616a9ae206fa
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 9 20:02:35 2015 -0500
+
+    Removed reference link. Removed Episodes from Pillars and Navbar.
+
+commit 7c89f924f7f1df3830a7bceed9844f96cc8accb6
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 20:00:04 2015 -0500
+
+    add descr to orgs
+
+commit c13c26ee49429ef9c53c5630fcbc68ec974a2581
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:40:27 2015 -0500
+
+    remove extra commas from csv
+
+commit e0f6d006b95bfe3f0297c88b0ca4b3d91fed0eb5
+Merge: feecf9d f658aec
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:39:24 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit feecf9d04077c57cea9b0085ea12af55ccec6508
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:39:09 2015 -0500
+
+    remove extra commas from csv
+
+commit f658aec9961da3007bb4ded15d98aa54404a4a3e
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 00:35:00 2015 +0000
+
+    Added basic tests for api endpoints.
+
+commit 3dd703c3c7bacfe043f6774cf37eb211d96a3966
+Merge: d4a96fe e18ed84
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 00:33:26 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit e18ed84d442074306bccf7548df15317a6d9e8a8
+Merge: df68090 59dae78
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:32:23 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit d4a96fede36d375397fbc46bf63943ef1a32dca1
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 00:32:15 2015 +0000
+
+    Added api endpoints for episodes.
+
+commit df68090e91704b2c647d581abba72fad5de18e7e
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:32:03 2015 -0500
+
+    add location descriptions
+
+commit 59dae78235b6b0492d2af8cea418738288f0dffa
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 00:31:55 2015 +0000
+
+    Add link from org to location attribute.
+
+commit 9558eac1f3da97d1cbd8ea29e6adb027159a6b31
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 00:27:44 2015 +0000
+
+    Add link to location's org.
+
+commit 61fd8020d855d07004c56924f757226006890edd
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 10 00:26:08 2015 +0000
+
+    Link attributes on template pages.
+
+commit 62e97714b3c67fec8363599e2dacd25ba08dfdc8
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 00:06:39 2015 +0000
+
+    Fixed errors in event.csv and copy.sql ordering.
+
+commit 1b815aee1a3361285e83d0ca368b0f6399bc4eed
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 19:02:20 2015 -0500
+
+    add commas to the end of line in csv
+
+commit 836753a2f64b84ea64fdc983440457ba02d8d0d0
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 18:46:16 2015 -0500
+
+    add to events
+
+commit cc43b7324bbacb9d36cf357c70121ee5dc0805fd
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 23:40:40 2015 +0000
+
+    Add linking from location to character.
+
+commit 7526a12994bd758190ba981d09229c860681a4ac
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 23:33:55 2015 +0000
+
+    Add linking from organization to characters and events.
+
+commit de435a617c2c81fcc8ab33ad36a2597f2238c238
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 23:32:21 2015 +0000
+
+    Fixed the location serializer throwing an error due to superior_loc being unserializeable.
+
+commit 90fc2bedbb83f156baec02722c11fb58daa6e0f6
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 23:23:18 2015 +0000
+
+    Add linking to event page.
+
+commit 70f833b8dd8da3caa244b2a2367612a44fd2231e
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 18:19:27 2015 -0500
+
+    arya has been to bravos
+
+commit 854741c202d4d6aefe9ce77498d9baa29417467d
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 23:18:05 2015 +0000
+
+    Added relationships to Location json object
+
+commit b8264aee20e4f4ad140aab148c09fe1bfc1079a5
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 18:14:24 2015 -0500
+
+    add more info to membership table
+
+commit f60904281858b07bb35bf18885c67ad6ed976cb5
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 23:11:08 2015 +0000
+
+    Added memberships to Event json object.
+
+commit 547e25cf2f71a658badd0f1efb952045653ddb6e
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 23:05:50 2015 +0000
+
+    Adjust attribute names in character JavaScript.
+
+commit 3a30f30aa54e51d201d54febcbea5c4e10cedaed
+Merge: 79c2b08 e2cb43f
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 23:04:22 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 79c2b08c1fb12c303a7a94994f350245f4bbd60f
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 23:04:14 2015 +0000
+
+    Added relationships to Organization json
+
+commit e2cb43fd34d57e1ec0ac0d12a5973aa4b2be192a
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 9 17:59:23 2015 -0500
+
+    New About page layout. Updated footer.
+
+commit 7a1cded99671af364e2ef914df0604b4f261eb26
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 22:55:08 2015 +0000
+
+    Add linking from events to characters and organizations.
+
+commit 478eeb3a9c57a11d93f6e340e24f36c289d9d621
+Merge: 64d3aae 9522f84
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 22:45:43 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 64d3aae7426511f73ed734ab2c503da7df9a0895
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 22:45:34 2015 +0000
+
+    Added remaining relationships to serialized character object.
+
+commit 9522f84055e84cc0840a6d5487cf477f49cd3c7d
+Merge: 311a137 5f1f6ca
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 22:43:32 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 311a137a64ef40637edb886d16c68dd00cae3977
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 22:43:23 2015 +0000
+
+    Add links from character to locations and events.
+
+commit 5f1f6caea8d67100aaa989772c2cf257a5a34e9a
+Merge: 0dabe59 aec04e4
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 22:36:25 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit aec04e49c1056457f53c9dc80093e215a339481b
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 22:36:09 2015 +0000
+
+    Add linking from characters to organizations.
+
+commit 0dabe59201987f6f203886acdf0ed4caa2cf79ad
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 22:36:09 2015 +0000
+
+    Fixed errors/broken tests associated with incorrect None value in Location.
+
+commit b2c5bcc12b4f664851df3ee4e9aa618658c07ff1
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 22:27:13 2015 +0000
+
+    Link organizations on character_template.
+
+commit 4a720838a8da1a950002677e8905c4ebe352f0f3
+Author: oliverl3 <oliver.lee@utexas.edu>
+Date:   Thu Apr 9 22:26:16 2015 +0000
+
+    memberships now serialized into character
+
+commit 66118cde6d830ef92907c5b6c24c36207cf6710e
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Apr 9 22:18:03 2015 +0000
+
+    Fixed episode.csv invalid utf8 characters
+
+commit 0207bb6828a0edb8a99d8f53359861390c409b7b
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 16:52:42 2015 -0500
+
+    fix encoding maybe
+
+commit 6d999a4971c153ec42e5fed5c7e58183ef28892a
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 16:51:07 2015 -0500
+
+    fix encoding maybe
+
+commit 54d937af138a6252de93fe7ba012df66ec5a41c0
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 16:49:55 2015 -0500
+
+    fix encoding maybe
+
+commit 0eb4a957508848db8633c02be7e8ea9ebac38a5b
+Merge: bd13f92 7957910
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 16:38:19 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit bd13f92dd8633c794069e7fb77420632ceb440ff
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 9 16:38:02 2015 -0500
+
+    fix encoding maybe
+
+commit 7957910412cf36553dae2ffb942ca828668cabcd
+Author: oliverl3 <oliver.lee@utexas.edu>
+Date:   Thu Apr 9 21:30:48 2015 +0000
+
+    re arrange order of table deletes
+
+commit c8405b24b8d6b0eb287d6c786332006d21d5da6d
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Thu Apr 9 16:19:23 2015 -0500
+
+    re arrange order of delete tables in copy.sql
+
+commit 2df3790a934634e8155597e7919cde17134934e0
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Thu Apr 9 00:45:44 2015 -0500
+
+    Remove <description goes here> from location.csv.
+
+commit 520780bba7f17c64d1798b1632d80fff4639f01d
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 03:17:22 2015 +0000
+
+    Add lists representing many-to-many relationships to remaining templates.
+
+commit 5520e6af1002a3447a44fd29388d668e82d0faf8
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 02:40:03 2015 +0000
+
+    Undid my earlier accidental overwrite of app.py.
+
+commit 8235f92b8ce627dfaf2654ca047d751c573c9eeb
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 9 01:40:09 2015 +0000
+
+    Add skeleton for linking to relationships in character_template.html.
+
+commit 3f85e32b1b17cd9cd05e60ab9cb71e571a35ca37
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:52:48 2015 -0500
+
+    encoding error, maybe fixed
+
+commit f57049045539d3f17aeee431a220b43df102c614
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Wed Apr 8 17:46:38 2015 -0500
+
+    variable name mismatch
+
+commit 35f4fd2f5ee61863a458ff8e8c9f440ba2f6f6b0
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:33:09 2015 -0500
+
+    had the free cities in there twice, fixed
+
+commit 85cf90f92310d8787f9dfc03fc6a1809bf7ebf50
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:26:13 2015 -0500
+
+    remove bad placeholder text
+
+commit 356ef3e3846866450ff54b3a5a34c6476f456690
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 22:25:06 2015 +0000
+
+    Fixed incorrect table name in copy statement.
+
+commit f83d8be2626b240ce96b132cc1a7000397613dce
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Wed Apr 8 17:22:05 2015 -0500
+
+    remove bad placeholder text
+
+commit 6a61098446283fc6ca4195c795d54337ffffe785
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Wed Apr 8 17:21:25 2015 -0500
+
+    remove bad placeholder text
+
+commit b7237028f3aec215b5e22a0f7fb1e2570860317c
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Wed Apr 8 17:20:52 2015 -0500
+
+    "member to "membership"
+
+commit 2bb2f22f17be800f47f7282004434edb7260dc78
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:08:28 2015 -0500
+
+    added empty columns in member csv
+
+commit 50002e683651a8f0543b0c2550ade976d32c22e2
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:04:59 2015 -0500
+
+    added empty columns in organization csv
+
+commit 55ab83d2d6115d8817cf684f21e4d7368d37ece1
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 17:02:58 2015 -0500
+
+    added empty columns in event csv
+
+commit cfb928ed67e2ca28289e68ad0ac5bf08e0536432
+Merge: c5d3ef8 523db61
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 16:57:52 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit c5d3ef801e589d50d5f71ac5275c24af7daf1f1f
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 16:57:36 2015 -0500
+
+    added empty columns in character csv
+
+commit 523db6124402604f59de586cd3bf81d1f76eb70c
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 21:55:14 2015 +0000
+
+    Fixed error in foreign key definition for Location.superior_loc
+
+commit d2341b0b72c73d6bb62ed364fa399b4ba01c3637
+Merge: 17f779a 4894c90
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 16:50:04 2015 -0500
+
+    merge
+
+commit 17f779a730f91a5cf82932e29edff98995bb0cb0
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 16:48:35 2015 -0500
+
+    change so that superior location is a foreign key not string
+
+commit 442d79c4986c2006200d911103e772aa51f7708d
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 8 16:46:48 2015 -0500
+
+    change location table csv columns to match model, also add rows
+
+commit 4894c905d107f5fac4f4a2115a2278dbc1409408
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 21:05:06 2015 +0000
+
+    Changed superior location to a foreign key again.
+
+commit d5d77c640bde460b48436ccc4b8aa49c4fa22d1f
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 20:07:44 2015 +0000
+
+    Added option to remake tables on app-start.
+
+commit 7163510aa05404c642ddf55b5a8ef26e2d40d015
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 19:48:37 2015 +0000
+
+    Added many-to-many relationships to Model using secondary tables.
+
+commit ff8a6729616166a042e47b20aea95277bd37b89a
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 18:55:44 2015 +0000
+
+    Removed the route for memberships.
+
+commit 8c5a7c72896f863b43e4a195d15ffb4772446571
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Apr 8 18:54:43 2015 +0000
+
+    Removed User from Model.py since it wasn't being used.
+
+commit e26f588aafc9b0a17a4d110da57892cce61f4448
+Merge: ebd7950 eebbccf
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Wed Apr 8 05:44:45 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+    
+    Conflicts:
+    	Model.py
+
+commit ebd79506fc291336062832a24e4a286ee6974589
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Wed Apr 8 05:38:19 2015 +0000
+
+    Add fks to models
+
+commit eebbccf84b32855dc886c707dcb4f051e99bcc51
+Merge: 6eeb89a 772d694
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 8 05:27:28 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 6eeb89a4f455da985e32dacff46fedcab54c6fde
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 8 05:27:17 2015 +0000
+
+    Clean up template files.
+
+commit 772d69427a96f88764f27229a2627ccd7a5173ac
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Wed Apr 8 00:10:15 2015 -0500
+
+    Update organization.csv, but still missing
+    
+    some leader ids.
+
+commit a804acdbe943d2b382fe4250331d5956c2d32bec
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 8 04:41:02 2015 +0000
+
+    Add sorting capability to tables.
+
+commit abcdc0f74e1647545322f8293c6745b9bab6e795
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 8 03:41:33 2015 +0000
+
+    Change type to event_type and update main .css.
+
+commit f7bebc50cc1f151b9c5c900a6b3b5204c55cf188
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Tue Apr 7 22:30:33 2015 -0500
+
+    Change "type" in event to "event_type"
+    
+    Gotta do what I gotta do man....
+
+commit b16bee222aacf1cad56f3bf44bde024f2835d059
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 8 03:29:08 2015 +0000
+
+    Update key/column names in templates.
+
+commit 65c97d5f1ffca5c45d6b6183444d1d4e9acd2892
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Tue Apr 7 21:39:08 2015 -0500
+
+    Revert Model.py to try to temp fix API issues
+
+commit 66f34097fcc25f0fec58065967734ce0d1ac0420
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Tue Apr 7 18:49:15 2015 -0500
+
+    Tweak Model.py attempting to get rid of caps
+
+commit b3f5a1c0277dd059f5609682bd10ae578107a373
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 18:46:35 2015 -0500
+
+    remove empty column in episode.csv
+
+commit 10a64eba310fdb0ac63d754ad9069b57d9fb2a17
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Tue Apr 7 18:40:30 2015 -0500
+
+    Change Model.py to reflect UML
+
+commit bad1033b9434443fc5ea4a85257324e95ff0b311
+Author: oliverl3 <oliver.lee@utexas.edu>
+Date:   Tue Apr 7 23:35:38 2015 +0000
+
+    add comments to Routing.py to differentiate api and webpage routing
+
+commit 5842d822234bc881ff44577d9833cba85f31514e
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Tue Apr 7 18:09:44 2015 -0500
+
+    Add copy.sql to raw_data for copying CSVs into tables
+
+commit 6d949975ac81b0203af277d15218a51c382467eb
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 17:52:28 2015 -0500
+
+    Linked clickable table rows to their corresponding pages! Closes #53.
+
+commit 2a5e7aae2a6c30e3826ca8d614211ea788b84dcb
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 17:05:07 2015 -0500
+
+    Removed the Extra footers from the template pages.
+
+commit 898c8cbfc9288d403d6d9b2ee5a892e8b0bff33c
+Merge: bf1c9b0 a69fbba
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 16:59:15 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit a69fbba89ea101bcbdaadc1d3192634d27b269e0
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 17:37:26 2015 +0000
+
+    Add images to all table views.
+
+commit 098018778e7682c683665d054744e1cf8d0a83ad
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 17:21:23 2015 +0000
+
+    Populate table views for Events and Organizations pages.
+
+commit e16b890d7437bbf77fd68b271214e17508d4d9af
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 17:05:50 2015 +0000
+
+    Populate table views for Characters and Events pages (not yet linked).
+
+commit dc3b96a7fe53714ca3c60b5d8ccc6195030140f4
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 16:37:54 2015 +0000
+
+    Change endpoints for remaining templates (except Episode).
+
+commit 95d0602797f764db9d7e824b7b160333b2eaab7f
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 13:44:02 2015 +0000
+
+    Change endpoint on character_template.html to pull single entry instead of entire collection.
+
+commit 9c844aa814319386f61b45d6907335e574baf80f
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:51:58 2015 -0500
+
+    git is strange
+
+commit f3155f1849c91e044bb185a3f803cb0aac386bd5
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:50:54 2015 -0500
+
+    git is strange
+
+commit b302813db99dfaba3eeda87f2f4380d5618f53dd
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:27:26 2015 -0500
+
+    fix spelling mistake
+
+commit b78b25074f8879f088ec72c8a576e22780c162e1
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:19:27 2015 -0500
+
+    git is weird
+
+commit c4eac59abacbe44df277e4313ef0c1c59e0a037c
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:18:18 2015 -0500
+
+    Clean pages up and added some styling to Footer.
+
+commit ee0ecd7517b99217373338aae788da3c8c98918f
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:18:03 2015 -0500
+
+    fix spelling error
+
+commit 78a1731fa9db6d25c70f741657521819b0a2633b
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:16:06 2015 -0500
+
+    fix spelling error
+
+commit 093fc53df7ff1eecad62fca8f29345ab66df8ee0
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:13:12 2015 -0500
+
+    fix some issues with csv commas
+
+commit 8bcd7e492d3db0f87e994becefdab80f5f0d7f97
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:05:51 2015 -0500
+
+    Forgot to save layout.html.
+
+commit ec5109188951bc8e6337883d7b7c7621bb981ade
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:03:53 2015 -0500
+
+    Added Contact and Apiary&Github Links to Footer.
+
+commit 1d4b4d2a5bfd68a0a152030f2c0c67fee5e7ef0d
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Tue Apr 7 00:23:05 2015 -0500
+
+    change names in Model.py to reflect UML diagram
+
+commit bf1c9b0b9806c3bfda167c330e7e064e00a542c6
+Merge: a51c093 7cfe08a
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:18:49 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit a51c093278a0e2fa4a195e9b2eaafcead9102e35
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:18:18 2015 -0500
+
+    Clean pages up and added some styling to Footer.
+
+commit 7cfe08a83e23d744b9b1621c504dc5fa7b0b3448
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:18:03 2015 -0500
+
+    ariel calm down jesus
+
+commit 8eee2f12fbc198dfa302468c5a53e447a8a4d8f2
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:16:06 2015 -0500
+
+    ariel calm down jesus
+
+commit 95dfc4cdf64b08e462d7a55bfc8a8b0073a3cf14
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Tue Apr 7 01:13:12 2015 -0500
+
+    fix some issues with csv commas
+
+commit 55657a45f210e536c6be394ea72925f04df1abb3
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:05:51 2015 -0500
+
+    Forgot to save layout.html.
+
+commit 15e0d9d745ad51219743b8a9be19f5483642aa22
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 01:03:53 2015 -0500
+
+    Added Contact and Apiary&Github Links to Footer.
+
+commit 5b9fed45b97ca6381576aa26946d1b8e7e816abb
+Merge: b62e3e7 fc8a78b
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 00:28:53 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit b62e3e7e3d404400b15b950e1b35c2b4eead90a8
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Tue Apr 7 00:28:22 2015 -0500
+
+    Added Toggling on Episodes Page and Moved all Footers to layout.html.
+
+commit fc8a78b9b986e3fe160d6ae785c8acae5782393b
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Tue Apr 7 00:23:05 2015 -0500
+
+    change names in Model.py to reflect UML diagram
+
+commit ff67fd6373fa90042b9cfc9461195a9823e28201
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 6 23:41:33 2015 -0500
+
+    Fixed button and pulling problem on about page.
+
+commit 2999cc4c6ceb6275406ed43896ddec5950651b6c
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 6 23:14:57 2015 -0500
+
+    Added Toggling between Views on Characters Events and Organizations Pillar Pages.
+
+commit b8041190c517d0422770471d66bd74695acaafbc
+Merge: fc1dc16 ead2d53
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 03:24:28 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit fc1dc1681d04b9677ffff04f2af6b336f18d39c5
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 03:24:24 2015 +0000
+
+    Fixed collapse div in Episodes.html.
+
+commit ead2d538293901008c11537b179dd62af5cd22a2
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 6 22:05:20 2015 -0500
+
+    Added in Toggling between views on Locations Pillar.
+
+commit 08fade46e7604e7b23dde0b169058f2cbac7a557
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 02:41:42 2015 +0000
+
+    Removed old org images.
+
+commit 4da2710a967172d98db575fac61aaab4f27ac037
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 02:19:48 2015 +0000
+
+    Renamed org images to organization.
+
+commit 2cdc089dd2de5280db4373369c050b8d3ffb3f60
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 02:08:41 2015 +0000
+
+    Added scripts to each pillar page; will refactor later.
+
+commit f9cfeec8c9a7d123bc6447be1fac0d1f18564321
+Merge: 9c6124a d03c263
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 01:53:53 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 9c6124afad8b2c66f53df9b5a26985cdb1a899f3
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 7 01:53:35 2015 +0000
+
+    Dynamically popluating Locations.html via JS DOM magic.
+
+commit d03c26314971cbbbce2f91fec6c8e1516ba49215
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 6 20:48:28 2015 -0500
+
+    Removed useless bubble.css.
+
+commit ec57b01b66ef516cd87920aa396b373339e1b9c1
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 6 20:44:27 2015 -0500
+
+    Removed Angular.JS until necessary.
+
+commit e90e5e87aac9f035a28a80755c63c7bad52ed7a8
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Apr 6 17:12:35 2015 -0500
+
+    Update README.md
+    
+    Added link to the report to readme, just to make it easier to find.
+
+commit efee4ae203fae1a664a697efe7148b83df751f97
+Author: Mallory <mkoai@utexas.edu>
+Date:   Mon Apr 6 01:10:04 2015 -0500
+
+    Added remaining images; only episodes left.
+    
+    Cry.
+
+commit 00d799286c5700d21ab4bb1d24a85da69ade7ce8
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Mon Apr 6 01:05:21 2015 -0500
+
+    Update location.csv
+    
+    Add Riverrun
+
+commit 2b715e0e2959f5b28b25feb2624b951d4e2263ec
+Author: Mallory <mkoai@utexas.edu>
+Date:   Mon Apr 6 00:49:51 2015 -0500
+
+    Moved images into separate directories.
+    
+    Also added more character images.
+
+commit 25364faff78b33db055ed9bfb40c944d376b1b86
+Author: mkoai <mkoai@utexas.edu>
+Date:   Mon Apr 6 05:47:19 2015 +0000
+
+    Changed image endpoints to reflect new directory hierarchy.
+
+commit 468905a0427a4e0d1a67da9b9f4aa2e83bb245b0
+Author: Mallory <mkoai@utexas.edu>
+Date:   Mon Apr 6 00:44:27 2015 -0500
+
+    Moved character images into its own folder.
+    
+    About to do the same with the rest.
+
+commit 2016db82c0e15fef96cb10f9c49851b567690e5b
+Author: mkoai <mkoai@utexas.edu>
+Date:   Mon Apr 6 03:23:07 2015 +0000
+
+    Updated character_template to populate via API.
+
+commit bc9ae6333bfca8f164625242d7431d4afee002e9
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Sun Apr 5 18:02:56 2015 -0500
+
+    scraping code
+
+commit a9af2b149df406d078a6a15d0d587899fa20ddb7
+Merge: 72fd950 c98ad4d
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Sun Apr 5 18:01:27 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit 72fd95035db8972a4dfd46ae74f616858daf39ea
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Sun Apr 5 18:01:05 2015 -0500
+
+    scraping code
+
+commit c98ad4d8bffdab132cf2a40f660bde3e121f5021
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Sun Apr 5 21:46:20 2015 +0000
+
+    Changed the api endpoints to allow cross-origin AJAX requests.
+
+commit afa6e38e31d645f84e3dde7d74456a37fd6a7ec7
+Merge: e02d435 b8aa014
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Sun Apr 5 16:42:31 2015 -0500
+
+    episode descriptions
+
+commit e02d435ca6e788e21fe1c1ef9a09a2c5c1080800
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Sun Apr 5 16:40:31 2015 -0500
+
+    episode descriptions
+
+commit b8aa01463e3a2a48d8c5a2aa30e83c9129176feb
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Sun Apr 5 16:18:20 2015 -0500
+
+    Fix typo in episode.csv
+
+commit 58313aa625b7a6e527e0bc8a2521426187dcb0c6
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Sun Apr 5 16:00:22 2015 -0500
+
+    Change organization csv
+
+commit 3c16f15e3cae72556040ce71371a4ea225a69574
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Sun Apr 5 15:29:58 2015 -0500
+
+    Delete member.csv~
+
+commit ca68ad57ae81b2800bfdfc9f4451dd0444aef2f0
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Sun Apr 5 15:28:52 2015 -0500
+
+    Add member.csv
+
+commit c9543ee38c629dbb73e6456ffb29a132c61092bc
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Sun Apr 5 14:37:07 2015 -0500
+
+    Update episode.csv
+
+commit 8ddf1a62fae8601d9bb8c3701739c6215ecb6ae4
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sun Apr 5 19:34:42 2015 +0000
+
+    Changed endpoints for images.
+
+commit df209490640de23d82e91dda2d98a26f3a69c046
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Fri Apr 3 05:20:43 2015 -0500
+
+    Cleaned up Tools section, removed excess tools.
+
+commit ae86119c4d415a14ea8d138c9f8d99bfc05ef026
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Fri Apr 3 05:20:02 2015 -0500
+
+    Removed hover over opacity effect on tools-sub.
+
+commit 2b703f42252ed11536823c548312e54e87365e54
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 3 04:03:15 2015 +0000
+
+    Removed Contacts page and all references to it.
+
+commit 8b08aed52dd95211310ab18eeb0a8f6057e3c936
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 3 03:43:02 2015 +0000
+
+    Added episodes.html and episode_template.html.
+
+commit 705a57e9c5514b2bc0b70a7bb97ee8da91df324d
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 3 01:52:11 2015 +0000
+
+    Added routing for Episodes page.
+
+commit 5ca1543bbce615475f9ea69ad78798396c4d2be6
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 2 23:25:40 2015 +0000
+
+    Added Episode model, updated Character model.
+
+commit 47b5c7f92b0a8f1fba84a91f7a4ef618efbcc7c7
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 2 22:59:23 2015 +0000
+
+    Adjusted alignment on About page.
+
+commit 9ced043e56db438a3a58dc8e8cf5ab6902f09622
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 2 04:34:20 2015 -0500
+
+    Pulled issue data from Github API but doesn't know what to do with it. Kind of resolves #39.
+
+commit 79261d2c438e20b36883965a0bbba5dcd6d0dff2
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 2 04:19:53 2015 -0500
+
+    Successfully pulled Commit Stats from Github API!
+
+commit 5d407c7fbb7fc7456e0bdc63b7452ed1c097e4d9
+Merge: 0bba21d 749bd6a
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 2 02:30:55 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 0bba21df9a67e8ef43483121f661b64e1ae6bf6d
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 2 02:30:37 2015 -0500
+
+    Centered the pictures in the About page (kind of).
+
+commit 749bd6a266fb8afe1147618aaa45a47781656971
+Author: Mallory <mkoai@utexas.edu>
+Date:   Thu Apr 2 01:54:39 2015 -0500
+
+    Added/updated participant, party, visitor CSVs.
+
+commit 5a251108a272008c89c3293fa1f2b36becab1d05
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 2 00:05:41 2015 -0500
+
+    Changed up About Page template to be more simple.
+
+commit 3c3c66f8f5b3d08626df2bf67ff06ae9a5d7e1cd
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Apr 1 23:05:47 2015 -0500
+
+    Change CSVs
+    
+    Add info, add episode and participant files, change names to singular
+
+commit 299354e7f167c6ceb67030c831c3205eaaa5aebf
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 1 22:05:45 2015 -0500
+
+    Added more Brandings and tools.css. Included the Tools template and added banners in about.html. Minor design tweaks. Resolves #35.
+
+commit c1a316b443ba75afd04866630f66c60a618870a6
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 1 01:24:54 2015 -0500
+
+    Included the Angular.JS module in app.js and layout.html. -@charuri
+
+commit 96f431d369d8a3c63dd5a7ca794c53928a1d5ada
+Merge: 1953674 a60660f
+Author: mkoai <charlina.hung@gmail.com>
+Date:   Tue Mar 31 23:29:16 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 19536742aaa24de97d38f08e1f535d9dd904a15f
+Author: mkoai <charlina.hung@gmail.com>
+Date:   Tue Mar 31 23:28:53 2015 +0000
+
+    Added Smooth Scrolling to About page.
+
+commit d618280843ef61cdbaff4fc3983009cfa1b6113d
+Author: mkoai <charlina.hung@gmail.com>
+Date:   Tue Mar 31 23:22:37 2015 +0000
+
+    Added chat bubble css and to About page
+
+commit a60660ff664bdd6b8d5c9bed6e2cd9a82736281b
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Mon Mar 30 21:47:04 2015 -0500
+
+    Fixed minor spelling error :D
+
+commit f6b43fc3313e71efb6f2c39201cddc80f79d2eef
+Merge: ec224bb 3b6b367
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 19:25:29 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit ec224bb6d6d3449ffe677abded65d440a6e61b16
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 19:25:24 2015 -0500
+
+    Improved the test output, added item to navbar for Unit Tests.
+
+commit 3b6b3670b6805dd94fae4af80991ced9dd0c29b5
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 18:59:00 2015 -0500
+
+    Actually fixed spacing issues with h3 tag.
+
+commit 049a17f136ba203312a66d9eca777171cb320631
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 18:57:52 2015 -0500
+
+    Fixed spacing error with h3 tag
+
+commit 8940d7aed99529fac4e86678b3d67289f318fcaf
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 18:57:10 2015 -0500
+
+    Added script which can be imported in an interactive session to allow poking around in the database internals.
+
+commit 9e01f0fdb97b3a479994c7c865935fd2b3f2a1d6
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 18:56:43 2015 -0500
+
+    Updated readme to include a bit more information.
+
+commit f694a3104067e5fa9a123c5cdc6622ceb70be236
+Merge: 65040cb 0aa766e
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Mar 30 18:29:31 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 65040cb007d8f19770467d009e8fcbb92b2814ac
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Mar 30 18:28:27 2015 -0500
+
+    Added branding images
+
+commit 0aa766e39fbbd1ad94f7d43d904cb6943f1aecc7
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Mon Mar 30 18:21:18 2015 -0500
+
+    Delete TechnicalReport.pdf
+
+commit e4c41287210e74a7bf817d2cdf2d5feb8bfa8da5
+Merge: 8b143a3 223e54f
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 17:45:17 2015 -0500
+
+    Merge branch 'tvarney-api-tenative'; adds initial RESTful api support.
+
+commit 223e54f6d129f46259db39485a1a16cf16e0cce5
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 17:43:41 2015 -0500
+
+    Finished API endpoints as they exist currently.
+
+commit 8b143a351e0eb7d496aafb783b09b18306eef039
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Mon Mar 30 17:21:21 2015 -0500
+
+    remove spaces
+
+commit 854668502d2dba386d52bb9149214d546b1c6cea
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Mon Mar 30 17:16:54 2015 -0500
+
+    Remove spaces from organizations csv
+
+commit 2966ac654af41dab5c2b3719fd87bb8de6585c6b
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Mon Mar 30 17:16:10 2015 -0500
+
+    Update locations.csv
+
+commit a5f5ded2a41ea559485811fe4e7a3cb43c35fbf7
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Mon Mar 30 17:15:25 2015 -0500
+
+    remove spaces in csv
+
+commit 4723a33b9388a05a70115969220a409008b4e7ee
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Mon Mar 30 17:15:08 2015 -0500
+
+    Remove spaces where necessary from locations csv
+
+commit 548742c805916d163f103fb963bf063cf636e36f
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Mon Mar 30 17:11:54 2015 -0500
+
+    Remove spaces where necessary from CSV
+
+commit 8356fec0aeb37c826187e84dec8607531fdf7e53
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 15:11:08 2015 -0500
+
+    Made the run_tests() method output verbose results.
+
+commit eec69a313ef780898826d1729347ba3bc957a3ce
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 15:09:50 2015 -0500
+
+    Moved the test database to use the sqlite in-memory database for huge performance gains. tests.run_tests() now returns the string result of running the tests.
+
+commit f26b282b2f1b8619720ec18f9e45a87c5faa2126
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 14:44:50 2015 -0500
+
+    Moved code to a multiple app infrastructure.
+
+commit c095e472fd83fab949798cf702b543ea5c808fb8
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 30 11:00:49 2015 -0500
+
+    Split routing out from the main app.
+
+commit bd4405fc8c08e89ba3b2d16361f3fd7072d279f1
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Sat Mar 28 03:43:19 2015 -0500
+
+    Create README.md
+
+commit d3cc9b728ea004d249bc7430f760bb0797b64515
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 03:03:20 2015 +0000
+
+    Added UML
+
+commit 7f597f63d042dce220a5a2e92455b0c1878dbf67
+Merge: 2a99c4b c8a9975
+Author: Mallory Koai <mkoai@cs.utexas.edu>
+Date:   Thu Mar 26 22:00:42 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 2a99c4bb89b41412e3def8cf161b3beef88e8c17
+Author: Mallory Koai <mkoai@cs.utexas.edu>
+Date:   Thu Mar 26 22:00:20 2015 -0500
+
+    Changed name
+
+commit c8a9975811dd38e1f1377abd30148b06e32f65b6
+Author: oliverl3 <oliver.lee@utexas.edu>
+Date:   Fri Mar 27 02:53:37 2015 +0000
+
+    git log
+
+commit fee66fb0db56c47be8cf7a29b87d22bff82e2064
+Author: Mallory Koai <mkoai@cs.utexas.edu>
+Date:   Thu Mar 26 21:52:25 2015 -0500
+
+    Added report.
+
+commit 1027cb3def011b760b80d5d0d1e4471ef6187dee
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 02:50:55 2015 +0000
+
+    Added tests.out
+
+commit 96446b919a82a0cb92a60403e47d76f7cb6e7128
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 02:44:17 2015 +0000
+
+    Added link to documentation on navbar.
+
+commit cf052e48434a6bbaa33f3d16e75c5971e0670c36
+Author: oliverl3 <oliver.lee@utexas.edu>
+Date:   Fri Mar 27 02:40:40 2015 +0000
+
+    serve static directory of pydocs
+
+commit c8de6cff4c43d40feecf69d1d0e875351c085688
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 02:31:43 2015 +0000
+
+    Added pydoc documentation.
+
+commit 5407b57610836e7b96156e6fb05a09644858882a
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Mar 27 02:25:21 2015 +0000
+
+    Added API link on About page.
+
+commit 494f0696fafa67545dc587ccbbec2772f2144ce4
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Mar 27 01:57:15 2015 +0000
+
+    Aesthetic Tweaks and About Updates.
+
+commit fa7bd9064eb86ac132affac196914618184a5b7b
+Author: Mallory <mallory.koai@gmail.com>
+Date:   Thu Mar 26 20:46:36 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 521be605c2db586a50cedb16a73dc5732dc5fa95
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 01:40:55 2015 +0000
+
+    Added the rest of the tests for the pillars.
+
+commit 9087bbe5692a8d202fb5312e010ed9691c87e686
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 01:16:04 2015 +0000
+
+    Finished Character tests and added Location tests.
+
+commit 1adce585310f373fe15542a16efe79c700acebce
+Merge: 66bb69d 401a416
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 00:55:05 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 66bb69d5800810c5fb305eb7e614e60450606978
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Mar 27 00:54:32 2015 +0000
+
+    Fixed tests failing.
+
+commit 401a41646dfafe69db9d52e2800c2a375ecfb657
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Thu Mar 26 18:26:05 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit cba94c17008cfab50436f767263932ce4aebe684
+Merge: 3704bbc 520fd63
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 23:02:08 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 3704bbcfa4bcb49bec24255036c03142f5fa4284
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 23:01:51 2015 +0000
+
+    Tweaked About page, finally named website.
+
+commit 520fd63c0516a046e5c2e460e67eb14462f2541a
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 22:50:09 2015 +0000
+
+    Fixed exceptions when running tests.py
+
+commit 6f9dfd74aadff31b27c4cd65544f25a63b6eefff
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 22:45:55 2015 +0000
+
+    Made testing profile more robust and fixed bad imports in tests.py
+
+commit a4c61416d4070fffcabd86aca2c91311e53bc987
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 22:40:44 2015 +0000
+
+    Added skeleton test file.
+
+commit 254445bbb4a3a7665403683e6646081dab9408c9
+Merge: 5f3ed95 13ce0b6
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 22:38:18 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 5f3ed950e61c0dc6785eb1759741fbf437730add
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 22:37:00 2015 +0000
+
+    Fixed missing --remote option
+
+commit 13ce0b6ea8af593c7bf8f98bb2db57034cc9fb3d
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Thu Mar 26 17:29:35 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit ada1818219d1d08066612f658f99034a29f64bc1
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 21:06:26 2015 +0000
+
+    Removed unused Attribute label on main pillar pages.
+
+commit b5b2b123518e3f7cb119ea368664d6c624d86233
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 20:57:37 2015 +0000
+
+    Added descriptions for 3 entities per pillar.
+
+commit 26de8ecc634adc4a614dd82152c1b0533e39ce08
+Merge: 83d7e1d 4145a88
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 19:46:14 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 83d7e1d242424422b2a9a246ccfc3c7e4456a5ea
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 19:45:23 2015 +0000
+
+    Updated content of About page
+
+commit 4145a88df79de0c7642c0fab3e614bce4d20b58f
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Thu Mar 26 11:33:43 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 8c7da190af70134443a5a6587e68c9918bfd4a43
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Wed Mar 25 23:31:50 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 918374477d88d3fd7017d1f9194d642f6196cbf4
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Wed Mar 25 23:29:28 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit e45f1bcb916496b9113798c61d7a5dd4a40901e7
+Author: Danish J. <danish.jaffer@utexas.edu>
+Date:   Wed Mar 25 23:26:37 2015 -0500
+
+    Transferring blueprint from apiary.io
+
+commit d47e8717c55f726443a77afb64343338437dc3f5
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 03:19:15 2015 +0000
+
+    Added image directory and linked images on templates
+
+commit ce797247a2a5236bc5ffd387977047e18a968599
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 02:05:29 2015 +0000
+
+    Tweaked appearance of attr list on templates.
+
+commit a0700e1d201d59bbdf50eec7f063bd896ee4c378
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Wed Mar 25 20:03:08 2015 -0500
+
+    Delete events.csv
+
+commit 1803abc45412a6c95d5f09b062172afcd712cd38
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Wed Mar 25 20:03:03 2015 -0500
+
+    Delete locations.csv
+
+commit 9db16952cd320934dc9c8ba808ad76cc69cb9593
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Wed Mar 25 20:02:57 2015 -0500
+
+    Delete organizations.csv
+
+commit e9b64ac4c2b21184a99ecd85871290e6d6bbb452
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Wed Mar 25 20:02:51 2015 -0500
+
+    Delete characters.csv
+
+commit f035a1d870c4ba7d996cd809a320eb954748453f
+Merge: 1146f72 c7dd45b
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 20:01:59 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 1146f72b5026272a061a474ba48fd49ba10d1196
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 20:01:52 2015 -0500
+
+    Move csv files to raw_data folder
+
+commit c7dd45b6fbd5aaebc0d397c7e0e8d42ffe3f183b
+Merge: 2ea9db0 d923a73
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 00:56:48 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 2ea9db023c9b999b7485457973fa6e22a414e4b4
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Thu Mar 26 00:56:28 2015 +0000
+
+    Added remote option (-R) for running the server using the database on the rackspace server.
+
+commit d923a730bf6ea36f6ff612ae8a6b850a68e3f218
+Merge: 94ffd70 dde0702
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 00:54:23 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 94ffd70b937b83fcad6375740b40a986dcb394e9
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Mar 26 00:53:47 2015 +0000
+
+    Updated navigation to individual pages
+
+commit dde0702cf29c8e2f81e6c94bbf04327a109be187
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 19:42:38 2015 -0500
+
+    Add events csv file
+
+commit 911ad439d8600576090374156374b39696ec1555
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 19:38:55 2015 -0500
+
+    Add locations.csv
+
+commit a452496b5e7b56bcece9d79312485195dab12b78
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 19:33:55 2015 -0500
+
+    Add organizations csv
+
+commit d234aa82a2bb6d6989bad27ede2d671f61ca0726
+Author: Ariel Sibille <arielsibille@gmail.com>
+Date:   Wed Mar 25 19:29:35 2015 -0500
+
+    Add characters csv file
+
+commit 223798cbca154af357b67d1a9d3ffc1e6b64147d
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Mar 25 23:20:49 2015 +0000
+
+    Fixed problems with foreign keys referencing wrong table names, made application launch database connection.
+
+commit 567b6de46ce9aebdc6f3c680c693e06a808cf510
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Mar 25 23:13:17 2015 +0000
+
+    Changed Database URI to reflect the proper way to connect to postgresql databases.
+
+commit 3c19d4775e9fd5d92f96f457b18468ae8a8f02bc
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Wed Mar 25 22:33:14 2015 +0000
+
+    Split application into logical parts.
+
+commit c7a2596816e7d0f2e763d1480b5d738ee73949d1
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Mar 25 18:20:36 2015 +0000
+
+    Updated character pages to populate w/ attributes
+
+commit 7eb5f448d750298412b8e6221e83090bace62230
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Mar 25 07:18:24 2015 +0000
+
+    Updated About page and character template
+
+commit 6708298d6ac6cddca3090c33ce5e2ff2587cd9df
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Mar 24 07:47:44 2015 +0000
+
+    Added locations, orgs; removed Home from nav
+
+commit 8f7aa07bd629a27ae93bb29d159caee77382e0dc
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Mon Mar 23 21:01:14 2015 -0500
+
+    Added tables for many-to-many relationships.
+
+commit 440d7e5e8382e438d410acb70f2f9d1c84e4b31a
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 23 20:09:00 2015 -0500
+
+    Added command line option for setting the port. Defaults to 80. Useful for running the server without needing sudo when testing.
+
+commit 753c25f040607c71601ace7971d9b7b5ca72f1c1
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 23 19:56:46 2015 -0500
+
+    Fixed typo in database Column type.
+
+commit a830dfc58e0b78a6c61ffe00ca4a99da7eddb70a
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Tue Mar 24 00:53:50 2015 +0000
+
+    Updated SQLAlchemy models based on latest UML diagram. Still missing many-to-many relationships.
+
+commit 32288d45ba42ad5603f6315c69007e8fda64ddc5
+Author: mkoai <mkoai@users.noreply.github.com>
+Date:   Sun Mar 22 14:11:20 2015 -0500
+
+    Fixed spelling error in characters.html
+    
+    Danaerys -> Daenerys
+
+commit edf17f2d380b08f75ee9c76c770dbabe1addd92a
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Fri Mar 20 20:10:02 2015 -0500
+
+    Removed extra .js files
+
+commit ec6bcc78d9efeab4a7439ef7a11a5e634303c759
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Fri Mar 20 16:51:53 2015 -0700
+
+    remove this security vulnerability
+
+commit 55b610a9e4841604324a038a4dc5a42a57e7de32
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Fri Mar 20 15:47:03 2015 -0700
+
+    Update app.py
+
+commit 5671a7676bc50bacf9716422ba00d54c64d88174
+Author: djaffer <danish_jaffer@hotmail.com>
+Date:   Thu Mar 19 19:08:34 2015 +0000
+
+    added current version of nitrous to rackspace
+
+commit 60a4653c9e489ce1b04dbfa8da7f3630b4c0d14f
+Author: Charlina <charuri@users.noreply.github.com>
+Date:   Wed Mar 18 18:40:13 2015 -0500
+
+    Updated to hide .pyc and cache files.
+
+commit 5aa36c848ea0398fb20a74bb8670a52d5f6c6bde
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Mar 18 15:57:37 2015 -0500
+
+    Added breadcrumbs, links, character template.
+
+commit 128cb91de47ea939196d38c55e6f7db4efc9e12d
+Author: Mallory <mkoai@utexas.edu>
+Date:   Wed Mar 18 14:53:08 2015 -0500
+
+    Updated pages (pushed from right account)
+    
+    Updated about.html, characters.html, locations.html, main.html,
+    organizations.html, housedowning.css; added business-frontpage.css.
+    
+    (Ignore the last commit/revert, please.)
+
+commit 211658da4204bf2eafdecde915673f07dc7fbd39
+Author: Mallory <mkoai@utexas.edu>
+Date:   Wed Mar 18 14:50:31 2015 -0500
+
+    Revert "Updated pages"
+    
+    This reverts commit 7a03badb4b66392e83ad7f25cca211bbe127a466.
+
+commit 7a03badb4b66392e83ad7f25cca211bbe127a466
+Author: Mallory <mallory.koai@gmail.com>
+Date:   Wed Mar 18 14:47:58 2015 -0500
+
+    Updated pages
+    
+    updated about.html, characters.html, locations.html, main.html,
+    organizations.html, housedowning.css; added business-frontpage.css
+
+commit 3c03c15fb3c28ec8b8e1c1bc1b2e37e504712f0b
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 9 15:42:18 2015 -0500
+
+    Added routing and pages for our 4 pillars.
+
+commit c278c727d96f86cf7c2ae3cecb8e430a7d30bdcd
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Mar 9 15:25:16 2015 -0500
+
+    Added skeleton Flask Model for our dataset. Requires Flask-SQLAlchemy and Werkzeug.
+
+commit ddee0dd5f0a36d1be7453c4ac552301c3f1a0d06
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Sun Mar 8 01:02:37 2015 -0600
+
+    Added bootstrap and title-bar
+
+commit 0171c03dfd454f5265c8f9453c0bbabe4e1da877
+Author: QuiteStochastic <oliverlee010@gmail.com>
+Date:   Sun Mar 8 00:53:52 2015 -0600
+
+    first commit
+
+commit 0632fd180a463cd5824e751ce45b4b521ac642bd
+Author: QuiteStochastic <oliverlee010@gmail.com>
+Date:   Sat Mar 7 18:19:06 2015 -0600
+
+    first commit
