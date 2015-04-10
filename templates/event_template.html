@@ -76,9 +76,15 @@
   
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("location").innerHTML = result.location_id; 
     document.getElementById("type").innerHTML = result.event_type; 
     document.getElementById("description").innerHTML = result.event_description; 
+  
+    // Create link to location of event
+    var event_location = document.createElement("A");
+    var location_name = document.createTextNode(result.loc_name);
+    event_location.setAttribute("href", "/locations/" + result.loc_id);
+    event_location.appendChild(location_name);
+    document.getElementById("location").appendChild(event_location);
   
     // Create links to characters
     var participants, parties;
