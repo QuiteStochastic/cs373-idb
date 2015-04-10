@@ -1,5 +1,47 @@
-............
+test_api_character_individual_invalid (tests.TestApi) ... ok
+test_api_character_individual_response (tests.TestApi) ... ok
+test_api_character_individual_valid (tests.TestApi) ... ok
+test_api_character_list_count (tests.TestApi) ... ok
+test_api_character_list_response (tests.TestApi) ... ok
+test_api_character_list_type (tests.TestApi) ... ok
+test_api_episode_individual_invalid (tests.TestApi) ... ok
+test_api_episode_individual_response (tests.TestApi) ... ok
+test_api_episode_individual_valid (tests.TestApi) ... ok
+test_api_episode_list_count (tests.TestApi) ... ok
+test_api_episode_list_response (tests.TestApi) ... ok
+test_api_episode_list_type (tests.TestApi) ... ok
+test_api_event_individual_invalid (tests.TestApi) ... ok
+test_api_event_individual_response (tests.TestApi) ... ok
+test_api_event_individual_valid (tests.TestApi) ... ok
+test_api_event_list_count (tests.TestApi) ... ok
+test_api_event_list_response (tests.TestApi) ... ok
+test_api_event_list_type (tests.TestApi) ... ok
+test_api_location_individual_invalid (tests.TestApi) ... ok
+test_api_location_individual_response (tests.TestApi) ... ok
+test_api_location_individual_valid (tests.TestApi) ... ok
+test_api_location_list_count (tests.TestApi) ... ok
+test_api_location_list_response (tests.TestApi) ... ok
+test_api_location_list_type (tests.TestApi) ... ok
+test_api_organization_individual_invalid (tests.TestApi) ... ok
+test_api_organization_individual_response (tests.TestApi) ... ok
+test_api_organization_individual_valid (tests.TestApi) ... ok
+test_api_organization_list_count (tests.TestApi) ... ok
+test_api_organization_list_response (tests.TestApi) ... ok
+test_api_organization_list_type (tests.TestApi) ... ok
+test_character_double (tests.TestDatabase) ... ok
+test_character_missing (tests.TestDatabase) ... ok
+test_character_single (tests.TestDatabase) ... ok
+test_event_double (tests.TestDatabase) ... ok
+test_event_missing (tests.TestDatabase) ... ok
+test_event_single (tests.TestDatabase) ... ok
+test_location_double (tests.TestDatabase) ... ok
+test_location_missing (tests.TestDatabase) ... ok
+test_location_single (tests.TestDatabase) ... ok
+test_org_double (tests.TestDatabase) ... ok
+test_org_missing (tests.TestDatabase) ... ok
+test_org_single (tests.TestDatabase) ... ok
+
 ----------------------------------------------------------------------
-Ran 12 tests in 0.043s
+Ran 42 tests in 0.711s
 
 OK
