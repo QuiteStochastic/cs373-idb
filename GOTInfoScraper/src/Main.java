@@ -8,10 +8,9 @@ import org.jsoup.select.Elements;
 
 public class Main {
 
-    //episode descriptions
+
     //character descriptions
-    //event descriptions
-    //location descr
+
     //organization descr
 
     public static void main(String[] args) {
