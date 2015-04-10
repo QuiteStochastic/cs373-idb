@@ -14,30 +14,6 @@
   width: 200px;
 }
 
-.bio p {
-  text-align: left;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-
-
-.bio-info {
-  text-align: center;
-  vertical-align: center;
-}
-
-.bio-info h2 {
-  text-align: center;
-}
-
-.bio-pic {
-  vertical-align: center;
-}
-
-.bio span {
-    color: #00b0ff;
-}
-
 body {
     padding-top: 50px;
 }
@@ -177,20 +153,26 @@ table .img-circle {
   vertical-align: text-bottom;
 }
 
+.team-bio h1 {
+  font-size: 250%;
+  text-align: center;
+  font-family: 'Shift', sans-serif;
+  color: black;
+  padding-bottom: 0px;
+
+  margin-bottom: 20px;
+  /*background-color: #FFBB33;*/
+  margin-left: 0px;
+  margin-top: 50px;
+}
 
 .thumbnail img { 
   height: 300px;
   width: 300px;
   padding: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.caption {
-  height: 250px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 .thumbnail:hover {
@@ -198,18 +180,34 @@ table .img-circle {
   opacity: .9;
 }
 
-.team-bio h1 {
-  font-size: 250%;
-  text-align: center;
-  font-family: 'Shift', sans-serif;
-  color: black;
-  padding-bottom: 0px;
-  margin-bottom: 20px;
-  /*background-color: #FFBB33;*/
-  margin-left: 0px;
-  margin-top: 50px;
-}
-
 .group-con h4 {
   text-align: center;
+}
+
+.caption {
+  height: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+ 
+.caption span {
+  color: #00b0ff;
+}
+
+.caption p {
+  color: #999;
+}
+
+.caption h3 {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+.caption span.adds {
+  color: #6cc644;
+}
+
+.caption span.deletes {
+  color: #bd2c00;
 }
