@@ -78,7 +78,7 @@
   
     // Create link to organization of locations
     var location_org = document.createElement("A");
-    var org_name = document.createTextNode(result.organization[0].name);
+    var org_name = document.createTextNode(result.organizations[0].name);
     location_org.setAttribute("href", "/organizations/" + result.org_id);
     location_org.appendChild(org_name);
     document.getElementById("org").appendChild(location_org);
