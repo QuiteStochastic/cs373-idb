@@ -44,24 +44,31 @@ public class Main {
             linestr=linestr.replaceAll(", ", "-");
 
             String[] line=linestr.split(",");
-            line[1]="\""+line[1]+"\"";
+            //line[1]="\""+line[1]+"\"";
             String locName=line[1];
 
             System.out.println("Location name: "+locName);
+
+            if(locName.equals("Essos") || locName.equals("Westeros")){
+                String toAdd=line[0]+","+line[1]+","+line[2]+","+","+",";
+                results.add(toAdd);
+
+                continue;
+            }
 
             Document document;
             try{
                 document= Jsoup.connect("http://gameofthrones.wikia.com/wiki/" + locName).get();
             }
             catch(Exception ex){
-                //System.err.println(e);
+                System.err.println(ex);
                 System.out.println("getting page failed");
                 return;
             }
 
             Element e;
             try{
-                e=document.select("#mw-content-text").get(0).parent();
+                e=document.select("#mw-content-text").get(0).child(0);
             }
             catch (Exception ex){
 
@@ -70,23 +77,24 @@ public class Main {
                 }
                 catch(Exception exx){
                     //System.err.println(e);
-                    System.out.println("getting page failed");
+                    System.out.println("second try, getting page failed");
                     return;
                 }
 
                 e=document.select("#Plot").get(0).parent();
 
             }
-            e=e.nextElementSibling();
+            //e=e.nextElementSibling();
             while(!e.tagName().equals("p")){
                 e=e.nextElementSibling();
             }
 
             String s=e.html();
             String cleaned=s.replaceAll("<.*?>", "");
-            String plotDescription=cleaned+" ";
+            cleaned=cleaned.replaceAll("\\[.*?\\]", "");
+            String locDescription=cleaned+" ";
 
-            System.out.println(plotDescription);
+            System.out.println(locDescription);
 
             /*while(e.tagName().equals("p")){
 
@@ -96,7 +104,10 @@ public class Main {
                 e=e.nextElementSibling();
             }*/
 
-            String toAdd=line[0]+","+line[1]+","+line[2]+","+"\""+plotDescription+"\""+","+line[4];
+            String toAdd=line[0]+","+line[1]+","+line[2]+","+"\""+locDescription+"\""+",";
+
+            toAdd=toAdd+line[4]+",";
+
             results.add(toAdd);
 
         }
