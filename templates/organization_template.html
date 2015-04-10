@@ -78,9 +78,15 @@
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("leader").innerHTML = result.leader_id; 
-    document.getElementById("location").innerHTML = result.loc_id; 
     document.getElementById("type").innerHTML = result.org_type; 
     document.getElementById("description").innerHTML = result.org_desc;   
+  
+    // Create link to location of organization
+    var org_location = document.createElement("A");
+    var location_name = document.createTextNode(result.location_name);
+    org_location.setAttribute("href", "/locations/" + result.location_id);
+    org_location.appendChild(location_name);
+    document.getElementById("location").appendChild(org_location);
   
     // Create links to characters
     var characters, events;
