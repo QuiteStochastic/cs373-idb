@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -61,7 +58,7 @@
                      |        
 flask_sqlalchemy.Model --+    
                          |    
-                  ??.Model --+
+                ??.Model-1 --+
                              |
                             <strong class="uidshort">Character</strong>
 </pre>
@@ -147,6 +144,23 @@ flask_sqlalchemy.Model --+
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="serialize"></a><span class="summary-sig-name">serialize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">brief</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Character.serialize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
   <tr>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.Model</code></b>:
@@ -165,6 +179,41 @@ flask_sqlalchemy.Model --+
       <code>__str__</code>,
       <code>__subclasshook__</code>
       </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get"></a><span class="summary-sig-name">get</span>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">charid</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Character.get">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
     </td>
   </tr>
 </table>
@@ -189,7 +238,7 @@ flask_sqlalchemy.Model --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7feecb17ab50; Character&gt;">&lt;Mapper at 0x7feecb17ab50; Character&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7fecf734e7d0; Character&gt;">&lt;Mapper at 0x7fecf734e7d0; Character&gt;</code>
     </td>
   </tr>
 <tr>
@@ -199,10 +248,12 @@ flask_sqlalchemy.Model --+
         <a href="Model.Character-class.html#__table__" class="summary-name">__table__</a> = <code title="Table('character', MetaData(bind=None), Column('char_id', Integer(), t\
 able=&lt;character&gt;, primary_key=True, nullable=False), Column('first_nam\
 e', String(length=255), table=&lt;character&gt;), Column('last_name', String\
-(length=255), table=&lt;character&gt;), Column('gender', String(length=255),\
- table=&lt;character&gt;), Column('religion', String(length=255), table=&lt;cha\
-racter&gt;), Column('status', String(length=255), table=&lt;character&gt;), Col\
-umn('description', Text(), table=&lt;character&gt;), schema=None)">Table('character', MetaData(bind=None), Column('ch<code class="variable-ellipsis">...</code></code>
+(length=255), table=&lt;character&gt;), Column('alias', String(length=255), \
+table=&lt;character&gt;), Column('gender', String(length=255), table=&lt;charac\
+ter&gt;), Column('religion', String(length=255), table=&lt;character&gt;), Colu\
+mn('status', String(length=255), table=&lt;character&gt;), Column('descripti\
+on', Text(), table=&lt;character&gt;), Column('birth_loc', Integer(), Foreig\
+...">Table('character', MetaData(bind=None), Column('ch<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -216,63 +267,103 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)">Table('charac
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Character'&gt; at 7feecb187050&gt;">&lt;ClassManager of &lt;class 'Model.Character'&gt;<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Character'&gt; at 7fecf73594f0&gt;">&lt;ClassManager of &lt;class 'Model.Character'&gt;<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#char_id" class="summary-name">char_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-190&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obj<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#alias" class="summary-name">alias</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+410&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute objec<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#description" class="summary-name">description</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-790&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#birth_loc" class="summary-name">birth_loc</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+8d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#first_name" class="summary-name">first_name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-290&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#char_id" class="summary-name">char_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+110&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obj<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#gender" class="summary-name">gender</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-490&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#death_loc" class="summary-name">death_loc</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+990&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#last_name" class="summary-name">last_name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-390&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#description" class="summary-name">description</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+810&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#religion" class="summary-name">religion</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-590&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#first_episode" class="summary-name">first_episode</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+a50&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribu<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Character-class.html#status" class="summary-name">status</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c\
-690&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Character-class.html#first_name" class="summary-name">first_name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+210&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Character-class.html#gender" class="summary-name">gender</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+510&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Character-class.html#last_episode" class="summary-name">last_episode</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+b10&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribut<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Character-class.html#last_name" class="summary-name">last_name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+310&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Character-class.html#religion" class="summary-name">religion</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+610&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Character-class.html#status" class="summary-name">status</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364\
+710&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
   <tr>
@@ -418,10 +509,12 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)">Table('charac
 Table('character', MetaData(bind=None), Column('char_id', Integer(), t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 able=&lt;character&gt;, primary_key=True, nullable=False), Column('first_nam<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 e', String(length=255), table=&lt;character&gt;), Column('last_name', String<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-(length=255), table=&lt;character&gt;), Column('gender', String(length=255),<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- table=&lt;character&gt;), Column('religion', String(length=255), table=&lt;cha<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-racter&gt;), Column('status', String(length=255), table=&lt;character&gt;), Col<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-umn('description', Text(), table=&lt;character&gt;), schema=None)
+(length=255), table=&lt;character&gt;), Column('alias', String(length=255), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+table=&lt;character&gt;), Column('gender', String(length=255), table=&lt;charac<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ter&gt;), Column('religion', String(length=255), table=&lt;character&gt;), Colu<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+mn('status', String(length=255), table=&lt;character&gt;), Column('descripti<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+on', Text(), table=&lt;character&gt;), Column('birth_loc', Integer(), Foreig<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -439,7 +532,45 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'Model.Character'&gt; at 7feecb187050&gt;
+&lt;ClassManager of &lt;class 'Model.Character'&gt; at 7fecf73594f0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="alias"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">alias</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+410&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="birth_loc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">birth_loc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+8d0&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -457,8 +588,27 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-190&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+110&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="death_loc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">death_loc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+990&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -476,8 +626,27 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-790&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+810&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="first_episode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">first_episode</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+a50&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -495,8 +664,8 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-290&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+210&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -514,8 +683,27 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-490&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+510&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="last_episode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">last_episode</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+b10&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -533,8 +721,8 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-390&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+310&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -552,8 +740,8 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-590&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+610&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -571,8 +759,8 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb10c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-690&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7364<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+710&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -583,9 +771,6 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -605,7 +790,7 @@ umn('description', Text(), table=&lt;character&gt;), schema=None)
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Mar 27 02:29:56 2015
+    Generated by Epydoc 3.0.1 on Fri Apr 10 02:15:22 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

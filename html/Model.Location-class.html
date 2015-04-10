@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -61,7 +58,7 @@
                      |        
 flask_sqlalchemy.Model --+    
                          |    
-                  ??.Model --+
+                ??.Model-1 --+
                              |
                             <strong class="uidshort">Location</strong>
 </pre>
@@ -118,7 +115,8 @@ flask_sqlalchemy.Model --+
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="Model.Location-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">name</span>)</span><br />
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">ltype</span>=<span class="summary-sig-default">0</span>)</span><br />
       A simple constructor that allows initialization from kwargs.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Model-pysrc.html#Location.__init__">source&nbsp;code</a></span>
@@ -139,6 +137,23 @@ flask_sqlalchemy.Model --+
       repr(x)</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Model-pysrc.html#Location.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="serialize"></a><span class="summary-sig-name">serialize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">brief</span>=<span class="summary-sig-default">False</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Location.serialize">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -167,6 +182,41 @@ flask_sqlalchemy.Model --+
     </td>
   </tr>
 </table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get"></a><span class="summary-sig-name">get</span>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">locid</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Location.get">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
 <!-- ==================== CLASS VARIABLES ==================== -->
 <a name="section-ClassVariables"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -188,7 +238,7 @@ flask_sqlalchemy.Model --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7feecb120e10; Location&gt;">&lt;Mapper at 0x7feecb120e10; Location&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7fecf7300dd0; Location&gt;">&lt;Mapper at 0x7fecf7300dd0; Location&gt;</code>
     </td>
   </tr>
 <tr>
@@ -199,8 +249,8 @@ flask_sqlalchemy.Model --+
 le=&lt;location&gt;, primary_key=True, nullable=False), Column('name', Strin\
 g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255\
 ), table=&lt;location&gt;), Column('description', Text(), table=&lt;location&gt;),\
- Column('owner_id', Integer(), ForeignKey('character.char_id'), table=\
-&lt;location&gt;), schema=None)">Table('location', MetaData(bind=None), Column('loc<code class="variable-ellipsis">...</code></code>
+ Column('superior_loc_id', Integer(), ForeignKey('location.loc_id'), t\
+able=&lt;location&gt;), schema=None)">Table('location', MetaData(bind=None), Column('loc<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -214,55 +264,63 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255\
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Location'&gt; at 7feecb127618&gt;">&lt;ClassManager of &lt;class 'Model.Location'&gt; <code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Location'&gt; at 7fecf73054f0&gt;">&lt;ClassManager of &lt;class 'Model.Location'&gt; <code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#description" class="summary-name">description</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-5d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#characters" class="summary-name">characters</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+250&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#loc_id" class="summary-name">loc_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-2d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#description" class="summary-name">description</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+650&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#loc_type" class="summary-name">loc_type</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-4d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#loc_id" class="summary-name">loc_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+350&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#name" class="summary-name">name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-3d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#loc_type" class="summary-name">loc_type</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+550&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#owner" class="summary-name">owner</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-1d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute objec<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#name" class="summary-name">name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+450&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Location-class.html#owner_id" class="summary-name">owner_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d\
-690&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Location-class.html#superior_loc" class="summary-name">superior_loc</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+1d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribut<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Location-class.html#superior_loc_id" class="summary-name">superior_loc_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c\
+710&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttri<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
   <tr>
@@ -327,7 +385,8 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255\
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">name</span>)</span>
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">ltype</span>=<span class="sig-default">0</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
@@ -408,8 +467,8 @@ Table('location', MetaData(bind=None), Column('loc_id', Integer(), tab<span clas
 le=&lt;location&gt;, primary_key=True, nullable=False), Column('name', Strin<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 ), table=&lt;location&gt;), Column('description', Text(), table=&lt;location&gt;),<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- Column('owner_id', Integer(), ForeignKey('character.char_id'), table=<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-&lt;location&gt;), schema=None)
+ Column('superior_loc_id', Integer(), ForeignKey('location.loc_id'), t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+able=&lt;location&gt;), schema=None)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -427,7 +486,26 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'Model.Location'&gt; at 7feecb127618&gt;
+&lt;ClassManager of &lt;class 'Model.Location'&gt; at 7fecf73054f0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="characters"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">characters</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+250&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -445,8 +523,8 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-5d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+650&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -464,8 +542,8 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-2d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+350&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -483,8 +561,8 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-4d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+550&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -502,46 +580,46 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-3d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+450&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="owner"></a>
+<a name="superior_loc"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">owner</h3>
+  <h3 class="epydoc">superior_loc</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 1d0&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="owner_id"></a>
+<a name="superior_loc_id"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">owner_id</h3>
+  <h3 class="epydoc">superior_loc_id</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb12d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-690&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf730c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+710&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -552,9 +630,6 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -574,7 +649,7 @@ g(length=255), table=&lt;location&gt;), Column('loc_type', String(length=255<spa
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Mar 27 02:29:56 2015
+    Generated by Epydoc 3.0.1 on Fri Apr 10 02:15:22 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

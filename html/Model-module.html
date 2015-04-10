@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th bgcolor="#70b0f0" class="navbar-select"
-          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -84,6 +81,14 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
+        <a href="Model.Episode-class.html" class="summary-name">Episode</a><br />
+      Models an episode from the GoT series.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
         <a href="Model.Event-class.html" class="summary-name">Event</a><br />
       Models an Event in the GoT universe
     </td>
@@ -112,14 +117,6 @@
       Models an organization from the GoT universe.
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Model.User-class.html" class="summary-name">User</a><br />
-      A user of this web-service.
-    </td>
-  </tr>
 </table>
 <!-- ==================== VARIABLES ==================== -->
 <a name="section-Variables"></a>
@@ -142,28 +139,28 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model-module.html#Participant" class="summary-name">Participant</a> = <code title="Table('Participant', MetaData(bind=None), Column('char_id', Integer(),\
- ForeignKey('character.char_id'), table=&lt;Participant&gt;), Column('event_\
-id', Integer(), ForeignKey('event.event_id'), table=&lt;Participant&gt;), sc\
-hema=None)">Table('Participant', MetaData(bind=None), Column<code class="variable-ellipsis">...</code></code>
+        <a href="Model-module.html#Participant" class="summary-name">Participant</a> = <code title="Table('participant', MetaData(bind=None), Column('char_id', Integer(),\
+ ForeignKey('character.char_id'), table=&lt;participant&gt;), Column('event_\
+id', Integer(), ForeignKey('event.event_id'), table=&lt;participant&gt;), sc\
+hema=None)">Table('participant', MetaData(bind=None), Column<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model-module.html#Party" class="summary-name">Party</a> = <code title="Table('Party', MetaData(bind=None), Column('org_id', Integer(), Foreig\
-nKey('organization.org_id'), table=&lt;Party&gt;), Column('event_id', Intege\
-r(), ForeignKey('event.event_id'), table=&lt;Party&gt;), schema=None)">Table('Party', MetaData(bind=None), Column('org_id', I<code class="variable-ellipsis">...</code></code>
+        <a href="Model-module.html#Party" class="summary-name">Party</a> = <code title="Table('party', MetaData(bind=None), Column('org_id', Integer(), Foreig\
+nKey('organization.org_id'), table=&lt;party&gt;), Column('event_id', Intege\
+r(), ForeignKey('event.event_id'), table=&lt;party&gt;), schema=None)">Table('party', MetaData(bind=None), Column('org_id', I<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model-module.html#Visitor" class="summary-name">Visitor</a> = <code title="Table('Visitor', MetaData(bind=None), Column('char_id', Integer(), For\
-eignKey('character.char_id'), table=&lt;Visitor&gt;), Column('loc_id', Integ\
-er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)">Table('Visitor', MetaData(bind=None), Column('char_i<code class="variable-ellipsis">...</code></code>
+        <a href="Model-module.html#Visitor" class="summary-name">Visitor</a> = <code title="Table('visitor', MetaData(bind=None), Column('char_id', Integer(), For\
+eignKey('character.char_id'), table=&lt;visitor&gt;), Column('loc_id', Integ\
+er(), ForeignKey('location.loc_id'), table=&lt;visitor&gt;), schema=None)">Table('visitor', MetaData(bind=None), Column('char_i<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -177,8 +174,7 @@ er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)">Table
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model-module.html#db" class="summary-name">db</a> = <code title="&lt;SQLAlchemy engine='postgresql://webapp:gotswe@127.0.0.1/housedowning'\
-&gt;">&lt;SQLAlchemy engine='postgresql://webapp:gotswe@127.0.0.1/<code class="variable-ellipsis">...</code></code>
+        <a name="db"></a><span class="summary-name">db</span> = <code title="&lt;SQLAlchemy engine=None&gt;">&lt;SQLAlchemy engine=None&gt;</code>
     </td>
   </tr>
 </table>
@@ -212,9 +208,9 @@ er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)">Table
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Table('Participant', MetaData(bind=None), Column('char_id', Integer(),<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- ForeignKey('character.char_id'), table=&lt;Participant&gt;), Column('event_<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-id', Integer(), ForeignKey('event.event_id'), table=&lt;Participant&gt;), sc<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Table('participant', MetaData(bind=None), Column('char_id', Integer(),<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ ForeignKey('character.char_id'), table=&lt;participant&gt;), Column('event_<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+id', Integer(), ForeignKey('event.event_id'), table=&lt;participant&gt;), sc<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 hema=None)
 </pre></td></tr></table>
 </dd>
@@ -233,9 +229,9 @@ hema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Table('Party', MetaData(bind=None), Column('org_id', Integer(), Foreig<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-nKey('organization.org_id'), table=&lt;Party&gt;), Column('event_id', Intege<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-r(), ForeignKey('event.event_id'), table=&lt;Party&gt;), schema=None)
+Table('party', MetaData(bind=None), Column('org_id', Integer(), Foreig<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+nKey('organization.org_id'), table=&lt;party&gt;), Column('event_id', Intege<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+r(), ForeignKey('event.event_id'), table=&lt;party&gt;), schema=None)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -253,28 +249,9 @@ r(), ForeignKey('event.event_id'), table=&lt;Party&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Table('Visitor', MetaData(bind=None), Column('char_id', Integer(), For<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-eignKey('character.char_id'), table=&lt;Visitor&gt;), Column('loc_id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="db"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">db</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;SQLAlchemy engine='postgresql://webapp:gotswe@127.0.0.1/housedowning'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-&gt;
+Table('visitor', MetaData(bind=None), Column('char_id', Integer(), For<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+eignKey('character.char_id'), table=&lt;visitor&gt;), Column('loc_id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+er(), ForeignKey('location.loc_id'), table=&lt;visitor&gt;), schema=None)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -285,9 +262,6 @@ er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th bgcolor="#70b0f0" class="navbar-select"
-          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -307,7 +281,7 @@ er(), ForeignKey('location.loc_id'), table=&lt;Visitor&gt;), schema=None)
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Mar 27 02:29:56 2015
+    Generated by Epydoc 3.0.1 on Fri Apr 10 02:15:22 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

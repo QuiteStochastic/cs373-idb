@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -61,7 +58,7 @@
                      |        
 flask_sqlalchemy.Model --+    
                          |    
-                  ??.Model --+
+                ??.Model-1 --+
                              |
                             <strong class="uidshort">Membership</strong>
 </pre>
@@ -151,6 +148,22 @@ flask_sqlalchemy.Model --+
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="serialize"></a><span class="summary-sig-name">serialize</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Membership.serialize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
   <tr>
     <td colspan="2" class="summary">
     <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.Model</code></b>:
@@ -193,7 +206,7 @@ flask_sqlalchemy.Model --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7feecb13ad50; Membership&gt;">&lt;Mapper at 0x7feecb13ad50; Membership&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7fecf732a6d0; Membership&gt;">&lt;Mapper at 0x7fecf732a6d0; Membership&gt;</code>
     </td>
   </tr>
 <tr>
@@ -204,9 +217,9 @@ flask_sqlalchemy.Model --+
 , table=&lt;membership&gt;, primary_key=True, nullable=False), Column('rank'\
 , String(length=255), table=&lt;membership&gt;), Column('status', String(len\
 gth=255), table=&lt;membership&gt;), Column('active', Boolean(), table=&lt;memb\
-ership&gt;), Column('char_id', Integer(), ForeignKey('character.char_id')\
-, table=&lt;membership&gt;), Column('org_id', Integer(), ForeignKey('organiz\
-ation.org_id'), table=&lt;membership&gt;), schema=None)">Table('membership', MetaData(bind=None), Column('m<code class="variable-ellipsis">...</code></code>
+ership&gt;), Column('character_id', Integer(), ForeignKey('character.char\
+_id'), table=&lt;membership&gt;), Column('org_id', Integer(), ForeignKey('or\
+ganization.org_id'), table=&lt;membership&gt;), schema=None)">Table('membership', MetaData(bind=None), Column('m<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -220,55 +233,71 @@ ation.org_id'), table=&lt;membership&gt;), schema=None)">Table('membership', Met
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Membership'&gt; at 7feecb134be0&gt;">&lt;ClassManager of &lt;class 'Model.Membership'<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Membership'&gt; at 7fecf7325be0&gt;">&lt;ClassManager of &lt;class 'Model.Membership'<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#active" class="summary-name">active</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-890&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#active" class="summary-name">active</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+310&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#char_id" class="summary-name">char_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-950&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obj<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#character" class="summary-name">character</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf732a\
+e90&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#member_id" class="summary-name">member_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-5d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#character_id" class="summary-name">character_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+3d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribut<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#org_id" class="summary-name">org_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-a10&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#member_id" class="summary-name">member_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+050&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#rank" class="summary-name">rank</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-6d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#org" class="summary-name">org</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf732a\
+f10&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object <code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Membership-class.html#status" class="summary-name">status</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147\
-7d0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Membership-class.html#org_id" class="summary-name">org_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+490&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Membership-class.html#rank" class="summary-name">rank</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+150&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Model.Membership-class.html#status" class="summary-name">status</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd\
+250&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obje<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
   <tr>
@@ -417,9 +446,9 @@ Table('membership', MetaData(bind=None), Column('member_id', Integer()<span clas
 , table=&lt;membership&gt;, primary_key=True, nullable=False), Column('rank'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 , String(length=255), table=&lt;membership&gt;), Column('status', String(len<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 gth=255), table=&lt;membership&gt;), Column('active', Boolean(), table=&lt;memb<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ership&gt;), Column('char_id', Integer(), ForeignKey('character.char_id')<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-, table=&lt;membership&gt;), Column('org_id', Integer(), ForeignKey('organiz<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ation.org_id'), table=&lt;membership&gt;), schema=None)
+ership&gt;), Column('character_id', Integer(), ForeignKey('character.char<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+_id'), table=&lt;membership&gt;), Column('org_id', Integer(), ForeignKey('or<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ganization.org_id'), table=&lt;membership&gt;), schema=None)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -437,7 +466,7 @@ ation.org_id'), table=&lt;membership&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'Model.Membership'&gt; at 7feecb134be0&gt;
+&lt;ClassManager of &lt;class 'Model.Membership'&gt; at 7fecf7325be0&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -455,27 +484,46 @@ ation.org_id'), table=&lt;membership&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-890&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+310&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="char_id"></a>
+<a name="character"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">char_id</h3>
+  <h3 class="epydoc">character</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-950&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf732a<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="character_id"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">character_id</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+3d0&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -493,8 +541,27 @@ ation.org_id'), table=&lt;membership&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-5d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+050&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="org"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">org</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf732a<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+f10&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -512,8 +579,8 @@ ation.org_id'), table=&lt;membership&gt;), schema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-a10&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+490&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -531,8 +598,8 @@ a10&gt;
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-6d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+150&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -550,8 +617,8 @@ a10&gt;
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7feecb147<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-7d0&gt;
+&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf72bd<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+250&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -562,9 +629,6 @@ a10&gt;
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="Model-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -584,7 +648,7 @@ a10&gt;
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Mar 27 02:29:56 2015
+    Generated by Epydoc 3.0.1 on Fri Apr 10 02:15:22 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
