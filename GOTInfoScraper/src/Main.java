@@ -17,6 +17,114 @@ public class Main {
     public static void main(String[] args) {
 
 
+        //scrapeForEpisodeDesc();
+
+        scrapeForLocationDesc();
+
+
+
+    }
+
+
+    private static void scrapeForLocationDesc() {
+        Scanner in;
+        try{
+            in=new Scanner(new FileReader("..\\raw_data\\location.csv"));
+        }
+        catch(Exception e){
+            System.out.println("error reading file!");
+            System.exit(1);
+            return;
+        }
+
+        ArrayList<String> results=new ArrayList<String>();
+
+        while(in.hasNextLine()){
+            String linestr=in.nextLine();
+            linestr=linestr.replaceAll(", ", "-");
+
+            String[] line=linestr.split(",");
+            line[1]="\""+line[1]+"\"";
+            String locName=line[1];
+
+            System.out.println("Location name: "+locName);
+
+            Document document;
+            try{
+                document= Jsoup.connect("http://gameofthrones.wikia.com/wiki/" + locName).get();
+            }
+            catch(Exception ex){
+                //System.err.println(e);
+                System.out.println("getting page failed");
+                return;
+            }
+
+            Element e;
+            try{
+                e=document.select("#mw-content-text").get(0).parent();
+            }
+            catch (Exception ex){
+
+                try{
+                    document=Jsoup.connect("http://gameofthrones.wikia.com/wiki/"+locName+" (episode)").get();
+                }
+                catch(Exception exx){
+                    //System.err.println(e);
+                    System.out.println("getting page failed");
+                    return;
+                }
+
+                e=document.select("#Plot").get(0).parent();
+
+            }
+            e=e.nextElementSibling();
+            while(!e.tagName().equals("p")){
+                e=e.nextElementSibling();
+            }
+
+            String s=e.html();
+            String cleaned=s.replaceAll("<.*?>", "");
+            String plotDescription=cleaned+" ";
+
+            System.out.println(plotDescription);
+
+            /*while(e.tagName().equals("p")){
+
+                String s=e.html();
+                String cleaned=s.replaceAll("<.*?>", "");
+                plotDescription=plotDescription+cleaned+" ";
+                e=e.nextElementSibling();
+            }*/
+
+            String toAdd=line[0]+","+line[1]+","+line[2]+","+"\""+plotDescription+"\""+","+line[4];
+            results.add(toAdd);
+
+        }
+
+
+        //write to output
+
+        String outputFileName="results.csv";
+
+
+        File outFile = new File (outputFileName);
+        FileWriter fWriter;
+        try{
+            fWriter = new FileWriter(outFile);
+        }
+        catch (IOException e){
+            System.out.println("error writing file, quitting");
+            return;
+        }
+        PrintWriter writer = new PrintWriter (fWriter);
+
+        for(String s: results){
+            writer.print(s+"\n");
+        }
+        writer.close();
+    }
+
+    private static void scrapeForEpisodeDesc() {
         Scanner in;
         try{
             in=new Scanner(new FileReader("..\\raw_data\\episode.csv"));
@@ -42,7 +150,7 @@ public class Main {
 
             Document document;
             try{
-                document=Jsoup.connect("http://gameofthrones.wikia.com/wiki/"+episodeName).get();
+                document= Jsoup.connect("http://gameofthrones.wikia.com/wiki/" + episodeName).get();
             }
             catch(Exception ex){
                 //System.err.println(e);
@@ -106,13 +214,7 @@ public class Main {
             writer.print(s+"\n");
         }
         writer.close();
-
-
-
-
-
     }
-
 
 
 }
