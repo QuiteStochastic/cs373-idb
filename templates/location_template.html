@@ -34,7 +34,6 @@
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Superior Location:</strong> <span id="superior_loc"></span></li>
           <li class="list-group-item"><strong>Organization:</strong> <span id="org"></span></li>
           <li class="list-group-item"><strong>Type:</strong> <span id="type"></span></li>
         </ul>
@@ -44,7 +43,8 @@
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p> 
+        <p id="description"></p>
+        <p><em>- <a href="http://awoiaf.westeros.org/index.php/Main_Page">AWOIAF</a></em></p>   
       </div>
     </div>
     
@@ -71,7 +71,6 @@
 
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("superior_loc").innerHTML = result.location_owner; 
     document.getElementById("type").innerHTML = result.loc_type;
     document.getElementById("description").innerHTML = result.location_desc; 
   
