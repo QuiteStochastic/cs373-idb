@@ -238,7 +238,7 @@ class Organization(db.Model):
                 'leader_first_name':self.leader.first_name if self.leader is not None else "",
                 'leader_last_name':self.leader.last_name if self.leader is not None else "",
                 'members':[m.serialize() for m in self.members],
-                'partyto':[e.serialize() for e in self.events]
+                'partyto':[e.serialize(True) for e in self.events]
             }
     
     def __repr__(self):
@@ -299,7 +299,6 @@ class Membership(db.Model):
         self.status = "active" if active else "inactive"
     
     def serialize(self):
-        
         return {
             'member_id':self.member_id,
             'rank':self.rank,
