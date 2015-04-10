@@ -181,3 +181,15 @@ def get_location(lid):
         flask.abort(404)
     return flask.jsonify(loc.serialize())
 
+@app.route('/api/episodes')
+@cross_origin()
+def get_all_episodes():
+    return json_response([e.serialize() for e in Episode.query.all()])
+
+@app.route('/api/episodes/<int:eid>')
+@cross_origin()
+def get_episode(eid):
+    ep = Episode.query.get(eid)
+    if ep is None:
+        flask.abort(404)
+    return flask.jsonify(ep.serialize())
