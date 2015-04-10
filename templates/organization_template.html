@@ -44,7 +44,8 @@
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p>    
+        <p id="description"></p>
+        <p><em>- <a href="http://awoiaf.westeros.org/index.php/Main_Page">AWOIAF</a></em></p>     
       </div>
     </div>
     
@@ -76,9 +77,15 @@
 
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("leader").innerHTML = result.leader_id; 
     document.getElementById("type").innerHTML = result.org_type; 
     document.getElementById("description").innerHTML = result.org_desc;   
+  
+    // Create link to leader of organization
+    var leader = document.createElement("A");
+    var leader_name = document.createTextNode(result.leader_first_name + ' ' + result.leader_last_name);
+    leader.setAttribute("href", "/characters/" + result.leader_id);
+    leader.appendChild(leader_name);
+    document.getElementById("leader").appendChild(leader);
   
     // Create link to location of organization
     var org_location = document.createElement("A");
