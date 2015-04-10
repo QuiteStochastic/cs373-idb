@@ -1,6 +1,7 @@
 
 from flask import Flask
 from FlaskApp import ConfigTesting, db, drop_all
+from Routing import app
 from flask.ext.sqlalchemy import SQLAlchemy
 from unittest import main, TestCase, TextTestRunner
 from io import StringIO
@@ -11,6 +12,73 @@ tapp = Flask(__name__)
 tdb = db
 tapp.config.from_object(ConfigTesting)
 tdb.init_app(tapp)
+
+class TestApi(TestCase):
+    ctx = None
+    
+    @classmethod
+    def setUpClass(cls):
+        TestApi.ctx = app.test_request_context()
+    
+    @classmethod
+    def tearDownClass(cls):
+        TestApi.ctx = None
+    
+    def setUp(self):
+        """
+        Make the request context current
+        """
+        TestApi.ctx.push()
+    
+    def tearDown(self):
+        """
+        Remove the test context from the stack
+        """
+        TestApi.ctx.pop()
+    
+    def test_api_character_list_response(self):
+        client = app.test_client()
+        response = client.get('/api/characters')
+        print(response)
+        print(response.data)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_character_individual_response(self):
+        client = app.test_client()
+        response = client.get('/api/characters/1')
+        print(response)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_episode_list_response(self):
+        client = app.test_client()
+        response = client.get('/api/episodes')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_episode_individual_response(self):
+        client = app.test_client()
+        response = client.get('/api/episodes/1')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_event_list_response(self):
+        client = app.test_client()
+        response = client.get('/api/events')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_event_individual_response(self):
+        client = app.test_client()
+        response = client.get('/api/events/1')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_organization_list_response(self):
+        client = app.test_client()
+        response = client.get('/api/organizations')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_organization_individual_response(self):
+        client = app.test_client()
+        response = client.get('/api/organizations/1')
+        self.assertEqual(response.status_code, 200)
+
 
 class TestDatabase(TestCase):
     ctx = None
@@ -150,4 +218,8 @@ def run_tests():
     return s.getvalue()
 
 if __name__ == "__main__":
+    # If we are running it by itself, we need to init the app object
+    tdb.init_app(app)
+    # We also need to import the routing information
+    import Routing
     main()
