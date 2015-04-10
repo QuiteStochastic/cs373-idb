@@ -5,6 +5,7 @@ from Routing import app
 from flask.ext.sqlalchemy import SQLAlchemy
 from unittest import main, TestCase, TextTestRunner
 from io import StringIO
+import json
 
 from Model import Character, Organization, Location, Event
 
@@ -36,49 +37,200 @@ class TestApi(TestCase):
         """
         TestApi.ctx.pop()
     
+    ###################################
+    # Character Tests (/api/characters)
     def test_api_character_list_response(self):
         client = app.test_client()
         response = client.get('/api/characters')
-        print(response)
-        print(response.data)
         self.assertEqual(response.status_code, 200)
     
+    def test_api_character_list_count(self):
+        client = app.test_client()
+        response = client.get('/api/characters')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(len(objects) > 0)
+    
+    def test_api_character_list_type(self):
+        client = app.test_client()
+        response = client.get('/api/characters')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(objects) == list)
+    
+    ######################################
+    # Character Tests (/api/characters/id)
     def test_api_character_individual_response(self):
         client = app.test_client()
         response = client.get('/api/characters/1')
-        print(response)
         self.assertEqual(response.status_code, 200)
     
+    def test_api_character_individual_valid(self):
+        client = app.test_client()
+        response = client.get('/api/characters/1')
+        self.assertEqual(response.status_code, 200)
+        obj = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(obj) == dict)
+        self.assertEqual(obj["char_id"], 1)
+    
+    def test_api_character_individual_invalid(self):
+        client = app.test_client()
+        response = client.get('/api/characters/99999999')
+        self.assertEqual(response.status_code, 404)
+    
+    ##################################
+    # Episode Tests (/api/episodes/id)
     def test_api_episode_list_response(self):
         client = app.test_client()
         response = client.get('/api/episodes')
         self.assertEqual(response.status_code, 200)
     
+    def test_api_episode_list_count(self):
+        client = app.test_client()
+        response = client.get('/api/episodes')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(len(objects) > 0)
+    
+    def test_api_episode_list_type(self):
+        client = app.test_client()
+        response = client.get('/api/episodes')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(objects) == list)
+    
+    ##################################
+    # Episode Tests (/api/episodes/id)
     def test_api_episode_individual_response(self):
         client = app.test_client()
         response = client.get('/api/episodes/1')
         self.assertEqual(response.status_code, 200)
     
+    def test_api_episode_individual_valid(self):
+        client = app.test_client()
+        response = client.get('/api/episodes/1')
+        self.assertEqual(response.status_code, 200)
+        obj = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(obj) == dict)
+        self.assertEqual(obj["ep_id"], 1)
+    
+    def test_api_episode_individual_invalid(self):
+        client = app.test_client()
+        response = client.get('/api/episodes/99999999')
+        self.assertEqual(response.status_code, 404)
+    
+    ###########################
+    # Event Tests (/api/events)
     def test_api_event_list_response(self):
         client = app.test_client()
         response = client.get('/api/events')
         self.assertEqual(response.status_code, 200)
     
+    def test_api_event_list_count(self):
+        client = app.test_client()
+        response = client.get('/api/events')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(len(objects) > 0)
+    
+    def test_api_event_list_type(self):
+        client = app.test_client()
+        response = client.get('/api/events')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(objects) == list)
+    
+    ##############################
+    # Event Tests (/api/events/id)
     def test_api_event_individual_response(self):
         client = app.test_client()
         response = client.get('/api/events/1')
         self.assertEqual(response.status_code, 200)
     
+    def test_api_event_individual_valid(self):
+        client = app.test_client()
+        response = client.get('/api/events/1')
+        self.assertEqual(response.status_code, 200)
+        obj = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(obj) == dict)
+        self.assertEqual(obj["event_id"], 1)
+    
+    def test_api_event_individual_invalid(self):
+        client = app.test_client()
+        response = client.get('/api/events/99999999')
+        self.assertEqual(response.status_code, 404)
+    
+    ###########################
+    # Location Tests (/api/locations)
+    def test_api_location_list_response(self):
+        client = app.test_client()
+        response = client.get('/api/locations')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_location_list_count(self):
+        client = app.test_client()
+        response = client.get('/api/locations')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(len(objects) > 0)
+    
+    def test_api_location_list_type(self):
+        client = app.test_client()
+        response = client.get('/api/locations')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(objects) == list)
+    
+    ##############################
+    # Location Tests (/api/locations/id)
+    def test_api_location_individual_response(self):
+        client = app.test_client()
+        response = client.get('/api/locations/1')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_api_location_individual_valid(self):
+        client = app.test_client()
+        response = client.get('/api/locations/1')
+        self.assertEqual(response.status_code, 200)
+        obj = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(obj) == dict)
+        self.assertEqual(obj["loc_id"], 1)
+    
+    def test_api_location_individual_invalid(self):
+        client = app.test_client()
+        response = client.get('/api/locations/99999999')
+        self.assertEqual(response.status_code, 404)
+    
+    ###########################
+    # Organization Tests (/api/organizations)
     def test_api_organization_list_response(self):
         client = app.test_client()
         response = client.get('/api/organizations')
         self.assertEqual(response.status_code, 200)
     
+    def test_api_organization_list_count(self):
+        client = app.test_client()
+        response = client.get('/api/organizations')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(len(objects) > 0)
+    
+    def test_api_organization_list_type(self):
+        client = app.test_client()
+        response = client.get('/api/organizations')
+        objects = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(objects) == list)
+    
+    ##############################
+    # Organization Tests (/api/organizations/id)
     def test_api_organization_individual_response(self):
         client = app.test_client()
         response = client.get('/api/organizations/1')
         self.assertEqual(response.status_code, 200)
-
+    
+    def test_api_organization_individual_valid(self):
+        client = app.test_client()
+        response = client.get('/api/organizations/1')
+        self.assertEqual(response.status_code, 200)
+        obj = json.loads(response.data.decode("utf-8"))
+        self.assertTrue(type(obj) == dict)
+        self.assertEqual(obj["org_id"], 1)
+    
+    def test_api_organization_individual_invalid(self):
+        client = app.test_client()
+        response = client.get('/api/organizations/99999999')
+        self.assertEqual(response.status_code, 404)
 
 class TestDatabase(TestCase):
     ctx = None
