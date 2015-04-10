@@ -96,7 +96,7 @@
     var affiliations, locations, events;
     affiliations = result.affiliations;
     locations = result.visited;
-    events = result.events;
+    events = result.events; 
 
     for (var i = 0; i < affiliations.length; i++) {
       var affiliation = affiliations[i];
@@ -108,16 +108,16 @@
       document.getElementById("affiliations").appendChild(link);
     }    
   
-    // Create links to locations
-    for (var i = 0; i < locations.length; i++) {
-      var location = locations[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(location.name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/locations/" + location.loc_id);
-      link.appendChild(text);
-      document.getElementById("locations").appendChild(link);
-    }  
+//     // Create links to locations
+//     for (var i = 0; i < locations.length; i++) {
+//       var location = locations[i];
+//       var link = document.createElement("A");
+//       var text = document.createTextNode(location.name);
+//       link.setAttribute("class", "list-group-item");
+//       link.setAttribute("href", "/locations/" + location.loc_id);
+//       link.appendChild(text);
+//       document.getElementById("locations").appendChild(link);
+//     }  
   
 //     // Create links to events
 //     for (var i = 0; i < events.length; i++) {
