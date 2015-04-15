@@ -18,9 +18,23 @@ public class Main {
 
         //scrapeForEpisodeDesc();
 
-        scrapeForLocationDesc();
+        //scrapeForLocationDesc();
+
+        scrapeForCharacterDesc();
+
+    }
 
 
+    public static void scrapeForCharacterDesc(){
+        Scanner in;
+        try{
+            in=new Scanner(new FileReader("..\\raw_data\\character.csv"));
+        }
+        catch(Exception e){
+            System.out.println("error reading file!");
+            System.exit(1);
+            return;
+        }
 
     }
 

@@ -2,7 +2,7 @@
 2,Queen,current,TRUE,2,2
 3,Second son,fled,FALSE,3,6
 4,Prince,died in service,FALSE,4,13
-5,Brother,current,TRUE,5,7
+5,Sworn Brother,current,TRUE,5,7
 6,bastard,current,TRUE,5,8
 7,Second daughter,missing,FALSE,6,8
 8,Lord Paramount,died in service,FALSE,7,8
@@ -22,3 +22,24 @@
 22,Lord Paramount,current,TRUE,16,5
 23,Lord,current,TRUE,21,12
 24,King Beyond the Wall,current,TRUE,15,4
+25,King,died in service,FALSE,35,14
+26,Priestess,current,TRUE,32,3
+27,Prince,current,TRUE,11,13
+28,Lord Paramount,current,TRUE,12,1
+29,King Beyond the Wall,current,TRUE,15,4
+30,Lord Paramount,current,TRUE,16,5
+31,Sworn Brother,current,TRUE,17,7
+32,Lord Paramount,current,FALSE,19,10
+33,Lord Paramount,current,TRUE,20,11
+34,Lord,current,TRUE,21,12
+35,First Son,current,TRUE,24,6
+36,First Daughter,current,TRUE,28,8
+37,Lady,died in service,FALSE,29,8
+38,First Daughter,died in service,FALSE,29,10
+39,Advisor,expelled from service,FALSE,34,9
+40,Youngest Son,current,TRUE,36,8
+41,family member,current,TRUE,37,10
+42,family member,current,TRUE,38,6
+43,son,current,TRUE,39,15
+44,Lord,current,TRUE,40,15
+45,King,died in service,FALSE,42,9
