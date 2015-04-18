@@ -136,41 +136,47 @@
     </div>
 
     <!-- Table -->
-    <table class="row table table-hover hide">
+    <table class="row table table-hover hide tablesorter" id="tableView">
       <thead>
         <tr>
           <th>#</th>
-          <th></th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Gender</th>
-          <th>Religion</th>
-          <th>Status</th>
-          </tr>
-        </thead>
-      
+          <th>Name</th>
+          <th>Season</th>
+          <th>Episode</th>
+        </tr>
+      </thead>
+    
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td><div class="img-circle"</div></td>
-          <td>Robert</td>
-          <td>Baratheon</td>
-          <td>Male</td>
-          <td>Faith of the Seven</td>
-          <td>Deceased</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><div class="img-circle"</div></td>
-          <td>Eddard</td>
-          <td>Stark</td>
-          <td>Male</td>
-          <td>Old Gods of the Forest</td>
-          <td>Deceased</td>
-        </tr>
-      </tbody>
-    </table>
+      {% for x in range(1,41) %}
+      <tr class="clickable-row" id="table-row{{x}}">
+        <th scope="row" id="id{{x}}"></th>
+        <td id="name{{x}}"></td>
+        <td id="season{{x}}"></td>
+        <td id="episode{{x}}"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   </div>
   <!-- END CONTAINER -->
 </body>
+
+<script language="JavaScript" src="../static/js/pulldata.js"></script> 
+<script>  
+    var info = get_data('episodes');
+    var result = JSON.parse(info);
+   
+    for (var i = 1; i <= result.length; i++) {
+      // populate table view
+      document.getElementById("id" + i).innerHTML = i;
+      document.getElementById("name" + i).innerHTML = result[i-1].name;
+      document.getElementById("season" + i).innerHTML = result[i-1].season;
+      document.getElementById("episode" + i).innerHTML = result[i-1].episode_number;
+      document.getElementById("table-row" + i).setAttribute("data-href", "/episodes/" + i);
+
+  }
+</script>
+<script>
+  $("#tableView").tablesorter(); 
+</script>
 {% endblock %}
