@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+  <!-- Image Background Page Header -->
+  <header class="business-header" style="background: url(https://lh3.googleusercontent.com/-ResdawbxaFc/UPLYm12FUHI/AAAAAAAAAGQ/Xz2Sae4BLbA/s1440/gameofthrones_logo.png) center center no-repeat scroll;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class = "tagline"></h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Page Content -->  
+  <div class ="container">
+    <div class="col-sm-12">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/episodes">Episodes</a></li>
+        <li id="breadcrumb_name"></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- /.row -->
+  <div class="container">
+    <div class="row pillars">
+      <div class="col-sm-3 col-sm-offset-2">
+        <h2 id="header_name"></h2>
+        <img class="img-circle img-responsive img-center" src="../static/images/events/event{{event_id}}.png" alt="">
+      </div>
+      
+      <div class="col-sm-4">
+        <h2>Attributes</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Name:</strong> <span id="name"></span></li>
+          <li class="list-group-item"><strong>Season:</strong> <span id="season"></span></li>
+          <li class="list-group-item"><strong>Episode:</strong> <span id="episode"></span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- DESCRIPTION -->
+    <div class="row pillars">
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <p id="description"></p> 
+      </div>
+      <br>
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+      </div>
+    </div>
+    
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</body>
+
+<script language="JavaScript" src="../static/js/pulldata.js"></script> 
+<script>  
+    // Grab and set attributes that go into main body of page
+    var info = get_one('episodes', {{ep_id}});
+    var result = JSON.parse(info);
+  
+    document.getElementById("breadcrumb_name").innerHTML = result.name;
+    document.getElementById("header_name").innerHTML = result.name;
+    document.getElementById("name").innerHTML = result.name;
+    document.getElementById("season").innerHTML = result.season; 
+    document.getElementById("episode").innerHTML = result.episode_number; 
+    document.getElementById("description").innerHTML = result.description;
+</script>
+{% endblock %}
