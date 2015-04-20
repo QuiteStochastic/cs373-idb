@@ -60,9 +60,17 @@
 	          <li><a href="/doc/index.html">Documentation</a></li>
             <li><a href="/tests">Unit Tests</a></li>
           </ul>
-        </div>
-        <!--/.nav-collapse -->
+          <div class="input-group pull-right col-sm-3" style="margin-top:8px">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div>    
       </div>
+      <!--/.nav-collapse -->
+
+   
     </nav>
     <div class="container" style="width:100%; margin: 0px; padding: 0px">
       {% block body %}{% endblock %}
