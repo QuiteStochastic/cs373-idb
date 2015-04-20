@@ -30,11 +30,6 @@ class Character(db.Model):
     status = db.Column(db.String(255))
     description = db.Column(db.Text)
     
-    birth_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    death_loc = db.Column(db.Integer, db.ForeignKey('location.loc_id'))
-    first_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
-    last_episode = db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
-    
     @classmethod
     def get(cls, charid):
         character = Character.query.get(charid)
@@ -50,10 +45,6 @@ class Character(db.Model):
         self.religion = None
         self.status = None
         self.description = None
-        self.birth_loc = None
-        self.death_loc = None
-        self.first_episode = None
-        self.last_episode = None
     
     def serialize(self, brief=False):
         if brief:
@@ -72,10 +63,6 @@ class Character(db.Model):
                 'religion':self.religion,
                 'status':self.status,
                 'description':self.description,
-                'birth_loc':self.birth_loc,
-                'death_loc':self.death_loc,
-                'first_episode':self.first_episode,
-                'last_episode':self.last_episode,
                 'affiliations':[m.serialize() for m in self.memberships],
                 'visited':[l.serialize(True) for l in self.locations],
                 'events':[e.serialize(True) for e in self.events]
