@@ -45,12 +45,16 @@
       <div class="col-sm-8 col-sm-offset-2 description">
         <p id="description"></p>
       </div>
+      <br>
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+      </div>
     </div>
     
     <!-- RELATIONSHIPS -->
     <div class="row">
       <div class="col-sm-4 col-sm-offset-4">
-        <h4>Characters</h4>
+        <h4>Visitors</h4>
       </div>
     </div>
     
@@ -71,7 +75,7 @@
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("type").innerHTML = result.loc_type;
-    document.getElementById("description").innerHTML = result.location_desc; 
+    document.getElementById("description").innerHTML = result.description; 
   
     // Create link to organization of locations
     var location_org = document.createElement("A");

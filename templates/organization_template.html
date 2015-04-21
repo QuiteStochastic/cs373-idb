@@ -46,6 +46,10 @@
       <div class="col-sm-8 col-sm-offset-2 description">
         <p id="description"></p>     
       </div>
+      <br>
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+      </div>
     </div>
     
     <!-- RELATIONSHIPS -->
@@ -54,7 +58,7 @@
         <h4>Members</h4>
       </div>
       <div class="col-sm-3">
-        <h4>Events</h4>
+        <h4>Events Partaken</h4>
       </div>
     </div>
     
@@ -77,7 +81,7 @@
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("type").innerHTML = result.org_type; 
-    document.getElementById("description").innerHTML = result.org_desc;   
+    document.getElementById("description").innerHTML = result.description;   
   
     // Create link to leader of organization
     var leader = document.createElement("A");

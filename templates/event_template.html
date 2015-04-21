@@ -45,15 +45,19 @@
       <div class="col-sm-8 col-sm-offset-2 description">
         <p id="description"></p> 
       </div>
+      <br>
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+      </div>
     </div>
     
     <!-- RELATIONSHIPS -->
     <div class="row">
       <div class="col-sm-3 col-sm-offset-3">
-        <h4>Characters</h4>
+        <h4>Participants</h4>
       </div>
       <div class="col-sm-3">
-        <h4>Organizations</h4>
+        <h4>Parties</h4>
       </div>
     </div>
     
@@ -76,7 +80,7 @@
     document.getElementById("breadcrumb_name").innerHTML = result.name;
     document.getElementById("header_name").innerHTML = result.name;
     document.getElementById("type").innerHTML = result.event_type; 
-    document.getElementById("description").innerHTML = result.event_description; 
+    document.getElementById("description").innerHTML = result.description; 
   
     // Create link to location of event
     var event_location = document.createElement("A");

@@ -1,3 +1,6 @@
+Build status: [![Build Status](https://travis-ci.org/QuiteStochastic/cs373-idb.svg?branch=master)](https://travis-ci.org/QuiteStochastic/cs373-idb)
+
+
 # cs373-idb - House Downing
 
 ## Problem & Use Cases

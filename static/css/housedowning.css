@@ -23,7 +23,7 @@ body {
 }
 
 .business-header {
-  height: 400px;
+  height: 200px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -86,6 +86,11 @@ footer {
   margin-top: 30px;
 }
 
+.pillars .img-thumbnail {
+  height: 100px;
+  width: 500px;
+}
+
 .img-circle {  
   height: 200px;
   width: 200px;
@@ -112,7 +117,7 @@ footer {
   text-shadow: 0 0 10px #000;
   color: #fff;
   margin-left: 30px;
-  margin-top: 100px;
+  vertical-align: center;
   font-size: 48px;
   font-family: 'Shift', sans-serif;
   font-weight: bold;
