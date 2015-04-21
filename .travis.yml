@@ -1,12 +1,13 @@
+sudo: required
 language: python3
 python:
   - "3.4"
 # command to install dependencies
 install:
-    - pip3 install Flask
-    - pip3 install Flask-Cors
-    - pip3 install Flask-SQLAlchemy
-    - pip3 install Werkzeug
+    - sudo pip3 install Flask
+    - sudo pip3 install Flask-Cors
+    - sudo pip3 install Flask-SQLAlchemy
+    - sudo pip3 install Werkzeug
 script: python3 tests.py
 branches:
   only:
