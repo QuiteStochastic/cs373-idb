@@ -1,0 +1,10 @@
+language: python3
+python:
+  - "3.3"
+# command to install dependencies
+install:
+    - pip3 flask
+script: python3 tests.py
+branches:
+  only:
+    - master
