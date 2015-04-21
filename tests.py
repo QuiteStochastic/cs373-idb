@@ -1,4 +1,5 @@
 
+from app import running
 from flask import Flask
 from FlaskApp import ConfigTesting, db, drop_all
 from Routing import app
@@ -7,12 +8,12 @@ from unittest import main, TestCase, TextTestRunner
 from io import StringIO
 import json
 
-from Model import Character, Organization, Location, Event
+from Model import *
 
 tapp = Flask(__name__)
 tdb = db
-tapp.config.from_object(ConfigTesting)
-tdb.init_app(tapp)
+
+standalone = False
 
 class TestApi(TestCase):
     ctx = None
@@ -20,6 +21,25 @@ class TestApi(TestCase):
     @classmethod
     def setUpClass(cls):
         TestApi.ctx = app.test_request_context()
+        #tdb.init_app(app)
+        app.debug = True
+        if standalone:
+            TestApi.ctx.push()
+            tdb.create_all()
+            # Create data
+            c = Character('Robert', 'Baratheon')
+            event = Event('Battle of Blackwater Bay')
+            loc = Location('Kings Landing')
+            org = Organization('House Stark')
+            ep = Episode('Episode 1')
+            tdb.session.add(c)
+            tdb.session.add(event)
+            tdb.session.add(loc)
+            tdb.session.add(org)
+            tdb.session.add(ep)
+            
+            tdb.session.commit()
+            TestApi.ctx.pop()
     
     @classmethod
     def tearDownClass(cls):
@@ -366,12 +386,17 @@ def run_tests():
     s = StringIO()
     runner = TextTestRunner(s, verbosity=2)
     sys.argv = [sys.argv[0]]
+    
+    tapp.config.from_object(ConfigTesting)
+    tdb.init_app(tapp)
+    
     main(module=__name__, testRunner=runner, exit=False)
     return s.getvalue()
 
 if __name__ == "__main__":
     # If we are running it by itself, we need to init the app object
+    standalone = True
     tdb.init_app(app)
+    app.config.from_object(ConfigTesting)
     # We also need to import the routing information
-    import Routing
-    main()
+    print(run_tests())

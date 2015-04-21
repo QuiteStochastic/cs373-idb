@@ -11,6 +11,8 @@ import Model
 import Routing
 from Routing import app
 
+_running = False
+
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument('-m', '--make-tables', action='store_true',
@@ -29,9 +31,13 @@ if __name__ == '__main__':
         app.config.from_object(ConfigProduction)
     
     db.init_app(app)
-
+    
     if args.maketables:
         drop_all(db, app)
         db.create_all(app=app)
         #import_data(db)
+    running = True
     app.run(host="0.0.0.0", port=args.port[0])
+
+def running():
+    return _running
