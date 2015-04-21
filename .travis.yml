@@ -1,9 +1,12 @@
 language: python3
 python:
-  - "3.3"
+  - "3.4"
 # command to install dependencies
 install:
-    - pip3 flask
+    - pip3 install Flask
+    - pip3 install Flask-Cors
+    - pip3 install Flask-SQLAlchemy
+    - pip3 install Werkzeug
 script: python3 tests.py
 branches:
   only:
