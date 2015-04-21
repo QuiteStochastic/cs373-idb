@@ -9,11 +9,6 @@
   text-align: center;
 }
 
-.banner {
-  height: 100px;
-  width: 200px;
-}
-
 body {
     padding-top: 50px;
 }
@@ -217,16 +212,16 @@ table .img-circle {
   color: #bd2c00;
 }
 
-
 .banner-con {
     padding: 20px;
 }
+
 .banner {
     height: 100px;
     width: 500px;
     opacity: .7;
-    background-image: url(http://www.exocube.com/wp-content/uploads/2014/09/placeholder-banner.png);
-    background-position: center; 
+    background-position: center;
+    padding-top: 30px;
 }
 
 .banner .img-thumbnail {
@@ -248,4 +243,8 @@ table .img-circle {
 
 .banner:hover {
     opacity: 1;
+}
+
+.nodecoration {
+  text-decoration: none;
 }
