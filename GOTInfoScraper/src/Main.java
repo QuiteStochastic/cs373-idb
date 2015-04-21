@@ -50,7 +50,7 @@ public class Main {
             System.out.println("Character name: "+charName);
 
             if(charName.equals("Hodor_Hodor")){
-                continue;
+                charName="Hodor";
             }
 
 
@@ -110,9 +110,8 @@ public class Main {
             System.out.println(charDescription);
 
 
-            String toAdd=line[0]+","+line[1]+","+line[2]+line[3]+line[4]+line[5]+line[6]+","+"\""+charDescription+"\""+",";
+            String toAdd=line[0]+","+line[1]+","+line[2]+","+line[3]+","+line[4]+","+line[5]+","+line[6]+","+charDescription;
 
-            toAdd=toAdd+line[4]+",";
 
             results.add(toAdd);
 
