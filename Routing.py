@@ -99,6 +99,13 @@ def about_page():
     Serve the about page from ./templates/about.html
     """
     return render_template("about.html")
+  
+@app.route('/pythians')
+def pythians_page():
+    """
+    Serve the Pythian's API page from ./templates/pythians_template.html
+    """
+    return render_template("pythians_template.html")
 
 @app.route('/doc/<path:path>')
 def doc_page(path):
