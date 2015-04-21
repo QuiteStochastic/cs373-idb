@@ -36,6 +36,110 @@ public class Main {
             return;
         }
 
+
+        ArrayList<String> results=new ArrayList<String>();
+
+        while(in.hasNextLine()){
+            String linestr=in.nextLine();
+            linestr=linestr.replaceAll(", ", "-");
+
+            String[] line=linestr.split(",");
+            //line[1]="\""+line[1]+"\"";
+            String charName=line[1]+"_"+line[2];
+
+            System.out.println("Character name: "+charName);
+
+            if(charName.equals("Hodor_Hodor")){
+                charName="Hodor";
+            }
+
+
+
+            Document document;
+            try{
+                document= Jsoup.connect("http://gameofthrones.wikia.com/wiki/" + charName).get();
+            }
+            catch(Exception ex){
+                System.err.println(ex);
+                System.out.println("getting page failed");
+                return;
+            }
+
+            Element e;
+            try{
+                e=document.select(".quote").get(0);
+            }
+            catch (Exception ex){
+
+                /*try{
+                    document=Jsoup.connect("http://gameofthrones.wikia.com/wiki/"+locName+" (episode)").get();
+                }
+                catch(Exception exx){
+                    //System.err.println(e);
+                    System.out.println("second try, getting page failed");
+                    return;
+                }
+
+                e=document.select("#Plot").get(0).parent();*/
+
+                System.out.println("can't select right");
+                return;
+
+            }
+
+            e=e.nextElementSibling();
+/*            while(!e.tagName().equals("p")){
+                e=e.nextElementSibling();
+            }*/
+
+
+            String charDescription="";
+
+
+            while(e.tagName().equals("p")){
+
+                String s=e.html();
+                String cleaned=s.replaceAll("<.*?>", "");
+                cleaned=cleaned.replaceAll("\\[.*?\\]", "");
+                cleaned=cleaned.replaceAll("&nbsp;", " ");
+                cleaned=cleaned.replaceAll("\"", "\"\"");
+                charDescription=charDescription+cleaned+" ";
+                e=e.nextElementSibling();
+            }
+
+            charDescription="\""+charDescription+"\"";
+            System.out.println(charDescription);
+
+
+            String toAdd=line[0]+","+line[1]+","+line[2]+","+line[3]+","+line[4]+","+line[5]+","+line[6]+","+charDescription;
+
+
+            results.add(toAdd);
+
+        }
+
+
+        //write to output
+
+        String outputFileName="results.csv";
+
+
+        File outFile = new File (outputFileName);
+        FileWriter fWriter;
+        try{
+            fWriter = new FileWriter(outFile);
+        }
+        catch (IOException e){
+            System.out.println("error writing file, quitting");
+            return;
+        }
+        PrintWriter writer = new PrintWriter (fWriter);
+
+        for(String s: results){
+            writer.print(s+"\n");
+        }
+        writer.close();
+
     }
 
 
