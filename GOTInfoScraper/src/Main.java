@@ -93,7 +93,7 @@ public class Main {
             }*/
 
 
-            String charDescription="\"";
+            String charDescription="";
 
 
             while(e.tagName().equals("p")){
@@ -102,11 +102,12 @@ public class Main {
                 String cleaned=s.replaceAll("<.*?>", "");
                 cleaned=cleaned.replaceAll("\\[.*?\\]", "");
                 cleaned=cleaned.replaceAll("&nbsp;", " ");
+                cleaned=cleaned.replaceAll("\"", "\"\"");
                 charDescription=charDescription+cleaned+" ";
                 e=e.nextElementSibling();
             }
 
-            charDescription=charDescription+"\"";
+            charDescription="\""+charDescription+"\"";
             System.out.println(charDescription);
 
 
