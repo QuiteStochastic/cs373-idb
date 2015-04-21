@@ -193,3 +193,8 @@ def get_episode(eid):
     if ep is None:
         flask.abort(404)
     return flask.jsonify(ep.serialize())
+
+@app.route('/api/search?<string:searchterm>')
+@cross_origin()
+def search(searchterm):
+    flask.abort(404)
