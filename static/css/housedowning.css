@@ -216,3 +216,36 @@ table .img-circle {
 .caption span.deletes {
   color: #bd2c00;
 }
+
+
+.banner-con {
+    padding: 20px;
+}
+.banner {
+    height: 100px;
+    width: 500px;
+    opacity: .7;
+    background-image: url(http://www.exocube.com/wp-content/uploads/2014/09/placeholder-banner.png);
+    background-position: center; 
+}
+
+.banner .img-thumbnail {
+  height: 110px;
+  width: 510px;
+}
+
+.banner h1 {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    height: 100px;
+    width: 500px;
+}
+
+.banner h1:hover {
+    opacity: 1;
+}
+
+.banner:hover {
+    opacity: 1;
+}
