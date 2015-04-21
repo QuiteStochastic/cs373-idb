@@ -4,10 +4,10 @@ python:
 sudo: required
 # command to install dependencies
 install:
-    - "sudo pip3 install Flask"
-    - "sudo pip3 install Flask-Cors"
-    - "sudo pip3 install Flask-SQLAlchemy"
-    - "sudo pip3 install Werkzeug"
+    - "pip install Flask"
+    - "pip install Flask-Cors"
+    - "pip install Flask-SQLAlchemy"
+    - "pip install Werkzeug"
 script: python3 tests.py
 branches:
   only:
