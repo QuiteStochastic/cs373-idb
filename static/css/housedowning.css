@@ -25,6 +25,10 @@ body {
   -o-background-size: cover;
 }
 
+.business-header h1 {
+  padding-top: 25px;
+}
+
 /* Borrowed from Bootstrap template */
 .business-header p {
   text-shadow: 0 0 10px #000;
