@@ -212,6 +212,8 @@ table .img-circle {
   color: #bd2c00;
 }
 
+/* main.html */
+
 .banner-con {
     padding: 20px;
 }
@@ -238,6 +240,7 @@ table .img-circle {
     opacity: 0;
     height: 100px;
     width: 500px;
+    color: white;
 }
 
 .banner h1:hover {
@@ -248,6 +251,9 @@ table .img-circle {
     opacity: 1;
 }
 
-.nodecoration {
-  text-decoration: none;
+/* episodes.html */
+
+.ep-banner {
+  height: 100px;
+  width: 200px;
 }
