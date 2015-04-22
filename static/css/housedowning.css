@@ -257,3 +257,18 @@ table .img-circle {
   height: 100px;
   width: 200px;
 }
+
+.ep-banner:hover {
+  opacity: .75;  
+}
+
+.ep-number {
+  height: 100px;
+  opacity: 0;
+}
+
+.ep-number:hover {
+  opacity: 1;
+  padding-top:30px;
+  color:white;
+}

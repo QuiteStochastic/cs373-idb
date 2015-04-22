@@ -54,8 +54,10 @@
               <div class="col-sm-1"></div>
               {% for j in range(1,6) %}
               <div class="col-sm-2">
-                <a href="/episodes/{{(x-1)*10+(5*(i-1)+j)}}">
-                <img class="img-rounded img-responsive img-center ep-banner" src="static/images/episodes/episode{{(x-1)*10+(5*(i-1)+j)}}.png" alt="">
+                <a href="/episodes/{{(x-1)*10+(5*(i-1)+j)}}" style="text-decoration:none">
+                  <div class="img-rounded img-responsive img-center ep-banner" style="background-image: url(static/images/episodes/episode{{(x-1)*10+(5*(i-1)+j)}}.png)">
+                    <h1 class="ep-number">{{(5*(i-1)+j)}}</h1>
+                  </div>
                 </a>
               </div>
               {% endfor %}
