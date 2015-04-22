@@ -66,10 +66,10 @@
 	</div>
 </body>
   <!-- CONTAINER END -->
-
+<script language="JavaScript" src="../static/js/pulldata.js"></script> 
 <script>
-	//var info = get_one('search', {{query}})
-	//var result = JSON.parse(info);
-
+	var info = get_data('search?query={{query}}');
+	var result = JSON.parse(info);
+  alert(info);
 </script>
 {% endblock %}

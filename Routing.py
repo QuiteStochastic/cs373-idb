@@ -112,7 +112,8 @@ def search_results_page():
     """
     Serve the results page from the search bar on the layout.hmtl
     """
-    return render_template("search_results.html")
+    query = request.args.get('query')
+    return render_template("search_results.html", query = query)
 
 @app.route('/doc/<path:path>')
 def doc_page(path):

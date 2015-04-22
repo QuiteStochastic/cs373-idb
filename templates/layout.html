@@ -62,9 +62,9 @@
             <li><a href="/pythians">Pythians API</a></li>
           </ul>
           <div class="input-group pull-right col-sm-3" style="margin-top:8px">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" id="query" placeholder="Search for...">
             <span class="input-group-btn">
-              <a href="/results"><button class="btn btn-default" type="button">Go!</button></a>
+              <button class="btn btn-default" type="button" onclick="search()">Go!</button>
             </span>
           </div><!-- /input-group -->
         </div>    
@@ -111,4 +111,9 @@
     <script src="../static/js/smoothscroll.js"></script> 
     <script src="../static/js/toggle.js"> </script>
     <script src="../static/js/table.js"> </script>
+    <script>
+      function search() {
+        location.href = "/results?query=" + document.getElementById("query").value;
+      }
+    </script>
 </html>
