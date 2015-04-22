@@ -37,7 +37,11 @@ class Character(db.Model):
     
     @classmethod
     def search(cls, searchterm, parts):
-        return ([], [], [], [], [], [])
+        fullname = Character.first_name + ' ' + Character.last_name
+        
+        name_exact = [c.asresult() for c in Character.query.filter(fullname.ilike(searchterm)).all()]
+        
+        return (name_exact, [], [], [], [], [])
     
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
@@ -71,6 +75,14 @@ class Character(db.Model):
                 'visited':[l.serialize(True) for l in self.locations],
                 'events':[e.serialize(True) for e in self.events]
             }
+    
+    def asresult(self):
+        return {
+            "type":"character",
+            "id":self.char_id,
+            "name":self.first_name + ' ' + self.last_name,
+            "desc":self.description
+        }
     
     def __repr__(self):
         return "Character('{}', '{}')".format(self.first_name, self.last_name)
