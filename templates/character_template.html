@@ -47,6 +47,9 @@
       <div class="col-sm-8 col-sm-offset-2 description">
         <p id="description"></p>
       </div>
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+      </div>
     </div>
     
     <!-- RELATIONSHIPS --> 
@@ -111,26 +114,26 @@
       document.getElementById("affiliations").appendChild(link);
     }    
   
-//     // Create links to locations
-//     for (var i = 0; i < locations.length; i++) {
-//       var location = locations[i];
-//       var link = document.createElement("A");
-//       var text = document.createTextNode(location.name);
-//       link.setAttribute("class", "list-group-item");
-//       link.setAttribute("href", "/locations/" + location.loc_id);
-//       link.appendChild(text);
-//       document.getElementById("locations").appendChild(link);
-//     }  
+       // Create links to locations
+       for (var i = 0; i < locations.length; i++) {
+         var loc = locations[i];
+         var link = document.createElement("A");
+         var text = document.createTextNode(loc.name);
+         link.setAttribute("class", "list-group-item");
+         link.setAttribute("href", "/locations/" + loc.loc_id);
+         link.appendChild(text);
+         document.getElementById("locations").appendChild(link);
+      }  
   
-//     // Create links to events
-//     for (var i = 0; i < events.length; i++) {
-//       var event = events[i];
-//       var link = document.createElement("A");
-//       var text = document.createTextNode(event.name);
-//       link.setAttribute("class", "list-group-item");
-//       link.setAttribute("href", "/events/" + event.event_id);
-//       link.appendChild(text);
-//       document.getElementById("events").appendChild(link);
-//     }  
+    // Create links to events
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      var link = document.createElement("A");
+      var text = document.createTextNode(event.name);
+      link.setAttribute("class", "list-group-item");
+      link.setAttribute("href", "/events/" + event.event_id);
+      link.appendChild(text);
+      document.getElementById("events").appendChild(link);
+    }  
 </script>
 {% endblock %}
