@@ -35,6 +35,10 @@ class Character(db.Model):
         character = Character.query.get(charid)
         return character if character is not None else Character("","")
     
+    @classmethod
+    def search(cls, searchterm, parts):
+        return ([], [], [], [], [], [])
+    
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
         self.char_id = None
@@ -96,6 +100,10 @@ class Event(db.Model):
         event = Event.query.get(event_id)
         return event if event is not None else Location("None")
     
+    @classmethod
+    def search(cls, searchterm, parts):
+        return ([], [], [], [], [], [])
+    
     def __init__(self, name, etype=None, desc=""):
         db.Model.__init__(self)
         self.event_id = None
@@ -149,6 +157,10 @@ class Location(db.Model):
         location = Location.query.get(locid)
         return location if location is not None else Location("")
     
+    @classmethod
+    def search(cls, searchterm, parts):
+        return ([], [], [], [], [], [])
+    
     def __init__(self, name, ltype=0):
         db.Model.__init__(self)
         self.loc_id = None
@@ -198,6 +210,10 @@ class Organization(db.Model):
         org = Organization.query.get(orgid)
         return org if org is not None else Organization("")
     
+    @classmethod
+    def search(cls, searchterm, parts):
+        return ([], [], [], [], [], [])
+    
     def __init__(self, name, org_type=0):
         db.Model.__init__(self)
         self.org_id = None
@@ -240,6 +256,10 @@ class Episode(db.Model):
     season = db.Column(db.Integer)
     episode_number = db.Column(db.Integer)
     description = db.Column(db.Text)
+    
+    @classmethod
+    def search(cls, searchterm, parts):
+        return ([], [], [], [], [], [])
     
     def __init__(self, name):
         db.Model.__init__(self)
@@ -300,3 +320,46 @@ class Membership(db.Model):
     def __repr__(self):
         return "Membership({},{},{},{})".format(self.char_id, self.org_id,
                                                 self.rank, self.active)
+
+# A list of things we want to remove from the string
+_default_matches = ["@", "-", ".", "!", "?", ",", "<", ">", '"', "'", "=", "_"]
+def search_sanitize(s, match = None):
+    if match is None:
+        match = _default_matches
+    
+    for m in match:
+        s.replace(m, ' ')
+    return s
+
+def search_combine(*results):
+    rlist = []
+    # Combine by ordering
+    for r in results:
+        if len(rlist) < len(r):
+            rlist.extend([[] for i in range(len(r) - len(rlist))])
+        for i, l in enumerate(r):
+            rlist[i].extend(l)
+    
+    # Combine all
+    flist = []
+    for l in rlist:
+        flist.extend(l)
+    
+    return flist
+
+def searchdb(searchterm):
+    """
+    Search the models for matches to searchterm.
+    """
+    # name exact, description exact, name and, description and, name or,
+    # descrption or
+    exact = '%'+search_sanitize(searchterm)+'%'
+    parts = ['%'+s+'%' for s in search_sanitize(searchterm).split()]
+    results = search_combine(Character.search(exact, parts),
+                             Episode.search(exact, parts),
+                             Event.search(exact, parts),
+                             Location.search(exact, parts),
+                             Organization.search(exact, parts))
+    return {"searchterm":searchterm,
+            "resultCount":len(results),
+            "results":results}
