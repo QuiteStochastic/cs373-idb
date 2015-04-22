@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
 <body>
+  <p id="results"></p>
 </body>
 
 <script language="JavaScript" src="../static/js/pulldata.js"></script> 
 <script>    
+  var info = pythian_get('athletes');
+  var result = JSON.parse(info);
+  alert(info); 
 </script>
 {% endblock %}

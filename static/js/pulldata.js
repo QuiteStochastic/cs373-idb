@@ -9,7 +9,7 @@ var request = new XMLHttpRequest();
 
 // Handle requests to Valar Morghulis API
 function get_data(attr) {
-    request.open('GET', 'http://valar-morghulis.charuri.me/api/'+attr, false);
+    request.open('GET', 'http://valar-morghulis.charuri.me/api/' + attr, false);
     request.send();
     return result;  
 }
@@ -20,10 +20,13 @@ function get_one(attr, id) {
     return result;  
 }
 
-// // Handle requests to Pythians API
-// function pythian_get(attr) {
-  
-// }
+// Handle requests to Pythians API
+function pythian_get(attr) {
+  request.open('GET', 'http://104.239.139.162/scrape/' + attr, false);
+  request.send();
+  console.log("herp a derp" + result);
+  return result;
+}
 
 // Handle requests to GitHub API
 function get_commits() {
