@@ -87,8 +87,8 @@
     // Grab attributes that go into main body of page
     var name, alias, religion;
     name = result.last_name === null ? result.first_name : result.first_name + ' ' + result.last_name;
-    alias = result.alias === null ? 'n/a' : result.alias;
-    religion = result.religion === null ? 'n/a' : result.religion;
+    alias = result.alias === null ? '--' : result.alias;
+    religion = result.religion === null ? '--' : result.religion;
 
     document.getElementById("breadcrumb_name").innerHTML = name;
     document.getElementById("header_name").innerHTML = name;
