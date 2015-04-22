@@ -85,8 +85,14 @@
   
     // Create link to leader of organization
     var leader = document.createElement("A");
-    var leader_name = document.createTextNode(result.leader_first_name + ' ' + result.leader_last_name);
-    leader.setAttribute("href", "/characters/" + result.leader_id);
+   
+    if (result.leader_id === null) {
+      var leader_name = document.createTextNode("--");
+    }
+    else {
+      leader_name = document.createTextNode(result.leader_first_name + ' ' + result.leader_last_name);
+      leader.setAttribute("href", "/characters/" + result.leader_id);
+    }
     leader.appendChild(leader_name);
     document.getElementById("leader").appendChild(leader);
   

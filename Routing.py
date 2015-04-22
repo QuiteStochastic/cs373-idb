@@ -107,6 +107,13 @@ def pythians_page():
     """
     return render_template("pythians_template.html")
 
+@app.route('/results')
+def search_results_page():
+    """
+    Serve the results page from the search bar on the layout.hmtl
+    """
+    return render_template("search_results.html")
+
 @app.route('/doc/<path:path>')
 def doc_page(path):
     """
