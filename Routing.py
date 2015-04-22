@@ -201,7 +201,8 @@ def get_episode(eid):
         flask.abort(404)
     return flask.jsonify(ep.serialize())
 
-@app.route('/api/search?<string:searchterm>')
+@app.route('/api/search')
 @cross_origin()
-def search(searchterm):
-    flask.abort(404)
+def search():
+    searchterm = request.args.get('query')
+    return json_response(searchdb(searchterm))
