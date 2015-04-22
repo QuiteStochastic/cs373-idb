@@ -50,45 +50,45 @@ class Character(db.Model):
     
     @classmethod
     def search(cls, exact, fuzzy, parts):
-        fullname = Character.first_name + ' ' + Character.last_name
+        name = Character.first_name + ' ' + Character.last_name
+        desc = Character.description
         
-        c_name_fuzzy = fullname.ilike(fuzzy)
-        c_name_exact = fullname.ilike(exact)
-        c_name_and = and_conj([fullname.ilike(p) for p in parts])
-        c_name_or = or_conj([fullname.ilike(p) for p in parts])
+        c_name_fuzzy = name.ilike(fuzzy)
+        c_name_exact = name.ilike(exact)
+        c_name_and = and_conj([name.ilike(p) for p in parts])
+        c_name_or = or_conj([name.ilike(p) for p in parts])
         
-        c_desc_fuzzy = Character.description.ilike(fuzzy)
-        c_desc_and = and_conj([Character.description.ilike(p) for p in parts])
-        c_desc_or = or_conj([Character.description.ilike(p) for p in parts])
+        c_desc_fuzzy = desc.ilike(fuzzy)
+        c_desc_and = and_conj([desc.ilike(p) for p in parts])
+        c_desc_or = or_conj([desc.ilike(p) for p in parts])
         
         cond = c_name_exact
-        name_exact = [c.asresult() for c in Character.query.filter(cond).all()]
+        name_exact = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(c_name_exact), c_name_fuzzy)
-        name_fuzzy = [c.asresult() for c in Character.query.filter(cond).all()]
+        name_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
-        name_and = [c.asresult() for c in Character.query.filter(cond).all()]
+        name_and = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
                     c_desc_fuzzy)
-        desc_fuzzy = [c.asresult() for c in Character.query.filter(cond).all()]
+        desc_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
                                   c_desc_fuzzy])),
                     c_desc_and)
-        desc_and = [c.asresult() for c in Character.query.filter(cond).all()]
+        desc_and = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
                                   c_desc_fuzzy, c_desc_and])),
                     c_name_or)
-        name_or = [c.asresult() for c in Character.query.filter(cond).all()]
-        
+        name_or = [c.asresult() for c in cls.query.filter(cond).all()]
         
         cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
                                   c_desc_fuzzy, c_desc_and, c_name_or])),
                     c_desc_or)
-        desc_or = [c.asresult() for c in Character.query.filter(cond).all()]
+        desc_or = [c.asresult() for c in cls.query.filter(cond).all()]
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
