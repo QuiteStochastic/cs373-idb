@@ -1,61 +1,39 @@
 var result;
-
-function get_data(attr) {
-var Request = new XMLHttpRequest();
+var request = new XMLHttpRequest();
  
-    Request.onreadystatechange = function () {
+    request.onreadystatechange = function () {
         if (this.readyState === 4 && this.status == 200) {
             result = this.responseText; 
         }
     };
 
-    Request.open('GET', 'http://valar-morghulis.charuri.me/api/'+attr, false);
-    Request.send();
+// Handle requests to Valar Morghulis API
+function get_data(attr) {
+    request.open('GET', 'http://valar-morghulis.charuri.me/api/'+attr, false);
+    request.send();
     return result;  
 }
 
 function get_one(attr, id) {
-var Request = new XMLHttpRequest();
- 
-    Request.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status == 200) {
-            result = this.responseText; 
-        }
-    };
-
-    Request.open('GET', 'http://valar-morghulis.charuri.me/api/' + attr + '/' + id, false);
-    Request.send();
+    request.open('GET', 'http://valar-morghulis.charuri.me/api/' + attr + '/' + id, false);
+    request.send();
     return result;  
 }
 
+// // Handle requests to Pythians API
+// function pythian_get(attr) {
+  
+// }
+
+// Handle requests to GitHub API
 function get_commits() {
-var Request = new XMLHttpRequest();
- 
-    Request.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status == 200) {
-            console.log('Status:', this.status);
-            console.log('Headers:', this.getAllResponseHeaders());
-            console.log('Body:', this.responseText);
-            result = this.responseText; 
-        }
-    };
-    Request.open('GET', 'https://api.github.com/repos/QuiteStochastic/cs373-idb/stats/contributors',false);
-    Request.send();
+    request.open('GET', 'https://api.github.com/repos/QuiteStochastic/cs373-idb/stats/contributors',false);
+    request.send();
     return result;  
 }
 
 function get_issues() {
-var Request = new XMLHttpRequest();
- 
-    Request.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status == 200) {
-            console.log('Status:', this.status);
-            console.log('Headers:', this.getAllResponseHeaders());
-            console.log('Body:', this.responseText);
-            result = this.responseText; 
-        }
-    };
-    Request.open('GET', 'https://api.github.com/repos/QuiteStochastic/cs373-idb/issues',false);
-    Request.send();
+    request.open('GET', 'https://api.github.com/repos/QuiteStochastic/cs373-idb/issues',false);
+    request.send();
     return result;  
 }
