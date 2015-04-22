@@ -205,4 +205,6 @@ def get_episode(eid):
 @cross_origin()
 def search():
     searchterm = request.args.get('query')
+    if searchterm is None:
+        return json_response({})
     return json_response(searchdb(searchterm))
