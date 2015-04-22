@@ -127,7 +127,7 @@ class Character(db.Model):
     
     def asresult(self):
         return {
-            "type":"character",
+            "type":"characters",
             "id":self.char_id,
             "name":self.first_name + ' ' + self.last_name,
             "desc":self.description
@@ -163,7 +163,47 @@ class Event(db.Model):
     
     @classmethod
     def search(cls, exact, fuzzy, parts):
-        return ([], [], [], [], [], [])
+        name = Event.name
+        desc = Event.description
+        
+        c_name_fuzzy = name.ilike(fuzzy)
+        c_name_exact = name.ilike(exact)
+        c_name_and = and_conj([name.ilike(p) for p in parts])
+        c_name_or = or_conj([name.ilike(p) for p in parts])
+        
+        c_desc_fuzzy = desc.ilike(fuzzy)
+        c_desc_and = and_conj([desc.ilike(p) for p in parts])
+        c_desc_or = or_conj([desc.ilike(p) for p in parts])
+        
+        cond = c_name_exact
+        name_exact = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(c_name_exact), c_name_fuzzy)
+        name_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
+        name_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
+                    c_desc_fuzzy)
+        desc_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy])),
+                    c_desc_and)
+        desc_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and])),
+                    c_name_or)
+        name_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and, c_name_or])),
+                    c_desc_or)
+        desc_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
     def __init__(self, name, etype=None, desc=""):
         db.Model.__init__(self)
@@ -193,7 +233,13 @@ class Event(db.Model):
                 'participants':[c.serialize(True) for c in self.characters],
                 'parties':[o.serialize(True) for o in self.organizations]
             }
-
+    
+    def asresult(self):
+        return {"type":"events",
+                "id":self.event_id,
+                "name":self.name,
+                "desc":self.description
+        }
     
     def __repr__(self):
         return "Event('{}')".format(self.name)
@@ -220,7 +266,47 @@ class Location(db.Model):
     
     @classmethod
     def search(cls, exact, fuzzy, parts):
-        return ([], [], [], [], [], [])
+        name = Location.name
+        desc = Location.description
+        
+        c_name_fuzzy = name.ilike(fuzzy)
+        c_name_exact = name.ilike(exact)
+        c_name_and = and_conj([name.ilike(p) for p in parts])
+        c_name_or = or_conj([name.ilike(p) for p in parts])
+        
+        c_desc_fuzzy = desc.ilike(fuzzy)
+        c_desc_and = and_conj([desc.ilike(p) for p in parts])
+        c_desc_or = or_conj([desc.ilike(p) for p in parts])
+        
+        cond = c_name_exact
+        name_exact = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(c_name_exact), c_name_fuzzy)
+        name_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
+        name_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
+                    c_desc_fuzzy)
+        desc_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy])),
+                    c_desc_and)
+        desc_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and])),
+                    c_name_or)
+        name_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and, c_name_or])),
+                    c_desc_or)
+        desc_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
     def __init__(self, name, ltype=0):
         db.Model.__init__(self)
@@ -249,6 +335,13 @@ class Location(db.Model):
                 'organizations':[o.serialize(True) for o in self.organizations]
             }
     
+    def asresult(self):
+        return {"type":"locations",
+                "id":self.loc_id,
+                "name":self.name,
+                "desc":self.description
+        }
+    
     def __repr__(self):
         return "Location('{}')".format(self.name)
 
@@ -273,7 +366,47 @@ class Organization(db.Model):
     
     @classmethod
     def search(cls, exact, fuzzy, parts):
-        return ([], [], [], [], [], [])
+        name = Organization.name
+        desc = Organization.description
+        
+        c_name_fuzzy = name.ilike(fuzzy)
+        c_name_exact = name.ilike(exact)
+        c_name_and = and_conj([name.ilike(p) for p in parts])
+        c_name_or = or_conj([name.ilike(p) for p in parts])
+        
+        c_desc_fuzzy = desc.ilike(fuzzy)
+        c_desc_and = and_conj([desc.ilike(p) for p in parts])
+        c_desc_or = or_conj([desc.ilike(p) for p in parts])
+        
+        cond = c_name_exact
+        name_exact = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(c_name_exact), c_name_fuzzy)
+        name_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
+        name_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
+                    c_desc_fuzzy)
+        desc_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy])),
+                    c_desc_and)
+        desc_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and])),
+                    c_name_or)
+        name_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and, c_name_or])),
+                    c_desc_or)
+        desc_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
     def __init__(self, name, org_type=0):
         db.Model.__init__(self)
@@ -305,6 +438,13 @@ class Organization(db.Model):
                 'partyto':[e.serialize(True) for e in self.events]
             }
     
+    def asresult(self):
+        return {"type":"organizations",
+                "id":self.org_id,
+                "name":self.name,
+                "desc":self.description
+        }
+    
     def __repr__(self):
         return "Organization('{}')".format(self.name)
 
@@ -320,7 +460,47 @@ class Episode(db.Model):
     
     @classmethod
     def search(cls, exact, fuzzy, parts):
-        return ([], [], [], [], [], [])
+        name = Episode.name
+        desc = Episode.description
+        
+        c_name_fuzzy = name.ilike(fuzzy)
+        c_name_exact = name.ilike(exact)
+        c_name_and = and_conj([name.ilike(p) for p in parts])
+        c_name_or = or_conj([name.ilike(p) for p in parts])
+        
+        c_desc_fuzzy = desc.ilike(fuzzy)
+        c_desc_and = and_conj([desc.ilike(p) for p in parts])
+        c_desc_or = or_conj([desc.ilike(p) for p in parts])
+        
+        cond = c_name_exact
+        name_exact = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(c_name_exact), c_name_fuzzy)
+        name_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
+        name_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
+                    c_desc_fuzzy)
+        desc_fuzzy = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy])),
+                    c_desc_and)
+        desc_and = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and])),
+                    c_name_or)
+        name_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and, c_name_or])),
+                    c_desc_or)
+        desc_or = [c.asresult() for c in cls.query.filter(cond).all()]
+        
+        return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
     def __init__(self, name):
         db.Model.__init__(self)
@@ -337,6 +517,14 @@ class Episode(db.Model):
             'season':self.season,
             'episode_number':self.episode_number,
             'description':self.description
+        }
+    
+    def asresult(self):
+        return {
+            "type":"episodes",
+            "id":self.ep_id,
+            "name":self.name,
+            "desc":self.description
         }
     
     def __repr__(self):
