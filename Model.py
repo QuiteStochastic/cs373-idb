@@ -1,4 +1,17 @@
 from FlaskApp import db
+from sqlalchemy.sql import and_, or_, not_
+
+def and_conj(conds):
+    r = conds[0]
+    for c in conds[1:]:
+        r = and_(r, c)
+    return r
+
+def or_conj(conds):
+    r = conds[0]
+    for c in conds[1:]:
+        r = or_(r, c)
+    return r
 
 #################
 # Data Modeling #
@@ -36,12 +49,48 @@ class Character(db.Model):
         return character if character is not None else Character("","")
     
     @classmethod
-    def search(cls, searchterm, parts):
+    def search(cls, exact, fuzzy, parts):
         fullname = Character.first_name + ' ' + Character.last_name
         
-        name_exact = [c.asresult() for c in Character.query.filter(fullname.ilike(searchterm)).all()]
+        c_name_fuzzy = fullname.ilike(fuzzy)
+        c_name_exact = fullname.ilike(exact)
+        c_name_and = and_conj([fullname.ilike(p) for p in parts])
+        c_name_or = or_conj([fullname.ilike(p) for p in parts])
         
-        return (name_exact, [], [], [], [], [])
+        c_desc_fuzzy = Character.description.ilike(fuzzy)
+        c_desc_and = and_conj([Character.description.ilike(p) for p in parts])
+        c_desc_or = or_conj([Character.description.ilike(p) for p in parts])
+        
+        cond = c_name_exact
+        name_exact = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        cond = and_(not_(c_name_exact), c_name_fuzzy)
+        name_fuzzy = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy])), c_name_and)
+        name_and = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and])),
+                    c_desc_fuzzy)
+        desc_fuzzy = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy])),
+                    c_desc_and)
+        desc_and = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and])),
+                    c_name_or)
+        name_or = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        
+        cond = and_(not_(or_conj([c_name_exact, c_name_fuzzy, c_name_and,
+                                  c_desc_fuzzy, c_desc_and, c_name_or])),
+                    c_desc_or)
+        desc_or = [c.asresult() for c in Character.query.filter(cond).all()]
+        
+        return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
     def __init__(self, firstname, lastname):
         db.Model.__init__(self)
@@ -113,7 +162,7 @@ class Event(db.Model):
         return event if event is not None else Location("None")
     
     @classmethod
-    def search(cls, searchterm, parts):
+    def search(cls, exact, fuzzy, parts):
         return ([], [], [], [], [], [])
     
     def __init__(self, name, etype=None, desc=""):
@@ -170,7 +219,7 @@ class Location(db.Model):
         return location if location is not None else Location("")
     
     @classmethod
-    def search(cls, searchterm, parts):
+    def search(cls, exact, fuzzy, parts):
         return ([], [], [], [], [], [])
     
     def __init__(self, name, ltype=0):
@@ -223,7 +272,7 @@ class Organization(db.Model):
         return org if org is not None else Organization("")
     
     @classmethod
-    def search(cls, searchterm, parts):
+    def search(cls, exact, fuzzy, parts):
         return ([], [], [], [], [], [])
     
     def __init__(self, name, org_type=0):
@@ -270,7 +319,7 @@ class Episode(db.Model):
     description = db.Column(db.Text)
     
     @classmethod
-    def search(cls, searchterm, parts):
+    def search(cls, exact, fuzzy, parts):
         return ([], [], [], [], [], [])
     
     def __init__(self, name):
@@ -367,11 +416,11 @@ def searchdb(searchterm):
     # descrption or
     exact = '%'+search_sanitize(searchterm)+'%'
     parts = ['%'+s+'%' for s in search_sanitize(searchterm).split()]
-    results = search_combine(Character.search(exact, parts),
-                             Episode.search(exact, parts),
-                             Event.search(exact, parts),
-                             Location.search(exact, parts),
-                             Organization.search(exact, parts))
+    results = search_combine(Character.search(searchterm, exact, parts),
+                             Episode.search(searchterm, exact, parts),
+                             Event.search(searchterm, exact, parts),
+                             Location.search(searchterm, exact, parts),
+                             Organization.search(searchterm, exact, parts))
     return {"searchterm":searchterm,
             "resultCount":len(results),
             "results":results}
