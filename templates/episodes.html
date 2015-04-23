@@ -107,7 +107,9 @@
       document.getElementById("season" + i).innerHTML = result[i-1].season;
       document.getElementById("episode" + i).innerHTML = result[i-1].episode_number;
       document.getElementById("table-row" + i).setAttribute("data-href", "/episodes/" + i);
-  }
+    }
+  
+    document.getElementById("collapse1").setAttribute("class", "panel-collapse collapse in");
 </script>
 <script>
   $("#tableView").tablesorter(); 
