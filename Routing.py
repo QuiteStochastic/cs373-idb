@@ -9,7 +9,7 @@ import flask
 from flask import Response, render_template, request, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import urllib2
+from urllib.request import urlopen
 import json
 
 # This is the application context which does the routing.
@@ -110,10 +110,10 @@ def pythians_page():
     """
     host = "http://104.239.139.162/scrape/"
     
-    athletes = json.load(urllib2.urlopen(host + "athletes"))
-    countries = json.load(urllib2.urlopen(host + "countries"))
-    events = json.load(urllib2.urlopen(host + "events"))
-    medals = json.load(urllib2.urlopen(host + "medals"))
+    athletes = json.loads(urlopen(host + "athletes").read().decode("utf-8"))
+    countries = json.loads(urlopen(host + "countries").read().decode("utf-8"))
+    events = json.loads(urlopen(host + "events").read().decode("utf-8"))
+    medals = json.loads(urlopen(host + "medals").read().decode("utf-8"))
     
     result = {}
     
