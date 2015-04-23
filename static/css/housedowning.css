@@ -18,7 +18,7 @@ body {
 }
 
 .business-header {
-  height: 200px;
+  height: 240px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -86,8 +86,8 @@ footer {
 }
 
 .pillars .img-thumbnail {
-  height: 100px;
-  width: 500px;
+  height: 150px;
+  width: 300px;
 }
 
 .img-circle {  

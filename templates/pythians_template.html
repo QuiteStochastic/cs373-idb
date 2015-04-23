@@ -1,13 +1,63 @@
 {% extends "layout.html" %}
 {% block body %}
 <body>
-  <p id="results"></p>
+  <!-- Image Background Page Header -->
+  <header class="business-header" style="background: url(static/images/banners/pythian.png) center center no-repeat scroll;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class = "tagline"></h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class ="container">
+    <div class="col-sm-12">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li>Pythian API</li>
+      </ol>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-1">
+      <p>We determined the male and female held the most medals for each country.</p>
+     </div>
+   </div>
+   <hr>
+  
+  <div class="container">
+    <table class="row table table-hover tablesorter" id="tableView">
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Male Name</th>
+          <th>Male Total</th>
+          <th>Female Name</th>
+          <th>Female Total</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        {% for key, value in result.items() %}
+        <tr class="clickable-row">
+          <td>{{key}}</td>
+          <td>{{value["male_name"]}}</td>
+          <td>{{value["male_total"]}}</td>
+          <td>{{value["female_name"]}}</td>
+          <td>{{value["female_total"]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </body>
 
-<script language="JavaScript" src="../static/js/pulldata.js"></script> 
-<script>    
-  var info = pythian_get('athletes');
-  var result = JSON.parse(info);
-  alert(info); 
+<script>
+  $("#tableView").tablesorter(); 
 </script>
 {% endblock %}

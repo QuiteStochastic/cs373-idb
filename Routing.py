@@ -6,8 +6,11 @@ from Model import *
 # Anything not listed in the second flask import can just be called from the
 # imported model
 import flask
-from flask import Response, render_template,request, send_from_directory
+from flask import Response, render_template, request, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import urllib2
+import json
 
 # This is the application context which does the routing.
 app = flask.Flask(__name__)
@@ -105,7 +108,32 @@ def pythians_page():
     """
     Serve the Pythian's API page from ./templates/pythians_template.html
     """
-    return render_template("pythians_template.html")
+    host = "http://104.239.139.162/scrape/"
+    
+    athletes = json.load(urllib2.urlopen(host + "athletes"))
+    countries = json.load(urllib2.urlopen(host + "countries"))
+    events = json.load(urllib2.urlopen(host + "events"))
+    medals = json.load(urllib2.urlopen(host + "medals"))
+    
+    result = {}
+    
+    for country in countries:
+      result[countries[country]["name"]] = {"male_name": "", "male_total": 0, "female_name": "", "female_total": 0}
+      
+    for athlete in athletes:
+      medal_list = athletes[athlete]["medals"] #list of medals
+      for medal in medal_list:
+        country = medal["repr"]
+        if athletes[athlete]["gender"] == "Men":
+          if len(medal_list) > result[country]["male_total"]:
+            result[country]["male_total"] = len(medal_list)
+            result[country]["male_name"] = athletes[athlete]["first"] + " "  + athletes[athlete]["last"]
+        else:
+          if len(medal_list) > result[country]["female_total"]:
+            result[country]["female_total"] = len(medal_list)
+            result[country]["female_name"] = athletes[athlete]["first"] + " " + athletes[athlete]["last"]
+      
+    return render_template("pythians_template.html", result = result)
 
 @app.route('/results')
 def search_results_page():
