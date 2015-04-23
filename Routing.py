@@ -133,8 +133,7 @@ def pythians_page():
             result[country]["female_total"] = len(medal_list)
             result[country]["female_name"] = athletes[athlete]["first"] + " " + athletes[athlete]["last"]
       
-    temp = {"0":{"first":"mal", "last":"ko"}, "1":{"first":"tomas", "last":"mc"}}
-    return render_template("pythians_template.html", result = result, temp = temp)
+    return render_template("pythians_template.html", result = result)
 
 @app.route('/results')
 def search_results_page():
