@@ -35,7 +35,7 @@
     <!-- Picture Grid -->
     <div class="row pic-grid">
       <div class="row pillars" id="content"></div>
-   </div>
+    </div>
 
     <!-- Table -->
     <table class="row table table-hover hide tablesorter" id="tableView">
@@ -52,19 +52,19 @@
       </thead>
     
       <tbody>
-      {% for x in range(1,43) %}
-      <tr class="clickable-row" id="table-row{{x}}">
-        <th scope="row" id="id{{x}}"></th>
-        <td><div class="img-circle" id="img{{x}}"></div></td>
-        <td id="firstname{{x}}"></td>
-        <td id="lastname{{x}}"></td>
-        <td id="gender{{x}}"></td>
-        <td id="religion{{x}}"></td>
-        <td id="status{{x}}"></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        {% for x in range(1,43) %}
+        <tr class="clickable-row" id="table-row{{x}}">
+          <th scope="row" id="id{{x}}"></th>
+          <td><div class="img-circle" id="img{{x}}"></div></td>
+          <td id="firstname{{x}}"></td>
+          <td id="lastname{{x}}"></td>
+          <td id="gender{{x}}"></td>
+          <td id="religion{{x}}"></td>
+          <td id="status{{x}}"></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 </div>
 <!-- END CONTAINER -->
 </body>

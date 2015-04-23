@@ -124,7 +124,7 @@ def pythians_page():
       medal_list = athletes[athlete]["medals"] #list of medals
       for medal in medal_list:
         country = medal["repr"]
-        if athletes[athlete]["gender"] is "Men":
+        if athletes[athlete]["gender"] == "Men":
           if len(medal_list) > result[country]["male_total"]:
             result[country]["male_total"] = len(medal_list)
             result[country]["male_name"] = athletes[athlete]["first"] + " "  + athletes[athlete]["last"]
