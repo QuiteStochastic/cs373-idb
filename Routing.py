@@ -115,7 +115,26 @@ def pythians_page():
     events = json.load(urllib2.urlopen(host + "events"))
     medals = json.load(urllib2.urlopen(host + "medals"))
     
-    return render_template("pythians_template.html")
+    result = {}
+    
+    for country in countries:
+      result[countries[country]["name"]] = {"male_name": "", "male_total": 0, "female_name": "", "female_total": 0}
+      
+    for athlete in athletes:
+      medal_list = athletes[athlete]["medals"] #list of medals
+      for medal in medal_list:
+        country = medal["repr"]
+        if athletes[athlete]["gender"] is "Men":
+          if len(medal_list) > result[country]["male_total"]:
+            result[country]["male_total"] = len(medal_list)
+            result[country]["male_name"] = athletes[athlete]["first"] + " "  + athletes[athlete]["last"]
+        else:
+          if len(medal_list) > result[country]["female_total"]:
+            result[country]["female_total"] = len(medal_list)
+            result[country]["female_name"] = athletes[athlete]["first"] + " " + athletes[athlete]["last"]
+      
+    temp = {"0":{"first":"mal", "last":"ko"}, "1":{"first":"tomas", "last":"mc"}}
+    return render_template("pythians_template.html", result = result, temp = temp)
 
 @app.route('/results')
 def search_results_page():

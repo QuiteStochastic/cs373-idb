@@ -1,11 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
 <body>
-  <p id="results"></p>
+  <div>
+    {% for key, value in result.items() %}
+    <p>{{key}}{{value}}</p>
+    {% endfor %}
+  </div>
 </body>
 
-<script language="JavaScript" src="../static/js/pulldata.js"></script> 
-<script>    
-  alert("{{test_dict}}"); 
+<script>
+  console.log("MERP");
+  
+    
+
 </script>
 {% endblock %}
