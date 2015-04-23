@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 from app import running
 from flask import Flask
