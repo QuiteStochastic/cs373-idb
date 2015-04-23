@@ -6,8 +6,11 @@ from Model import *
 # Anything not listed in the second flask import can just be called from the
 # imported model
 import flask
-from flask import Response, render_template,request, send_from_directory
+from flask import Response, render_template, request, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import urllib2
+import json
 
 # This is the application context which does the routing.
 app = flask.Flask(__name__)
@@ -105,6 +108,13 @@ def pythians_page():
     """
     Serve the Pythian's API page from ./templates/pythians_template.html
     """
+    host = "http://104.239.139.162/scrape/"
+    
+    athletes = json.load(urllib2.urlopen(host + "athletes"))
+    countries = json.load(urllib2.urlopen(host + "countries"))
+    events = json.load(urllib2.urlopen(host + "events"))
+    medals = json.load(urllib2.urlopen(host + "medals"))
+    
     return render_template("pythians_template.html")
 
 @app.route('/results')
