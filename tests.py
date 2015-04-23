@@ -15,6 +15,16 @@ tdb = db
 
 standalone = False
 
+def object_in(items, strtype, name):
+    """
+    Check that the item with the given name and type exists in the json
+    response from the search API.
+    """
+    for i in items:
+        if i["type"] == strtype and i["name"] == name:
+            return True
+    return False
+
 class TestApi(TestCase):
     ctx = None
     
@@ -246,6 +256,34 @@ class TestApi(TestCase):
         client = app.test_client()
         response = client.get('/api/organizations/99999999')
         self.assertEqual(response.status_code, 404)
+    
+    ###################################
+    # Search Tests (/api/search?query=)
+    # We need to test search for every pillar and every type of result.
+    # Types of result in order of priority:
+    #   1. Name Exact Match
+    #   2. Name Fuzzy Match
+    #   3. Name And Match
+    #   4. Description Fuzzy Match
+    #   5. Description And Match
+    #   6. Name Or Match
+    #   7. Description Or Match
+    def test_api_search_character_or(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=Baratheon Robert')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "characters", "Robert Baratheon"))
 
 class TestDatabase(TestCase):
     ctx = None
