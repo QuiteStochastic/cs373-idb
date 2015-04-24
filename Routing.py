@@ -175,7 +175,7 @@ def run_unit_tests():
 @app.route('/api/characters')
 @cross_origin()
 def get_all_characters():
-    return json_response([c.serialize() for c in Character.query.all()])
+    return json_response([c.serialize(True) for c in Character.query.all()])
 
 @app.route('/api/characters/<int:cid>')
 @cross_origin()

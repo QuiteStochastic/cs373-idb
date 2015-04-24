@@ -108,7 +108,10 @@ class Character(db.Model):
             return {
                 'char_id':self.char_id,
                 'first_name':self.first_name,
-                'last_name':self.last_name
+                'last_name':self.last_name,
+                'status':self.status,
+                'religion':self.religion,
+                'gender':self.gender
             }
         else:
             return {
