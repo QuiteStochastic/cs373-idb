@@ -92,7 +92,7 @@ class Character(db.Model):
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
-    def __init__(self, firstname, lastname):
+    def __init__(self, firstname, lastname, desc=None):
         db.Model.__init__(self)
         self.char_id = None
         self.first_name = firstname
@@ -101,7 +101,7 @@ class Character(db.Model):
         self.gender = None
         self.religion = None
         self.status = None
-        self.description = None
+        self.description = desc
     
     def serialize(self, brief=False):
         if brief:
@@ -205,7 +205,7 @@ class Event(db.Model):
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
-    def __init__(self, name, etype=None, desc=""):
+    def __init__(self, name, desc=None, etype=None):
         db.Model.__init__(self)
         self.event_id = None
         self.name = name
@@ -308,12 +308,12 @@ class Location(db.Model):
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
-    def __init__(self, name, ltype=0):
+    def __init__(self, name, desc=None, ltype=0):
         db.Model.__init__(self)
         self.loc_id = None
         self.name = name
         self.loc_type = ltype
-        self.description = ""
+        self.description = desc
         self.superior_loc_id = None
     
     def serialize(self, brief=False):
@@ -408,12 +408,12 @@ class Organization(db.Model):
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
-    def __init__(self, name, org_type=0):
+    def __init__(self, name, desc=None, org_type=0):
         db.Model.__init__(self)
         self.org_id = None
         self.name = name
         self.org_type = None
-        self.description = ""
+        self.description = desc
         self.location_id = None
         self.leader_id = None
     
@@ -502,13 +502,13 @@ class Episode(db.Model):
         
         return (name_exact, name_fuzzy, name_and, desc_fuzzy, desc_and, name_or, desc_or)
     
-    def __init__(self, name):
+    def __init__(self, name, desc=None):
         db.Model.__init__(self)
         self.ep_id = None
         self.name = name
         self.season = None
         self.episode_number = None
-        self.description = None
+        self.description = desc
     
     def serialize(self):
         return {
