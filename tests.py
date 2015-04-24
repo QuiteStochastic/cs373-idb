@@ -52,7 +52,16 @@ class TestApi(TestCase):
 
             #locations
             tdb.session.add(Location('Kings Landing', 'Important place, Robert lived here'))
-            
+            tdb.session.add(Location('Winterfell', 'Stark house seat'))
+            tdb.session.add(Location('Whispering Wood', 'Location of a battle'))
+            tdb.session.add(Location('Dragonstone', 'Base for Stannis Baratheon'))
+            tdb.session.add(Location('Braavos', 'Capital of the Free Cities'))
+            tdb.session.add(Location('The Eyrie', 'Hidden in the mountains'))
+            tdb.session.add(Location('Meereen', 'No mountains in sight'))
+            tdb.session.add(Location('Sunspear', 'Straw everywhere, capital of Dorne, Martell house seat'))
+            tdb.session.add(Location('Highgarden', 'capital of somewhere, Tyrell house seat'))
+            tdb.session.add(Location('Beyond the Wall', 'savages'))
+
             #episodes
             tdb.session.add(Episode('Episode 1', 'Robert Baratheon appears'))
             
@@ -421,6 +430,128 @@ class TestApi(TestCase):
         self.assertTrue(object_in(objlist, "characters", "Robert Baratheon"))
         self.assertTrue(object_in(objlist, "characters", "Joffrey Baratheon"))
 
+    def test_api_search_location_name_exact(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=Winterfell')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Winterfell"))
+
+    def test_api_search_location_name_fuzzy(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=interf')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Winterfell"))
+
+    def test_api_search_location_name_and(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=Wood Whispering')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Whispering Wood"))
+
+    def test_api_search_location_name_or(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=Dragonstone Braavos')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Braavos"))
+        self.assertTrue(object_in(objlist, "locations", "Dragonstone"))
+
+    def test_api_search_location_desc_fuzzy(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=mountains')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "The Eyrie"))
+        self.assertTrue(object_in(objlist, "locations", "Meereen"))
+
+    def test_api_search_location_desc_and(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=Capital House')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Sunspear"))
+        self.assertTrue(object_in(objlist, "locations", "Highgarden"))
+
+    def test_api_search_location_desc_or(self):
+        client = app.test_client()
+        response = client.get('/api/search?query=savage straw')
+        # Check that the response is 200 OK
+        self.assertEqual(response.status_code, 200)
+        jobj = json.loads(response.data.decode("utf-8"))
+        # Check that it is a list
+        self.assertTrue(type(jobj) == dict)
+        # Check that we have a non-zero value of results
+        self.assertTrue(jobj["resultCount"] > 0)
+        objlist = jobj["results"]
+        # Check that we got data we wanted
+        # This checks that the item is somewhere in the results
+        # If you want to check if something is first just take the first item
+        # from objlist and check its type and name.
+        self.assertTrue(object_in(objlist, "locations", "Beyond the Wall"))
+        self.assertTrue(object_in(objlist, "locations", "Sunspear"))
 
 class TestDatabase(TestCase):
     ctx = None
