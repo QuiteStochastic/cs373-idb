@@ -324,7 +324,8 @@ class Location(db.Model):
             return {
                 'loc_id':self.loc_id,
                 'name':self.name,
-                'loc_type':self.loc_type
+                'loc_type':self.loc_type,
+                'superior_location':self.superior_loc.name if self.superior_loc is not None else ""
             }
         else:
             return {
@@ -424,7 +425,8 @@ class Organization(db.Model):
         if brief:
             return {
                 'org_id':self.org_id,
-                'name':self.name
+                'name':self.name,
+                'org_type':self.org_type
             }
         else:
             return {
@@ -513,14 +515,23 @@ class Episode(db.Model):
         self.episode_number = None
         self.description = desc
     
-    def serialize(self):
-        return {
-            'ep_id':self.ep_id,
-            'name':self.name,
-            'season':self.season,
-            'episode_number':self.episode_number,
-            'description':self.description
-        }
+    def serialize(self, brief=False):
+        if brief:
+            return {
+                'ep_id':self.ep_id,
+                'name':self.name,
+                'season':self.season,
+                'episode_number':self.episode_number
+            }
+        else:
+            return {
+                'ep_id':self.ep_id,
+                'name':self.name,
+                'season':self.season,
+                'episode_number':self.episode_number,
+                'description':self.description,
+                'events':[e.serialize() for e in self.events]
+            }
     
     def asresult(self):
         return {
