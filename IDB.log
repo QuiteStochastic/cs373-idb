@@ -1,3 +1,780 @@
+commit 4400e89c7d37c4a687fe83c81c01676bd63670da
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Fri Apr 24 02:34:10 2015 +0000
+
+    fixed some broken tests
+
+commit 5c10e68df93741fd827aa6c48c7e2d4d975f19ad
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Fri Apr 24 02:27:52 2015 +0000
+
+    tests for searching for events
+
+commit b2a8badd1b5d580d472dc07857203a0e09865593
+Merge: 3cda0af 77c1bdb
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 02:25:38 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 3cda0af34154d1df5ce7ddd011337003dfd94122
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 02:25:33 2015 +0000
+
+    Added search tests for Organizations
+
+commit 77c1bdb811857d3c9a6ab80e22778557fd9df6a7
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 02:23:22 2015 +0000
+
+    Update commits on About page.
+
+commit 7aacbde5931cff1b265f596b584e0eb696a9cbe8
+Merge: 855120e ec9a770
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 02:19:54 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 855120e870f21f030b67ca37ad8a31147911df85
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 02:19:37 2015 +0000
+
+    Add unit test stat to About page.
+
+commit ec9a770ccdb1f7fcb2bc00832bc2663ae3228570
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Fri Apr 24 02:19:12 2015 +0000
+
+    Change name of char search or test
+
+commit baf33cf5cdc532d56d7c6b7ca65ae88baafc9c56
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 02:15:01 2015 +0000
+
+    Add location search tests.
+
+commit dd90f085a23bd712a93539a3f532fe3631749fe1
+Merge: 8d91088 fdbf009
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 02:10:48 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 8d91088d5609951aeeda7a496543645e3d124543
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 02:10:39 2015 +0000
+
+    Fixed problem with tests. YAY!
+
+commit fdbf009753aa5a690452eaee3dbf01726a18469f
+Author: otlichnariel <QuiteStochastic@gmail.com>
+Date:   Fri Apr 24 02:08:02 2015 +0000
+
+    change info about pyke
+
+commit 86e61168e1efa68f6ebdbf1a71f1f3cde4caf54f
+Author: ariels <ariels@cs.utexas.edu>
+Date:   Thu Apr 23 20:51:09 2015 -0500
+
+    Change UML diagram to reflect removed birth and death locs
+
+commit d021440d09e665071a2d6448960528d5e182033e
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 01:45:46 2015 +0000
+
+    Removed Search Bar on Search Page for now.
+
+commit 4ade5eb3f18c74125e5566159e302f4510737cd3
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Fri Apr 24 01:43:19 2015 +0000
+
+    add events info to test db
+
+commit 1ea3cc0c4601f481033e68e6811ea52b532a9d96
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Fri Apr 24 01:35:48 2015 +0000
+
+    organize adding the fake data to db
+
+commit f8486ab5dc3d561b80879a26afafc0eabfed8b21
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Fri Apr 24 01:22:13 2015 +0000
+
+    Add remainder of tests for characters search
+
+commit 7ead36a25e044b11cc496eca345071e4dc7f3e16
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 01:14:42 2015 +0000
+
+    Fix typo on Pythian page.
+
+commit 05af90ee7e47a3e870db36f11fcdc6dbd392b163
+Merge: 52fee5c 85b99a0
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 00:59:50 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 52fee5c411e6fd24ded6b1c07ae677c8e99ed0ad
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 00:59:36 2015 +0000
+
+    Made Search Bar Enterable
+
+commit 85b99a02b211b02d4739e17586b32ea6328f66b6
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 00:53:40 2015 +0000
+
+    Fixed typo in Location class.
+
+commit 08c1820fab61887948e83bef3a919054efa415b7
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 00:51:55 2015 +0000
+
+    Fixed api list endpoints returning non-truncated information.
+
+commit 3c479464b3b411e6b279325284be71a10ab8b2af
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Fri Apr 24 00:50:37 2015 +0000
+
+    Add tests for name exact, name fuzzy, name and.
+
+commit d00939b345b40449f4ef4c9d3526b18f58b1e682
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 00:42:48 2015 +0000
+
+    Make search results linkable.
+
+commit 9b26d9781d42017a16d08a403e97c4ce91e69ddd
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 00:25:35 2015 +0000
+
+    Add more code to results page.
+
+commit 5f17335796d7dfdea8aa2f5b29943375e5ee79ca
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 00:19:49 2015 +0000
+
+    Fixed /api/characters returning non-truncated information.
+
+commit c198dff32798d878c07ffed72421371ad027e03d
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 00:14:53 2015 +0000
+
+    Made model constructors take an optional description to allow testing description searching.
+
+commit f26e3faefaa9fa8b6e3e9e7a3eedb28188219484
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 23:31:36 2015 +0000
+
+    Added shebang to tests so it launches python when run as ./tests.py
+
+commit 20a42cad0561a4a1f6b0c484639f27456d8cc0b3
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 23:29:28 2015 +0000
+
+    Removed executable bit from permissions for files where it makes no sense
+
+commit 6f35b2cd24f3a914d8f2233002449b3fdaccc7b3
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 23:16:56 2015 +0000
+
+    Converted urllib2 (python2) code to urllib code (python3)
+
+commit 23a863443c72657b2f3b1abaf994c450aa205fd1
+Merge: 879c766 d09e3ca
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 23:03:38 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit d09e3ca222b7295f8c323e34f7c2181be6c4cc81
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 21:44:17 2015 +0000
+
+    Remove unnecessary importing of pulldata.js.
+
+commit f022e5efe1da6ee4a6beaa3718d558c8a1a4fca8
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 21:36:00 2015 +0000
+
+    Add short description to Pythian page.
+
+commit 2984f525c463674c18b78baf3dc0128e4c84c920
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 21:28:08 2015 +0000
+
+    Add banner to Pythian page.
+
+commit 83a282f11009c00350baba0d9deb37093b040947
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 21:00:16 2015 +0000
+
+    Adjust appearance of Pythian page.
+
+commit 9cb91134e5a217d97f862eda082676a2d29cc67c
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 19:17:15 2015 +0000
+
+    Change behavior of accordion on episodes page.
+
+commit da788423d4e33a3098454ee48ebd6f36c3ede1ac
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 19:04:19 2015 +0000
+
+    Fix images on episode pages.
+
+commit 7c8505daebcc1e5b0763745c78318ea8936d1c2e
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Thu Apr 23 13:56:34 2015 -0500
+
+    Added Glyphicon to Search Bar Button
+
+commit c55fcb50e8e3366869e8067cfc5df00d6ee9a450
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 18:36:17 2015 +0000
+
+    Clean up Pythian code in Routing.py and template.
+
+commit 736a205a0f74043c55e5ece90eb65291affe89fd
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 18:33:27 2015 +0000
+
+    Output results to Pythian API page.
+
+commit 89d1aac3b07760abc1e57b7094374d6056d0b880
+Author: mkoai <mkoai@utexas.edu>
+Date:   Thu Apr 23 04:48:08 2015 +0000
+
+    Access Pythian API via endpoints in Routing.py.
+
+commit 879c7664b3ac8475f67ab345db52f5b657594e8a
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 02:33:08 2015 +0000
+
+    Added search API test for character or matching
+
+commit 0c49627ecc7de3f5e1815f9760b3c048082fa395
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Thu Apr 23 02:16:16 2015 +0000
+
+    Simplified process of adding data to test database.
+
+commit 79875bc1755361323ee64aa08152073204cac822
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 23:53:48 2015 +0000
+
+    Link to search results page.
+
+commit 37a279735324d8e43777aca47ecabe19268306f4
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 22:58:45 2015 +0000
+
+    Added search methods to all models.
+
+commit 25162827951b4022a002bf1a4b3be74b72c2e9b5
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 22:44:54 2015 +0000
+
+    Refactor code for searching to be easily adjusted for other models. (Copy and Paste\!)
+
+commit dc4180de137a08c22e24ff2c647f617f70099657
+Merge: bb0ca6f 1c21f05
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 22:41:36 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit bb0ca6f446464a04577d53fae29646d7d0cf10b0
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 22:41:23 2015 +0000
+
+    Finished character searching
+
+commit 1c21f0571533c1c2cfda43f388db2a0bb50c4b76
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 22:21:47 2015 +0000
+
+    Account for null aliases on character page.
+
+commit a3ba40765ad806d231d21ed74c3d5b0acff2a509
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 22:18:58 2015 +0000
+
+    Account for null organizations on location page.
+
+commit ac24c584a4bb8b29dea7babc550842fadc1b1613
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 22:14:38 2015 +0000
+
+    Account for null leaders on organization page.
+
+commit 116ed04cdd827660404b882bb9b03dde475ab3a3
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 21:53:44 2015 +0000
+
+    Fix padding on main page banners.
+
+commit da97b017e998413262a97ae24c3522d8622108f6
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 21:47:42 2015 +0000
+
+    Attempting to access Pythian API.
+
+commit ccb880fcbc0a8126da5196cac87e459915a85a8d
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 22 16:32:09 2015 -0500
+
+    Added Search Bar and Table to Search Results Page.
+
+commit c933420d14a6f23dcf94911e491d792947766540
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 21:17:58 2015 +0000
+
+    Remove repetitive code in pulldata.js.
+
+commit 275538ada23006ebc3d1301239e91ec661b455e3
+Merge: b9a80e4 0036e55
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 22 16:00:17 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit b9a80e4abb274139a87e607435ab1ec05a01ec14
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 22 16:00:15 2015 -0500
+
+    Fixed up the footer
+
+commit 0036e554f441e961de4ac95530299893f22f045f
+Author: otlichnariel <otlichnariel@users.noreply.github.com>
+Date:   Wed Apr 22 15:49:54 2015 -0500
+
+    Update character.csv
+    
+    oliver is the worst
+
+commit 2538d938a53f96fa5f1802f3831605e77b41c8ac
+Merge: 1af04d4 f8e1745
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 22 15:45:17 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 1af04d4deb54912e3b3257cc00b311d2c25a9300
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Wed Apr 22 15:45:05 2015 -0500
+
+    Added Search Page and Routing.
+
+commit f8e174597fc88573b744edc91f8c761c7aca0134
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 20:32:14 2015 +0000
+
+    Made search api endpoint return empty object if no query given.
+
+commit 28a605fa44b025b8896e1c263d1162b8d73966ff
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 20:16:48 2015 +0000
+
+    Made API endpoint /api/search respond to queries.
+
+commit 90be72acad30ea6b2fadafd8b7a997652d86ed27
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 20:09:23 2015 +0000
+
+    Added searching characters by full name
+
+commit 2feb7adedba2dbd097258f586c3ae2af327ab3f6
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 20:08:50 2015 +0000
+
+    Updated interactive mode script to allow changing the configuration used.
+
+commit b7038489964085dd808f5d717b9655336b3bb276
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Wed Apr 22 19:36:29 2015 +0000
+
+    Started work on multi-word search; search results empty as of now.
+
+commit b7e410640f28e3c9c1fdaeebe4607076f0d8146d
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 17:52:25 2015 +0000
+
+    Fix relationships on character pages.
+
+commit fa3bbe5cf20379dd416d7eee0dfa4f2eaf3deb64
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 14:26:32 2015 +0000
+
+    Add placeholder episode image to main page.
+
+commit a024a3d3e3663f3ccb1ef054c4cd7e71a1a1db62
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 14:19:40 2015 +0000
+
+    Add banner images and effects to main page.
+
+commit 15ab51b0f486cf245f8a214e0dad95634800e8ca
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 04:58:49 2015 +0000
+
+    Tweak header banner - among other minor tweaks.
+
+commit 76ba0525dc486208fbdafcec1395a589bce02eda
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 04:15:52 2015 +0000
+
+    Fix numbering on episodes page.
+
+commit dc660fe5c682d8bbff8088bd6e4ad37aad954389
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 02:28:08 2015 +0000
+
+    Link to right images on episode pages.
+
+commit 31201b7e6ef6b3350dc1a3ce951ac8bbb02ece2a
+Author: mkoai <mkoai@utexas.edu>
+Date:   Wed Apr 22 02:16:30 2015 +0000
+
+    Add episode images.
+
+commit b7cfc8ee7c91503be859464ce939e367968da74e
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 22:04:38 2015 +0000
+
+    Minor tweaks on main page.
+
+commit de3fe78e9a3cf88dc857b92befdfe975aa4c7bd3
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 21:11:06 2015 +0000
+
+    Adjust banner code on main page.
+
+commit 7fec1613f216a09b394cf339dc0ced22686978c5
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 20:34:12 2015 +0000
+
+    Fix links for banners on main page.
+
+commit 18e77d10db0c43ad245c85e50cae7577ecbdf7f6
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Tue Apr 21 03:21:37 2015 +0000
+
+    still csv issues
+
+commit 97cd335d625ff75f527edec4860e5c2ac5c820fb
+Merge: 2bab791 4de6a20
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 22:05:57 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit 2bab791a2e27a83696133268f1ad5695eef9562d
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 22:05:41 2015 -0500
+
+    character encodings problems
+
+commit 4de6a20b0fecc2cac49b4cb44ee5962a66fd3a66
+Merge: 896b437 bfb9ac2
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 20 22:01:49 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 896b4375e0a78b8e2755be9447f27d009db2a4b3
+Author: charuri@github.com <charlina.hung@gmail.com>
+Date:   Mon Apr 20 22:01:33 2015 -0500
+
+    Added Splash Banner Template.
+
+commit bfb9ac215c5e085748e2ba6bd8107ae64235597b
+Merge: a8d003b 16bce28
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 21:55:49 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit a8d003b65b68187baebaec423a32cdcb6cf52b24
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 21:55:29 2015 -0500
+
+    csv problems again
+
+commit 16bce28697ad96b06aed3dda50bbd978a6bdcdc3
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 02:52:01 2015 +0000
+
+    Add routing to Pythians API page.
+
+commit b29e985fe330ed5dc76cba141845984c9dcc8d32
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 02:48:02 2015 +0000
+
+    Update footer appearance.
+
+commit 9cd1db8c33230f89b9e65020dbfcc5636afdb3fe
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 21:39:25 2015 -0500
+
+    character descriptions in
+
+commit 89b939d78d246341a6ff8fcb99dbe87ff3d0a04b
+Merge: 96af745 11334d8
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 21:32:57 2015 -0500
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/HouseDowning
+
+commit 96af74543dc8e727255f9148300460ec1405bc70
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Mon Apr 20 21:32:53 2015 -0500
+
+    working on scraping character descr
+
+commit 11334d8e363a0252f113565d589705089bc82350
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 02:05:17 2015 +0000
+
+    Removed more unneeded requirements.
+
+commit 7cb47b594e92b82d34b03a8a8c2c2a626d91f9dc
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:52:01 2015 +0000
+
+    Removed problematic requirement
+
+commit 8b6490016a126662c33bbf0350e628d07356e17a
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:48:35 2015 +0000
+
+    Moved pip requirements to a seperate file.
+
+commit d673c7252db7a578c23854b8819c1f2d2cfb4921
+Merge: ebb03fb 8675e48
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:44:00 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit ebb03fb5b7a86d786e66920f4f5f8f0fc989d0bc
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:43:55 2015 +0000
+
+    More messing around trying to get travis-ci working
+
+commit 8675e4817bdef9d491019b99726f5969095ba28b
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 01:41:12 2015 +0000
+
+    Update main page with second Twitter feed.
+
+commit e9984238eecb8f48820d1049b1859152c96af143
+Merge: 880ec2f 8b49882
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:40:25 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 880ec2fd08520d64fc948ba893596c8c20dee2aa
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:40:23 2015 +0000
+
+    Added stub for api/search
+
+commit 8b49882e2abd5c354d0be99d8187f795cea24118
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Mon Apr 20 20:30:18 2015 -0500
+
+    Update README.md
+
+commit 94978e4478c3873071d9f8f5b2037a5a26c5a5ff
+Author: QuiteStochastic <quitestochastic@gmail.com>
+Date:   Mon Apr 20 20:29:41 2015 -0500
+
+    put travis ci link in readme
+
+commit e70595660887671cf278e2983e16d437e4c0e49e
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:26:08 2015 +0000
+
+    Hopefully fixed the travis-ci config
+
+commit 3b46467efe848c652d3b9043d7dc787dac663e47
+Merge: 03f25a6 cee3215
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:18:07 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 03f25a6c416d8c864d44d2becf56b6c6801b55e4
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:17:55 2015 +0000
+
+    Trying to fix errors in travisCI installation step.
+
+commit cee3215846d1b29ebadd75130775d32f7f5fa52a
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 01:16:55 2015 +0000
+
+    Change layout on main page and position of banner text.
+
+commit f4e9e7d45f06d2ccf08b6fb2b0d3c4e6057b9f80
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:15:56 2015 +0000
+
+    Fixed .travis.yml version and install
+
+commit 520293ae6ef2bf42b0e2566c3356ac21807d1efb
+Merge: 8e2ac69 f2f2171
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:09:12 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 8e2ac697064d3cdee3fa55b94baece607505a8b0
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Tue Apr 21 01:09:01 2015 +0000
+
+    Fixed tests not working standalone.
+
+commit f2f2171e3568d6f3b51c4d820ca9d2be6e75f619
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Tue Apr 21 00:54:27 2015 +0000
+
+    travis
+
+commit 7ba76140817b66484e7d1c52fa4267dedd718556
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Tue Apr 21 00:49:58 2015 +0000
+
+    travis ci
+
+commit da5639bea07682a1c5d534be314bf4260b2fffc5
+Merge: a9b4fa1 ff62744
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Tue Apr 21 00:48:42 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+    merge
+
+commit a9b4fa119823dda3a311fb90ff6981166426e1c9
+Author: QuiteStochastic <QuiteStochastic@gmail.com>
+Date:   Tue Apr 21 00:44:03 2015 +0000
+
+    added .travis.yml
+
+commit ff627448bc429b15d5a13a19238d225691753190
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 00:41:54 2015 +0000
+
+    Add link to Game of Thrones wiki.
+
+commit 37f2c8d21ae90591163891009766ab2a6df86bec
+Author: mkoai <mkoai@utexas.edu>
+Date:   Tue Apr 21 00:15:35 2015 +0000
+
+    Fix description on event, organization, and location templates.
+
+commit a1305291b558a34010d94df606814188085f549e
+Merge: 560d156 bbfbde7
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Apr 20 19:04:43 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 560d156fde2f54784e66409e06988127882cd955
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Mon Apr 20 19:04:31 2015 +0000
+
+    Migrated to new server, permission changes to lots of files.
+
+commit bbfbde73c1b5a0ffadc87b153a88981b37818bb5
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sun Apr 19 02:48:54 2015 +0000
+
+    Add search bar to layout.html.
+
+commit 81710d1ea3b1c3ba21cdd75676a0c5922205410f
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 04:42:54 2015 +0000
+
+    Add remaining organization images.
+
+commit e6a4fe5053871ac7912dabb2ae8d88c82104b9ce
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 04:27:22 2015 +0000
+
+    Add rest of character images.
+
+commit 528d31aa9fa2ec189caf069608585a9dacf4a6c8
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 03:11:06 2015 +0000
+
+    Add image for Davos.
+
+commit eee0afe6f10164886195a5aa69c28ea4c0f962d7
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 03:06:25 2015 +0000
+
+    Add skeleton for Episodes and Episode Template pages.
+
+commit 125ff9d149c62261e7ab2390c9b3d822253838fa
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 01:22:20 2015 +0000
+
+    Implement table view for Episodes page.
+
+commit b7a8ea2765d036398402b58f7fbdd2aaeb107cc5
+Author: mkoai <mkoai@utexas.edu>
+Date:   Sat Apr 18 00:43:25 2015 +0000
+
+    Change relationship names on template pages.
+
+commit 8dc15ae8f1be3c1c467b5fed2363b967bf513aaa
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 17 17:03:49 2015 +0000
+
+    Create new skeleton for main page.
+
+commit 71de6d4102fdb66ebee819f5291392e2d5dcbdaa
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 17 16:55:04 2015 +0000
+
+    Embed GameOfThrones Twitter feed on main page.
+
+commit 22f6a5d5885e682a72505868f00d798595e769e5
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 16 17:56:44 2015 -0500
+
+    fix more csv problems
+
+commit c68ad72b88236b426d0f8aa5436f8dda6208870a
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Thu Apr 16 17:49:39 2015 -0500
+
+    fix commas again
+
+commit ab2b12997280a601800bea62f7004f5a042cb426
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 15 17:19:47 2015 -0500
+
+    fix csv formatting
+
+commit e70e3ff39f7c68631b788e3b273c3aa41c9a34b5
+Author: Oliver Lee <oliverlee010@gmail.com>
+Date:   Wed Apr 15 17:12:44 2015 -0500
+
+    add more characters, members, and data in general.  removed character descriptions, will add scraped descriptions
+
+commit 4dbd4d94058c692a4b4d9a7f54f37f06f36ef32b
+Author: tvarney <troy.a.varney@gmail.com>
+Date:   Fri Apr 10 02:37:46 2015 +0000
+
+    Added IDB.log
+
 commit 5f431c9a42acd6bd662a6be0dd9a9aaba8cee2ce
 Author: charuri@github.com <charlina.hung@gmail.com>
 Date:   Thu Apr 9 21:36:53 2015 -0500
