@@ -188,7 +188,7 @@ def get_character(cid):
 @app.route('/api/events')
 @cross_origin()
 def get_all_events():
-    return json_response([e.serialize() for e in Event.query.all()])
+    return json_response([e.serialize(True) for e in Event.query.all()])
 
 @app.route('/api/events/<int:eid>')
 @cross_origin()
@@ -201,7 +201,7 @@ def get_event(eid):
 @app.route('/api/organizations')
 @cross_origin()
 def get_all_orgs():
-    return json_response([o.serialize() for o in Organization.query.all()])
+    return json_response([o.serialize(True) for o in Organization.query.all()])
 
 @app.route('/api/organizations/<int:oid>')
 @cross_origin()
@@ -214,7 +214,7 @@ def get_org(oid):
 @app.route('/api/locations')
 @cross_origin()
 def get_all_locations():
-    return json_response([l.serialize() for l in Location.query.all()])
+    return json_response([l.serialize(True) for l in Location.query.all()])
 
 @app.route('/api/locations/<int:lid>')
 @cross_origin()
@@ -227,7 +227,7 @@ def get_location(lid):
 @app.route('/api/episodes')
 @cross_origin()
 def get_all_episodes():
-    return json_response([e.serialize() for e in Episode.query.all()])
+    return json_response([e.serialize(True) for e in Episode.query.all()])
 
 @app.route('/api/episodes/<int:eid>')
 @cross_origin()
