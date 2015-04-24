@@ -28,18 +28,18 @@
 	<div class="container">
 
 		<!-- Search Bar -->
-		<div class="row"> 
+		<!-- <div class="row"> 
 			<div class="col-lg-6">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search for...">
+					<input type="text" class="form-control" id="search-bar" placeholder="Search for...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Go!</button>
+						<button class="btn btn-default glyphicon glyphicon-search" type="button" onclick="search()" style="top:0px"></button>
 					</span>
-				</div><!-- /input-group -->
-			</div><!-- /.col-lg-6 -->
-		</div>
+				</div><! /input-group -->
+			<!-- </div>/.col-lg-6 -->
+		<!-- </div> --> 
 
-		<hr>
+		<!-- <hr> -->
 		<!-- Search Results -->
 		<table class="table table-hover">
   		<thead>
@@ -58,11 +58,15 @@
 	</div>
 </body>
   <!-- CONTAINER END -->
-<script language="JavaScript" src="../static/js/pulldata.js"></script> 
+
 <script>
 	var info = get_data('search?query={{query}}');
 	var result = JSON.parse(info);
 	var results = result["results"];
+
+	// Autofill Search Bar with Previous Search
+
+	//document.getElementById("form-control").value={{query}};
 
 	for (var i = 0; i < results.length; i++) {
 		// Create table row
