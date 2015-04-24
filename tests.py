@@ -306,7 +306,7 @@ class TestApi(TestCase):
     #   5. Description And Match
     #   6. Name Or Match
     #   7. Description Or Match
-    def test_api_search_character_or(self):
+    def test_api_search_character_name_or(self):
         client = app.test_client()
         response = client.get('/api/search?query=Baratheon Robert')
         # Check that the response is 200 OK
