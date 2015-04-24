@@ -75,7 +75,7 @@ class TestApi(TestCase):
             #Events
             tdb.session.add(Event('The Battle of Blackwater Bay', 'Big battle'))
             tdb.session.add(Event('The Death of Robert Baratheon', 'Robert died'))
-            tdb.session.add(Event('The Purple Wedding', 'Joffrey died, he rwas poisoned'))
+            tdb.session.add(Event('The Purple Wedding', 'Joffrey died, he was poisoned'))
             tdb.session.add(Event('Sack of Winterfell', 'Ironborn raid led by Theon Greyjoy on Winterfell defeated by House Bolton'))
             tdb.session.add(Event('The Battle of Castle Black', 'Conflict Beyond the Wall.  Stannis intervention'))
             tdb.session.add(Event('The Death of Tywin Lannister', 'dead whore'))
@@ -699,7 +699,7 @@ class TestApi(TestCase):
         # This checks that the item is somewhere in the results
         # If you want to check if something is first just take the first item
         # from objlist and check its type and name.
-        self.assertTrue(object_in(objlist, "events", "The Battle of Blackwater Bay'"))
+        self.assertTrue(object_in(objlist, "events", "The Battle of Blackwater Bay"))
 
     def test_api_search_event_name_fuzzy(self):
         client = app.test_client()
@@ -794,7 +794,7 @@ class TestApi(TestCase):
 
     def test_api_search_event_desc_or(self):
         client = app.test_client()
-        response = client.get('/api/search?query=dead poison')
+        response = client.get('/api/search?query=died poison')
         # Check that the response is 200 OK
         self.assertEqual(response.status_code, 200)
         jobj = json.loads(response.data.decode("utf-8"))
@@ -808,11 +808,7 @@ class TestApi(TestCase):
         # If you want to check if something is first just take the first item
         # from objlist and check its type and name.
         self.assertTrue(object_in(objlist, "events", "The Death of Robert Baratheon"))
-        self.assertTrue(object_in(objlist, "events", "The Purple Wedding"))
-
-
-
-
+        self.assertTrue(object_in(objlist, "events", "The Purple Wedding")) 
 
 
 
