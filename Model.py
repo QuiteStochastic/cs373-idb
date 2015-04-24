@@ -325,7 +325,7 @@ class Location(db.Model):
                 'loc_id':self.loc_id,
                 'name':self.name,
                 'loc_type':self.loc_type,
-                'superior_location':self.superior_loc.name if self.superior_location is not None else ""
+                'superior_location':self.superior_loc.name if self.superior_loc is not None else ""
             }
         else:
             return {
