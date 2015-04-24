@@ -1,3 +1,41 @@
+commit 1017fa83da3c633cceb048b4c1f0dcb6314b46d9
+Merge: 1d834b2 f49a18c
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 02:49:36 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit 1d834b2f2007e65fa8524a1607cf9c69fedb6361
+Author: Troy Varney <troy.a.varney@gmail.com>
+Date:   Fri Apr 24 02:49:10 2015 +0000
+
+    updated documetation
+
+commit f49a18c5877db720f2a0976d733f005e23e1981f
+Author: mkoai <mkoai@utexas.edu>
+Date:   Fri Apr 24 02:44:10 2015 +0000
+
+    Add log of commits.
+
+commit f29eceb63f1848448a42526676ae7057af6ff2a6
+Author: otlichnariel <arielsibille@gmail.com>
+Date:   Fri Apr 24 02:40:12 2015 +0000
+
+    Revise test.out
+
+commit cc2ccd93c8e47e66dfef14a2001100134db0b33b
+Merge: e29e1fa 4400e89
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 02:38:23 2015 +0000
+
+    Merge branch 'master' of https://github.com/QuiteStochastic/cs373-idb
+
+commit e29e1fa3fa8575b7dfbdf445d8f676ad175aa7a7
+Author: charuri <charlina.hung@gmail.com>
+Date:   Fri Apr 24 02:38:02 2015 +0000
+
+    Updated About Page (Commits/Adds/Deletes/IssuesResolved).
+
 commit 4400e89c7d37c4a687fe83c81c01676bd63670da
 Author: QuiteStochastic <QuiteStochastic@gmail.com>
 Date:   Fri Apr 24 02:34:10 2015 +0000
