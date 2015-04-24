@@ -166,7 +166,10 @@ def get_image(path):
 @app.route('/tests')
 def run_unit_tests():
     import tests
-    return render_template('tests.html', results=tests.test_results_html())
+    import subprocess
+    output = subprocess.check_output(["./tests.py"], stderr=subprocess.STDOUT,
+                                     shell=True)
+    return render_template('tests.html', results=output.decode("ascii").split('\n'))
 
 ############################################
 ############################################
