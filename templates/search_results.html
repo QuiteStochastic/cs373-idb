@@ -71,7 +71,7 @@
 		// Create table data
 		var num = document.createElement("TD");
 		var pillar = document.createElement("TD");
-		var name = document.createElement("TD");
+		var name_ = document.createElement("TD");
 		var desc = document.createElement("TD");
 
 		// Grab values for table data		
@@ -83,10 +83,18 @@
 		// Insert values into table data
 		num.appendChild(num_text);
 		pillar.appendChild(pillar_text);
-		name.appendChild(name_text);
+		name_.appendChild(name_text);
 		desc.appendChild(desc_text);
+
+		// Append table data to table row
+		row.appendChild(num);
+		row.appendChild(pillar);
+		row.appendChild(name_);
+		row.appendChild(desc);
 		
+		row.setAttribute("data-href", "/" + results[i]["type"] + "/" + results[i]["id"]);
+		row.setAttribute("class", "clickable-row");
+		document.getElementById("table_results").appendChild(row);
 	}
-  	alert(info);
 </script>
 {% endblock %}
