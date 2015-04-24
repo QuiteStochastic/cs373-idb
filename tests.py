@@ -57,8 +57,17 @@ class TestApi(TestCase):
             tdb.session.add(Episode('Episode 1', 'Robert Baratheon appears'))
             
             #Events
-            tdb.session.add(Event('Battle of Blackwater Bay', 'Big battle'))
-            tdb.session.add(Event('Death of Robert Baratheon', 'Robert died'))
+            tdb.session.add(Event('The Battle of Blackwater Bay', 'Big battle'))
+            tdb.session.add(Event('The Death of Robert Baratheon', 'Robert died'))
+            tdb.session.add(Event('The Purple Wedding', 'Joffrey died, he rwas poisoned'))
+            tdb.session.add(Event('Sack of Winterfell', 'Ironborn raid led by Theon Greyjoy on Winterfell defeated by House Bolton'))
+            tdb.session.add(Event('The Battle of Castle Black', 'Conflict Beyond the Wall.  Stannis intervention'))
+            tdb.session.add(Event('The Death of Tywin Lannister', 'dead whore'))
+            tdb.session.add(Event('The Red Wedding', 'Massacre, War of Five Kinds, arranged by House Frey.  Robb, Talisa, Catelyn murdered.'))
+
+
+
+
 
 
 
