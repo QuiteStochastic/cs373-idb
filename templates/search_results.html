@@ -45,21 +45,13 @@
   		<thead>
   		<tr>
   			<th>#</th>
-  			<th></th>
   			<th>Pillar</th>
   			<th>Name</th>
   			<th>Description</th>
   		</tr>
   		</thead>
 
-  		<tbody>
-  			<tr>
-	  			<td>1</td>
-	  			<td></td>
-	  			<td>Hodor</td>
-	  			<td>Hodor</td>
-	  			<td>Hodor</td>
-  			</tr>
+  		<tbody id="table_results">
   		</tbody>
 		</table>
 
@@ -70,6 +62,31 @@
 <script>
 	var info = get_data('search?query={{query}}');
 	var result = JSON.parse(info);
-  alert(info);
+	var results = result["results"];
+
+	for (var i = 0; i < results.length; i++) {
+		// Create table row
+		var row = document.createElement("TR");
+		
+		// Create table data
+		var num = document.createElement("TD");
+		var pillar = document.createElement("TD");
+		var name = document.createElement("TD");
+		var desc = document.createElement("TD");
+
+		// Grab values for table data		
+		var num_text = document.createTextNode((i + 1).toString());
+		var pillar_text = document.createTextNode(results[i]["type"]);
+		var name_text = document.createTextNode(results[i]["name"]);
+		var desc_text = document.createTextNode(results[i]["desc"]);	
+
+		// Insert values into table data
+		num.appendChild(num_text);
+		pillar.appendChild(pillar_text);
+		name.appendChild(name_text);
+		desc.appendChild(desc_text);
+		
+	}
+  	alert(info);
 </script>
 {% endblock %}
