@@ -38,18 +38,30 @@ class TestApi(TestCase):
             TestApi.ctx.push()
             tdb.create_all()
             # Create data
+            #Characters
             tdb.session.add(Character('Robert', 'Baratheon', 'King'))
             tdb.session.add(Character('Stannis', 'Baratheon', 'Also a king, brother of Robert Baratheon'))
             tdb.session.add(Character('Cersei', 'Lannister','Mean'))
-            tdb.session.add(Event('Battle of Blackwater Bay', 'Big battle'))
-            tdb.session.add(Location('Kings Landing', 'Important place, Robert lived here'))
-            tdb.session.add(Organization('House Stark', 'Family with bad luck'))
-            tdb.session.add(Episode('Episode 1', 'Robert Baratheon appears'))
-            tdb.session.add(Event('Death of Robert Baratheon', 'Robert died'))
             tdb.session.add(Character('Renly' , 'Baratheon', 'Not a king lol, brother of Baratheon'))
             tdb.session.add(Character('Tommen', 'Baratheon', 'Son of Robert Baratheon'))
             tdb.session.add(Character('Joffrey', 'Baratheon', 'Baratheon heir, son of Robert'))
             tdb.session.add(Character('Jon', 'Snow', 'Admittedly a bit of a wanker'))
+            
+            #organizations
+            tdb.session.add(Organization('House Stark', 'Family with bad luck'))
+
+            #locations
+            tdb.session.add(Location('Kings Landing', 'Important place, Robert lived here'))
+            
+            #episodes
+            tdb.session.add(Episode('Episode 1', 'Robert Baratheon appears'))
+            
+            #Events
+            tdb.session.add(Event('Battle of Blackwater Bay', 'Big battle'))
+            tdb.session.add(Event('Death of Robert Baratheon', 'Robert died'))
+
+
+
             
             tdb.session.commit()
             TestApi.ctx.pop()
