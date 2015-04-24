@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Routing</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;Routing
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Routing-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Routing-module.html">Module Routing</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module FlaskApp=FlaskApp-module.html"><a title="FlaskApp" class="py-name" href="#" onclick="return doclink('link-0', 'FlaskApp', 'link-0');">FlaskApp</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Variable FlaskApp.db=FlaskApp-module.html#db"><a title="FlaskApp.db" class="py-name" href="#" onclick="return doclink('link-1', 'db', 'link-1');">db</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Function FlaskApp.json_response()=FlaskApp-module.html#json_response"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-2', 'json_response', 'link-2');">json_response</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">ext</tt><tt class="py-op">.</tt><tt class="py-name">cors</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module Model=Model-module.html"><a title="Model" class="py-name" href="#" onclick="return doclink('link-3', 'Model', 'link-3');">Model</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Anything not listed in the second flask import can just be called from the</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># imported model</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">flask</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Response</tt><tt class="py-op">,</tt> <tt class="py-name">render_template</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-name">send_from_directory</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">werkzeug</tt><tt class="py-op">.</tt><tt class="py-name">security</tt> <tt class="py-keyword">import</tt> <tt class="py-name">generate_password_hash</tt><tt class="py-op">,</tt> <tt class="py-name">check_password_hash</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">urllib</tt><tt class="py-op">.</tt><tt class="py-name">request</tt> <tt class="py-keyword">import</tt> <tt class="py-name">urlopen</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"># This is the application context which does the routing.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable Routing.app=Routing-module.html#app,Module app=app-module.html"><a title="Routing.app
+app" class="py-name" href="#" onclick="return doclink('link-4', 'app', 'link-4');">app</a></tt> <tt class="py-op">=</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">Flask</tt><tt class="py-op">(</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt> </tt>
+<a name="main_page"></a><div id="main_page-def"><a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#################################</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"># Routing for Webpages#</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="main_page-toggle" onclick="return toggle('main_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#main_page">main_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="main_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="main_page-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the main page from ./templates/main.html</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"main.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="characters_page"></a><div id="characters_page-def"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/characters'</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="characters_page-toggle" onclick="return toggle('characters_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#characters_page">characters_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="characters_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="characters_page-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the characters list page from ./templates/characters.html</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"characters.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">   </tt>
+<a name="character_template_page"></a><div id="character_template_page-def"><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/characters/&lt;char_id&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="character_template_page-toggle" onclick="return toggle('character_template_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#character_template_page">character_template_page</a><tt class="py-op">(</tt><tt class="py-param">char_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="character_template_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="character_template_page-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the character page from ./templates/character_template.html</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"character_template.html"</tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Variable Model.Character.char_id=Model.Character-class.html#char_id"><a title="Model.Character.char_id" class="py-name" href="#" onclick="return doclink('link-5', 'char_id', 'link-5');">char_id</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="Model.Character.char_id" class="py-name" href="#" onclick="return doclink('link-6', 'char_id', 'link-5');">char_id</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="events_page"></a><div id="events_page-def"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/events'</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="events_page-toggle" onclick="return toggle('events_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#events_page">events_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="events_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="events_page-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the events list page from ./templates/events.html</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"events.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">   </tt>
+<a name="event_template_page"></a><div id="event_template_page-def"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/events/&lt;event_id&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="event_template_page-toggle" onclick="return toggle('event_template_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#event_template_page">event_template_page</a><tt class="py-op">(</tt><tt class="py-param">event_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="event_template_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="event_template_page-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the event page from ./templates/event_template.html</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"event_template.html"</tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Variable Model.Event.event_id=Model.Event-class.html#event_id"><a title="Model.Event.event_id" class="py-name" href="#" onclick="return doclink('link-7', 'event_id', 'link-7');">event_id</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="Model.Event.event_id" class="py-name" href="#" onclick="return doclink('link-8', 'event_id', 'link-7');">event_id</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="locations_page"></a><div id="locations_page-def"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/locations'</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="locations_page-toggle" onclick="return toggle('locations_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#locations_page">locations_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="locations_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="locations_page-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the locations list page from ./templates/locations.html</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"locations.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">   </tt>
+<a name="location_template_page"></a><div id="location_template_page-def"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/locations/&lt;loc_id&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt> <a class="py-toggle" href="#" id="location_template_page-toggle" onclick="return toggle('location_template_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#location_template_page">location_template_page</a><tt class="py-op">(</tt><tt class="py-param">loc_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="location_template_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="location_template_page-expanded"><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the location page from ./templates/location_template.html</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"location_template.html"</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable Model.Location.loc_id=Model.Location-class.html#loc_id"><a title="Model.Location.loc_id" class="py-name" href="#" onclick="return doclink('link-9', 'loc_id', 'link-9');">loc_id</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="Model.Location.loc_id" class="py-name" href="#" onclick="return doclink('link-10', 'loc_id', 'link-9');">loc_id</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="organizations_page"></a><div id="organizations_page-def"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/organizations'</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="organizations_page-toggle" onclick="return toggle('organizations_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#organizations_page">organizations_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="organizations_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="organizations_page-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the organizations list page from ./templates/organizations.html</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"organizations.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">   </tt>
+<a name="organization_template_page"></a><div id="organization_template_page-def"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/organizations/&lt;org_id&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="organization_template_page-toggle" onclick="return toggle('organization_template_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#organization_template_page">organization_template_page</a><tt class="py-op">(</tt><tt class="py-param">org_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="organization_template_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="organization_template_page-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the organization page from ./templates/organization_template.html</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"organization_template.html"</tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name" targets="Variable Model.Membership.org_id=Model.Membership-class.html#org_id,Variable Model.Organization.org_id=Model.Organization-class.html#org_id"><a title="Model.Membership.org_id
+Model.Organization.org_id" class="py-name" href="#" onclick="return doclink('link-11', 'org_id', 'link-11');">org_id</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="Model.Membership.org_id
+Model.Organization.org_id" class="py-name" href="#" onclick="return doclink('link-12', 'org_id', 'link-11');">org_id</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">   </tt>
+<a name="episodes_page"></a><div id="episodes_page-def"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/episodes'</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="episodes_page-toggle" onclick="return toggle('episodes_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#episodes_page">episodes_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="episodes_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="episodes_page-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the episodes list page from ./templates/episodes.html</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"episodes.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="episode_template_page"></a><div id="episode_template_page-def"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/episodes/&lt;ep_id&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="episode_template_page-toggle" onclick="return toggle('episode_template_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#episode_template_page">episode_template_page</a><tt class="py-op">(</tt><tt class="py-param">ep_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="episode_template_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="episode_template_page-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the episode page from ./templates/episode_template.html</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"episode_template.html"</tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Variable Model.Episode.ep_id=Model.Episode-class.html#ep_id"><a title="Model.Episode.ep_id" class="py-name" href="#" onclick="return doclink('link-13', 'ep_id', 'link-13');">ep_id</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="Model.Episode.ep_id" class="py-name" href="#" onclick="return doclink('link-14', 'ep_id', 'link-13');">ep_id</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">     </tt>
+<a name="about_page"></a><div id="about_page-def"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/about'</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="about_page-toggle" onclick="return toggle('about_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#about_page">about_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="about_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="about_page-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the about page from ./templates/about.html</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"about.html"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">   </tt>
+<a name="pythians_page"></a><div id="pythians_page-def"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/pythians'</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt> <a class="py-toggle" href="#" id="pythians_page-toggle" onclick="return toggle('pythians_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#pythians_page">pythians_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="pythians_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="pythians_page-expanded"><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the Pythian's API page from ./templates/pythians_template.html</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">host</tt> <tt class="py-op">=</tt> <tt class="py-string">"http://104.239.139.162/scrape/"</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">     </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-name">athletes</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">urlopen</tt><tt class="py-op">(</tt><tt class="py-name">host</tt> <tt class="py-op">+</tt> <tt class="py-string">"athletes"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">countries</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">urlopen</tt><tt class="py-op">(</tt><tt class="py-name">host</tt> <tt class="py-op">+</tt> <tt class="py-string">"countries"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-name">events</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">urlopen</tt><tt class="py-op">(</tt><tt class="py-name">host</tt> <tt class="py-op">+</tt> <tt class="py-string">"events"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-name">medals</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt class="py-name">urlopen</tt><tt class="py-op">(</tt><tt class="py-name">host</tt> <tt class="py-op">+</tt> <tt class="py-string">"medals"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">read</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">     </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">     </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">country</tt> <tt class="py-keyword">in</tt> <tt class="py-name">countries</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">      <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">countries</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"name"</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"male_name"</tt><tt class="py-op">:</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-string">"male_total"</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">"female_name"</tt><tt class="py-op">:</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-string">"female_total"</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">}</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">       </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">athlete</tt> <tt class="py-keyword">in</tt> <tt class="py-name">athletes</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">      <tt class="py-name">medal_list</tt> <tt class="py-op">=</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"medals"</tt><tt class="py-op">]</tt> <tt class="py-comment">#list of medals</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">      <tt class="py-keyword">for</tt> <tt class="py-name">medal</tt> <tt class="py-keyword">in</tt> <tt class="py-name">medal_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">country</tt> <tt class="py-op">=</tt> <tt class="py-name">medal</tt><tt class="py-op">[</tt><tt class="py-string">"repr"</tt><tt class="py-op">]</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"gender"</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"Men"</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">          <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">medal_list</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"male_total"</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"male_total"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">medal_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">            <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"male_name"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"first"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">" "</tt>  <tt class="py-op">+</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"last"</tt><tt class="py-op">]</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">          <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">medal_list</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"female_total"</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"female_total"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">medal_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">country</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"female_name"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"first"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">" "</tt> <tt class="py-op">+</tt> <tt class="py-name">athletes</tt><tt class="py-op">[</tt><tt class="py-name">athlete</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"last"</tt><tt class="py-op">]</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">       </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"pythians_template.html"</tt><tt class="py-op">,</tt> <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-name">result</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="search_results_page"></a><div id="search_results_page-def"><a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/results'</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt> <a class="py-toggle" href="#" id="search_results_page-toggle" onclick="return toggle('search_results_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#search_results_page">search_results_page</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="search_results_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="search_results_page-expanded"><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    Serve the results page from the search bar on the layout.hmtl</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Class Method Model.Character.get()=Model.Character-class.html#get,Class Method Model.Event.get()=Model.Event-class.html#get,Class Method Model.Location.get()=Model.Location-class.html#get,Class Method Model.Organization.get()=Model.Organization-class.html#get"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-15', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'query'</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">"search_results.html"</tt><tt class="py-op">,</tt> <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="doc_page"></a><div id="doc_page-def"><a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/doc/&lt;path:path&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt> <a class="py-toggle" href="#" id="doc_page-toggle" onclick="return toggle('doc_page');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#doc_page">doc_page</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="doc_page-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="doc_page-expanded"><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">    Send documents from the auto-generated html directory.</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">    This implements the documentation routing endpoint.</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">send_from_directory</tt><tt class="py-op">(</tt><tt class="py-string">'html'</tt><tt class="py-op">,</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="get_image"></a><div id="get_image-def"><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/img/&lt;path:path&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt> <a class="py-toggle" href="#" id="get_image-toggle" onclick="return toggle('get_image');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_image">get_image</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_image-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_image-expanded"><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    Send files from the ./static/images/ directory, allowing arbitrary linking</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">    to it from any page.</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    Use this endpoint instead of embedding url_for('static', ...) in the</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">    template code.</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">send_from_directory</tt><tt class="py-op">(</tt><tt class="py-string">'static/images'</tt><tt class="py-op">,</tt> <tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"> </tt>
+<a name="run_unit_tests"></a><div id="run_unit_tests-def"><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/tests'</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt> <a class="py-toggle" href="#" id="run_unit_tests-toggle" onclick="return toggle('run_unit_tests');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#run_unit_tests">run_unit_tests</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="run_unit_tests-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="run_unit_tests-expanded"><a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-16" class="py-name" targets="Module tests=tests-module.html"><a title="tests" class="py-name" href="#" onclick="return doclink('link-16', 'tests', 'link-16');">tests</a></tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">subprocess</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">check_output</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"./tests.py"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stderr</tt><tt class="py-op">=</tt><tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">STDOUT</tt><tt class="py-op">,</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                                     <tt class="py-name">shell</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">'tests.html'</tt><tt class="py-op">,</tt> <tt class="py-name">results</tt><tt class="py-op">=</tt><tt class="py-name">output</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"ascii"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
+<a name="get_all_characters"></a><div id="get_all_characters-def"><a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-comment">############################################</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-comment">############################################</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-comment">#Routing for API#</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/characters'</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt> <a class="py-toggle" href="#" id="get_all_characters-toggle" onclick="return toggle('get_all_characters');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_all_characters">get_all_characters</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_all_characters-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_all_characters-expanded"><a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-17" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-17', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Model.Character.serialize()=Model.Character-class.html#serialize,Method Model.Episode.serialize()=Model.Episode-class.html#serialize,Method Model.Event.serialize()=Model.Event-class.html#serialize,Method Model.Location.serialize()=Model.Location-class.html#serialize,Method Model.Membership.serialize()=Model.Membership-class.html#serialize,Method Model.Organization.serialize()=Model.Organization-class.html#serialize"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-18', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt id="link-19" class="py-name" targets="Class Model.Character=Model.Character-class.html"><a title="Model.Character" class="py-name" href="#" onclick="return doclink('link-19', 'Character', 'link-19');">Character</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"> </tt>
+<a name="get_character"></a><div id="get_character-def"><a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/characters/&lt;int:cid&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt> <a class="py-toggle" href="#" id="get_character-toggle" onclick="return toggle('get_character');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_character">get_character</a><tt class="py-op">(</tt><tt class="py-param">cid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_character-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_character-expanded"><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt class="py-name">ch</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="Model.Character" class="py-name" href="#" onclick="return doclink('link-20', 'Character', 'link-19');">Character</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-21', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">cid</tt><tt class="py-op">)</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">ch</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">ch</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-22', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">abort</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"> </tt>
+<a name="get_all_events"></a><div id="get_all_events-def"><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/events'</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt> <a class="py-toggle" href="#" id="get_all_events-toggle" onclick="return toggle('get_all_events');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_all_events">get_all_events</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_all_events-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_all_events-expanded"><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-23" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-23', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-24', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt id="link-25" class="py-name" targets="Class Model.Event=Model.Event-class.html"><a title="Model.Event" class="py-name" href="#" onclick="return doclink('link-25', 'Event', 'link-25');">Event</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"> </tt>
+<a name="get_event"></a><div id="get_event-def"><a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/events/&lt;int:eid&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt> <a class="py-toggle" href="#" id="get_event-toggle" onclick="return toggle('get_event');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_event">get_event</a><tt class="py-op">(</tt><tt class="py-param">eid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_event-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_event-expanded"><a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">    <tt class="py-name">event</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="Model.Event" class="py-name" href="#" onclick="return doclink('link-26', 'Event', 'link-25');">Event</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-27', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">eid</tt><tt class="py-op">)</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">event</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">        <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">abort</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-28', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"> </tt>
+<a name="get_all_orgs"></a><div id="get_all_orgs-def"><a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/organizations'</tt><tt class="py-op">)</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt> <a class="py-toggle" href="#" id="get_all_orgs-toggle" onclick="return toggle('get_all_orgs');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_all_orgs">get_all_orgs</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_all_orgs-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_all_orgs-expanded"><a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-29" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-29', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">o</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-30', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">o</tt> <tt class="py-keyword">in</tt> <tt id="link-31" class="py-name" targets="Class Model.Organization=Model.Organization-class.html"><a title="Model.Organization" class="py-name" href="#" onclick="return doclink('link-31', 'Organization', 'link-31');">Organization</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"> </tt>
+<a name="get_org"></a><div id="get_org-def"><a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/organizations/&lt;int:oid&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt> <a class="py-toggle" href="#" id="get_org-toggle" onclick="return toggle('get_org');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_org">get_org</a><tt class="py-op">(</tt><tt class="py-param">oid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_org-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_org-expanded"><a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">    <tt id="link-32" class="py-name" targets="Variable Model.Membership.org=Model.Membership-class.html#org"><a title="Model.Membership.org" class="py-name" href="#" onclick="return doclink('link-32', 'org', 'link-32');">org</a></tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="Model.Organization" class="py-name" href="#" onclick="return doclink('link-33', 'Organization', 'link-31');">Organization</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-34', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">oid</tt><tt class="py-op">)</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-35" class="py-name"><a title="Model.Membership.org" class="py-name" href="#" onclick="return doclink('link-35', 'org', 'link-32');">org</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">abort</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="Model.Membership.org" class="py-name" href="#" onclick="return doclink('link-36', 'org', 'link-32');">org</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-37', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"> </tt>
+<a name="get_all_locations"></a><div id="get_all_locations-def"><a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/locations'</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt> <a class="py-toggle" href="#" id="get_all_locations-toggle" onclick="return toggle('get_all_locations');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_all_locations">get_all_locations</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_all_locations-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_all_locations-expanded"><a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-38" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-38', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">l</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-39', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">l</tt> <tt class="py-keyword">in</tt> <tt id="link-40" class="py-name" targets="Class Model.Location=Model.Location-class.html"><a title="Model.Location" class="py-name" href="#" onclick="return doclink('link-40', 'Location', 'link-40');">Location</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"> </tt>
+<a name="get_location"></a><div id="get_location-def"><a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/locations/&lt;int:lid&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt> <a class="py-toggle" href="#" id="get_location-toggle" onclick="return toggle('get_location');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_location">get_location</a><tt class="py-op">(</tt><tt class="py-param">lid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_location-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_location-expanded"><a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-name">loc</tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="Model.Location" class="py-name" href="#" onclick="return doclink('link-41', 'Location', 'link-40');">Location</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-42', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">lid</tt><tt class="py-op">)</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">loc</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">abort</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">loc</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-43', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"> </tt>
+<a name="get_all_episodes"></a><div id="get_all_episodes-def"><a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/episodes'</tt><tt class="py-op">)</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt> <a class="py-toggle" href="#" id="get_all_episodes-toggle" onclick="return toggle('get_all_episodes');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_all_episodes">get_all_episodes</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_all_episodes-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_all_episodes-expanded"><a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-44" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-44', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-45', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt id="link-46" class="py-name" targets="Class Model.Episode=Model.Episode-class.html"><a title="Model.Episode" class="py-name" href="#" onclick="return doclink('link-46', 'Episode', 'link-46');">Episode</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"> </tt>
+<a name="get_episode"></a><div id="get_episode-def"><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/episodes/&lt;int:eid&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt> <a class="py-toggle" href="#" id="get_episode-toggle" onclick="return toggle('get_episode');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#get_episode">get_episode</a><tt class="py-op">(</tt><tt class="py-param">eid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_episode-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_episode-expanded"><a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">    <tt class="py-name">ep</tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="Model.Episode" class="py-name" href="#" onclick="return doclink('link-47', 'Episode', 'link-46');">Episode</a></tt><tt class="py-op">.</tt><tt class="py-name">query</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-48', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">eid</tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">ep</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">abort</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flask</tt><tt class="py-op">.</tt><tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">ep</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Model.Character.serialize
+Model.Episode.serialize
+Model.Event.serialize
+Model.Location.serialize
+Model.Membership.serialize
+Model.Organization.serialize" class="py-name" href="#" onclick="return doclink('link-49', 'serialize', 'link-18');">serialize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt>
+<a name="search"></a><div id="search-def"><a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">(</tt><tt class="py-string">'/api/search'</tt><tt class="py-op">)</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">cross_origin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt> <a class="py-toggle" href="#" id="search-toggle" onclick="return toggle('search');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Routing-module.html#search">search</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="search-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="search-expanded"><a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">    <tt class="py-name">searchterm</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="Model.Character.get
+Model.Event.get
+Model.Location.get
+Model.Organization.get" class="py-name" href="#" onclick="return doclink('link-50', 'get', 'link-15');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'query'</tt><tt class="py-op">)</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">searchterm</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-51" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-51', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-52" class="py-name"><a title="FlaskApp.json_response" class="py-name" href="#" onclick="return doclink('link-52', 'json_response', 'link-2');">json_response</a></tt><tt class="py-op">(</tt><tt id="link-53" class="py-name" targets="Function Model.searchdb()=Model-module.html#searchdb"><a title="Model.searchdb" class="py-name" href="#" onclick="return doclink('link-53', 'searchdb', 'link-53');">searchdb</a></tt><tt class="py-op">(</tt><tt class="py-name">searchterm</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Apr 24 02:48:38 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

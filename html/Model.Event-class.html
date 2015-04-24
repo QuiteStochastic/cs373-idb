@@ -54,43 +54,14 @@
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class Event</h1><p class="nomargin-top"><span class="codelink"><a href="Model-pysrc.html#Event">source&nbsp;code</a></span></p>
 <pre class="base-tree">
-            object --+        
-                     |        
-flask_sqlalchemy.Model --+    
-                         |    
-                ??.Model-1 --+
-                             |
-                            <strong class="uidshort">Event</strong>
+FlaskApp.db.Model --+
+                    |
+                   <strong class="uidshort">Event</strong>
 </pre>
 
 <hr />
 <p>Models an Event in the GoT universe</p>
 
-<!-- ==================== NESTED CLASSES ==================== -->
-<a name="section-NestedClasses"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Nested Classes</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-NestedClasses"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>flask_sqlalchemy.Model</code></b>:
-      <code><a href="flask_sqlalchemy.BaseQuery-class.html">query_class</a></code>
-      </p>
-    </td>
-  </tr>
-</table>
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -114,30 +85,12 @@ flask_sqlalchemy.Model --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="Model.Event-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">name</span>,
-        <span class="summary-sig-arg">etype</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">desc</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
-      A simple constructor that allows initialization from kwargs.</td>
+        <span class="summary-sig-arg">desc</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">etype</span>=<span class="summary-sig-default">None</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="Model-pysrc.html#Event.__init__">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="Model.Event-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      repr(x)</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="Model-pysrc.html#Event.__repr__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -162,24 +115,36 @@ flask_sqlalchemy.Model --+
       
     </td>
   </tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.Model</code></b>:
-      <code>query</code>
-      </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__delattr__</code>,
-      <code>__format__</code>,
-      <code>__getattribute__</code>,
-      <code>__hash__</code>,
-      <code>__new__</code>,
-      <code>__reduce__</code>,
-      <code>__reduce_ex__</code>,
-      <code>__setattr__</code>,
-      <code>__sizeof__</code>,
-      <code>__str__</code>,
-      <code>__subclasshook__</code>
-      </p>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="asresult"></a><span class="summary-sig-name">asresult</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Event.asresult">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Event.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
     </td>
   </tr>
 </table>
@@ -217,6 +182,25 @@ flask_sqlalchemy.Model --+
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="search"></a><span class="summary-sig-name">search</span>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">exact</span>,
+        <span class="summary-sig-arg">fuzzy</span>,
+        <span class="summary-sig-arg">parts</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Model-pysrc.html#Event.search">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 </table>
 <!-- ==================== CLASS VARIABLES ==================== -->
 <a name="section-ClassVariables"></a>
@@ -239,227 +223,74 @@ flask_sqlalchemy.Model --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7fecf7372850; Event&gt;">&lt;Mapper at 0x7fecf7372850; Event&gt;</code>
+        <a name="event_id"></a><span class="summary-name">event_id</span> = <code title="db.Column(db.Integer, primary_key= True)">db.Column(db.Integer, primary_key= True)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#__table__" class="summary-name">__table__</a> = <code title="Table('event', MetaData(bind=None), Column('event_id', Integer(), tabl\
-e=&lt;event&gt;, primary_key=True, nullable=False), Column('name', String(le\
-ngth=255), table=&lt;event&gt;), Column('event_type', String(length=255), ta\
-ble=&lt;event&gt;), Column('description', Text(), table=&lt;event&gt;), Column('lo\
-cation_id', Integer(), ForeignKey('location.loc_id'), table=&lt;event&gt;), \
-Column('episode_id', Integer(), ForeignKey('episode.ep_id'), table=&lt;ev\
-ent&gt;), schema=None)">Table('event', MetaData(bind=None), Column('event_<code class="variable-ellipsis">...</code></code>
+        <a name="name"></a><span class="summary-name">name</span> = <code title="db.Column(db.String(255), unique= True)">db.Column(db.String(255), unique= True)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__tablename__"></a><span class="summary-name">__tablename__</span> = <code title="'event'"><code class="variable-quote">'</code><code class="variable-string">event</code><code class="variable-quote">'</code></code>
-    </td>
-  </tr>
-<tr class="private">
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Model.Event-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'Model.Event'&gt; at 7fecf72f9618&gt;">&lt;ClassManager of &lt;class 'Model.Event'&gt; at <code class="variable-ellipsis">...</code></code>
+        <a name="event_type"></a><span class="summary-name">event_type</span> = <code title="db.Column(db.String(255))">db.Column(db.String(255))</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#characters" class="summary-name">characters</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372\
-dd0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
+        <a name="description"></a><span class="summary-name">description</span> = <code title="db.Column(db.Text)">db.Column(db.Text)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#description" class="summary-name">description</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300\
-290&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
+        <a href="Model.Event-class.html#location_id" class="summary-name">location_id</a> = <code title="db.Column(db.Integer, db.ForeignKey('location.loc_id'))">db.Column(db.Integer, db.ForeignKey('location.lo<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#episode" class="summary-name">episode</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372\
-d50&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute obj<code class="variable-ellipsis">...</code></code>
+        <a name="location"></a><span class="summary-name">location</span> = <code title="db.relationship(&quot;Location&quot;, backref= &quot;events&quot;)">db.relationship(&quot;Location&quot;, backref= &quot;events&quot;)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#episode_id" class="summary-name">episode_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300\
-410&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
+        <a href="Model.Event-class.html#episode_id" class="summary-name">episode_id</a> = <code title="db.Column(db.Integer, db.ForeignKey('episode.ep_id'))">db.Column(db.Integer, db.ForeignKey('episode.ep_i<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#event_id" class="summary-name">event_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372\
-f50&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
+        <a name="episode"></a><span class="summary-name">episode</span> = <code title="db.relationship(&quot;Episode&quot;, backref= &quot;events&quot;)">db.relationship(&quot;Episode&quot;, backref= &quot;events&quot;)</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#event_type" class="summary-name">event_type</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300\
-190&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute <code class="variable-ellipsis">...</code></code>
+        <a href="Model.Event-class.html#characters" class="summary-name">characters</a> = <code title="db.relationship(&quot;Character&quot;, backref= &quot;events&quot;, secondary= Participant\
+)">db.relationship(&quot;Character&quot;, backref= &quot;events&quot;, s<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="Model.Event-class.html#location" class="summary-name">location</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372\
-cd0&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute ob<code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Model.Event-class.html#location_id" class="summary-name">location_id</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300\
-350&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute<code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Model.Event-class.html#name" class="summary-name">name</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300\
-090&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object<code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="Model.Event-class.html#organizations" class="summary-name">organizations</a> = <code title="&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372\
-e50&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribu<code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.Model</code></b>:
-      <code>metadata</code>
-      </p>
-    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><i>unreachable</i>.Model</code></b> (private):
-      <code>_decl_class_registry</code>
-      </p></div>
+        <a href="Model.Event-class.html#organizations" class="summary-name">organizations</a> = <code title="db.relationship(&quot;Organization&quot;, backref= &quot;events&quot;, secondary= Party)">db.relationship(&quot;Organization&quot;, backref= &quot;even<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 </table>
-<!-- ==================== PROPERTIES ==================== -->
-<a name="section-Properties"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Properties</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Properties"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-  <tr>
-    <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__class__</code>
-      </p>
-    </td>
-  </tr>
-</table>
-<!-- ==================== METHOD DETAILS ==================== -->
-<a name="section-MethodDetails"></a>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Method Details</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-MethodDetails"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
-<a name="__init__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">name</span>,
-        <span class="sig-arg">etype</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">desc</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
-    <br /><em class="fname">(Constructor)</em>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Model-pysrc.html#Event.__init__">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>A simple constructor that allows initialization from kwargs.</p>
-  <p>Sets attributes on the constructed instance using the names and values
-  in ``kwargs``.</p>
-  <p>Only keys that are present as attributes of the instance's class are 
-  allowed. These could be, for example, any mapped columns or 
-  relationships.</p>
-  <dl class="fields">
-    <dt>Overrides:
-        object.__init__
-        <dd><em class="note">(inherited documentation)</em></dd>
-    </dt>
-  </dl>
-</td></tr></table>
-</div>
-<a name="__repr__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
-    <br /><em class="fname">(Representation operator)</em>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="Model-pysrc.html#Event.__repr__">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>repr(x)</p>
-  <dl class="fields">
-    <dt>Overrides:
-        object.__repr__
-        <dd><em class="note">(inherited documentation)</em></dd>
-    </dt>
-  </dl>
-</td></tr></table>
-</div>
-<br />
 <!-- ==================== CLASS VARIABLE DETAILS ==================== -->
 <a name="section-ClassVariableDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -478,100 +309,19 @@ e50&gt;">&lt;sqlalchemy.orm.attributes.InstrumentedAttribu<code class="variable-
   </td>
 </tr>
 </table>
-<a name="__table__"></a>
+<a name="location_id"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">__table__</h3>
+  <h3 class="epydoc">location_id</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Table('event', MetaData(bind=None), Column('event_id', Integer(), tabl<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e=&lt;event&gt;, primary_key=True, nullable=False), Column('name', String(le<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ngth=255), table=&lt;event&gt;), Column('event_type', String(length=255), ta<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ble=&lt;event&gt;), Column('description', Text(), table=&lt;event&gt;), Column('lo<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-cation_id', Integer(), ForeignKey('location.loc_id'), table=&lt;event&gt;), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-Column('episode_id', Integer(), ForeignKey('episode.ep_id'), table=&lt;ev<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ent&gt;), schema=None)
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="_sa_class_manager"></a>
-<div class="private">
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">_sa_class_manager</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'Model.Event'&gt; at 7fecf72f9618&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="characters"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">characters</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-dd0&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="description"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">description</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-290&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="episode"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">episode</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-d50&gt;
+db.Column(db.Integer, db.ForeignKey('location.loc_id'))
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -589,103 +339,26 @@ d50&gt;
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-410&gt;
+db.Column(db.Integer, db.ForeignKey('episode.ep_id'))
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="event_id"></a>
+<a name="characters"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">event_id</h3>
+  <h3 class="epydoc">characters</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-f50&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="event_type"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">event_type</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-190&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="location"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">location</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-cd0&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="location_id"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">location_id</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-350&gt;
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="name"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">name</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7300<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-090&gt;
+db.relationship(&quot;Character&quot;, backref= &quot;events&quot;, secondary= Participant<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -703,8 +376,7 @@ cd0&gt;
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x7fecf7372<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e50&gt;
+db.relationship(&quot;Organization&quot;, backref= &quot;events&quot;, secondary= Party)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -734,7 +406,7 @@ e50&gt;
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Fri Apr 10 02:15:22 2015
+    Generated by Epydoc 3.0.1 on Fri Apr 24 02:48:37 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
