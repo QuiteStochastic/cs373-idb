@@ -74,6 +74,7 @@
     var result = JSON.parse(info);
    
     for (var i = 1; i <= result.length; i++) {
+      var id = result[i-1].char_id;
       var name = result[i-1].last_name === null ? result[i-1].first_name : result[i-1].first_name + ' ' + result[i-1].last_name;
       var div = document.createElement("DIV");   
       var href = document.createElement("A");
@@ -82,8 +83,8 @@
       var text = document.createTextNode(name);
   
       div.setAttribute("class", "col-sm-4");
-      href.setAttribute("href", "/characters/" + i);
-      img.setAttribute("src", "static/images/characters/character" + i + ".png");
+      href.setAttribute("href", "/characters/" + id);
+      img.setAttribute("src", "static/images/characters/character" + id + ".png");
       img.setAttribute("class", "img-circle img-responsive img-center");
       h2.appendChild(text);
   
@@ -95,19 +96,19 @@
       document.getElementById("content").appendChild(div);
       
       // populate table view
-      document.getElementById("id" + i).innerHTML = i;
-      document.getElementById("firstname" + i).innerHTML = result[i-1].first_name;
-      document.getElementById("lastname" + i).innerHTML = result[i-1].last_name;
-      document.getElementById("gender" + i).innerHTML = result[i-1].gender;
-      document.getElementById("religion" + i).innerHTML = result[i-1].religion;
-      document.getElementById("status" + i).innerHTML = result[i-1].status;
+      document.getElementById("id" + id).innerHTML = id;
+      document.getElementById("firstname" + id).innerHTML = result[i-1].first_name;
+      document.getElementById("lastname" + id).innerHTML = result[i-1].last_name;
+      document.getElementById("gender" + id).innerHTML = result[i-1].gender;
+      document.getElementById("religion" + id).innerHTML = result[i-1].religion;
+      document.getElementById("status" + id).innerHTML = result[i-1].status;
 
       var table_img = document.createElement("IMG");
       table_img.setAttribute("class", "img-circle");
-      table_img.setAttribute("src", "static/images/characters/character" + i + ".png");
-      document.getElementById("img" + i).appendChild(table_img);
+      table_img.setAttribute("src", "static/images/characters/character" + id + ".png");
+      document.getElementById("img" + id).appendChild(table_img);
 
-      document.getElementById("table-row" + i).setAttribute("data-href", "/characters/" + i);
+      document.getElementById("table-row" + id).setAttribute("data-href", "/characters/" + id);
 
   }
 </script>
