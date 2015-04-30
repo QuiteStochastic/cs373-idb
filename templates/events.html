@@ -34,7 +34,16 @@
     </div>
     
     <div class="row pic-grid">
-      <div class="row pillars" id="content"></div>
+      <div class="row pillars">
+        {% for event in result %}
+          <div class="col-sm-4">
+            <a href="/events/{{event["id"]}}">
+              <img class="img-circle img-responsive img-center" src="static/images/events/event{{event["id"]}}.png">
+            </a>
+            <h2>{{event["name"]}}</h2>
+          </div>
+        {% endfor %}
+      </div>
     </div>
 
     <!-- Table -->
@@ -63,31 +72,6 @@
   <!-- CONTAINER END -->
 </body>
 
-<script>  
-    var info = get_data('events');
-    var result = JSON.parse(info);
-
-    for (var i = 1; i <= result.length; i++) {
-      var div = document.createElement("DIV");   
-      var href = document.createElement("A");
-      var img = document.createElement("IMG");
-      var h2 = document.createElement("H2");
-      var text = document.createTextNode(result[i-1].name);
-  
-      div.setAttribute("class", "col-sm-4");
-      href.setAttribute("href", "/events/" + i);
-      img.setAttribute("src", "static/images/events/event" + i + ".png");
-      img.setAttribute("class", "img-circle img-responsive img-center");
-      h2.appendChild(text);
-  
-      href.appendChild(img);
-      div.appendChild(href);
-      div.appendChild(h2);
-  
-      // populate grid view
-      document.getElementById("content").appendChild(div);      
-    }
-</script>
 <script>
   $("#tableView").tablesorter(); 
 </script>
