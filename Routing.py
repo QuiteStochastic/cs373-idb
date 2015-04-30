@@ -44,7 +44,18 @@ def events_page():
     """
     Serve the events list page from ./templates/events.html
     """
-    return render_template("events.html")
+    host = "http://67.192.246.60/api/"
+    events = json.loads(urlopen(host + "events").read().decode("utf-8"))
+
+    d = {}
+    result = []
+
+    for event in events:
+        d["id"] = event["event_id"]
+        d["name"] = event["name"] 
+        result.append(d.copy())
+
+    return render_template("events.html", result = result)
   
 @app.route('/events/<event_id>')
 def event_template_page(event_id):
