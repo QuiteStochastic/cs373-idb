@@ -49,7 +49,7 @@
     
       <tbody>
       {% for event in result %}
-        <tr class="clickable-row">
+        <tr class="clickable-row" data-href="/events/{{event["id"]}}">
           <td>{{event["id"]}}</td>
           <td><div><img class="img-circle" src="static/images/events/event{{event["id"]}}.png"></div></td>
           <td>{{event["name"]}}</td>
