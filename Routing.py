@@ -30,7 +30,27 @@ def characters_page():
     """
     Serve the characters list page from ./templates/characters.html
     """
-    return render_template("characters.html")
+    host = "http://67.192.246.60/api/"
+    characters = json.loads(urlopen(host + "characters").read().decode("utf-8"))
+
+    d = {}
+    result = []
+    full_name = ""
+
+    for character in characters:
+        d["id"] = character["char_id"]
+        d["gender"] = character["gender"]
+        d["religion"] = character["religion"]
+        d["status"] = character["status"]
+        
+        if not character["last_name"]:
+            d["name"] = character["first_name"]
+        else:
+            d["name"] = character["first_name"] + " " + character["last_name"]
+ 
+        result.append(d.copy())      
+
+    return render_template("characters.html", result = result)
   
 @app.route('/characters/<char_id>')
 def character_template_page(char_id):

@@ -34,7 +34,16 @@
     
     <!-- Picture Grid -->
     <div class="row pic-grid">
-      <div class="row pillars" id="content"></div>
+      <div class="row pillars">
+        {% for character in result %}
+          <div class="col-sm-4">
+            <a href="/characters/{{character["id"]}}">
+              <img class="img-circle img-responsive img-center" src="static/images/characters/character{{character["id"]}}.png">
+            </a>
+            <h2>{{character["name"]}}</h2>
+          </div>
+        {% endfor %}
+      </div>
     </div>
 
     <!-- Table -->
@@ -44,7 +53,6 @@
           <th>#</th>
           <th></th>
           <th>Name</th>
-          <th>Type</th>
           <th>Gender</th>
           <th>Religion</th>
           <th>Status</th>
@@ -52,15 +60,14 @@
       </thead>
     
       <tbody>
-        {% for x in range(1,43) %}
-        <tr class="clickable-row" id="table-row{{x}}">
-          <th scope="row" id="id{{x}}"></th>
-          <td><div class="img-circle" id="img{{x}}"></div></td>
-          <td id="firstname{{x}}"></td>
-          <td id="lastname{{x}}"></td>
-          <td id="gender{{x}}"></td>
-          <td id="religion{{x}}"></td>
-          <td id="status{{x}}"></td>
+        {% for character in result  %}
+        <tr class="clickable-row" data-href="/characters/{{character["id"]}}">
+          <td>{{character["id"]}}</td>
+          <td><div><img class="img-circle" src="static/images/characters/character{{character["id"]}}.png"></div></td>
+          <td>{{character["name"]}}</td>
+          <td>{{character["gender"]}}</td>
+          <td>{{character["religion"]}}</td>
+          <td>{{character["status"]}}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -69,49 +76,6 @@
 <!-- END CONTAINER -->
 </body>
 
-<script>  
-    var info = get_data('characters');
-    var result = JSON.parse(info);
-   
-    for (var i = 1; i <= result.length; i++) {
-      var id = result[i-1].char_id;
-      var name = result[i-1].last_name === null ? result[i-1].first_name : result[i-1].first_name + ' ' + result[i-1].last_name;
-      var div = document.createElement("DIV");   
-      var href = document.createElement("A");
-      var img = document.createElement("IMG");
-      var h2 = document.createElement("H2");
-      var text = document.createTextNode(name);
-  
-      div.setAttribute("class", "col-sm-4");
-      href.setAttribute("href", "/characters/" + id);
-      img.setAttribute("src", "static/images/characters/character" + id + ".png");
-      img.setAttribute("class", "img-circle img-responsive img-center");
-      h2.appendChild(text);
-  
-      href.appendChild(img);
-      div.appendChild(href);
-      div.appendChild(h2);
-      
-      // populate grid view
-      document.getElementById("content").appendChild(div);
-      
-      // populate table view
-      document.getElementById("id" + id).innerHTML = id;
-      document.getElementById("firstname" + id).innerHTML = result[i-1].first_name;
-      document.getElementById("lastname" + id).innerHTML = result[i-1].last_name;
-      document.getElementById("gender" + id).innerHTML = result[i-1].gender;
-      document.getElementById("religion" + id).innerHTML = result[i-1].religion;
-      document.getElementById("status" + id).innerHTML = result[i-1].status;
-
-      var table_img = document.createElement("IMG");
-      table_img.setAttribute("class", "img-circle");
-      table_img.setAttribute("src", "static/images/characters/character" + id + ".png");
-      document.getElementById("img" + id).appendChild(table_img);
-
-      document.getElementById("table-row" + id).setAttribute("data-href", "/characters/" + id);
-
-  }
-</script>
 <script>
   $("#tableView").tablesorter(); 
 </script>
