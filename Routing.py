@@ -30,7 +30,6 @@ def characters_page():
     """
     Serve the characters list page from ./templates/characters.html
     """
-    host = "http://67.192.246.60/api/"
     characters = list(Character.query.all())
     return render_template("characters.html", characters=characters)
   
@@ -46,18 +45,8 @@ def events_page():
     """
     Serve the events list page from ./templates/events.html
     """
-    host = "http://67.192.246.60/api/"
-    events = json.loads(urlopen(host + "events").read().decode("utf-8"))
-    
-    d = {}
-    result = []
-    
-    for event in events:
-        d["id"] = event["event_id"]
-        d["name"] = event["name"] 
-        result.append(d.copy())
-
-    return render_template("events.html", result = result)
+    events = list(Event.query.all())
+    return render_template("events.html", result = events)
   
 @app.route('/events/<event_id>')
 def event_template_page(event_id):

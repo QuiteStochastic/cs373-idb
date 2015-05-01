@@ -37,10 +37,10 @@
       <div class="row pillars">
         {% for event in result %}
           <div class="col-sm-4">
-            <a href="/events/{{event["id"]}}">
-              <img class="img-circle img-responsive img-center" src="static/images/events/event{{event["id"]}}.png">
+            <a href="/events/{{event.event_id}}">
+              <img class="img-circle img-responsive img-center" src="static/images/events/event{{event.event_id}}.png">
             </a>
-            <h2>{{event["name"]}}</h2>
+            <h2>{{event.name}}</h2>
           </div>
         {% endfor %}
       </div>
@@ -52,16 +52,18 @@
       <tr>
         <th>#</th>
         <th></th>
-        <th>Name </th>
+        <th>Name</th>
+	<th>Type</th>
       </tr>
       </thead>
     
       <tbody>
       {% for event in result %}
-        <tr class="clickable-row" data-href="/events/{{event["id"]}}">
-          <td>{{event["id"]}}</td>
-          <td><div><img class="img-circle" src="static/images/events/event{{event["id"]}}.png"></div></td>
-          <td>{{event["name"]}}</td>
+        <tr class="clickable-row" data-href="/events/{{event.event_id}}">
+          <td>{{event.event_id}}</td>
+          <td><div><img class="img-circle" src="static/images/events/event{{event.event_id}}.png"></div></td>
+          <td>{{event.name}}</td>
+	  <td>{{event.event_type}}</td>
         </tr>
       {% endfor %}
       </tbody>
