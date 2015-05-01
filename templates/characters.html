@@ -35,12 +35,12 @@
     <!-- Picture Grid -->
     <div class="row pic-grid">
       <div class="row pillars">
-        {% for character in result %}
+        {% for character in characters %}
           <div class="col-sm-4">
             <a href="/characters/{{character["id"]}}">
-              <img class="img-circle img-responsive img-center" src="static/images/characters/character{{character["id"]}}.png">
+              <img class="img-circle img-responsive img-center" src="static/images/characters/character{{character.char_id}}.png">
             </a>
-            <h2>{{character["name"]}}</h2>
+            <h2>{{character.fullname()}}</h2>
           </div>
         {% endfor %}
       </div>
@@ -60,14 +60,14 @@
       </thead>
     
       <tbody>
-        {% for character in result  %}
-        <tr class="clickable-row" data-href="/characters/{{character["id"]}}">
-          <td>{{character["id"]}}</td>
-          <td><div><img class="img-circle" src="static/images/characters/character{{character["id"]}}.png"></div></td>
-          <td>{{character["name"]}}</td>
-          <td>{{character["gender"]}}</td>
-          <td>{{character["religion"]}}</td>
-          <td>{{character["status"]}}</td>
+        {% for character in characters  %}
+        <tr class="clickable-row" data-href="/characters/{{character.char_id}}">
+          <td>{{character.char_id}}</td>
+          <td><div><img class="img-circle" src="static/images/characters/character{{character.char_id}}.png"></div></td>
+          <td>{{character.fullname()}}</td>
+          <td>{{character.gender}}</td>
+          <td>{{character.religion}}</td>
+          <td>{{character.status}}</td>
         </tr>
         {% endfor %}
       </tbody>

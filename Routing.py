@@ -31,26 +31,27 @@ def characters_page():
     Serve the characters list page from ./templates/characters.html
     """
     host = "http://67.192.246.60/api/"
-    characters = json.loads(urlopen(host + "characters").read().decode("utf-8"))
-
-    d = {}
-    result = []
-    full_name = ""
-
-    for character in characters:
-        d["id"] = character["char_id"]
-        d["gender"] = character["gender"]
-        d["religion"] = character["religion"]
-        d["status"] = character["status"]
-        
-        if not character["last_name"]:
-            d["name"] = character["first_name"]
-        else:
-            d["name"] = character["first_name"] + " " + character["last_name"]
- 
-        result.append(d.copy())      
-
-    return render_template("characters.html", result = result)
+    characters = list(Character.query.all())
+    #characters = json.loads(urlopen(host + "characters").read().decode("utf-8"))
+    
+    #d = {}
+    #result = []
+    #full_name = ""
+    
+    #for character in characters:
+    #    d["id"] = character["char_id"]
+    #    d["gender"] = character["gender"]
+    #    d["religion"] = character["religion"]
+    #    d["status"] = character["status"]
+    #    
+    #    if not character["last_name"]:
+    #        d["name"] = character["first_name"]
+    #    else:
+    #        d["name"] = character["first_name"] + " " + character["last_name"]
+    #    
+    #    result.append(d.copy())      
+    
+    return render_template("characters.html", characters=characters)
   
 @app.route('/characters/<char_id>')
 def character_template_page(char_id):
@@ -66,10 +67,10 @@ def events_page():
     """
     host = "http://67.192.246.60/api/"
     events = json.loads(urlopen(host + "events").read().decode("utf-8"))
-
+    
     d = {}
     result = []
-
+    
     for event in events:
         d["id"] = event["event_id"]
         d["name"] = event["name"] 
@@ -105,10 +106,10 @@ def organizations_page():
     """
     host = "http://67.192.246.60/api/"
     organizations = json.loads(urlopen(host + "organizations").read().decode("utf-8"))
-
+    
     d = {}
     result = []
-
+    
     for organization in organizations:
         d["id"] = organization["org_id"]
         d["name"] = organization["name"]
@@ -131,7 +132,7 @@ def episodes_page():
     """
     host = "http://67.192.246.60/api/"
     episodes = json.load(urlopen(host + "episodes").read().decode("utf-8"))
-
+    
     d = {}
     result = {x: [] for x in range(1,5)}
 
