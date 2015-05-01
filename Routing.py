@@ -180,7 +180,7 @@ def get_image(path):
     return send_from_directory('static/images', path)
 
 @app.route('/tests')
-def run_unit_tests():
+def display_unit_tests():
     import tests
     import subprocess
     output = subprocess.check_output(["./tests.py"], stderr=subprocess.STDOUT,
@@ -190,6 +190,28 @@ def run_unit_tests():
 ############################################
 ############################################
 #Routing for API#
+
+@app.route('/api/tests')
+@cross_origin()
+def run_unit_tests():
+    import tests
+    import subprocess
+    minimize = False
+    process = "./tests.py --json"
+    if(request.args.get("min") is not None):
+        try:
+            minimize = bool(request.args.get("min"))
+        except:
+            minimize = False
+    if minimize:
+        process += " -c"
+    try:
+        output = subprocess.check_output([process],
+                                         stderr=subprocess.STDOUT,
+                                         shell=True)
+    except subprocess.CalledProcessError as cpe:
+        output = cpe.output
+    return output
 
 @app.route('/api/characters')
 @cross_origin()
