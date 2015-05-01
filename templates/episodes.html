@@ -37,7 +37,7 @@
     <!-- Panels -->
     <div class="panel-group pic-grid" id="accordion" role="tablist" aria-multiselectable="true">
       
-      {% for x in seasons %}
+{% for x in seasons %}
       <div class="panel panel-default"><!-- s{{x}} panel -->
         <div class="panel-heading" role="tab" id="heading{{x}}"><!-- s{{x}} panel-heading -->
           <h4 class="panel-title">
@@ -51,12 +51,14 @@
             <!-- Opening because initial episode -->
             <div class="row pillars"><!-- s{{x}} row pillars -->
               <div class="col-sm-1"></div>
-          {% for e in epsbyseason[x] %}
-              {% if e.episode_number is divisibleby 6 %}
+{%   set closed = False %}
+{%   for e in epsbyseason[x] %}
+{%     if e.episode_number is divisibleby 6 %}
+{%       set closed = False %}
             <!-- Opening because e.episode_number={{e.episode_number}} -->
             <div class="row pillars"><!-- s{{x}} row pillars -->
               <div class="col-sm-1"></div>
-                {% endif %}
+{%     endif %}
                 <div class="col-sm-2">
                   <a href="/episodes/{{e.ep_id}}" style="text-decorations:none">
                     <div class="img-rounded img-responsive img-center ep-banner" style="background-image: url(static/images/episodes/episode{{e.ep_id}}.png">
@@ -64,15 +66,20 @@
                     </div>
                   </a>
                 </div>
-                {% if (e.episode_number + 1) is divisibleby 6 %}
+{%     if (e.episode_number + 1) is divisibleby 6 %}
+{%       set closed = True %}
             <!-- Closing because e.episode_number={{e.episode_number}} -->
             </div><!-- s{{x}} row pillars -->
-                {% endif %}
-          {% endfor %}
+{%     endif %}
+{%   endfor %}
+{%   if not closed %}
+            <!-- Closing because end of list -->
+            </div><!-- s{{x}} row pillars -->
+{%   endif %}
             </div><!-- s{{x}} panel-body -->
           </div><!-- s{{x}} panel-collapsable -->
         </div><!-- s{{x}} panel -->
-      {% endfor %}
+{% endfor %}
       </div><!-- Panels -->
     <!-- Table -->
     <table class="row table table-hover hide tablesorter" id="tableView">
