@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
-{% block body %}
-<body>
+{% block header %}
   <!-- Image Background Page Header -->
   <!-- Note: The background image is set within the business-casual.css file. -->
   <header class="business-header" style="background: url(http://i.imgur.com/sg32xFm.jpg) center center no-repeat scroll;">
@@ -13,6 +12,8 @@
       </div>
     </div>
   </header>
+{% endblock %}
+{% block body %}
   <!-- Page Content -->
   <div class="container">
     <div class="row">
@@ -73,6 +74,7 @@
     <!-- /.row -->
   </div>
   <!-- /.container -->
-</body>
+{% endblock %}
+{% block scripts %}
 <script src="../static/js/twitter.js"></script>
 {% endblock %}

@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
-{% block body %}
-<body>
+{% block header %}
   <!-- Image Background Page Header -->
   <!-- Note: The background image is set within the business-casual.css file. -->
   <header class="business-header" style="background: url(http://content.backgrounds.picaboo.com/download/10/0b/10b3b01613b947128ecfdd864e894c17/tmp_vintage_paper.jpg) center center no-repeat scroll;">
@@ -13,6 +12,8 @@
       </div>
     </div>
   </header>
+{% endblock %}
+{% block body %}
   <!-- Page Content -->
   <div class ="container">
     <div class="col-sm-12">
@@ -151,8 +152,8 @@
     <!-- TOOLS END -->  
   </div>
   <!-- CONTAINER END -->
-
-</body>
+{% endblock %}
+{% block scripts %}
 <script src="../static/js/pulldata.js"></script>
 <script>
 var infoC = get_commits();

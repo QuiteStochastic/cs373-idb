@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
-{% block body %}
-<body>
+{% block header %}
   <!-- Image Background Page Header -->
   <!-- Note: The background image is set within the business-casual.css file. -->
   <header class="business-header" style="background: url(http://i.imgur.com/sg32xFm.jpg) center center no-repeat scroll;">
@@ -13,7 +12,8 @@
       </div>
     </div>
   </header>
-
+{% endblock %}
+{% block body %}
   <!-- Page Content -->
   <div class ="container">
     <div class="col-sm-12">
@@ -26,7 +26,6 @@
 
   <!-- CONTAINER -->
   <div class="container">
-
     <!-- Toggle Button -->
     <div class="buttons col-md-10 col-md-offset-2">
       <button class="grid"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
@@ -38,37 +37,43 @@
     <!-- Panels -->
     <div class="panel-group pic-grid" id="accordion" role="tablist" aria-multiselectable="true">
       
-      {% for x in range (1,5) %}
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading{{x}}">
+      {% for x in seasons %}
+      <div class="panel panel-default"><!-- s{{x}} panel -->
+        <div class="panel-heading" role="tab" id="heading{{x}}"><!-- s{{x}} panel-heading -->
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{x}}" aria-expanded="true" aria-controls="collapse{{x}}">
-            Season {{x}}
+              Season {{x}}
             </a>
           </h4>
-        </div>
-        <div id="collapse{{x}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{x}}">
-          <div class="panel-body">
-            {% for i in range(1,3) %}
-            <div class="row pillars">
+        </div><!-- s{{x}} panel-heading -->
+        <div id="collapse{{x}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{x}}"><!-- s{{x}} panel-collapsable -->
+          <div class="panel-body"><!-- s{{x}} panel-body -->
+            <!-- Opening because initial episode -->
+            <div class="row pillars"><!-- s{{x}} row pillars -->
               <div class="col-sm-1"></div>
-              {% for j in range(1,6) %}
-              <div class="col-sm-2">
-                <a href="/episodes/{{(x-1)*10+(5*(i-1)+j)}}" style="text-decoration:none">
-                  <div class="img-rounded img-responsive img-center ep-banner" style="background-image: url(static/images/episodes/episode{{(x-1)*10+(5*(i-1)+j)}}.png)">
-                    <h1 class="ep-number">{{(5*(i-1)+j)}}</h1>
-                  </div>
-                </a>
-              </div>
-              {% endfor %}
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
+          {% for e in epsbyseason[x] %}
+              {% if e.episode_number is divisibleby 6 %}
+            <!-- Opening because e.episode_number={{e.episode_number}} -->
+            <div class="row pillars"><!-- s{{x}} row pillars -->
+              <div class="col-sm-1"></div>
+                {% endif %}
+                <div class="col-sm-2">
+                  <a href="/episodes/{{e.ep_id}}" style="text-decorations:none">
+                    <div class="img-rounded img-responsive img-center ep-banner" style="background-image: url(static/images/episodes/episode{{e.ep_id}}.png">
+                      <h1 class="ep-number">{{e.ep_id}}</h1>
+                    </div>
+                  </a>
+                </div>
+                {% if (e.episode_number + 1) is divisibleby 6 %}
+            <!-- Closing because e.episode_number={{e.episode_number}} -->
+            </div><!-- s{{x}} row pillars -->
+                {% endif %}
+          {% endfor %}
+            </div><!-- s{{x}} panel-body -->
+          </div><!-- s{{x}} panel-collapsable -->
+        </div><!-- s{{x}} panel -->
       {% endfor %}
-    </div>
-
+      </div><!-- Panels -->
     <!-- Table -->
     <table class="row table table-hover hide tablesorter" id="tableView">
       <thead>
@@ -81,36 +86,22 @@
       </thead>
     
       <tbody>
-      {% for x in range(1,41) %}
+      {% for e in episodes %}
       <tr class="clickable-row" id="table-row{{x}}">
-        <th scope="row" id="id{{x}}"></th>
-        <td id="name{{x}}"></td>
-        <td id="season{{x}}"></td>
-        <td id="episode{{x}}"></td>
+        <th>{{e.ep_id}}</th>
+        <td>{{e.name}}</td>
+        <td>{{e.season}}</td>
+        <td>{{e.episode_number}}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
   </div>
   <!-- END CONTAINER -->
-</body>
- 
-<script>  
-    var info = get_data('episodes');
-    var result = JSON.parse(info);
-   
-    for (var i = 1; i <= result.length; i++) {
-      // populate table view
-      document.getElementById("id" + i).innerHTML = i;
-      document.getElementById("name" + i).innerHTML = result[i-1].name;
-      document.getElementById("season" + i).innerHTML = result[i-1].season;
-      document.getElementById("episode" + i).innerHTML = result[i-1].episode_number;
-      document.getElementById("table-row" + i).setAttribute("data-href", "/episodes/" + i);
-    }
-  
+{% endblock %}
+{% block scripts %}
+  <script>
     document.getElementById("collapse1").setAttribute("class", "panel-collapse collapse in");
-</script>
-<script>
-  $("#tableView").tablesorter(); 
-</script>
+    $("#tableView").tablesorter(); 
+  </script>
 {% endblock %}

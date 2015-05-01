@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
-{% block body %}
-<body>
+{% block header %}
   <!-- Image Background Page Header -->
   <header class="business-header" style="background: url(http://i.imgur.com/4d1Y61N.png) center center no-repeat scroll;">
     <div class="container">
@@ -12,7 +11,10 @@
       </div>
     </div>
   </header>
-  <!-- Page Content -->  
+
+{% endblock header %}
+{% block body %}
+  <!-- Page Content -->
   <div class ="container">
     <div class="col-sm-12">
       <ol class="breadcrumb">
@@ -69,8 +71,8 @@
     <!-- /.row -->
   </div>
   <!-- /.container -->
-</body>
- 
+{% endblock %}
+{% block scripts %}
 <script>  
     // Grab and set attributes that go into main body of page
     var info = get_one('events', {{event_id}});

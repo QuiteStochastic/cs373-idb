@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
-{% block body %}
-<body>
+{% block header %}
   <!-- Image Background Page Header -->
   <!-- Note: The background image is set within the business-casual.css file. -->
   <header class="business-header" style="background: url(http://i.imgur.com/qeHP6FV.jpg?2) center top no-repeat scroll;">
@@ -13,7 +12,8 @@
       </div>
     </div>
   </header>
-
+  {% endblock %}
+  {% block body %}
   <!-- Page Content -->
   <div class ="container">
     <div class="col-sm-12">
@@ -24,81 +24,78 @@
     </div>
   </div> 
 
-<!-- Container Div -->
-	<div class="container">
+  <!-- Container Div -->
+  <div class="container">
 
-		<!-- Search Bar -->
-		<!-- <div class="row"> 
-			<div class="col-lg-6">
-				<div class="input-group">
-					<input type="text" class="form-control" id="search-bar" placeholder="Search for...">
-					<span class="input-group-btn">
-						<button class="btn btn-default glyphicon glyphicon-search" type="button" onclick="search()" style="top:0px"></button>
-					</span>
-				</div><! /input-group -->
-			<!-- </div>/.col-lg-6 -->
-		<!-- </div> --> 
+    <!-- Search Bar -->
+    <!-- <div class="row"> 
+         <div class="col-lg-6">
+           <div class="input-group">
+             <input type="text" class="form-control" id="search-bar" placeholder="Search for...">
+             <span class="input-group-btn">
+               <button class="btn btn-default glyphicon glyphicon-search" type="button" onclick="search()" style="top:0px"></button>
+             </span>
+           </div><! /input-group -->
+    <!-- </div>/.col-lg-6 -->
+    <!-- </div> --> 
 
-		<!-- <hr> -->
-		<!-- Search Results -->
-		<table class="table table-hover">
-  		<thead>
-  		<tr>
-  			<th>#</th>
-  			<th>Pillar</th>
-  			<th>Name</th>
-  			<th>Description</th>
-  		</tr>
-  		</thead>
+    <!-- <hr> -->
+    <!-- Search Results -->
+    <table class="table table-hover">
+      <thead>
+          <tr>
+            <th>#</th>
+            <th>Pillar</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+      </thead>
 
-  		<tbody id="table_results">
-  		</tbody>
-		</table>
+      <tbody id="table_results">
+      </tbody>
+    </table>
 
-	</div>
-</body>
+  </div>
   <!-- CONTAINER END -->
-
+{% endblock %}
+{% block scripts %}
 <script>
-	var info = get_data('search?query={{query}}');
-	var result = JSON.parse(info);
-	var results = result["results"];
-
-	// Autofill Search Bar with Previous Search
-
-	//document.getElementById("form-control").value={{query}};
-
-	for (var i = 0; i < results.length; i++) {
-		// Create table row
-		var row = document.createElement("TR");
-		
-		// Create table data
-		var num = document.createElement("TD");
-		var pillar = document.createElement("TD");
-		var name_ = document.createElement("TD");
-		var desc = document.createElement("TD");
-
-		// Grab values for table data		
-		var num_text = document.createTextNode((i + 1).toString());
-		var pillar_text = document.createTextNode(results[i]["type"]);
-		var name_text = document.createTextNode(results[i]["name"]);
-		var desc_text = document.createTextNode(results[i]["desc"]);	
-
-		// Insert values into table data
-		num.appendChild(num_text);
-		pillar.appendChild(pillar_text);
-		name_.appendChild(name_text);
-		desc.appendChild(desc_text);
-
-		// Append table data to table row
-		row.appendChild(num);
-		row.appendChild(pillar);
-		row.appendChild(name_);
-		row.appendChild(desc);
-		
-		row.setAttribute("data-href", "/" + results[i]["type"] + "/" + results[i]["id"]);
-		row.setAttribute("class", "clickable-row");
-		document.getElementById("table_results").appendChild(row);
-	}
+  var info = get_data('search?query={{query}}');
+  var result = JSON.parse(info);
+  var results = result["results"];
+  // Autofill Search Bar with Previous Search
+  //document.getElementById("form-control").value={{query}};
+  for (var i = 0; i < results.length; i++) {
+    // Create table row
+    var row = document.createElement("TR");
+    
+    // Create table data
+    var num = document.createElement("TD");
+    var pillar = document.createElement("TD");
+    var name_ = document.createElement("TD");
+    var desc = document.createElement("TD");
+    
+    // Grab values for table data
+    var num_text = document.createTextNode((i + 1).toString());
+    var pillar_text = document.createTextNode(results[i]["type"]);
+    var name_text = document.createTextNode(results[i]["name"]);
+    var desc_text = document.createTextNode(results[i]["desc"]);
+    
+    // Insert values into table data
+    num.appendChild(num_text);
+    pillar.appendChild(pillar_text);
+    name_.appendChild(name_text);
+    desc.appendChild(desc_text);
+    
+    // Append table data to table row
+    row.appendChild(num);
+    row.appendChild(pillar);
+    row.appendChild(name_);
+    row.appendChild(desc);
+    
+    row.setAttribute("data-href", "/" + results[i]["type"] + "/" + results[i]["id"]);
+    row.setAttribute("class", "clickable-row");
+    document.getElementById("table_results").appendChild(row);
+  }
 </script>
 {% endblock %}
