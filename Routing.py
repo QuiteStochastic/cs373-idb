@@ -90,19 +90,19 @@ def episodes_page():
     """
     Serve the episodes list page from ./templates/episodes.html
     """
-    host = "http://67.192.246.60/api/"
-    episodes = json.load(urlopen(host + "episodes").read().decode("utf-8"))
+    eps = list(Episode.query.order_by(Episode.ep_id).all())
+    seasons = {}
+    for e in eps:
+        s = seasons.get(e.season)
+        if s is None:
+            s = []
+            seasons[e.season] = s
+        s.append(e)
+    skeys = list(seasons.keys())
+    skeys.sort()
     
-    d = {}
-    result = {x: [] for x in range(1,5)}
-
-    for episode in episodes:
-        d["id"] = episode["ep_id"]
-        d["name"] = episode["name"]
-        d["episode"] = episode["episode_number"]
-        result[episode["season"]].append(d.copy())
-        
-    return render_template("episodes.html", result = result)
+    return render_template("episodes.html", episodes=eps, epsbyseason=seasons,
+                           seasons=skeys)
 
 @app.route('/episodes/<ep_id>')
 def episode_template_page(ep_id):
