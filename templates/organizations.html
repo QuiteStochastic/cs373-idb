@@ -38,10 +38,10 @@
       <div class="row pillars">
         {% for organization in result %}
           <div class="col-sm-4">
-            <a href="/organizations/{{organization["id"]}}">
-              <img class="img-circle img-responsive img-center" src="static/images/organizations/organization{{organization["id"]}}.png">
+            <a href="/organizations/{{organization.org_id}}">
+              <img class="img-circle img-responsive img-center" src="static/images/organizations/organization{{organization.org_id}}.png">
             </a>
-            <h2>{{organization["name"]}}</h2>
+            <h2>{{organization.name}}</h2>
           </div>
         {% endfor %}
       </div>
@@ -60,11 +60,11 @@
     
       <tbody>
       {% for organization in result %}
-      <tr class="clickable-row" data-href="/organizations/{{organization["id"]}}">
-        <td>{{organization["id"]}}</td>
-        <td><div><img class="img-circle" src="static/images/organizations/organization{{organization["id"]}}.png"></div></td>
-        <td>{{organization["name"]}}</td>
-        <td>{{organization["type"]}}</td>
+      <tr class="clickable-row" data-href="/organizations/{{organization.org_id}}">
+        <td>{{organization.org_id}}</td>
+        <td><div><img class="img-circle" src="static/images/organizations/organization{{organization.org_id}}.png"></div></td>
+        <td>{{organization.name}}</td>
+        <td>{{organization.org_type}}</td>
       </tr>
       {% endfor %}
       </tbody>

@@ -74,19 +74,8 @@ def organizations_page():
     """
     Serve the organizations list page from ./templates/organizations.html
     """
-    host = "http://67.192.246.60/api/"
-    organizations = json.loads(urlopen(host + "organizations").read().decode("utf-8"))
-    
-    d = {}
-    result = []
-    
-    for organization in organizations:
-        d["id"] = organization["org_id"]
-        d["name"] = organization["name"]
-        d["type"] = organization["org_type"]
-        result.append(d.copy())
-
-    return render_template("organizations.html", result = result)
+    organizations = list(Organization.query.all())
+    return render_template("organizations.html", result = organizations)
   
 @app.route('/organizations/<org_id>')
 def organization_template_page(org_id):
