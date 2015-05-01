@@ -31,7 +31,7 @@ def characters_page():
     Serve the characters list page from ./templates/characters.html
     """
     characters = list(Character.query.all())
-    return render_template("characters.html", characters=characters)
+    return render_template("characters.html", characters = characters)
   
 @app.route('/characters/<char_id>')
 def character_template_page(char_id):
@@ -60,7 +60,8 @@ def locations_page():
     """
     Serve the locations list page from ./templates/locations.html
     """
-    return render_template("locations.html")
+    locations = list(Location.query.all())
+    return render_template("locations.html", locations = locations)
   
 @app.route('/locations/<loc_id>')
 def location_template_page(loc_id):
