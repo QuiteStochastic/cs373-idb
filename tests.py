@@ -9,6 +9,8 @@ from unittest import main, TestCase, TextTestRunner
 from io import StringIO
 import json
 
+from JsonTestRunner import JsonTestRunner
+
 from Model import *
 
 tapp = Flask(__name__)
@@ -940,23 +942,36 @@ class TestDatabase(TestCase):
 def test_results_html():
     return run_tests().split('\n')
 
-def run_tests():
+def run_tests(asJSON=False, stream=None, compress=False):
     import sys
     
-    s = StringIO()
-    runner = TextTestRunner(s, verbosity=2)
+    s = stream
+    if s is None:
+        s = StringIO()
+    runner = JsonTestRunner(s, printJSON=asJSON, verbosity=2,
+                            compressed=compress)
     sys.argv = [sys.argv[0]]
     
     tapp.config.from_object(ConfigTesting)
     tdb.init_app(tapp)
     
-    main(module=__name__, testRunner=runner, exit=False)
-    return s.getvalue()
+    return main(module=__name__, testRunner=runner, exit=False)
 
 if __name__ == "__main__":
+    import argparse
+    import sys
+    
     # If we are running it by itself, we need to init the app object
     standalone = True
     tdb.init_app(app)
     app.config.from_object(ConfigTesting)
+    
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('-j', '--json', action='store_true',
+                           default=False, dest='printJSON')
+    argparser.add_argument('-c', '--compress', action='store_true',
+                           default=False, dest='compress')
+    args = argparser.parse_args()
+    
     # We also need to import the routing information
-    print(run_tests())
+    run_tests(asJSON=args.printJSON, stream=sys.stderr, compress=args.compress)
