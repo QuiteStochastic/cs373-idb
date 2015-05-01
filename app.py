@@ -14,6 +14,11 @@ from Routing import app
 _running = False
 
 if __name__ == '__main__':
+    if(sys.version_info[0] < 3):
+        sys.stderr.write("Attempting to run application with bad python version (version < 3.0)\n")
+        sys.stderr.write("Aborting execution...")
+        sys.exit(1)
+    
     argparser = argparse.ArgumentParser()
     argparser.add_argument('-m', '--make-tables', action='store_true',
                            default=False, dest='maketables')
