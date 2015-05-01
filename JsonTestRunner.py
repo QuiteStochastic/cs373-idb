@@ -75,22 +75,34 @@ class JsonWriter(object):
     
     def _write_impl(self, jobject, indentation="", continuation=False):
         nindent = indentation + self.indent
+        nitems = 0
+        i = 0
         if(type(jobject) == dict):
             if(not continuation):
                 self.stream.write(indentation)
             self.stream.write('{\n')
+            nitems = len(jobject.keys())
             for k, v in jobject.items():
+                i += 1
                 self.stream.write(nindent + '"' + k + '": ');
                 self._write_impl(v, nindent, True)
-                self.stream.write(',\n')
+                if i == nitems:
+                    self.stream.write('\n')
+                else:
+                    self.stream.write(',\n')
             self.stream.write(indentation + '}')
         elif(type(jobject) == list):
+            nitems = len(jobject)
             if(not continuation):
                 self.stream.write(indentation)
             self.stream.write('[\n')
-            for i in jobject:
-                self._write_impl(i, nindent)
-                self.stream.write(',\n')
+            for item in jobject:
+                i += 1
+                self._write_impl(item, nindent)
+                if i == nitems:
+                    self.stream.write('\n')
+                else:
+                    self.stream.write(',\n')
             self.stream.write(indentation + ']')
         elif(type(jobject) == str):
             if(not continuation):
