@@ -46,7 +46,7 @@ def events_page():
     Serve the events list page from ./templates/events.html
     """
     events = list(Event.query.all())
-    return render_template("events.html", result = events)
+    return render_template("events.html", events = events)
   
 @app.route('/events/<event_id>')
 def event_template_page(event_id):
@@ -76,7 +76,7 @@ def organizations_page():
     Serve the organizations list page from ./templates/organizations.html
     """
     organizations = list(Organization.query.all())
-    return render_template("organizations.html", result = organizations)
+    return render_template("organizations.html", organizations = organizations)
   
 @app.route('/organizations/<org_id>')
 def organization_template_page(org_id):

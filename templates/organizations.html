@@ -36,7 +36,7 @@
     <!-- Picture Grid -->
     <div class="row pic-grid">
       <div class="row pillars">
-        {% for organization in result %}
+        {% for organization in organizations %}
           <div class="col-sm-4">
             <a href="/organizations/{{organization.org_id}}">
               <img class="img-circle img-responsive img-center" src="static/images/organizations/organization{{organization.org_id}}.png">
@@ -59,7 +59,7 @@
       </thead>
     
       <tbody>
-      {% for organization in result %}
+      {% for organization in organizations %}
       <tr class="clickable-row" data-href="/organizations/{{organization.org_id}}">
         <td>{{organization.org_id}}</td>
         <td><div><img class="img-circle" src="static/images/organizations/organization{{organization.org_id}}.png"></div></td>

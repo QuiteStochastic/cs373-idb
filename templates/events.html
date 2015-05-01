@@ -35,7 +35,7 @@
     
     <div class="row pic-grid">
       <div class="row pillars">
-        {% for event in result %}
+        {% for event in events %}
           <div class="col-sm-4">
             <a href="/events/{{event.event_id}}">
               <img class="img-circle img-responsive img-center" src="static/images/events/event{{event.event_id}}.png">
@@ -58,7 +58,7 @@
       </thead>
     
       <tbody>
-      {% for event in result %}
+      {% for event in events %}
         <tr class="clickable-row" data-href="/events/{{event.event_id}}">
           <td>{{event.event_id}}</td>
           <td><div><img class="img-circle" src="static/images/events/event{{event.event_id}}.png"></div></td>
