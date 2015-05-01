@@ -103,6 +103,11 @@ class Character(db.Model):
         self.status = None
         self.description = desc
     
+    def fullname(self):
+        if self.last_name is not None and self.last_name != "":
+            return self.first_name + " " + self.last_name
+        return self.first_name
+    
     def serialize(self, brief=False):
         if brief:
             return {
