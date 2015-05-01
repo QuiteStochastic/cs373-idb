@@ -221,6 +221,7 @@ class Event(db.Model):
         if(brief):
             return {
                 'event_id':self.event_id,
+                'event_type':self.event_type,
                 'name':self.name
             }
         else:
