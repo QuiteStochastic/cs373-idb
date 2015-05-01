@@ -1,6 +1,7 @@
 
 from FlaskApp import db, json_response
 from flask.ext.cors import *
+from flask import Response
 from Model import *
 
 # Anything not listed in the second flask import can just be called from the
@@ -199,19 +200,23 @@ def run_unit_tests():
     minimize = False
     process = "./tests.py --json"
     if(request.args.get("min") is not None):
+        print("/api/tests?min={}".format(request.args.get("min")))
         try:
-            minimize = bool(request.args.get("min"))
+            minimize = request.args.get("min").lower() == "true"
+            print("Value of min: {}".format(minimize))
         except:
             minimize = False
     if minimize:
         process += " -c"
+    
     try:
         output = subprocess.check_output([process],
                                          stderr=subprocess.STDOUT,
                                          shell=True)
     except subprocess.CalledProcessError as cpe:
         output = cpe.output
-    return output
+    output = output.decode('utf-8')
+    return Response(output, mimetype="application/json")
 
 @app.route('/api/characters')
 @cross_origin()
