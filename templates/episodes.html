@@ -94,7 +94,7 @@
     
       <tbody>
       {% for e in episodes %}
-      <tr class="clickable-row" id="table-row{{x}}">
+      <tr class="clickable-row" data-href="/episodes/{{e.ep_id}}">
         <th>{{e.ep_id}}</th>
         <td>{{e.name}}</td>
         <td>{{e.season}}</td>
