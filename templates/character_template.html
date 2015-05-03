@@ -19,7 +19,7 @@
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/characters">Characters</a></li>
-        <li id="breadcrumb_name"></li>
+        <li>{{c.fullname()}}</li>
       </ol>
     </div>
   </div>
@@ -28,17 +28,17 @@
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
-        <h2 id="header_name"></h2>
-        <img class="img-circle img-responsive img-center" src="../static/images/characters/character{{char_id}}.png" alt="">
+        <h2>{{c.fullname()}}</h2>
+        <img class="img-circle img-responsive img-center" src="../static/images/characters/character{{c.char_id}}.png" alt="">
       </div>
-
+      
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Alias:</strong> <span id="alias"></span></li>
-          <li class="list-group-item"><strong>Gender:</strong> <span id="gender"></span></li>
-          <li class="list-group-item"><strong>Religion:</strong> <span id="religion"></span></li>
-          <li class="list-group-item"><strong>Status:</strong> <span id="status"></span></li>
+          <li class="list-group-item"><strong>Alias:</strong> {{c.alias}}</li>
+          <li class="list-group-item"><strong>Gender:</strong> {{c.gender}}</li>
+          <li class="list-group-item"><strong>Religion:</strong> {{c.religion}}</li>
+          <li class="list-group-item"><strong>Status:</strong> {{c.status}}</li>
         </ul>
       </div>
     </div>
@@ -46,10 +46,10 @@
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p>
+        <p>{{c.description}}</p>
       </div>
       <div class="col-sm-8 col-sm-offset-2 description">
-        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
+        <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a>
       </div>
     </div>
     
@@ -70,70 +70,23 @@
     
     <div class="row">
       <div class="group-con col-sm-8 col-sm-offset-2">
-        <div class="list-group col-sm-4" id="affiliations"></div>
-        <div class="list-group col-sm-4" id="locations"></div>
-        <div class="list-group col-sm-4" id="events"></div>
+        <div class="list-group col-sm-4">
+{% for o in c.memberships %}
+          <a href="/organizations/{{o.org_id}}" class="list-group-item">{{o.org.name}}</a>
+{% endfor %}
+        </div>
+        <div class="list-group col-sm-4">
+{% for l in c.locations %}
+          <a href="/locations/{{l.loc_id}}" class="list-group-item">{{l.name}}</a>
+{% endfor %}
+        </div>
+        <div class="list-group col-sm-4">
+{% for e in c.events %}
+          <a href="/events/{{e.event_id}}" class="list-group-item">{{e.name}}</a>
+{% endfor %}
+        </div>
       </div>
     </div>
-    
   </div>
   <!-- /.container -->
-{% endblock %}
-{% block scripts %}
-<script> 
-    var info = get_one('characters', {{char_id}});
-    var result = JSON.parse(info);
-    
-    // Grab attributes that go into main body of page
-    var name, alias, religion;
-    name = result.last_name === null ? result.first_name : result.first_name + ' ' + result.last_name;
-    alias = result.alias === null ? '--' : result.alias;
-    religion = result.religion === null ? '--' : result.religion;
-
-    document.getElementById("breadcrumb_name").innerHTML = name;
-    document.getElementById("header_name").innerHTML = name;
-    document.getElementById("alias").innerHTML = alias;
-    document.getElementById("gender").innerHTML = result.gender; 
-    document.getElementById("religion").innerHTML = religion;
-    document.getElementById("status").innerHTML = result.status; 
-    document.getElementById("description").innerHTML = result.description;
-  
-    // Create links to organizations
-    var affiliations, locations, events;
-    affiliations = result.affiliations;
-    locations = result.visited;
-    events = result.events; 
-
-    for (var i = 0; i < affiliations.length; i++) {
-      var affiliation = affiliations[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(affiliation.org_name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/organizations/" + affiliation.org_id);
-      link.appendChild(text);
-      document.getElementById("affiliations").appendChild(link);
-    }    
-  
-       // Create links to locations
-       for (var i = 0; i < locations.length; i++) {
-         var loc = locations[i];
-         var link = document.createElement("A");
-         var text = document.createTextNode(loc.name);
-         link.setAttribute("class", "list-group-item");
-         link.setAttribute("href", "/locations/" + loc.loc_id);
-         link.appendChild(text);
-         document.getElementById("locations").appendChild(link);
-      }  
-  
-    // Create links to events
-    for (var i = 0; i < events.length; i++) {
-      var event = events[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(event.name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/events/" + event.event_id);
-      link.appendChild(text);
-      document.getElementById("events").appendChild(link);
-    }  
-</script>
 {% endblock %}

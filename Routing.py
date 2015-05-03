@@ -39,7 +39,10 @@ def character_template_page(char_id):
     """
     Serve the character page from ./templates/character_template.html
     """
-    return render_template("character_template.html", char_id = char_id)
+    char = Character.get(char_id)
+    if char is None:
+        flask.abort(404)
+    return render_template("character_template.html", c=char)
 
 @app.route('/events')
 def events_page():
