@@ -39,7 +39,7 @@ def character_template_page(char_id):
     """
     Serve the character page from ./templates/character_template.html
     """
-    char = Character.get(char_id)
+    char = Character.query.get(char_id)
     if char is None:
         flask.abort(404)
     return render_template("character_template.html", c=char)
@@ -57,7 +57,10 @@ def event_template_page(event_id):
     """
     Serve the event page from ./templates/event_template.html
     """
-    return render_template("event_template.html", event_id = event_id)
+    event = Event.query.get(event_id)
+    if event is None:
+        flask.abort(404)
+    return render_template("event_template.html", event=event)
 
 @app.route('/locations')
 def locations_page():
@@ -72,7 +75,10 @@ def location_template_page(loc_id):
     """
     Serve the location page from ./templates/location_template.html
     """
-    return render_template("location_template.html", loc_id = loc_id)
+    location = Location.query.get(loc_id)
+    if location is None:
+        flask.abort(404)
+    return render_template("location_template.html", loc=location)
 
 @app.route('/organizations')
 def organizations_page():
@@ -87,7 +93,10 @@ def organization_template_page(org_id):
     """
     Serve the organization page from ./templates/organization_template.html
     """
-    return render_template("organization_template.html", org_id = org_id)
+    org = Organization.query.get(org_id)
+    if org is None:
+        flask.abort(404)
+    return render_template("organization_template.html", org=org)
   
 @app.route('/episodes')
 def episodes_page():
@@ -113,8 +122,10 @@ def episode_template_page(ep_id):
     """
     Serve the episode page from ./templates/episode_template.html
     """
-    return render_template("episode_template.html", ep_id = ep_id)
-    
+    ep = Episode.query.get(ep_id)
+    if ep is None:
+        flask.abort(404)
+    return render_template("episode_template.html", ep=ep)
 
 @app.route('/about')
 def about_page():

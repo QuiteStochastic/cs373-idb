@@ -19,7 +19,7 @@
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/episodes">Episodes</a></li>
-        <li id="breadcrumb_name"></li>
+        <li>{{ep.name}}</li>
       </ol>
     </div>
   </div>
@@ -27,45 +27,29 @@
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
-        <h2 id="header_name"></h2>
-        <img class="img-thumbnail img-responsive img-center" src="../static/images/episodes/episode{{ep_id}}.png" alt="">
+        <h2>{{ep.name}}</h2>
+        <img class="img-thumbnail img-responsive img-center" src="../static/images/episodes/episode{{ep.ep_id}}.png" alt="">
       </div>
       
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Name:</strong> <span id="name"></span></li>
-          <li class="list-group-item"><strong>Season:</strong> <span id="season"></span></li>
-          <li class="list-group-item"><strong>Episode:</strong> <span id="episode"></span></li>
+          <li class="list-group-item"><strong>Name:</strong> {{ep.name}}</li>
+          <li class="list-group-item"><strong>Season:</strong> {{ep.season}}</li>
+          <li class="list-group-item"><strong>Episode:</strong> {{ep.episode_number}}</li>
         </ul>
       </div>
     </div>
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p> 
+        <p>{{ep.description}}</p> 
       </div>
       <br>
       <div class="col-sm-8 col-sm-offset-2 description">
         <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
       </div>
-    </div>
-    
-    <!-- /.row -->
+    </div> <!-- /.row -->
   </div>
   <!-- /.container -->
-{% endblock %}
-{% block scripts %}
-<script>  
-    // Grab and set attributes that go into main body of page
-    var info = get_one('episodes', {{ep_id}});
-    var result = JSON.parse(info);
-  
-    document.getElementById("breadcrumb_name").innerHTML = result.name;
-    document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("name").innerHTML = result.name;
-    document.getElementById("season").innerHTML = result.season; 
-    document.getElementById("episode").innerHTML = result.episode_number; 
-    document.getElementById("description").innerHTML = result.description;
-</script>
 {% endblock %}

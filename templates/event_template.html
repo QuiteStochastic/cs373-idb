@@ -11,7 +11,6 @@
       </div>
     </div>
   </header>
-
 {% endblock header %}
 {% block body %}
   <!-- Page Content -->
@@ -20,39 +19,35 @@
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/events">Events</a></li>
-        <li id="breadcrumb_name"></li>
+        <li>{{event.name}}</li>
       </ol>
     </div>
   </div>
-
   <!-- /.row -->
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
         <h2 id="header_name"></h2>
-        <img class="img-circle img-responsive img-center" src="../static/images/events/event{{event_id}}.png" alt="">
+        <img class="img-circle img-responsive img-center" src="../static/images/events/event{{event.event_id}}.png" alt="">
       </div>
-      
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Location:</strong> <span id="location"></span></li>
-          <li class="list-group-item"><strong>Type:</strong> <span id="type"></span></li>
+          <li class="list-group-item"><strong>Location:</strong> {% if event.location is not defined %}--{% else %}<a href="/events/{{event.location.loc_id}}">{{event.location.name}}</a>{% endif %}</li>
+          <li class="list-group-item"><strong>Type:</strong> {{event.event_type}}</li>
         </ul>
       </div>
     </div>
-    
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p> 
+        <p>{{event.description}}</p> 
       </div>
       <br>
       <div class="col-sm-8 col-sm-offset-2 description">
         <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
       </div>
     </div>
-    
     <!-- RELATIONSHIPS -->
     <div class="row">
       <div class="col-sm-3 col-sm-offset-3">
@@ -62,59 +57,17 @@
         <h4>Parties</h4>
       </div>
     </div>
-    
     <div class="row">
-      <div class="list-group col-sm-3 col-sm-offset-3" id="participants"></div>
-      <div class="list-group col-sm-3" id="parties"></div>
-    </div>
-    
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-{% endblock %}
-{% block scripts %}
-<script>  
-    // Grab and set attributes that go into main body of page
-    var info = get_one('events', {{event_id}});
-    var result = JSON.parse(info);
-  
-    document.getElementById("breadcrumb_name").innerHTML = result.name;
-    document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("type").innerHTML = result.event_type; 
-    document.getElementById("description").innerHTML = result.description; 
-  
-    // Create link to location of event
-    var event_location = document.createElement("A");
-    var location_name = document.createTextNode(result.loc_name);
-    event_location.setAttribute("href", "/locations/" + result.loc_id);
-    event_location.appendChild(location_name);
-    document.getElementById("location").appendChild(event_location);
-  
-    // Create links to characters
-    var participants, parties;
-    participants = result.participants;
-    parties = result.parties;
-  
-    for (var i = 0; i < participants.length; i++) {
-      var participant = participants[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(participant.first_name + " " + participant.last_name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/characters/" + participant.char_id);
-      link.appendChild(text);
-      document.getElementById("participants").appendChild(link);
-    }  
-  
-    // Create links to organizations
-    for (var i = 0; i < parties.length; i++) {
-      var party = parties[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(party.name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/organizations/" + party.org_id);
-      link.appendChild(text);
-      document.getElementById("parties").appendChild(link);
-    } 
-  
-</script>
+      <div class="list-group col-sm-3 col-sm-offset-3" id="participants">
+{% for c in event.characters %}
+        <a href="/characters/{{c.char_id}}" class="list-group-item">{{c.fullname()}}</a>
+{% endfor %}
+      </div>
+      <div class="list-group col-sm-3" id="parties">
+{% for o in event.organizations %}
+        <a href="/organizations/{{o.org_id}}" class="list-group-item">{{o.name}}</a>
+{% endfor %}
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
 {% endblock %}

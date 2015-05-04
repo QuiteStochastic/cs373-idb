@@ -19,7 +19,7 @@
       <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li><a href="/locations">Locations</a></li>
-        <li id="breadcrumb_name"></li>
+	<li>{{loc.name}}</li>
       </ol>
     </div>
   </div>
@@ -28,15 +28,14 @@
   <div class="container">
     <div class="row pillars">
       <div class="col-sm-3 col-sm-offset-2">
-        <h2 id="header_name"></h2>
-        <img class="img-circle img-responsive img-center" src="../static/images/locations/location{{loc_id}}.png" alt="">
+        <h2>{{loc.name}}</h2>
+        <img class="img-circle img-responsive img-center" src="../static/images/locations/location{{loc.loc_id}}.png" alt="">
       </div>
       
       <div class="col-sm-4">
         <h2>Attributes</h2>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Organization:</strong> <span id="org"></span></li>
-          <li class="list-group-item"><strong>Type:</strong> <span id="type"></span></li>
+          <li class="list-group-item"><strong>Type:</strong> {{loc.loc_type}}</li>
         </ul>
       </div>
     </div>
@@ -44,63 +43,33 @@
     <!-- DESCRIPTION -->
     <div class="row pillars">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <p id="description"></p>
+        <p>{{loc.description}}</p>
       </div>
       <br>
       <div class="col-sm-8 col-sm-offset-2 description">
         <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">- Game of Thrones Wiki</a> 
       </div>
     </div>
-    
     <!-- RELATIONSHIPS -->
     <div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
+      <div class="col-sm-3 col-sm-offset-3">
         <h4>Visitors</h4>
       </div>
+      <div class="col-sm-3">
+	<h4>Organizations</h4>
+      </div>
     </div>
-    
     <div class="row">
-      <div class="list-group col-sm-4 col-sm-offset-4" id="visitors"></div>
-    </div>
-    
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-{% endblock %}
-{% block scripts %}
-<script>  
-    var info = get_one('locations', {{loc_id}});
-    var result = JSON.parse(info);
-
-    document.getElementById("breadcrumb_name").innerHTML = result.name;
-    document.getElementById("header_name").innerHTML = result.name;
-    document.getElementById("type").innerHTML = result.loc_type;
-    document.getElementById("description").innerHTML = result.description; 
-  
-    // Create link to organization of locations
-    var location_org = document.createElement("A");
-    if (result.organizations.length === 0) {
-      var org_name = document.createTextNode("--");
-    }
-    else {
-      org_name = document.createTextNode(result.organizations[0].name);
-      location_org.setAttribute("href", "/organizations/" + result.organizations[0].org_id);
-    }
-    location_org.appendChild(org_name);
-    document.getElementById("org").appendChild(location_org);
-  
-    // Create links to characters
-    var visitors;
-    visitors = result.visitors;
-  
-    for (var i = 0; i < visitors.length; i++) {
-      var visitor = visitors[i];
-      var link = document.createElement("A");
-      var text = document.createTextNode(visitor.first_name + " " + visitor.last_name);
-      link.setAttribute("class", "list-group-item");
-      link.setAttribute("href", "/characters/" + visitor.char_id);
-      link.appendChild(text);
-      document.getElementById("visitors").appendChild(link);
-    }  
-</script>
+      <div class="list-group col-sm-3 col-sm-offset-3">
+{% for v in loc.characters %}
+        <a href="/characters/{{v.char_id}}" class="list-group-item">{{v.fullname()}}</a>
+{% endfor %}
+      </div>
+      <div class="list-group col-sm-3">
+{% for o in loc.organizations %}
+        <a href="/organizations/{{o.org_id}}" class="list-group-item">{{o.name}}</a>
+{% endfor %}
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
 {% endblock %}
