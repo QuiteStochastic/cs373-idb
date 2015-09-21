@@ -5,16 +5,16 @@ import json
 
 class ConfigBase(object):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@127.0.0.1/housedowning"
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:p@127.0.0.1/housedowning"
     SECRET_KEY = "House Downing Secret Key - xylsi8dh7u19dws4ty63"
     USERNAME = 'webapp'
     PASSWORD = 'gotswe'
 
 class ConfigProduction(ConfigBase):
-    SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@127.0.0.1/housedowning"
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:p@127.0.0.1/housedowning"
 
 class ConfigRemote(ConfigBase):
-    SQLALCHEMY_DATABASE_URI = "postgresql://webapp:gotswe@67.192.246.60/housedowning"
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:p@67.192.246.60/housedowning"
 
 class ConfigTesting(ConfigBase):
     SQLALCHEMY_DATABASE_URI = "sqlite://"
