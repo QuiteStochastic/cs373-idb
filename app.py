@@ -41,8 +41,9 @@ if __name__ == '__main__':
         drop_all(db, app)
         db.create_all(app=app)
         #import_data(db)
-    running = True
-    app.run(host="0.0.0.0", port=args.port[0])
+    else:
+        _running = True
+        app.run(host="0.0.0.0", port=args.port[0])
 
 def running():
     return _running
