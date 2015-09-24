@@ -2,10 +2,12 @@ web:
   build: .
   ports:
    - "80:80"
-   - "5432:5432"
+  expose:
+   - "5432"
   links:
    - postgres
 postgres:
-  build: ./dbdockerfile
+  build: .
+  dockerfile: ./Dockerfiledb
   ports:
    - "5432:5432"
