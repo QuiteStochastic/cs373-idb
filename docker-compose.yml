@@ -2,12 +2,13 @@ web:
   build: .
   ports:
    - "80:80"
-  expose:
-   - "5432"
-  links:
-   - postgres
+   - "5432:5432"
+  net: "host"
+  #links:
+   #- postgres
 postgres:
   build: .
   dockerfile: ./Dockerfiledb
+  net: "host"
   ports:
    - "5432:5432"
