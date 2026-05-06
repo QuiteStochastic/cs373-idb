@@ -8,7 +8,7 @@ itsdangerous==0.24
 Jinja2==2.7.3
 MarkupSafe==0.23
 psycopg2==2.4.5
-requests==2.2.1
+requests==2.33.0
 setuptools==3.3
 SQLAlchemy==1.0.0
 urllib3==1.7.1
