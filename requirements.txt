@@ -9,7 +9,7 @@ Jinja2==2.7.3
 MarkupSafe==0.23
 psycopg2==2.4.5
 requests==2.2.1
-setuptools==3.3
+setuptools==78.1.1
 SQLAlchemy==1.0.0
 urllib3==1.7.1
 Werkzeug==0.10.4
